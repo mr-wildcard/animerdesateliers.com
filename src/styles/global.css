@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply font-sans;
+}
+
+.container {
+    @apply px-4;
+}
+
+@screen md {
+    .container {
+        @apply px-0;
+    }
+}
+
+@font-face {
+    font-family: 'Filson Pro';
+    src: url('/filsonproregular.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Filson Pro';
+    src: url('/filsonprobold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
