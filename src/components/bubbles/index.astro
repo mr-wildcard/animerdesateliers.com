@@ -1,0 +1,36 @@
+---
+import Bubble from "./Bubble.astro";
+---
+
+<style>
+    .bubble-wrapper {
+        flex: 0 0 auto;
+    }
+
+    .bubble-wrapper:not(:first-child, :last-child) {
+        @apply mx-4;
+    }
+
+    .bubble-wrapper:first-child {
+        @apply ml-4;
+    }
+
+    .bubble-wrapper:last-child {
+        @apply mr-4;
+    }
+</style>
+
+<ul class="bubbles flex overflow-x-scroll overscroll-x-contain">
+    <li class="bubble-wrapper">
+        <Bubble text="Comment utiliser<br>mon atelier comme un outil<br>tactique de design ?" />
+    </li>
+    <li class="bubble-wrapper">
+        <Bubble text="Dois-je proposer<br>un format hybride<br>ou asynchrone ?" />
+    </li>
+    <li class="bubble-wrapper">
+        <Bubble text="Que faire<br>pour m’assurer<br>d'embarquer l’équipe ?" />
+    </li>
+    <li class="bubble-wrapper">
+        <Bubble text="Comment passer<br>des Post-it aux actions<br>concrètes ensuite ?" />
+    </li>
+</ul>

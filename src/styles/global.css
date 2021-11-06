@@ -2,18 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    font-size: 16px;
+}
+
 body {
-    @apply font-sans;
+    @apply bg-selago font-sans text-downriver;
 }
 
 .container {
     @apply px-4;
-}
-
-@screen md {
-    .container {
-        @apply px-0;
-    }
 }
 
 @font-face {
