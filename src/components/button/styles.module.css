@@ -1,0 +1,11 @@
+.button {
+    isolation: isolate;
+}
+
+.button:focus {
+    @apply outline-button rounded-[50px];
+}
+
+.button svg {
+    @apply mr-3;
+}
