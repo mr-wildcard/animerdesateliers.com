@@ -12,4 +12,7 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
   devOptions: {
     tailwindConfig: './tailwind.config.js',
   },
+  buildOptions: {
+    site: "https://mr-wildcard.github.io/team-ux-elearning/"
+  }
 });
