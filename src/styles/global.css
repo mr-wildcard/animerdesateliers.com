@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  font-size: 16px;
-}
-
-body {
-  @apply bg-selago font-sans text-downriver;
-}
-
-.container {
-  @apply px-4;
-}
-
 @font-face {
   font-family: "Filson Pro";
   src: url("https://use.typekit.net/af/c12453/0000000000000000000157bf/27/l?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n7&v=3")
@@ -37,5 +25,17 @@ body {
       format("opentype");
   font-display: auto;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  @apply bg-selago font-sans text-downriver;
+}
+
+.container {
+  @apply px-4;
 }
