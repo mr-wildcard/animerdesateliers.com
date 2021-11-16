@@ -11,65 +11,82 @@ import IconSmiley from "../icons/IconSmiley.astro"
 ---
 
 <div class="flex flex-wrap">
-    <div class="w-full">
-        <ul class="space-y-8">
-            <li>
-                <CourseCharacteristic
-                    icon={<IconOnlineCourse />}
-                    title="Cours en ligne"
-                    description="À votre rythme"
-                />
-            </li>
-            <li>
-                <CourseCharacteristic
-                    icon={<IconSimplifiedModules />}
-                    title="5 modules thématiques"
-                />
-            </li>
-            <li>
-                <CourseCharacteristic
-                    icon={<IconGift />}
-                    title="Outils clé-en-main à télécharger"
-                />
-            </li>
-            <li>
-                <CourseCharacteristic
-                    icon={<IconQuiz />}
-                    title="Quiz instantanés"
-                />
-            </li>
-            <li>
-                <CourseCharacteristic
-                    icon={<IconCockade />}
-                    title="Certificat de participation"
-                />
-            </li>
-            <li>
-                <CourseCharacteristic
-                    icon={<IconFlag />}
-                    title="Français"
-                />
-            </li>
-            <li>
-                <CourseCharacteristic
-                    icon={<IconSmiley />}
-                    title="Public"
-                    description="Designers UX, designers produit, chef&middot;fe&middot;s de projet, product owners, responsables d’équipe..."
-                />
-            </li>
-        </ul>
-    </div>
-    <div class="w-full mt-16">
-        <ul class="space-y-5">
-            <li>
-                <img src="/course-screenshot-1.webp" class="{styles.screenshot}" loading="lazy" alt="Première capture d'écran du site d'apprentissage en ligne" />
-            </li>
-            <li>
-                <img src="/course-screenshot-2.webp" class="{styles.screenshot}" loading="lazy" alt="Seconde capture d'écran du site d'apprentissage en ligne" />
-            </li>
-            <li>
-                <img src="/course-screenshot-3.webp" class="{styles.screenshot}" loading="lazy" alt="Troisième capture d'écran du site d'apprentissage en ligne" />
-            </li>
-        </ul>
-    </div>
+  <div class="w-full">
+    <ul class="space-y-8">
+      <li>
+        <CourseCharacteristic
+          icon={<IconOnlineCourse/>}
+          title="Cours en ligne"
+          description="À votre rythme"
+        />
+      </li>
+      <li>
+        <CourseCharacteristic
+          icon={<IconSimplifiedModules/>}
+          title="5 modules thématiques"
+        />
+      </li>
+      <li>
+        <CourseCharacteristic
+          icon={<IconGift/>}
+          title="Outils clé-en-main à télécharger"
+        />
+      </li>
+      <li>
+        <CourseCharacteristic
+          icon={<IconQuiz/>}
+          title="Quiz instantanés"
+        />
+      </li>
+      <li>
+        <CourseCharacteristic
+          icon={<IconCockade/>}
+          title="Certificat de participation"
+        />
+      </li>
+      <li>
+        <CourseCharacteristic
+          icon={<IconFlag/>}
+          title="Français"
+        />
+      </li>
+      <li>
+        <CourseCharacteristic
+          icon={<IconSmiley/>}
+          title="Public"
+          description="Designers UX, designers produit, chef&middot;fe&middot;s de projet, product owners, responsables
+          d’équipe..."
+        />
+      </li>
+    </ul>
+  </div>
+
+  <div class="w-full mt-16">
+    <ul class="space-y-5">
+      <li>
+        <img
+          src="/course-screenshot-1.webp"
+          class="{styles.screenshot}"
+          loading="lazy"
+          alt="Première capture d'écran du site d'apprentissage en ligne"
+        />
+      </li>
+      <li>
+        <img
+          src="/course-screenshot-2.webp"
+          class="{styles.screenshot}"
+          loading="lazy"
+          alt="Seconde capture d'écran du site d'apprentissage en ligne"
+        />
+      </li>
+      <li>
+        <img
+          src="/course-screenshot-3.webp"
+          class="{styles.screenshot}"
+          loading="lazy"
+          alt="Troisième capture d'écran du site d'apprentissage en ligne"
+        />
+      </li>
+    </ul>
+  </div>
 </div>

@@ -3,39 +3,39 @@ import Bubble from "./Bubble.astro";
 ---
 
 <style>
-    .bubbles {
-        scroll-snap-type: x mandatory;
-    }
+  .bubbles {
+    scroll-snap-type: x mandatory;
+  }
 
-    .bubble-wrapper {
-        flex: 0 0 auto;
-        scroll-snap-align: center;
-    }
+  .bubble-wrapper {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
 
-    .bubble-wrapper {
-        @apply mx-2;
-    }
+  .bubble-wrapper {
+    @apply mx-2;
+  }
 
-    .bubble-wrapper:first-child {
-        @apply ml-4;
-    }
+  .bubble-wrapper:first-child {
+    @apply ml-4;
+  }
 
-    .bubble-wrapper:last-child {
-        @apply mr-4;
-    }
+  .bubble-wrapper:last-child {
+    @apply mr-4;
+  }
 </style>
 
 <ul class="bubbles flex pb-6 overflow-x-auto overscroll-x-contain text-lg">
-    <li class="bubble-wrapper">
-        <Bubble text="Comment utiliser mon atelier comme un outil tactique de design ?" />
-    </li>
-    <li class="bubble-wrapper">
-        <Bubble text="Dois-je proposer un format hybride ou asynchrone ?" />
-    </li>
-    <li class="bubble-wrapper">
-        <Bubble text="Que faire pour m’assurer d'embarquer l’équipe ?" />
-    </li>
-    <li class="bubble-wrapper">
-        <Bubble text="Comment passer des Post-it aux actions concrètes ensuite ?" />
-    </li>
+  <li class="bubble-wrapper">
+    <Bubble text="Comment utiliser mon atelier comme un outil tactique de design ?" />
+  </li>
+  <li class="bubble-wrapper">
+    <Bubble text="Dois-je proposer un format hybride ou asynchrone ?" />
+  </li>
+  <li class="bubble-wrapper">
+    <Bubble text="Que faire pour m’assurer d'embarquer l’équipe ?" />
+  </li>
+  <li class="bubble-wrapper">
+    <Bubble text="Comment passer des Post-it aux actions concrètes ensuite ?" />
+  </li>
 </ul>
