@@ -1,5 +1,4 @@
 ---
-import styles from "./index.module.css";
 import CourseCharacteristic from "./CourseCharacteristic.astro";
 import IconOnlineCourse from "../icons/IconOnlineCourse.astro"
 import IconSimplifiedModules from "../icons/IconSimplifiedModules.astro"
@@ -9,6 +8,14 @@ import IconCockade from "../icons/IconCockade.astro"
 import IconFlag from "../icons/IconFlag.astro"
 import IconSmiley from "../icons/IconSmiley.astro"
 ---
+
+<style>
+  .screenshot {
+    @apply border-2 border-downriver rounded-lg;
+
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  }
+</style>
 
 <div class="flex flex-wrap">
   <div class="w-full">
@@ -66,7 +73,7 @@ import IconSmiley from "../icons/IconSmiley.astro"
       <li>
         <img
           src="/course-screenshot-1.webp"
-          class="{styles.screenshot}"
+          class="screenshot"
           loading="lazy"
           alt="Première capture d'écran du site d'apprentissage en ligne"
         />
@@ -74,7 +81,7 @@ import IconSmiley from "../icons/IconSmiley.astro"
       <li>
         <img
           src="/course-screenshot-2.webp"
-          class="{styles.screenshot}"
+          class="screenshot"
           loading="lazy"
           alt="Seconde capture d'écran du site d'apprentissage en ligne"
         />
@@ -82,7 +89,7 @@ import IconSmiley from "../icons/IconSmiley.astro"
       <li>
         <img
           src="/course-screenshot-3.webp"
-          class="{styles.screenshot}"
+          class="screenshot"
           loading="lazy"
           alt="Troisième capture d'écran du site d'apprentissage en ligne"
         />
