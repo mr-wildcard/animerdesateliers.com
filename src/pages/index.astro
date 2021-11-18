@@ -7,7 +7,6 @@ import IconNotification from "../components/icons/IconNotification.astro"
 import CourseCharacteristics from "../components/course-characteristics/index.astro"
 import IncludedInThisCourse from "../components/included-in-this-course/index.astro"
 import Screenshot from "../components/Screenshot.astro"
-import IconPresale from "../components/icons/IconPresale.astro"
 import NewsletterSignIn from "../components/NewsletterSignIn.astro"
 ---
 
@@ -171,8 +170,9 @@ import NewsletterSignIn from "../components/NewsletterSignIn.astro"
     </div>
 
     <div class="container mt-24">
-      <h2 class="font-serif text-downriver text-4xl leading-[50px] md:text-6xl md:leading-[82px]">Animer des ateliers UX et
-        design thinking</h2>
+      <h2 class="font-serif text-downriver text-4xl leading-[50px] md:text-6xl md:leading-[82px]">
+        Animer des ateliers UX et design thinking
+      </h2>
       <div class="mt-4">
         <BlueTag label="cours en ligne"/>
       </div>
@@ -180,14 +180,7 @@ import NewsletterSignIn from "../components/NewsletterSignIn.astro"
       <p class="mt-10 text-lg">Apprendre à concevoir et faciliter des ateliers collaboratifs, stratégiques et productifs</p>
 
       <div class="mt-12">
-        <div class="w-[291px] mx-auto md:w-auto md:flex md:items-center">
-          <Button>
-            <IconNotification slot="icon"/>
-            <span slot="label">Me prévenir du lancement</span>
-          </Button>
-          <p class="mt-4 font-bold tracking-[0.03em] text-[14px] md:inline-block w-[230px] md:ml-4 md:mt-0">Vous recevrez un
-            code promo en avant-première !</p>
-        </div>
+        <NewsletterSignIn />
       </div>
     </div>
 
@@ -230,13 +223,7 @@ import NewsletterSignIn from "../components/NewsletterSignIn.astro"
         <p class="mt-5 text-xl">
           Nous prenons le temps de concocter un cours vraiment qualitatif. Abonnez-vous à notre newsletter pour suivre toute l’avancée du projet !
         </p>
-        <div class="flex mt-12">
-          <span class="mr-4">
-            <IconPresale />
-          </span>
-          <p class="font-bold translate-y-[2px]">Vous recevrez un code promo en avant-première !</p>
-        </div>
-        <div class="mt-10">
+        <div class="mt-12">
           <NewsletterSignIn />
         </div>
       </div>
