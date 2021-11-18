@@ -61,24 +61,27 @@ import IconNotification from "./icons/IconNotification.astro"
   }
 </style>
 
-<input
-  type="email"
-  id="email"
-  class="input"
-  name="email"
-  placeholder="Votre adresse email"
-/>
-<label class="label" for="email" data-content="Votre adresse email">
-  <span class="sr-only">Votre adresse email</span>
-</label>
+<form>
+  <input
+    type="email"
+    id="email"
+    class="input"
+    name="email"
+    placeholder="Votre adresse email"
+    required="true"
+  />
+  <label class="label" for="email" data-content="Votre adresse email">
+    <span class="sr-only">Votre adresse email</span>
+  </label>
 
-<div class="flex justify-center mt-6">
-  <Button type="primary">
-    <IconNotification slot="icon"/>
-    <span slot="label">Me prévenir du lancement</span>
-  </Button>
-</div>
+  <div class="flex justify-center mt-6">
+    <Button type="submit">
+      <IconNotification slot="icon"/>
+      <span slot="label">Me prévenir du lancement</span>
+    </Button>
+  </div>
 
-<p class="mt-16 text-sm leading-6 tracking-[0.03em]">
-  Votre adresse email ne sera ni communiquée à des tiers, ni utilisée à d’autres fins que de vous tenir au courant de l’avancée du projet. Vous pourrez à tout moment vous désinscrire de la liste. N’hésitez pas à consulter <strong class="underline">notre politique de données</strong>.
-</p>
+  <p class="mt-16 text-sm leading-6 tracking-[0.03em]">
+    Votre adresse email ne sera ni communiquée à des tiers, ni utilisée à d’autres fins que de vous tenir au courant de l’avancée du projet. Vous pourrez à tout moment vous désinscrire de la liste. N’hésitez pas à consulter <strong class="underline">notre politique de données</strong>.
+  </p>
+</form>
