@@ -10,55 +10,59 @@ import IconSmiley from "../icons/IconSmiley.astro"
 import Screenshot from "../Screenshot.astro"
 ---
 
-
-
 <div class="flex flex-wrap">
   <div>
     <ul class="space-y-8">
       <li>
         <CourseCharacteristic
-          icon={<IconOnlineCourse/>}
           title="Cours en ligne"
           description="À votre rythme"
-        />
+        >
+          <IconOnlineCourse slot="icon" />
+        </CourseCharacteristic>
       </li>
       <li>
         <CourseCharacteristic
-          icon={<IconSimplifiedModules/>}
           title="5 modules thématiques"
-        />
+        >
+          <IconSimplifiedModules slot="icon" />
+        </CourseCharacteristic>
       </li>
       <li>
         <CourseCharacteristic
-          icon={<IconGift/>}
           title="Outils clé-en-main à télécharger"
-        />
+        >
+          <IconGift slot="icon" />
+        </CourseCharacteristic>
       </li>
       <li>
         <CourseCharacteristic
-          icon={<IconQuiz/>}
           title="Quiz instantanés"
-        />
+        >
+          <IconQuiz slot="icon" />
+        </CourseCharacteristic>
       </li>
       <li>
         <CourseCharacteristic
-          icon={<IconCockade/>}
           title="Certificat de participation"
-        />
+        >
+          <IconCockade slot="icon" />
+        </CourseCharacteristic>
       </li>
       <li>
         <CourseCharacteristic
-          icon={<IconFlag/>}
           title="Français"
-        />
+        >
+          <IconFlag slot="icon" />
+        </CourseCharacteristic>
       </li>
       <li>
         <CourseCharacteristic
-          icon={<IconSmiley/>}
           title="Public"
-          description="Designers UX, designers produit, chef&middot;fe&middot;s de projet, product owners, responsables
-          d’équipe..."
-        />
+          description="Designers UX, designers produit, chef&middot;fe&middot;s de projet, product owners, responsables d’équipe..."
+        >
+          <IconSmiley slot="icon" />
+        </CourseCharacteristic>
       </li>
     </ul>
   </div>

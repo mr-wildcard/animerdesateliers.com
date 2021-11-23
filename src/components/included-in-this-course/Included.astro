@@ -1,9 +1,11 @@
 ---
-const { icon, title, description } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <div class="text-center">
-  <span class="inline-block mx-auto">{icon}</span>
+  <span class="inline-block mx-auto" role="presentation">
+    <slot name="icon" />
+  </span>
   <p class="mt-6 text-lg font-bold">{title}</p>
   <p class="text-sm leading-6">{description}</p>
 </div>
