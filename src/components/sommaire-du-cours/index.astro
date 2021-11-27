@@ -1,90 +1,89 @@
 ---
 import IconChevronForward from "../icons/IconChevronForward.astro"
-import Toolbox from "./Toolbox.astro"
+import ModuleContent from "./ModuleContent.astro"
 
 import data from "./data.json"
 ---
-
-<script src={Astro.resolve('./index.ts')} hoist></script>
 
 <style lang="scss">
   .summary-item {
     @apply border-b-2 border-downriver;
   }
 
-  .trigger {
+  .opener {
     @apply p-5 w-full flex items-center text-lg font-bold;
   }
 
-  .trigger .right-icon :global(svg) {
+  .opener .right-icon :global(svg) {
     transform: rotate(90deg);
     transform-origin: center center;
     transition: 100ms ease-out;
+
+    @screen md {
+      transform: rotate(0deg);
+    }
   }
 
-  .trigger[aria-expanded=true] {
+  .opener[aria-expanded=true] {
     @apply bg-canary;
+  }
 
-    .right-icon :global(svg) {
-      transform: rotate(-90deg);
-    }
-
-    & ~ .content {
+  .opener[aria-expanded=true] {
+    & ~ .accordion-content {
       @apply bg-canary;
     }
+
+    .right-icon :global(svg) {
+      transform: rotate(270deg);
+
+      @screen md {
+        transform: rotate(0deg);
+      }
+    }
   }
 
-  .content-item {
-    position: relative;
-    padding-left: 25px;
-
-    &::before {
-      @apply bg-blue rounded-full;
-
-      position: absolute;
-      content: "";
-      width: 10px;
-      height: 10px;
-      left: 0;
-      top: 8px;
+  .opener[aria-expanded=false] {
+    & ~ .accordion-content {
+      height: 0;
+      overflow: hidden;
     }
   }
 </style>
 
-<ul>
-  {data.items.map((item, index) => (
-    <li class="summary-item">
-      <button
-        id={`module${index}_trigger`}
-        aria-expanded={index === 0 ? 'true' : 'false'}
-        aria-controls={`module${index}_content`}
-        data-target={`module${index}`}
-        class="trigger"
-      >
-        {item.title}
-        <span class="right-icon ml-auto">
-          <IconChevronForward />
-        </span>
-      </button>
+<div class="md:flex">
+  <ul class="md:w-[290px]">
+    {data.items.map((item, index) => (
+      <li class="summary-item">
+        <button
+          id={`module${index}_opener`}
+          aria-expanded={index === 0 ? 'true' : 'false'}
+          aria-controls={`module${index}_content`}
+          data-content-target={`module${index}`}
+          class="opener"
+        >
+          {item.title}
+          <span class="right-icon ml-auto">
+            <IconChevronForward />
+          </span>
+        </button>
 
-      <section
-        role="region"
-        id={`module${index}`}
-        aria-labelledby={`module${index}_trigger`}
-        class="content py-10 px-5"
-      >
-        <header class="mb-10 text-xl font-bold">{item.content.title}</header>
-
-        <ul class="space-y-4">
-          {item.content.items.map((item, index) => (
-            <li class="content-item">{item}</li>
-          ))}
-        </ul>
-
-        <div class="mt-10">
-          <Toolbox items={item.content.toolbox} />
+        <div class="accordion-content">
+          <ModuleContent
+            index={index}
+            title={item.content.title}
+            items={item.content.items}
+            toolbox={item.content.toolbox}
+          />
         </div>
-      </section>
-    </li>
-  ))}
-</ul>
+      </li>
+    ))}
+  </ul>
+  <div
+    id="sommaire-desktop-wrapper"
+    class="hidden md:block md:flex-1 bg-white"
+  >
+    <!-- Here goes copied content -->
+  </div>
+</div>
+
+<script src={Astro.resolve('./index.ts')}></script>
