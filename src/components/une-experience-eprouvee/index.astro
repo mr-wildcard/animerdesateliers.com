@@ -1,0 +1,37 @@
+---
+import Feedback from "./Feedback.astro"
+import data from "./data.json"
+---
+<style>
+  .feedbacks {
+    scroll-snap-type: x mandatory;
+  }
+
+  .feedback-wrapper {
+    @apply pl-4;
+
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    max-width: 80vw;
+  }
+
+  .feedback-wrapper:last-child {
+    @apply pr-4;
+  }
+</style>
+
+<div class="px-[20px]">
+  <h2 class="font-serif text-2xl leading-[42px]">Une expertise éprouvée</h2>
+  <p class="mt-5">Rendre les équipes plus autonomes, plus transparentes, plus ouvertes et plus créatives.</p>
+</div>
+
+<ul class="feedbacks flex mt-16 pb-4 overflow-x-auto overscroll-x-contain">
+  {data.feedbacks.map((feedback) => (
+    <li class="feedback-wrapper">
+      <Feedback
+        text={feedback.text}
+        author={feedback.author}
+      />
+    </li>
+  ))}
+</ul>
