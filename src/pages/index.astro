@@ -3,6 +3,7 @@ import BlueTag from "../components/BlueTag.astro"
 import Bubbles from "../components/bubbles/index.astro"
 import ExternalLink from "../components/ExternalLink.astro"
 import BlueQuote from "../components/BlueQuote.astro"
+import Punchline from "../components/Punchline.astro"
 import IconNotification from "../components/icons/IconNotification.astro"
 import CourseCharacteristics from "../components/course-characteristics/index.astro"
 import IncludedInThisCourse from "../components/included-in-this-course/index.astro"
@@ -208,7 +209,7 @@ import ALaFinDeCeCours from "../components/a-la-fin-de-ce-cours/index.astro"
       <IncludedInThisCourse/>
     </div>
 
-    <div class="mt-16 mb-24 px-0">
+    <div class="mt-16 px-0">
       <div class="md:w-3/4 md:mx-auto">
         <div class="rounded-[30px] py-16 px-[20px] bg-canary">
           <h2 class="font-serif text-2xl leading-relaxed">
@@ -223,12 +224,8 @@ import ALaFinDeCeCours from "../components/a-la-fin-de-ce-cours/index.astro"
       </div>
     </div>
 
-    <div class="container bg-white">
-      <div class="md:w-70 md:mx-auto">
-        <p class="text-2xl py-32 leading-9 font-bold">
-          Favoriser l’intelligence collective est le nouveau pouvoir du designer.
-        </p>
-      </div>
+    <div class="container bg-white mt-24">
+      <Punchline text="Favoriser l’intelligence collective est le nouveau pouvoir du designer." />
     </div>
 
     <div class="container bg-magnolia">
@@ -276,6 +273,14 @@ import ALaFinDeCeCours from "../components/a-la-fin-de-ce-cours/index.astro"
 
     <div class="mt-24">
       <ALaFinDeCeCours />
+    </div>
+
+    <div class="container bg-white mt-24">
+      <Punchline text="Passer de la vision d’un jeu de Lego à celle d’un outil de design tactique et imbattable !" />
+    </div>
+
+    <div class="mt-12">
+      <NewsletterSignIn />
     </div>
 
     <br>
