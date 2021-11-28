@@ -5,6 +5,7 @@ import ExternalLink from "../components/ExternalLink.astro"
 import BlueQuote from "../components/BlueQuote.astro"
 import Punchline from "../components/Punchline.astro"
 import IconNotification from "../components/icons/IconNotification.astro"
+import CoursBientotDisponible from "../components/cours-bientot-disponible/index.astro"
 import CourseCharacteristics from "../components/course-characteristics/index.astro"
 import IncludedInThisCourse from "../components/included-in-this-course/index.astro"
 import Screenshot from "../components/Screenshot.astro"
@@ -229,17 +230,7 @@ import ALaFinDeCeCours from "../components/a-la-fin-de-ce-cours/index.astro"
     </div>
 
     <div class="container bg-magnolia">
-      <div class="py-24">
-        <h2 class="text-[34px] font-serif leading-[50px]">
-          Le cours est bientôt disponible !
-        </h2>
-        <p class="mt-5 text-xl">
-          Nous prenons le temps de concocter un cours vraiment qualitatif. Abonnez-vous à notre newsletter pour suivre toute l’avancée du projet !
-        </p>
-        <div class="mt-12">
-          <NewsletterSignIn />
-        </div>
-      </div>
+      <CoursBientotDisponible />
     </div>
 
     <div class="bg-white py-28">
@@ -279,8 +270,8 @@ import ALaFinDeCeCours from "../components/a-la-fin-de-ce-cours/index.astro"
       <Punchline text="Passer de la vision d’un jeu de Lego à celle d’un outil de design tactique et imbattable !" />
     </div>
 
-    <div class="mt-12">
-      <NewsletterSignIn />
+    <div class="container bg-magnolia">
+      <CoursBientotDisponible />
     </div>
 
     <br>
