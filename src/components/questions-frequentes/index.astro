@@ -1,0 +1,53 @@
+---
+import IconChevronForward from "../icons/IconChevronForward.astro"
+
+import data from "./data.json"
+---
+
+<style>
+  .list li {
+    @apply border-b-2 border-white;
+  }
+
+  .list details :global(svg) {
+    transform: rotate(90deg);
+    transform-origin: center center;
+    transition: transform 200ms ease;
+  }
+
+  .list details[open] :global(svg) {
+    transform: rotate(-90deg);
+  }
+
+  .summary::marker {
+    display: none;
+    content: "";
+  }
+</style>
+
+<div class="py-14 text-white">
+  <h2 class="mb-14 font-serif leading-[42px] text-2xl">
+    Questions fréquentes
+  </h2>
+
+  <ul class="list space-y-6 text-lg">
+    {data.map(({ question, answer }, index) => (
+      <li>
+        <details open={index === 0}>
+          <summary class="summary mb-6">
+            <div class="flex items-start">
+              <span class="mr-5 translate-y-[4px]">
+                <IconChevronForward size={18} />
+              </span>
+              <p class="font-bold">{question}</p>
+            </div>
+          </summary>
+          <div class="mb-6">
+            {answer}
+          </div>
+        </details>
+      </li>
+    ))}
+  </div>
+</div>
+

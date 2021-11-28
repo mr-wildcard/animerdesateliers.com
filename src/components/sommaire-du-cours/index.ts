@@ -7,6 +7,8 @@ const openers = findOpeners();
 let matchMdBreakpoint = matchMdMedia.matches;
 
 matchMdMedia.addEventListener("change", (e) => {
+  matchMdBreakpoint = e.matches;
+
   if (e.matches) {
     moveOpenersContentToDesktopWrapper(openers);
 
@@ -25,8 +27,6 @@ matchMdMedia.addEventListener("change", (e) => {
   } else {
     moveOpenersContentToMobileAccordion(openers);
   }
-
-  matchMdBreakpoint = e.matches;
 });
 
 function isDesktop() {
