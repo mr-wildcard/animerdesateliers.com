@@ -56,7 +56,7 @@ import data from "./data.json"
       <li class="summary-item">
         <button
           id={`module${index}_opener`}
-          aria-expanded={index === 0 ? 'true' : 'false'}
+          aria-expanded="false"
           aria-controls={`module${index}_content`}
           data-content-target={`module${index}`}
           class="opener"
