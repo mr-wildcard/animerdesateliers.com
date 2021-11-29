@@ -1,0 +1,97 @@
+---
+import Button from "../@commons/button/index.astro"
+import IconNotification from "../icons/IconNotification.astro"
+import IconPresale from "../icons/IconPresale.astro"
+---
+
+<style lang="scss">
+  .input {
+    @apply text-downriver bg-white rounded-full border border-gray;
+
+    width: 100%;
+    height: 60px;
+    padding: 22px 30px;
+  }
+
+  .input:not(:focus):hover {
+    @apply bg-concrete;
+  }
+
+  .input::placeholder {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  .input:focus {
+    outline-width: 3px;
+    outline-color: theme('colors.denim');
+  }
+
+  .input:focus, .input:not(:placeholder-shown) {
+    padding: 22px 30px 5px;
+  }
+
+  .input:focus + label::after,
+  .input:not(:placeholder-shown) + label::after {
+    transform: translate(31px, -53px) scale(0.75);
+  }
+
+  .input:invalid {
+    @apply border-[3px] border-brightred bg-cosmos;
+
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .input:invalid:focus {
+    outline-color: theme('colors.brightred');
+  }
+
+  .label::after {
+    @apply text-shipgray;
+
+    content: attr(data-content);
+    display: inline-block;
+    transform-origin: left center;
+    transform: translate(31px, -43px) scale(1);
+    transition: all 200ms;
+  }
+
+  .label {
+    display: block;
+    max-height: 0;
+  }
+</style>
+
+<div class="flex mb-10">
+<span class="mr-4">
+    <IconPresale />
+  </span>
+<p class="font-bold translate-y-[2px]">
+  Vous recevrez un code promo en avant-première !
+</p>
+</div>
+
+<form>
+<input
+  type="email"
+  id="email"
+  class="input"
+  name="email"
+  placeholder="Votre adresse email"
+  required="true"
+/>
+<label class="label" for="email" data-content="Votre adresse email">
+  <span class="sr-only">Votre adresse email</span>
+</label>
+
+<div class="flex justify-center mt-6">
+  <Button type="submit">
+    <IconNotification slot="icon"/>
+    <span slot="label">Me prévenir du lancement</span>
+  </Button>
+</div>
+
+<p class="mt-16 text-sm leading-6 tracking-[0.03em]">
+  Votre adresse email ne sera ni communiquée à des tiers, ni utilisée à d’autres fins que de vous tenir au courant de l’avancée du projet. Vous pourrez à tout moment vous désinscrire de la liste. N’hésitez pas à consulter <strong class="underline">notre politique de données</strong>.
+</p>
+</form>
