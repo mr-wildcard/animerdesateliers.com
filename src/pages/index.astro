@@ -12,9 +12,7 @@ import AnimerDesAteliers from "../components/animer-des-ateliers/index.astro"
 import CaracteristiquesDuCours from "../components/caracteristiques-du-cours/index.astro"
 import InclusDansCeCours from "../components/inclus-dans-ce-cours/index.astro"
 import UneApprocheReponsable from "../components/une-approche-responsable/index.astro"
-
 import Punchline from "../components/Punchline.astro"
-import IconNotification from "../components/icons/IconNotification.astro"
 import CoursBientotDisponible from "../components/cours-bientot-disponible/index.astro"
 import NewsletterSignIn from "../components/newsletter-signin/index.astro"
 import LesFormatrices from "../components/les-formatrices/index.astro"
@@ -123,14 +121,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
     </div>
 
     <div class="container mt-24">
-      <p class="text-lg font-bold">Sommaire du cours</p>
-      <h2 class="text-[34px] font-serif leading-[50px]">
-        Animer des ateliers UX et design thinking
-      </h2>
-      <div class="mt-5">
-        <BlueTag label="Cours en ligne" />
-      </div>
-      <p class="mt-10">Apprendre à concevoir et faciliter des ateliers collaboratifs, stratégiques et productifs</p>
+      <AnimerDesAteliers />
     </div>
 
     <div class="mt-16">
@@ -145,20 +136,32 @@ import MentionsLegales from "../components/MentionsLegales.astro"
       <ALaFinDeCeCours />
     </div>
 
-    <div class="container bg-white mt-24">
-      <Punchline text="Passer de la vision d'un jeu de Lego à celle d'un outil de design tactique et imbattable !" />
+    <div class="bg-white mt-24">
+      <div class="container">
+        <Punchline text="Passer de la vision d'un jeu de Lego à celle d'un outil de design tactique et imbattable !" />
+      </div>
     </div>
 
-    <div class="container bg-magnolia">
-      <CoursBientotDisponible />
+    <div class="bg-magnolia">
+      <div class="container mt-24">
+        <CoursBientotDisponible />
+      </div>
+
+      <div class="container mt-12">
+        <NewsletterSignIn />
+      </div>
     </div>
 
-    <div class="container bg-downriver">
-      <QuestionsFrequentes />
+    <div class="bg-downriver">
+      <div class="container mt-24">
+        <QuestionsFrequentes />
+      </div>
     </div>
 
-    <div class="container bg-downriver">
-      <MentionsLegales />
+    <div class="bg-downriver">
+      <div class="container">
+        <MentionsLegales />
+      </div>
     </div>
   </body>
 
