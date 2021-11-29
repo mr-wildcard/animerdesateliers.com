@@ -9,10 +9,18 @@ import data from "./data.json"
     @apply border-b-2 border-white;
   }
 
+  .list details[open] {
+    transition: background-color 100ms ease-out;
+  }
+
   .list details :global(svg) {
     transform: rotate(90deg);
     transform-origin: center center;
     transition: transform 200ms ease;
+  }
+
+  .list details[open] {
+    @apply bg-chiffon text-downriver;
   }
 
   .list details[open] :global(svg) {
@@ -23,6 +31,20 @@ import data from "./data.json"
     display: none;
     content: "";
   }
+
+  .answer {
+    padding-left: calc(theme('space.5') + 18px);
+  }
+
+  @screen md {
+    .summary:hover {
+      @apply bg-chiffon text-downriver;
+    }
+
+    .answer {
+      padding-left: calc(theme('space.5') * 2 + 18px);
+    }
+  }
 </style>
 
 <div class="py-14 text-white">
@@ -30,19 +52,19 @@ import data from "./data.json"
     Questions fréquentes
   </h2>
 
-  <ul class="list space-y-6 text-lg">
+  <ul class="list text-lg">
     {data.map(({ question, answer }, index) => (
       <li>
-        <details open={index === 0}>
-          <summary class="summary mb-6">
+        <details class="p-5 md:p-0">
+          <summary class="summary md:px-5 md:py-6 cursor-pointer">
             <div class="flex items-start">
               <span class="mr-5 translate-y-[4px]">
                 <IconChevronForward size={18} />
               </span>
-              <p class="font-bold">{question}</p>
+              <p class="font-bold md:text-[22px]">{question}</p>
             </div>
           </summary>
-          <div class="mb-6">
+          <div class="answer py-6 pr-5 break-words">
             {answer}
           </div>
         </details>
