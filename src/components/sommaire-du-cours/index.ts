@@ -72,7 +72,10 @@ function onClickOpener(e: MouseEvent) {
 
   if (opener.getAttribute("aria-expanded") === "false") {
     openContent(opener);
-    closeOtherOpenedContentFromOpener(opener);
+
+    if (isDesktop()) {
+      closeOtherOpenedContentFromOpener(opener);
+    }
   } else if (!isDesktop()) {
     closeContent(opener);
   }
