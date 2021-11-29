@@ -1,7 +1,9 @@
 ---
-import Hero from "../components/hero/index.astro"
 import BlueTag from "../components/@commons/BlueTag.astro"
 
+import Hero from "../components/hero/index.astro"
+import CoursProposePar from "../components/cours-propose-par/index.astro"
+import QuiAApprisALecole from "../components/qui-a-appris-a-lecole/index.astro"
 
 import Bubbles from "../components/bubbles/index.astro"
 import ExternalLink from "../components/ExternalLink.astro"
@@ -53,34 +55,18 @@ import MentionsLegales from "../components/MentionsLegales.astro"
       </div>
     </header>
 
-    <div class="mt-20">
-      <div class="container">
-        <Hero />
-      </div>
+    <div class="container mt-20">
+      <Hero />
     </div>
 
+    <div class="bg-white pt-24">
 
+      <div class="container">
+        <CoursProposePar />
       </div>
 
       <div class="container mt-16">
-        <h3 class="mb-4 text-2xl leading-10 font-serif">Qui a appris à l'école à concevoir, animer et analyser un atelier
-          ? </h3>
-        <div class="text-lg">
-          <p>On les appelle “ateliers UX”, “workshops de conception”, “ateliers de design thinking” ou encore “d'innovation”
-            et ils ont un point commun... quasiment personne n'a appris à les utiliser correctement à l'école ! 🙃</p>
-          <p class="mb-6">En formation initiale ou professionnelle, on apprend parfois à animer un “Crazy 8s” et à “devenir
-            facilitateur / facilitatrice”. <strong>Mais est-ce vraiment ça, mener un atelier ?</strong></p>
-
-          <p class="mb-6">En illustrant bien souvent le principe de workshop par la photo d'un jeu de Lego, le Web n'a
-            certainement pas rendu service à <strong>cet outil redoutable qu'est un atelier bien ficelé...</strong> Adossé à
-            une stratégie claire, l'atelier fait non seulement avancer les équipes et les projets, mais il fait aussi gagner
-            du temps, beaucoup de temps. ☝️</p>
-
-          <p>Encore faut-il l'avoir appris... Nombreuses sont les personnes qui ont dû se lancer sans bagage dans
-            l'organisation d'un atelier crucial. Quelle pression ! 😱 Pourtant, il ne manque pas grand chose aux designers
-            pour mettre en place des ateliers efficaces : <strong>des méthodologies à intégrer, des compétences à développer
-              et une expérience à peaufiner.</strong></p>
-        </div>
+        <QuiAApprisALecole />
       </div>
 
       <div class="md:container mt-16">
