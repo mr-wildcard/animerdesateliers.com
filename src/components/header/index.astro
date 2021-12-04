@@ -1,0 +1,30 @@
+---
+import BlueTag from "../@commons/BlueTag.astro"
+import Button from "../@commons/button/index.astro"
+import IconNotification from "../@commons/icons/IconNotification.astro"
+import IconPresale from "../@commons/icons/IconPresale.astro"
+---
+
+<header class="flex justify-between">
+  <div>
+    <p class="mb-1 font-serif text-lg text-downriver">Animer des ateliers UX</p>
+    <BlueTag label="cours en ligne"/>
+  </div>
+  <div class="hidden md:flex flex-row items-center xl:w-5/12">
+    <p class="hidden xl:flex flex-initial mr-5 font-bold text-xs text-right leading-5">
+      <span class="pr-2">
+        <IconPresale size="20" />
+      </span>
+      <span class="tracking-[0.03em]">
+        Recevez un code promo en<br />avant-première !
+      </span>
+    </p>
+
+    <div class="whitespace-nowrap">
+      <Button href="#newsletter-anchor">
+        <IconNotification slot="icon"/>
+        <span slot="label">Me prévenir du lancement</span>
+      </Button>
+    </div>
+  </div>
+</header>
