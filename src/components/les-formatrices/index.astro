@@ -13,11 +13,11 @@ import Formatrice from "./Formatrice.astro";
   }
 </style>
 
-<div class="px-[10px] py-14 rounded-[30px] border-[10px] border-canary">
-  <h2 class="text-[34px] text-center font-serif leading-[50px]">
+<div class="px-[10px] py-14 rounded-[30px] border-[10px] border-canary xl:px-0">
+  <h2 class="text-[34px] text-center font-serif leading-[50px] xl:text-[46px] xl:leading-[66px]">
     Les formatrices
   </h2>
-  <div class="my-12 space-y-11">
+  <div class="my-12 space-y-11 xl:flex xl:justify-center xl:space-y-0 xl:gap-[78px]">
     <Formatrice
       fullname="Yuna Orsini"
       label="10 années d'expérience"
@@ -29,62 +29,64 @@ import Formatrice from "./Formatrice.astro";
       imgSrc="/dani.png"
     />
   </div>
-  <p class="mt-10 font-bold text-lg text-center">Designers UX seniors</p>
-  <p class="mt-2 text-sm text-center">
+  <p class="mt-10 font-bold text-lg text-center xl:text-[22px]">Designers UX seniors</p>
+  <p class="mt-2 text-sm text-center xl:text-xl">
     Facilitatrices certifiées en design thinking
     <br />
     Intervenantes en écoles et en conférences
   </p>
-  <p class="mt-16 text-lg">
-    Après avoir exercé chacune de notre côté pendant quelques années, nous nous sommes rencontrées en agence en 2014 et nous ne nous sommes plus quittées depuis. Nous travaillions alors au planning stratégique et au design interactif et notre binôme a été une évidence. Nous avons ensuite intégré ensemble une startup tech en tant que responsables du design et de l'UX. En 2018, nous avons lancé nos activités indépendantes de design UXen parallèle, enthousiasmées par l'idée d'avoir un impact sur de nombreux autres projets.
-    <br/>
-    <br/>
-    Mission après mission, nous avons développé notre expertise de conception d'ateliers et de facilitation en design thinking. Ateliers UX, exercices d'idéation, workshops de co-conception... nous avons mis en place des ateliers variés, dans tous types d'entreprises et d'équipes, dans des secteurs d'activité divers.
-  </p>
-  <p class="mt-16 text-sm">
-    Des entreprises avec qui l'on a workshoppé
-  </p>
-  <ul class="flex flex-wrap justify-center gap-4 mt-10">
-    <li class="client-list-item">
-      <img
-        src="/clients/imatech.png"
-        alt="IMATECH"
-        width="142"
-        height="60"
-      />
-    </li>
-    <li class="client-list-item">
-      <img
-        src="/clients/orange.png"
-        alt="Orange"
-        width="57"
-        height="58"
-      />
-    </li>
-    <li class="client-list-item">
-      <img
-        src="/clients/dxomark.png"
-        alt="DXOMARK"
-        width="131"
-        height="18"
-      />
-    </li>
-    <li class="client-list-item">
-      <img
-        src="/clients/journey.png"
-        alt="Journey"
-        width="108"
-        height="23"
-        class="translate-y-[4px]"
-      />
-    </li>
-    <li class="client-list-item">
-      <img
-        src="/clients/sezane.png"
-        alt="Sézane"
-        width="111"
-        height="36"
-      />
-    </li>
-  </ul>
+  <div class="xl:w-[80%] xl:mx-auto">
+    <p class="mt-16 text-lg">
+      Après avoir exercé chacune de notre côté pendant quelques années, nous nous sommes rencontrées en agence en 2014 et nous ne nous sommes plus quittées depuis. Nous travaillions alors au planning stratégique et au design interactif et notre binôme a été une évidence. Nous avons ensuite intégré ensemble une startup tech en tant que responsables du design et de l'UX. En 2018, nous avons lancé nos activités indépendantes de design UXen parallèle, enthousiasmées par l'idée d'avoir un impact sur de nombreux autres projets.
+      <br/>
+      <br/>
+      Mission après mission, nous avons développé notre expertise de conception d'ateliers et de facilitation en design thinking. Ateliers UX, exercices d'idéation, workshops de co-conception... nous avons mis en place des ateliers variés, dans tous types d'entreprises et d'équipes, dans des secteurs d'activité divers.
+    </p>
+    <p class="mt-16 text-sm">
+      Des entreprises avec qui l'on a workshoppé
+    </p>
+    <ul class="flex flex-wrap justify-center gap-4 mt-8">
+      <li class="client-list-item">
+        <img
+          src="/clients/imatech.png"
+          alt="IMATECH"
+          width="142"
+          height="60"
+        />
+      </li>
+      <li class="client-list-item">
+        <img
+          src="/clients/orange.png"
+          alt="Orange"
+          width="57"
+          height="58"
+        />
+      </li>
+      <li class="client-list-item">
+        <img
+          src="/clients/dxomark.png"
+          alt="DXOMARK"
+          width="131"
+          height="18"
+        />
+      </li>
+      <li class="client-list-item">
+        <img
+          src="/clients/journey.png"
+          alt="Journey"
+          width="108"
+          height="23"
+          class="translate-y-[4px]"
+        />
+      </li>
+      <li class="client-list-item">
+        <img
+          src="/clients/sezane.png"
+          alt="Sézane"
+          width="111"
+          height="36"
+        />
+      </li>
+    </ul>
+  </div>
 </div>

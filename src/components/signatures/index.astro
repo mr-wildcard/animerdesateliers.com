@@ -3,8 +3,8 @@ import BlueQuote from "../@commons/BlueQuote.astro"
 import ExternalLink from "../@commons/ExternalLink.astro"
 ---
 
-<div class="flex flex-wrap">
-  <div class="w-full">
+<div class="flex flex-wrap xl:flex-nowrap xl:gap-[25px]">
+  <div class="w-full xl:w-auto">
     <BlueQuote />
   </div>
   <div class="w-full">
@@ -30,21 +30,21 @@ import ExternalLink from "../@commons/ExternalLink.astro"
       </p>
       <p>Who's in? 🤘</p>
     </div>
-  </div>
-  <div class="w-full flex mt-4 text-lg">
-    <div class="flex-1">
-      <div class="flex items-center h-[83px]">
-        <img src="/yuna-signature.png" width="83" height="56" alt="Yuna Orsini's signature"/>
+    <div class="w-full flex mt-4 text-lg">
+      <div class="flex-1">
+        <div class="flex items-center h-[83px]">
+          <img src="/yuna-signature.png" width="83" height="56" alt="Yuna Orsini's signature"/>
+        </div>
+        <p class="mb-3">Yuna Orsini</p>
+        <ExternalLink label="Linkedin" href="http://google.fr"/>
       </div>
-      <p class="mb-3">Yuna Orsini</p>
-      <ExternalLink label="Linkedin" href="http://google.fr"/>
-    </div>
-    <div class="flex-1">
-      <div class="flex items-center h-[83px]">
-        <img src="/dani-signature.png" width="83" height="62" alt="Daniela Peñeranda's signature"/>
+      <div class="flex-1">
+        <div class="flex items-center h-[83px]">
+          <img src="/dani-signature.png" width="83" height="62" alt="Daniela Peñeranda's signature"/>
+        </div>
+        <p class="mb-3">Daniela<br>Peñeranda</p>
+        <ExternalLink label="Linkedin" href="http://google.fr"/>
       </div>
-      <p class="mb-3">Daniela<br>Peñeranda</p>
-      <ExternalLink label="Linkedin" href="http://google.fr"/>
     </div>
   </div>
 </div>

@@ -17,12 +17,14 @@ matchMdMedia.addEventListener("change", (e) => {
      * In case all items are closed and we switch to desktop layout,
      * we need to open at least one item.
      */
-    const openedContent = Array.from(openerMappedToContent.keys()).find(
+    const openedContent = Array.from(openerMappedToContent.keys()).filter(
       (opener) => opener.getAttribute("aria-expanded") === "true"
     );
 
-    if (!openedContent) {
+    if (!openedContent.length) {
       openContent(openers[0]);
+    } else if (openedContent.length > 1) {
+      closeOtherOpenedContentFromOpener(openers[0]);
     }
   } else {
     moveOpenersContentToMobileAccordion(openers);
@@ -61,8 +63,6 @@ function closeOtherOpenedContentFromOpener(opener: HTMLButtonElement) {
   for (const otherOpener of openerMappedToContent.keys()) {
     if (otherOpener.getAttribute("aria-expanded") === "true" && otherOpener !== opener) {
       closeContent(otherOpener);
-
-      break;
     }
   }
 }
@@ -118,4 +118,5 @@ addClickEventListeners(openers);
 
 if (isDesktop()) {
   moveOpenersContentToDesktopWrapper(openers);
+  openContent(openers[0]);
 }

@@ -2,13 +2,13 @@
 const { imgSrc, fullname, label } = Astro.props;
 ---
 
-<div class="flex items-center">
+<div class="flex items-center xl:flex-col xl:text-center">
   <img
     src={imgSrc}
-    class="border-downriver border-[3px] rounded-full w-[140px] h-[140px]"
+    class="border-downriver border-[3px] rounded-full w-[140px] h-[140px] xl:mb-6"
     alt={fullname}
   />
-  <p class="ml-6">
+  <p class="ml-6 xl:ml-0">
     <span class="font-bold text-lg">{fullname}</span>
     <br/>
     <span class="text-sm">{label}</span>
