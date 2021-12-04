@@ -35,3 +35,7 @@ html {
 body {
   @apply bg-selago font-sans text-downriver;
 }
+
+.container {
+  max-width: 1440px;
+}
