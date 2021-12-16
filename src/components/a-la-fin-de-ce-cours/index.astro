@@ -2,12 +2,22 @@
 import Acquis from "./Acquis.astro"
 ---
 
+<style>
+  .list {
+    @apply grid gap-x-[24px] gap-y-20 grid-cols-12;
+  }
+
+  .list li {
+    @apply col-span-full xl:col-span-4 xl:text-xl xl:leading-[34px];
+  }
+</style>
+
 <div class="px-[20px]">
-  <h2 class="mb-10 font-serif text-2xl leading-[42px]">
+  <h2 class="mb-10 font-serif text-2xl leading-[42px] xl:mb-20 xl:text-[34px] xl:leading-[48px] xl:text-center">
     À la fin de ce cours, vous saurez...
   </h2>
 
-  <ul class="space-y-10">
+  <ul class="list">
     <li>
       <Acquis>
         <strong>construire le brief</strong> avec les parties prenantes et <strong>définir la stratégie</strong> d'un atelier UX en présentiel ou à distance
@@ -25,7 +35,7 @@ import Acquis from "./Acquis.astro"
     </li>
     <li>
       <Acquis>
-        <strong>faciliter l'atelier, gérer les personnes</strong> participantes et leurs idées, vous sortir <strong>de situations parfois bloquantes</strong> et conclure l'atelier
+        <strong>faciliter l'atelier, gérer les personnes</strong> participantes et leurs idées, vous <strong>sortir de situations parfois bloquantes</strong> et conclure l'atelier
       </Acquis>
     </li>
     <li>
