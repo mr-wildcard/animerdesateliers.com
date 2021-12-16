@@ -47,12 +47,18 @@ import data from "./data.json"
       height: 0;
       overflow: hidden;
     }
+
+    @screen md {
+      .right-icon {
+        display: none;
+      }
+    }
   }
 </style>
 
 <h2 class="px-[20px] mb-10 text-2xl font-serif xl:p-0 xl:mb-16 xl:text-[34px]">Sommaire</h2>
 
-<div class="border-t-2 border-downriver md:flex">
+<div id="sommaire" class="border-t-2 border-downriver md:flex" tabindex="0">
   <ul class="md:w-[290px]">
     {data.items.map((item, index) => (
       <li class="summary-item">

@@ -13,7 +13,7 @@ matchMdMedia.addEventListener("change", (e) => {
     moveOpenersContentToDesktopWrapper(openers);
 
     /**
-     * It's possible on mobile to close all accordion items.
+     * On mobile, it's possible to close all accordion items.
      * In case all items are closed and we switch to desktop layout,
      * we need to open at least one item.
      */
@@ -43,6 +43,14 @@ function findOpenerContent(opener) {
   return document.querySelector<HTMLDivElement>(`section#${opener.dataset.contentTarget}`);
 }
 
+function findOpenedOpener() {
+  for (const opener of openers) {
+    if (opener.getAttribute("aria-expanded") === "true") {
+      return opener;
+    }
+  }
+}
+
 function openContent(opener: HTMLButtonElement) {
   opener.setAttribute("aria-expanded", "true");
 
@@ -60,7 +68,7 @@ function closeContent(opener: HTMLButtonElement) {
 }
 
 function closeOtherOpenedContentFromOpener(opener: HTMLButtonElement) {
-  for (const otherOpener of openerMappedToContent.keys()) {
+  for (const otherOpener of openers) {
     if (otherOpener.getAttribute("aria-expanded") === "true" && otherOpener !== opener) {
       closeContent(otherOpener);
     }
@@ -79,6 +87,29 @@ function onClickOpener(e: MouseEvent) {
   } else if (!isDesktop()) {
     closeContent(opener);
   }
+}
+
+function onKeyboardNavigate(e: KeyboardEvent) {
+  if (["ArrowDown", "ArrowUp"].includes(e.key)) {
+    e.preventDefault();
+
+    const openedOpener = findOpenedOpener();
+    const openedOpenerIndex = Array.from(openers).findIndex((opener) => opener === openedOpener);
+    const previousOpener = openers[openedOpenerIndex - 1];
+    const nextOpener = openers[openedOpenerIndex + 1];
+
+    if (e.key === "ArrowDown" && nextOpener) {
+      nextOpener.click();
+      nextOpener.focus();
+    } else if (e.key === "ArrowUp" && previousOpener) {
+      previousOpener.click();
+      previousOpener.focus();
+    }
+  }
+}
+
+function addKeyboardNavigation() {
+  document.querySelector("#sommaire").addEventListener("keydown", onKeyboardNavigate);
 }
 
 function mapOpenersToTheirContents(openers: NodeListOf<HTMLButtonElement>) {
@@ -115,6 +146,7 @@ function moveOpenersContentToDesktopWrapper(openers: NodeListOf<HTMLButtonElemen
 
 mapOpenersToTheirContents(openers);
 addClickEventListeners(openers);
+addKeyboardNavigation();
 
 if (isDesktop()) {
   moveOpenersContentToDesktopWrapper(openers);
