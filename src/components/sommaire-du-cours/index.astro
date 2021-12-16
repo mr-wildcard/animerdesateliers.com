@@ -50,6 +50,8 @@ import data from "./data.json"
   }
 </style>
 
+<h2 class="px-[20px] mb-10 text-2xl font-serif xl:mb-16 xl:text-[34px]">Sommaire</h2>
+
 <div class="border-t-2 border-downriver md:flex">
   <ul class="md:w-[290px]">
     {data.items.map((item, index) => (
@@ -82,7 +84,10 @@ import data from "./data.json"
     id="sommaire-desktop-wrapper"
     class="hidden md:block md:flex-1 bg-white"
   >
-    <!-- Here goes copied content -->
+    <!--
+      Empty div.
+      Content is copied here by JavaScript when user reach desktop breakpoint.
+    -->
   </div>
 </div>
 
