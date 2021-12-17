@@ -13,13 +13,13 @@ const { text, author } = Astro.props;
       <BlueQuote width="48" height="35" client:media="(min-width: 1280px)" />
     </span>
   </div>
-  <figure class="xl:mt-6">
+  <figure class="text-base leading-[26px] xl:mt-6">
     <blockquote class="mb-5">
       <p class="xl:text-xl">
         {text}
       </p>
     </blockquote>
-    <figcaption class="font-bold xl:text-lg">
+    <figcaption class="font-bold">
       {author}
     </figcaption>
   </figure>

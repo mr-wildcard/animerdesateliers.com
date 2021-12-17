@@ -8,6 +8,9 @@ module.exports = {
       serif: ["Dela Gothic One", "serif"],
     },
     extend: {
+      fontSize: {
+        xl: ["20px", "34px"],
+      },
       colors: {
         downriver: "#08124f",
         blue: "#0f24f7",

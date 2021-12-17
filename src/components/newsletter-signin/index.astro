@@ -6,7 +6,7 @@ import CodePromo from "./CodePromo.astro"
 
 <style lang="scss">
   .input {
-    @apply text-downriver bg-white rounded-full border border-gray;
+    @apply text-base bg-white rounded-full border border-gray;
 
     width: 100%;
     height: 60px;
@@ -57,6 +57,8 @@ import CodePromo from "./CodePromo.astro"
   }
 
   .label {
+    @apply text-base;
+
     display: block;
     max-height: 0;
   }
@@ -90,7 +92,7 @@ import CodePromo from "./CodePromo.astro"
     </div>
   </fieldset>
 
-  <p class="mt-16 text-sm leading-6 tracking-[0.03em] xl:mt-10">
+  <p class="mt-16 text-sm leading-6 tracking-[0.03em] xl:w-11/12 xl:mt-10">
     Votre adresse email ne sera ni communiquée à des tiers, ni utilisée à d'autres fins que de vous tenir au courant de l'avancée du projet. Vous pourrez à tout moment vous désinscrire de la liste. N'hésitez pas à consulter <strong class="underline">notre politique de données</strong>.
   </p>
 </form>

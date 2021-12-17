@@ -33,7 +33,13 @@ html {
 }
 
 body {
-  @apply bg-selago font-sans text-downriver;
+  @apply text-lg font-sans text-downriver tracking-[0.01em] bg-selago;
+}
+
+@screen xl {
+  body {
+    @apply text-xl;
+  }
 }
 
 .container {

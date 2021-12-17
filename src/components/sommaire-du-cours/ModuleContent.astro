@@ -25,6 +25,12 @@ if (index > 0) {
       left: 0;
       top: 8px;
     }
+
+     @screen xl {
+       &::before {
+          top: 13px;
+       }
+     }
   }
 </style>
 
@@ -34,8 +40,8 @@ if (index > 0) {
   aria-labelledby={`module${index}_opener`}
   class={cs(defaultCSSClasses)}
 >
-  <div class="py-10 px-5 xl:px-10 lg:px-0 lg:pl-32 lg:pt-20 lg:pb-32 lg:w-4/6">
-    <header class="mb-10 text-xl leading-[36px] font-bold xl:text-2xl xl:leading-[32px]">{title}</header>
+  <div class="py-10 px-5 xl:px-10 xl:pl-32 xl:pt-20 xl:pb-32">
+    <header class="mb-10 text-[26px] leading-[36px] font-bold xl:text-[32px] xl:leading-[42px]">{title}</header>
 
     <ul class="space-y-4">
       {items.map((item, index) => (

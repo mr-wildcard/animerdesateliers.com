@@ -15,7 +15,7 @@ import data from "./data.json"
     @apply xl:col-span-5 xl:ml-[34px];
 
     flex: 0 0 auto;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     max-width: 80vw;
   }
 
@@ -24,15 +24,18 @@ import data from "./data.json"
   }
 </style>
 
-<Grid>
-  <h2 class="col-span-full mb-5 font-serif text-2xl leading-[42px] xl:text-center xl:mb-10 xl:text-4xl xl:leading[48px]">
-    Une expertise éprouvée
-  </h2>
-  <p class="col-span-full xl:col-start-4 xl:col-span-6 xl:text-[22px] xl:leading-[32px] xl:text-center">
+<Grid outerGap={false}>
+  <div class="col-span-full px-[20px] xl:px-0">
+    <h2 class="mb-5 font-serif text-2xl leading-[42px] xl:text-center xl:mb-10 xl:text-4xl xl:leading[48px]">
+      Une expertise éprouvée
+    </h2>
+  </div>
+
+  <p class="col-span-full px-[20px] xl:px-0 xl:col-start-4 xl:col-span-6 xl:text-[22px] xl:leading-[32px] xl:text-center xl:font-bold">
     Nous rendons les équipes plus autonomes, plus transparentes, plus ouvertes et plus créatives.
   </p>
 
-  <ul class="feedbacks col-span-full flex mt-16 pb-4 overflow-x-auto overscroll-x-contain">
+  <ul class="feedbacks col-span-full flex px-[20px] mt-16 pb-6 overflow-x-auto overscroll-x-contain">
     {data.feedbacks.map((feedback) => (
       <li class="feedback-wrapper">
         <Feedback
