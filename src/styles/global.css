@@ -10,7 +10,7 @@
       format("woff"),
     url("https://use.typekit.net/af/c12453/0000000000000000000157bf/27/a?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n7&v=3")
       format("opentype");
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
   font-weight: 700;
 }
@@ -23,7 +23,7 @@
       format("woff"),
     url("https://use.typekit.net/af/19c742/0000000000000000000157c9/27/a?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3")
       format("opentype");
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
   font-weight: 500;
 }

@@ -1,6 +1,7 @@
 ---
 import Grid from "../@commons/Grid.astro"
 import IconCertificate from "../@commons/icons/IconCertificate.astro"
+import Certificat from "../../images/faux-certificat.webp"
 ---
 
 <div class="py-14 bg-canary rounded-[30px] xl:rounded-none">
@@ -16,10 +17,11 @@ import IconCertificate from "../@commons/icons/IconCertificate.astro"
       </div>
       <div class="col-span-full xl:col-start-7 xl:col-span-5">
         <img
-          src="/fake-certificate.png"
+          src={Certificat}
           width="503"
           height="355"
           class="rounded-xl border-2 border-downriver"
+          alt="Certificat"
         />
       </div>
     </Grid>
