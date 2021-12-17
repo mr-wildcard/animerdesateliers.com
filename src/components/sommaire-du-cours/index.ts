@@ -1,6 +1,6 @@
 // TODO: replace with relal Tailwind value passed on build time.
 const sommaireHTMLElement = document.querySelector("#sommaire");
-const mdBreakpoint = "(min-width: 768px)";
+const mdBreakpoint = "(min-width: 1280px)";
 const desktopMedia = window.matchMedia(mdBreakpoint);
 const openerMappedToContent = new Map<HTMLButtonElement, HTMLDivElement>();
 const openers = findOpeners();
@@ -53,7 +53,7 @@ function openContent(opener: HTMLButtonElement) {
 
   const content = openerMappedToContent.get(opener);
 
-  content.classList.remove("md:hidden");
+  content.classList.remove("xl:hidden");
 }
 
 function closeContent(opener: HTMLButtonElement) {
@@ -61,7 +61,7 @@ function closeContent(opener: HTMLButtonElement) {
 
   const content = openerMappedToContent.get(opener);
 
-  content.classList.add("md:hidden");
+  content.classList.add("xl:hidden");
 }
 
 function closeOtherContentsFromOpener(opener: HTMLButtonElement) {

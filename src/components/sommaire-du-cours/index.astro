@@ -19,7 +19,7 @@ import data from "./data.json"
     transform-origin: center center;
     transition: 100ms ease-out;
 
-    @screen md {
+    @screen xl {
       transform: rotate(0deg);
     }
   }
@@ -36,7 +36,7 @@ import data from "./data.json"
     .right-icon :global(svg) {
       transform: rotate(270deg);
 
-      @screen md {
+      @screen xl {
         transform: rotate(0deg);
       }
     }
@@ -48,7 +48,7 @@ import data from "./data.json"
       overflow: hidden;
     }
 
-    @screen md {
+    @screen xl {
       .right-icon {
         display: none;
       }
@@ -58,8 +58,8 @@ import data from "./data.json"
 
 <h2 class="px-[20px] mb-10 text-2xl font-serif xl:p-0 xl:mb-16 xl:text-[34px]">Sommaire</h2>
 
-<div id="sommaire" class="border-t-2 border-downriver md:flex" tabindex="0">
-  <ul class="md:w-[290px]">
+<div id="sommaire" class="border-t-2 border-downriver xl:flex" tabindex="0">
+  <ul class="xl:w-[290px]">
     {data.items.map((item, index) => (
       <li class="summary-item">
         <button
@@ -88,7 +88,7 @@ import data from "./data.json"
   </ul>
   <div
     id="sommaire-desktop-content"
-    class="hidden md:block md:flex-1 bg-white"
+    class="hidden xl:block xl:flex-1 bg-white"
   >
     <!--
       Empty div.
