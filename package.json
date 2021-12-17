@@ -9,12 +9,12 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^0.21.12",
+    "astro": "^0.21.13",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1"
   },
   "dependencies": {
     "classnames": "^2.3.1",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^3.0.6"
   }
 }
