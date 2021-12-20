@@ -1,12 +1,12 @@
-name = "workers"
+name = "newsletter-subscription"
 type = "javascript"
 zone_id = ""
-account_id = ""
+account_id = "56fdaa95e1826d3443ba784c434bad34"
 route = ""
 workers_dev = true
 compatibility_date = "2021-12-20"
 
 [build]
-command = "npm install && npm run build"
+command = "pnpm install && pnpm run build"
 [build.upload]
 format = "service-worker"
