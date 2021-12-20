@@ -4,6 +4,7 @@ import BlueQuote from "../components/@commons/BlueQuote.astro"
 import Screenshot from "../components/@commons/Screenshot.astro"
 import Grid from "../components/@commons/Grid.astro"
 
+import MobileStickyHeader from "../components/header-sticky-mobile/index.astro"
 import Header from "../components/header/index.astro"
 import Hero from "../components/hero/index.astro"
 import CoursProposePar from "../components/cours-propose-par/index.astro"
@@ -54,9 +55,11 @@ import MentionsLegales from "../components/MentionsLegales.astro"
   </head>
 
 <body>
+  <MobileStickyHeader />
+
   <div class="container">
     <Grid>
-      <div class="col-span-full mt-8">
+      <div id="header-wrapper" class="col-span-full mt-8">
         <Header />
       </div>
 
