@@ -3,6 +3,7 @@ import BlueTag from "../components/@commons/BlueTag.astro"
 import BlueQuote from "../components/@commons/BlueQuote.astro"
 import Screenshot from "../components/@commons/Screenshot.astro"
 
+import Header from "../components/header/index.astro"
 import Hero from "../components/hero/index.astro"
 import CoursProposePar from "../components/cours-propose-par/index.astro"
 import QuiAApprisALecole from "../components/qui-a-appris-a-lecole/index.astro"
@@ -46,14 +47,9 @@ import MentionsLegales from "../components/MentionsLegales.astro"
   </head>
 
   <body>
-    <header class="container mt-8">
-      <div class="flex justify-between">
-        <div>
-          <p class="mb-1 font-serif text-lg text-downriver">Animer des ateliers UX</p>
-          <BlueTag label="cours en ligne"/>
-        </div>
-      </div>
-    </header>
+    <div class="container mt-8">
+      <Header />
+    </div>
 
     <div class="container mt-20">
       <Hero />
@@ -105,7 +101,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
         <CoursBientotDisponible />
       </div>
 
-      <div class="container mt-12">
+      <div id="newsletter-anchor" class="container mt-12" style="scroll-margin-top: 20px;">
         <NewsletterSignIn />
       </div>
     </div>

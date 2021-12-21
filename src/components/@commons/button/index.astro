@@ -1,12 +1,82 @@
 ---
-import styles from "./index.module.css"
+const { href } = Astro.props;
 ---
 
+<style>
+  .pushable {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .edge {
+    @apply bg-downriver;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+  }
+
+  .front {
+    @apply bg-canary text-downriver border-2 border-downriver font-bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 15px 28px 15px 24px;
+    border-radius: 50px;
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: all 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  }
+
+  .front :global(svg) {
+    @apply mr-3;
+  }
+
+  .pushable:hover .front {
+    @apply bg-chiffon;
+
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  }
+
+  .pushable:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+  }
+
+  .pushable:focus:not(:focus-visible) {
+    outline: none;
+  }
+</style>
+
 <!-- Thank you Josh :) -->
-<button class={styles.pushable}>
-  <span class={styles.edge} role="presentation" />
-  <span class={styles.front}>
-    <slot name="icon" />
-    <slot name="label" />
-  </span>
-</button>
+{!href && (
+  <button class="pushable">
+    <span class="edge" role="presentation" />
+    <span class="front">
+      <slot name="icon" />
+      <slot name="label" />
+    </span>
+  </button>
+)}
+
+{!!href && (
+  <a href={href} class="block pushable">
+    <span class="edge" role="presentation" />
+    <span class="front">
+      <slot name="icon" />
+      <slot name="label" />
+    </span>
+  </a>
+)}
