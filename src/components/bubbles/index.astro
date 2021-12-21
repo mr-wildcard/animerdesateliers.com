@@ -8,12 +8,10 @@ import Bubble from "./Bubble.astro";
   }
 
   .bubble-wrapper {
+    @apply mx-2;
+
     flex: 0 0 auto;
     scroll-snap-align: center;
-  }
-
-  .bubble-wrapper {
-    @apply mx-2;
   }
 
   .bubble-wrapper:first-child {
@@ -25,17 +23,17 @@ import Bubble from "./Bubble.astro";
   }
 </style>
 
-<ul class="bubbles flex pb-6 overflow-x-auto overscroll-x-contain text-lg">
-  <li class="bubble-wrapper">
+<ul class="bubbles flex py-8 overflow-x-auto overscroll-x-contain text-lg">
+  <li class="bubble-wrapper w-[235px]">
     <Bubble text="Comment utiliser mon atelier comme un outil tactique de design ?" />
   </li>
-  <li class="bubble-wrapper">
+  <li class="bubble-wrapper w-[200px]">
     <Bubble text="Dois-je proposer un format hybride ou asynchrone ?" />
   </li>
-  <li class="bubble-wrapper">
-    <Bubble text="Que faire pour m’assurer d'embarquer l’équipe ?" />
+  <li class="bubble-wrapper w-[220px]">
+    <Bubble text="Que faire pour m’assurer embarquer l’équipe ?" />
   </li>
-  <li class="bubble-wrapper">
+  <li class="bubble-wrapper w-[220px]">
     <Bubble text="Comment passer des Post-it aux actions concrètes ensuite ?" />
   </li>
 </ul>
