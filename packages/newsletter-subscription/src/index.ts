@@ -17,9 +17,9 @@ async function handleResponse() {
       "Content-Type": "application/json",
     },
     method: "POST",
-  }).then((response) => {
-    console.log({ response });
+  }).catch((error) => {
+    console.error("An error occured while contacting MailJet.", { error });
 
-    return response;
+    return new Response("An error occured while contacting MailJet.", { status: 500 });
   });
 }
