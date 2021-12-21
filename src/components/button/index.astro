@@ -5,10 +5,11 @@ import styles from "./styles.module.css";
 
 const { type } = Astro.props;
 ---
+
 <button class="{styles.pushable}">
-    <span class="{styles.edge}" role="presentation"/>
-    <span class="{styles.front}">
-        <slot name="icon" />
-        <slot name="label" />
-    </span>
+  <span class="{styles.edge}" role="presentation"/>
+  <span class="{styles.front}">
+    <slot name="icon" />
+    <slot name="label" />
+  </span>
 </button>
