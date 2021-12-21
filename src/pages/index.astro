@@ -1,4 +1,5 @@
 ---
+import BlueTag from "../components/BlueTag.astro"
 import Bubbles from "../components/bubbles/index.astro"
 import ExternalLink from "../components/ExternalLink.astro"
 ---
@@ -23,7 +24,7 @@ import ExternalLink from "../components/ExternalLink.astro"
         <div class="flex justify-between">
             <div>
                 <p class="mb-1 font-serif text-lg text-downriver">Animer des ateliers UX</p>
-                <p class="inline-block pl-3 pr-4 leading-[26px] text-white text-xs bg-blue text-uppercase rounded-r-full font-bold">LE COURS EN LIGNE</p>
+                <BlueTag label="cours en ligne" />
             </div>
         </div>
     </div>
@@ -140,6 +141,11 @@ import ExternalLink from "../components/ExternalLink.astro"
                 alt="Smileys"
             />
         </div>
+    </div>
+    <div class="container mt-24">
+        <h2 class="font-serif text-downriver text-4xl leading-[50px] md:text-6xl md:leading-[82px]">Animer des ateliers UX et design thinking</h2>
+        <div class="mt-4">
+            <BlueTag label="cours en ligne" />
     </div>
     <br>
     <br>
