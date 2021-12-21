@@ -23,7 +23,7 @@
   }
 
   .front {
-    @apply bg-canary text-downriver border-2 border-downriver;
+    @apply bg-canary text-downriver border-2 border-downriver font-bold;
 
     display: flex;
     align-items: center;
@@ -58,7 +58,7 @@
 </style>
 
 <!-- Thank you Josh :) -->
-<button class="pushable">
+<button class="pushable" {...Astro.props}>
   <span class="edge" role="presentation" />
   <span class="front">
     <slot name="icon" />
