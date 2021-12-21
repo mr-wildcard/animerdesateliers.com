@@ -3,6 +3,9 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   mode: "jit",
   purge: ["./public/**/*.html", "./src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}"],
+  variants: {
+    container: [],
+  },
   theme: {
     fontFamily: {
       sans: ["Filson Pro", "sans-serif"],
