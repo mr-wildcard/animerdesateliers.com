@@ -3,27 +3,39 @@
 @tailwind utilities;
 
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 body {
-    @apply bg-selago font-sans text-downriver;
+  @apply bg-selago font-sans text-downriver;
 }
 
 .container {
-    @apply px-4;
+  @apply px-4;
 }
 
 @font-face {
-    font-family: 'Filson Pro';
-    src: url('/FilsonProRegular.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Filson Pro";
+  src: url("https://use.typekit.net/af/c12453/0000000000000000000157bf/27/l?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n7&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/c12453/0000000000000000000157bf/27/d?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n7&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/c12453/0000000000000000000157bf/27/a?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n7&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 700;
 }
 
 @font-face {
-    font-family: 'Filson Pro';
-    src: url('/FilsonProMedium.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+  font-family: "Filson Pro";
+  src: url("https://use.typekit.net/af/19c742/0000000000000000000157c9/27/l?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/19c742/0000000000000000000157c9/27/d?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/19c742/0000000000000000000157c9/27/a?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
 }
