@@ -1,15 +1,16 @@
 // TODO: replace with relal Tailwind value passed on build time.
+const sommaireHTMLElement = document.querySelector("#sommaire");
 const mdBreakpoint = "(min-width: 768px)";
-const matchMdMedia = window.matchMedia(mdBreakpoint);
+const desktopMedia = window.matchMedia(mdBreakpoint);
 const openerMappedToContent = new Map<HTMLButtonElement, HTMLDivElement>();
 const openers = findOpeners();
 
-let matchMdBreakpoint = matchMdMedia.matches;
+let matchDesktopBreakpoint = desktopMedia.matches;
 
-matchMdMedia.addEventListener("change", (e) => {
-  matchMdBreakpoint = e.matches;
+desktopMedia.addEventListener("change", (e) => {
+  matchDesktopBreakpoint = e.matches;
 
-  if (e.matches) {
+  if (matchDesktopBreakpoint) {
     moveOpenersContentToDesktopWrapper(openers);
 
     /**
@@ -24,7 +25,7 @@ matchMdMedia.addEventListener("change", (e) => {
     if (!openedContent.length) {
       openContent(openers[0]);
     } else if (openedContent.length > 1) {
-      closeOtherOpenedContentFromOpener(openers[0]);
+      closeOtherContentsFromOpener(openers[0]);
     }
   } else {
     moveOpenersContentToMobileAccordion(openers);
@@ -32,23 +33,19 @@ matchMdMedia.addEventListener("change", (e) => {
 });
 
 function isDesktop() {
-  return matchMdBreakpoint;
+  return matchDesktopBreakpoint;
 }
 
 function findOpeners() {
-  return document.querySelectorAll<HTMLButtonElement>("button[data-content-target]");
+  return sommaireHTMLElement.querySelectorAll<HTMLButtonElement>("button[data-content-target]");
 }
 
 function findOpenerContent(opener) {
-  return document.querySelector<HTMLDivElement>(`section#${opener.dataset.contentTarget}`);
+  return sommaireHTMLElement.querySelector<HTMLDivElement>(`section#${opener.dataset.contentTarget}`);
 }
 
 function findOpenedOpener() {
-  for (const opener of openers) {
-    if (opener.getAttribute("aria-expanded") === "true") {
-      return opener;
-    }
-  }
+  return sommaireHTMLElement.querySelector<HTMLButtonElement>("button[data-content-target][aria-expanded=true]");
 }
 
 function openContent(opener: HTMLButtonElement) {
@@ -67,7 +64,7 @@ function closeContent(opener: HTMLButtonElement) {
   content.classList.add("md:hidden");
 }
 
-function closeOtherOpenedContentFromOpener(opener: HTMLButtonElement) {
+function closeOtherContentsFromOpener(opener: HTMLButtonElement) {
   for (const otherOpener of openers) {
     if (otherOpener.getAttribute("aria-expanded") === "true" && otherOpener !== opener) {
       closeContent(otherOpener);
@@ -82,7 +79,7 @@ function onClickOpener(e: MouseEvent) {
     openContent(opener);
 
     if (isDesktop()) {
-      closeOtherOpenedContentFromOpener(opener);
+      closeOtherContentsFromOpener(opener);
     }
   } else if (!isDesktop()) {
     closeContent(opener);
@@ -138,7 +135,7 @@ function moveOpenersContentToMobileAccordion(openers: NodeListOf<HTMLButtonEleme
 
 function moveOpenersContentToDesktopWrapper(openers: NodeListOf<HTMLButtonElement>) {
   openers.forEach((opener) => {
-    const desktopWrapper = document.querySelector("#sommaire-desktop-wrapper");
+    const desktopWrapper = document.querySelector("#sommaire-desktop-content");
 
     desktopWrapper.appendChild(openerMappedToContent.get(opener));
   });
