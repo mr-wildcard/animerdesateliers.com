@@ -1,5 +1,5 @@
 {
-  "name": "@example/minimal",
+  "name": "website",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "astro": "^0.21.13",
+    "autoprefixer": "^10.4.0",
     "morphdom": "^2.6.1",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1"
