@@ -35,7 +35,3 @@ html {
 body {
   @apply bg-selago font-sans text-downriver;
 }
-
-.container:not(.px-0) {
-  @apply px-[20px];
-}

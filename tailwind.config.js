@@ -10,6 +10,7 @@ module.exports = {
     },
     container: {
       center: true,
+      padding: "20px",
     },
     boxShadow: (theme) => ({
       ...theme.boxShadow,
