@@ -8,10 +8,6 @@ module.exports = {
       sans: ["Filson Pro", "sans-serif"],
       serif: ["Dela Gothic One", "serif"],
     },
-    container: {
-      center: true,
-      padding: "20px",
-    },
     extend: {
       colors: {
         downriver: "#08124f",
@@ -28,5 +24,8 @@ module.exports = {
         concrete: "#f3f3f3",
       },
     },
+  },
+  corePlugins: {
+    container: false,
   },
 };
