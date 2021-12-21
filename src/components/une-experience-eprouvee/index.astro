@@ -1,37 +1,45 @@
 ---
+import Grid from "../@commons/Grid.astro"
 import Feedback from "./Feedback.astro"
 import data from "./data.json"
 ---
+
 <style>
   .feedbacks {
+    @apply gap-x-4 xl:grid xl:gap-x-[24px] xl:grid-cols-12 xl:gap-y-28;
+
     scroll-snap-type: x mandatory;
   }
 
   .feedback-wrapper {
-    @apply pl-4;
+    @apply xl:col-span-5 xl:ml-[34px];
 
     flex: 0 0 auto;
     scroll-snap-align: start;
     max-width: 80vw;
   }
 
-  .feedback-wrapper:last-child {
-    @apply pr-4;
+  .feedback-wrapper:nth-child(2n) {
+    @apply xl:col-start-7;
   }
 </style>
 
-<div class="px-[20px]">
-  <h2 class="font-serif text-2xl leading-[42px]">Une expertise éprouvée</h2>
-  <p class="mt-5">Rendre les équipes plus autonomes, plus transparentes, plus ouvertes et plus créatives.</p>
-</div>
+<Grid>
+  <h2 class="col-span-full mb-5 font-serif text-2xl leading-[42px] xl:text-center xl:mb-10 xl:text-4xl xl:leading[48px]">
+    Une expertise éprouvée
+  </h2>
+  <p class="col-span-full xl:col-start-4 xl:col-span-6 xl:text-[22px] xl:leading-[32px] xl:text-center">
+    Nous rendons les équipes plus autonomes, plus transparentes, plus ouvertes et plus créatives.
+  </p>
 
-<ul class="feedbacks flex mt-16 pb-4 overflow-x-auto overscroll-x-contain">
-  {data.feedbacks.map((feedback) => (
-    <li class="feedback-wrapper">
-      <Feedback
-        text={feedback.text}
-        author={feedback.author}
-      />
-    </li>
-  ))}
-</ul>
+  <ul class="feedbacks col-span-full flex mt-16 pb-4 overflow-x-auto overscroll-x-contain">
+    {data.feedbacks.map((feedback) => (
+      <li class="feedback-wrapper">
+        <Feedback
+          text={feedback.text}
+          author={feedback.author}
+        />
+      </li>
+    ))}
+  </ul>
+</Grid>
