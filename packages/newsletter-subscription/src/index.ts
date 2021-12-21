@@ -1,32 +1,25 @@
-// mailjet.connect(process.env.MJ_APIKEY_PUBLIC, process.env.MJ_APIKEY_PRIVATE);
+declare var MJ_LIST_ID: string;
+declare var MJ_APIKEY_PUBLIC: string;
+declare var MJ_APIKEY_PRIVATE: string;
 
 addEventListener("fetch", (event) => {
   event.respondWith(handleResponse());
 });
 
 async function handleResponse() {
-  return fetch("https://api.mailjet.com/v3/REST/contact", {
+  return fetch(`https://api.mailjet.com/v3/REST/contactslist/${MJ_LIST_ID}/managecontact`, {
     body: JSON.stringify({
-      IsExcludedFromCampaigns: "true",
-      Name: "New Contact",
-      Email: "passenger@mailjet.com",
+      Action: "addforce",
+      Email: "test1@gmail.com",
     }),
     headers: {
       Authorization: `Basic ${btoa(`${MJ_APIKEY_PUBLIC}:${MJ_APIKEY_PRIVATE}`)}`,
       "Content-Type": "application/json",
     },
     method: "POST",
+  }).then((response) => {
+    console.log({ response });
+
+    return response;
   });
 }
-/*
-curl -s \
-	-X POST \
-	--user "$MJ_APIKEY_PUBLIC:$MJ_APIKEY_PRIVATE" \
-	https://api.mailjet.com/v3/REST/contact \
-	-H 'Content-Type: application/json' \
-	-d '{
-      "IsExcludedFromCampaigns":"true",
-      "Name":"New Contact",
-      "Email":"passenger@mailjet.com"
-	}'
- */
