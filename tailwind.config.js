@@ -12,12 +12,6 @@ module.exports = {
       center: true,
       padding: "20px",
     },
-    boxShadow: (theme) => ({
-      ...theme.boxShadow,
-      bubble: `4px 4px 0px 0px ${theme("colors.canary")}`,
-      buttonTypePrimary: `0px 4px 0px 0px ${theme("colors.downriver")}`,
-      buttonTypePrimary_focused: `0px 2px 0px 0px ${theme("colors.downriver")}`,
-    }),
     extend: {
       colors: {
         downriver: "#08124f",
