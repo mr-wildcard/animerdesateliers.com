@@ -45,6 +45,11 @@ import MentionsLegales from "../components/MentionsLegales.astro"
     />
     <meta name="viewport" content="width=device-width"/>
     <title>Animer des ateliers UX</title>
+    <style>
+      #newsletter-anchor {
+        scroll-margin-block: 50vh;
+      }
+    </style>
   </head>
 
 <body>
@@ -142,7 +147,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
         <div class="col-span-full xl:col-start-2 xl:col-span-7">
           <CoursBientotDisponible />
 
-          <div id="newsletter-anchor" class="mt-12" style="scroll-margin-top: 20px;">
+          <div id="newsletter-anchor" class="mt-12">
             <NewsletterSignIn />
           </div>
         </div>
