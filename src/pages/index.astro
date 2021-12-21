@@ -7,6 +7,8 @@ import IconNotification from "../components/icons/IconNotification.astro"
 import CourseCharacteristics from "../components/course-characteristics/index.astro"
 import IncludedInThisCourse from "../components/included-in-this-course/index.astro"
 import Screenshot from "../components/Screenshot.astro"
+import IconPresale from "../components/icons/IconPresale.astro"
+import NewsletterSignIn from "../components/NewsletterSignIn.astro"
 ---
 
 <html lang="en">
@@ -217,6 +219,26 @@ import Screenshot from "../components/Screenshot.astro"
         <p class="text-2xl py-32 leading-9 font-bold">
           Favoriser l’intelligence collective est le nouveau pouvoir du designer.
         </p>
+      </div>
+    </div>
+
+    <div class="container bg-magnolia">
+      <div class="py-24">
+        <h2 class="text-[34px] font-serif leading-[50px]">
+          Le cours est bientôt disponible !
+        </h2>
+        <p class="mt-5 text-xl">
+          Nous prenons le temps de concocter un cours vraiment qualitatif. Abonnez-vous à notre newsletter pour suivre toute l’avancée du projet !
+        </p>
+        <div class="flex mt-12">
+          <span class="mr-4">
+            <IconPresale />
+          </span>
+          <p class="font-bold translate-y-[2px]">Vous recevrez un code promo en avant-première !</p>
+        </div>
+        <div class="mt-10">
+          <NewsletterSignIn />
+        </div>
       </div>
     </div>
 
