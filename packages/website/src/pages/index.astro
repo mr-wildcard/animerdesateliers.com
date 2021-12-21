@@ -152,7 +152,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
           <CoursBientotDisponible />
 
           <div id="newsletter-anchor" class="mt-12">
-            <NewsletterSignIn />
+            <NewsletterSignIn id="0" />
           </div>
         </div>
       </Grid>
@@ -192,7 +192,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
           <CoursBientotDisponible />
 
           <div class="mt-12">
-            <NewsletterSignIn />
+            <NewsletterSignIn id="1" />
           </div>
         </div>
       </Grid>
@@ -212,6 +212,8 @@ import MentionsLegales from "../components/MentionsLegales.astro"
       </Grid>
     </div>
   </div>
+
+  <script src={Astro.resolve('../components/newsletter-signin/index.ts')}></script>
 </body>
 
 </html>

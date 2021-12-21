@@ -26,7 +26,7 @@ async function handleResponse(request: Request) {
     },
     method: "POST",
   }).catch((error) => {
-    console.error("An error occured while contacting MailJet.", { error });
+    console.error("An error occured while contacting MailJet.", "Submitted email:", email, { error });
 
     return new Response("An error occured while contacting MailJet.", { status: 500 });
   });

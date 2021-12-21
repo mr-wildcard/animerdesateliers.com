@@ -20,6 +20,7 @@ module.exports = {
   devOptions: {
     tailwindConfig: "./tailwind.config.js",
     hostname: "0.0.0.0",
+    port: 3000,
   },
   buildOptions: {
     site: getSiteURL(),
