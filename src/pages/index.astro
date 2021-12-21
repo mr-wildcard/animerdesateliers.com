@@ -2,6 +2,8 @@
 import BlueTag from "../components/BlueTag.astro"
 import Bubbles from "../components/bubbles/index.astro"
 import ExternalLink from "../components/ExternalLink.astro"
+import Button from "../components/button/index.astro"
+import IconShoppingCart from "../components/icons/IconShoppingCart.astro"
 ---
 
 <html lang="en">
@@ -146,6 +148,24 @@ import ExternalLink from "../components/ExternalLink.astro"
         <h2 class="font-serif text-downriver text-4xl leading-[50px] md:text-6xl md:leading-[82px]">Animer des ateliers UX et design thinking</h2>
         <div class="mt-4">
             <BlueTag label="cours en ligne" />
+        </div>
+        <p class="mt-10 text-lg">Apprendre à concevoir et faciliter des ateliers collaboratifs, stratégiques et productifs</p>
+        <div class="flex flex-wrap">
+            <div class="w-full">
+                <div class="flex items-center justify-center border-2 border-downriver h-[58px] rounded-[50px] bg-white">
+                    Suivre l'avancée du projet
+                </div>
+            </div>
+            <div class="w-full">
+                <br>
+                <Button type="primary">
+                    <IconShoppingCart slot="icon" />
+                    <span slot="label">
+                        Précommander le cours
+                    </span>
+                </Button>
+            </div>
+        </div>
     </div>
     <br>
     <br>
