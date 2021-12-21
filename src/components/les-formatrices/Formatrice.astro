@@ -1,0 +1,12 @@
+---
+const { imgSrc, fullname, label } = Astro.props;
+---
+
+<div class="flex items-center">
+  <img src={imgSrc} width="140" height="140" alt="Yuna Orsini" />
+  <p class="ml-6">
+    <span class="font-bold text-lg">{fullname}</span>
+    <br/>
+    <span class="text-sm">{label}</span>
+  </p>
+</div>
