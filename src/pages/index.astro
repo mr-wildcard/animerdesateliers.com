@@ -37,7 +37,8 @@ import MentionsLegales from "../components/MentionsLegales.astro"
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet"/>
     <link
       rel="stylesheet"
@@ -198,11 +199,11 @@ import MentionsLegales from "../components/MentionsLegales.astro"
   <div class="bg-downriver pt-24">
     <div class="container">
       <Grid>
-        <div class="mb-14 col-span-full xl:col-start-1 xl:col-span-10">
+        <div class="mb-14 col-span-full xl:col-start-2 xl:col-span-10">
           <QuestionsFrequentes />
         </div>
 
-        <div class="pb-10 col-span-full">
+        <div class="pb-10 col-span-full xl:col-start-2">
           <MentionsLegales />
         </div>
       </Grid>
