@@ -1,5 +1,6 @@
 ---
-import CourseCharacteristic from "./CourseCharacteristic.astro";
+import Screenshot from "../@commons/Screenshot.astro"
+import Caracteristique from "./Caracteristique.astro";
 import IconOnlineCourse from "../icons/IconOnlineCourse.astro"
 import IconSimplifiedModules from "../icons/IconSimplifiedModules.astro"
 import IconGift from "../icons/IconGift.astro"
@@ -7,62 +8,61 @@ import IconQuiz from "../icons/IconQuiz.astro"
 import IconCockade from "../icons/IconCockade.astro"
 import IconFlag from "../icons/IconFlag.astro"
 import IconSmiley from "../icons/IconSmiley.astro"
-import Screenshot from "../Screenshot.astro"
 ---
 
 <div class="flex flex-wrap">
   <div>
     <ul class="space-y-8">
       <li>
-        <CourseCharacteristic
+        <Caracteristique
           title="Cours en ligne"
           description="À votre rythme"
         >
           <IconOnlineCourse slot="icon" />
-        </CourseCharacteristic>
+        </Caracteristique>
       </li>
       <li>
-        <CourseCharacteristic
+        <Caracteristique
           title="5 modules thématiques"
         >
           <IconSimplifiedModules slot="icon" />
-        </CourseCharacteristic>
+        </Caracteristique>
       </li>
       <li>
-        <CourseCharacteristic
+        <Caracteristique
           title="Outils clé-en-main à télécharger"
         >
           <IconGift slot="icon" />
-        </CourseCharacteristic>
+        </Caracteristique>
       </li>
       <li>
-        <CourseCharacteristic
+        <Caracteristique
           title="Quiz instantanés"
         >
           <IconQuiz slot="icon" />
-        </CourseCharacteristic>
+        </Caracteristique>
       </li>
       <li>
-        <CourseCharacteristic
+        <Caracteristique
           title="Certificat de participation"
         >
           <IconCockade slot="icon" />
-        </CourseCharacteristic>
+        </Caracteristique>
       </li>
       <li>
-        <CourseCharacteristic
+        <Caracteristique
           title="Français"
         >
           <IconFlag slot="icon" />
-        </CourseCharacteristic>
+        </Caracteristique>
       </li>
       <li>
-        <CourseCharacteristic
+        <Caracteristique
           title="Public"
           description="Designers UX, designers produit, chef&middot;fe&middot;s de projet, product owners, responsables d’équipe..."
         >
           <IconSmiley slot="icon" />
-        </CourseCharacteristic>
+        </Caracteristique>
       </li>
     </ul>
   </div>

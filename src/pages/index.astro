@@ -1,6 +1,7 @@
 ---
 import BlueTag from "../components/@commons/BlueTag.astro"
 import BlueQuote from "../components/@commons/BlueQuote.astro"
+import Screenshot from "../components/@commons/Screenshot.astro"
 
 import Hero from "../components/hero/index.astro"
 import CoursProposePar from "../components/cours-propose-par/index.astro"
@@ -10,11 +11,11 @@ import Signatures from "../components/signatures/index.astro"
 import AnimerDesAteliers from "../components/animer-des-ateliers/index.astro"
 import CaracteristiquesDuCours from "../components/caracteristiques-du-cours/index.astro"
 import InclusDansCeCours from "../components/inclus-dans-ce-cours/index.astro"
+import UneApprocheReponsable from "../components/une-approche-responsable/index.astro"
 
 import Punchline from "../components/Punchline.astro"
 import IconNotification from "../components/icons/IconNotification.astro"
 import CoursBientotDisponible from "../components/cours-bientot-disponible/index.astro"
-import Screenshot from "../components/Screenshot.astro"
 import NewsletterSignIn from "../components/newsletter-signin/index.astro"
 import LesFormatrices from "../components/les-formatrices/index.astro"
 import UneExperienceEprouvee from "../components/une-experience-eprouvee/index.astro"
@@ -91,19 +92,8 @@ import MentionsLegales from "../components/MentionsLegales.astro"
       <InclusDansCeCours />
     </div>
 
-    <div class="mt-16 px-0">
-      <div class="md:w-3/4 md:mx-auto">
-        <div class="rounded-[30px] py-16 px-[20px] bg-canary">
-          <h2 class="font-serif text-2xl leading-relaxed">
-            Une approche responsable de la conception d’ateliers UX
-          </h2>
-          <p class="text-lg mt-5 mb-16">Au moment d’imaginer et de mettre en place des ateliers UX puis certaines des solutions qui y seront générées, <strong>intégrer un mode de pensée responsable et raisonnable</strong>, respectant les critères d’inclusivité et d’accessibilité ainsi que l’environnement et le vivant, est une compétence fondamentale ! Cette réflexion est incluse “by design” dans ce cours en ligne.</p>
-          <Screenshot
-            src="/course-screenshot-4.webp"
-            alt="Capture d'écran du site d'apprentissage en ligne"
-          />
-        </div>
-      </div>
+    <div class="mt-16">
+      <UneApprocheReponsable />
     </div>
 
     <div class="container bg-white mt-24">
