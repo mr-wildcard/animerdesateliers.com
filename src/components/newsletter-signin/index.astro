@@ -62,31 +62,35 @@ import CodePromo from "./CodePromo.astro"
   }
 </style>
 
-<div class="mb-10">
+<div class="mb-10 xl:mb-6">
   <CodePromo />
 </div>
 
 <form>
-  <input
-    type="email"
-    id="email"
-    class="input"
-    name="email"
-    placeholder="Votre adresse email"
-    required="true"
-  />
-  <label class="label" for="email" data-content="Votre adresse email">
-    <span class="sr-only">Votre adresse email</span>
-  </label>
+  <fieldset class="flex flex-wrap flex-col xl:gap-[25px] xl:flex-row">
+    <div class="flex-1">
+      <input
+        type="email"
+        id="email"
+        class="input"
+        name="email"
+        placeholder="Votre adresse email"
+        required="true"
+      />
+      <label class="label" for="email" data-content="Votre adresse email">
+        <span class="sr-only">Votre adresse email</span>
+      </label>
+    </div>
 
-  <div class="flex justify-center mt-6">
-    <Button type="submit">
-      <IconNotification slot="icon"/>
-      <span slot="label">Me prévenir du lancement</span>
-    </Button>
-  </div>
+    <div class="flex justify-center mt-6 xl:block xl:mt-0">
+      <Button type="submit">
+        <IconNotification slot="icon"/>
+        <span slot="label">Me prévenir du lancement</span>
+      </Button>
+    </div>
+  </fieldset>
 
-  <p class="mt-16 text-sm leading-6 tracking-[0.03em]">
+  <p class="mt-16 text-sm leading-6 tracking-[0.03em] xl:mt-10">
     Votre adresse email ne sera ni communiquée à des tiers, ni utilisée à d'autres fins que de vous tenir au courant de l'avancée du projet. Vous pourrez à tout moment vous désinscrire de la liste. N'hésitez pas à consulter <strong class="underline">notre politique de données</strong>.
   </p>
 </form>

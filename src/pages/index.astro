@@ -2,6 +2,7 @@
 import BlueTag from "../components/@commons/BlueTag.astro"
 import BlueQuote from "../components/@commons/BlueQuote.astro"
 import Screenshot from "../components/@commons/Screenshot.astro"
+import Grid from "../components/@commons/Grid.astro"
 
 import Header from "../components/header/index.astro"
 import Hero from "../components/hero/index.astro"
@@ -46,119 +47,160 @@ import MentionsLegales from "../components/MentionsLegales.astro"
     <title>Animer des ateliers UX</title>
   </head>
 
-  <body>
-    <div class="container mt-8">
-      <Header />
-    </div>
-
-    <div class="container my-24 lg:my-36">
-      <Hero />
-    </div>
-
-    <div class="bg-white py-24">
-
-      <div class="container">
-        <CoursProposePar />
+<body>
+  <div class="container">
+    <Grid>
+      <div class="col-span-full mt-8">
+        <Header />
       </div>
 
-      <div class="container mt-16">
-        <QuiAApprisALecole />
+      <div class="col-span-full xl:col-start-2 xl:col-span-10 my-24 lg:my-36">
+        <Hero />
+      </div>
+    </Grid>
+  </div>
+
+  <div class="bg-white py-32">
+    <div class="container">
+      <Grid>
+        <div class="col-span-full xl:col-start-3 xl:col-span-7 ">
+          <CoursProposePar />
+
+          <div class="mt-16">
+            <QuiAApprisALecole />
+          </div>
+        </div>
+      </Grid>
+    </div>
+
+    <div class="my-32">
+      <Bubbles/>
+    </div>
+
+    <div class="container">
+      <Grid>
+        <div class="col-span-full xl:col-start-4 xl:col-span-7">
+          <Signatures />
+        </div>
+      </Grid>
+    </div>
+  </div>
+
+  <div class="container">
+    <Grid>
+      <div class="col-span-full xl:col-span-6 mt-24">
+        <AnimerDesAteliers />
       </div>
 
-      <div class="mt-16">
-        <Bubbles/>
+      <div class="col-span-full mt-16">
+        <CaracteristiquesDuCours/>
       </div>
 
-      <div class="container mt-16">
-        <Signatures />
+      <div class="col-span-full mt-16">
+        <InclusDansCeCours />
       </div>
+    </Grid>
+
+    <div class="my-24">
+      <Grid outerGap={false}>
+        <div class="col-span-full xl:col-start-2 xl:col-span-10">
+          <UneApprocheReponsable />
+        </div>
+      </Grid>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="container">
+      <Grid>
+        <div class="col-span-full full xl:col-start-3 xl:col-span-8">
+          <Punchline text="Favoriser l'intelligence collective est le nouveau pouvoir du designer." />
+        </div>
+      </Grid>
+    </div>
+  </div>
+
+  <div class="bg-magnolia py-24">
+    <div class="container">
+      <Grid>
+        <div class="col-span-full xl:col-start-2 xl:col-span-7">
+          <CoursBientotDisponible />
+
+          <div id="newsletter-anchor" class="mt-12" style="scroll-margin-top: 20px;">
+            <NewsletterSignIn />
+          </div>
+        </div>
+      </Grid>
+    </div>
+  </div>
+
+  <div class="bg-white py-24">
+    <div class="container">
+      <Grid outerGap={false}>
+        <div class="col-span-full xl:col-start-2 xl:col-span-10">
+          <LesFormatrices />
+        </div>
+      </Grid>
     </div>
 
-    <div class="container mt-24">
-      <AnimerDesAteliers />
+    <div class="mt-24">
+      <UneExperienceEprouvee />
     </div>
+  </div>
 
-    <div class="container mt-16">
-      <CaracteristiquesDuCours/>
-    </div>
+  <div class="container mt-24">
+    <AnimerDesAteliers />
+  </div>
 
-    <div class="container mt-16">
-      <InclusDansCeCours />
-    </div>
-
-    <div class="mt-16">
-      <UneApprocheReponsable />
-    </div>
-
-    <div class="bg-white">
-      <div class="container mt-24">
-        <Punchline text="Favoriser l'intelligence collective est le nouveau pouvoir du designer." />
-      </div>
-    </div>
-
-    <div class="bg-magnolia py-24">
-      <div class="container">
-        <CoursBientotDisponible />
-      </div>
-
-      <div id="newsletter-anchor" class="container mt-12" style="scroll-margin-top: 20px;">
-        <NewsletterSignIn />
-      </div>
-    </div>
-
-    <div class="bg-white py-24">
-      <div class="container px-0">
-        <LesFormatrices />
-      </div>
-
-      <div class="mt-24">
-        <UneExperienceEprouvee />
-      </div>
-    </div>
-
-    <div class="container mt-24">
-      <AnimerDesAteliers />
-    </div>
-
-    <div class="mt-16">
+  <div class="mt-16">
+    <div class="container">
       <SommaireDuCours />
     </div>
+  </div>
 
-    <div class="mt-24">
-      <ObtenezUnCertificat />
+  <div class="mt-24">
+    <ObtenezUnCertificat />
+  </div>
+
+  <div class="mt-24">
+    <ALaFinDeCeCours />
+  </div>
+
+  <div class="bg-white mt-24">
+    <div class="container">
+      <Grid>
+        <div class="col-start-2 col-span-10">
+          <Punchline text="Passer de la vision d'un jeu de Lego à celle d'un outil de design tactique et imbattable !" />
+        </div>
+      </Grid>
     </div>
+  </div>
 
-    <div class="mt-24">
-      <ALaFinDeCeCours />
+  <div class="bg-magnolia py-24">
+    <div class="container">
+      <Grid>
+        <div class="col-start-2 col-span-7">
+          <CoursBientotDisponible />
+          
+          <div class="mt-12">
+            <NewsletterSignIn />
+          </div>
+        </div>
+      </Grid>
     </div>
+  </div>
 
-    <div class="bg-white mt-24">
-      <div class="container">
-        <Punchline text="Passer de la vision d'un jeu de Lego à celle d'un outil de design tactique et imbattable !" />
-      </div>
+  <div class="bg-downriver pt-24">
+    <div class="container">
+      <QuestionsFrequentes />
     </div>
+  </div>
 
-    <div class="bg-magnolia">
-      <div class="container mt-24">
-        <CoursBientotDisponible />
-      </div>
-
-      <div class="container mt-12">
-        <NewsletterSignIn />
-      </div>
+  <div class="bg-downriver">
+    <div class="container">
+      <MentionsLegales />
     </div>
-
-    <div class="bg-downriver">
-      <div class="container mt-24">
-        <QuestionsFrequentes />
-      </div>
-    </div>
-
-    <div class="bg-downriver">
-      <div class="container">
-        <MentionsLegales />
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
 
 </html>

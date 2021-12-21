@@ -4,6 +4,7 @@ const { text } = Astro.props;
 
 <style>
   .bubble {
+    padding: 16px 20px 18px 22px;
     border: 2px solid theme('colors.downriver');
     filter: drop-shadow(4px 5px 0px theme('colors.canary'));
   }
@@ -15,7 +16,7 @@ const { text } = Astro.props;
   }
 </style>
 
-<div class="bubble relative p-4 h-[120px] max-w-[80vw] bg-selago rounded-[20px]">
+<div class="bubble relative bg-selago rounded-[20px] text-lg">
   <p>
     {text}
   </p>
