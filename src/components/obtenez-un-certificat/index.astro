@@ -1,25 +1,28 @@
 ---
+import Grid from "../@commons/Grid.astro"
 import IconCertificate from "../@commons/icons/IconCertificate.astro"
 ---
 
-<div class="py-14 bg-canary rounded-[30px]">
-  <div class="flex flex-wrap md:justify-between px-[20px]">
-    <div class="w-full md:w-5/12">
-      <h2 class="text-2xl font-serif">Obtenez un certificat</h2>
-      <p class="mt-5">Validez vos connaissances nouvellement acquises et recevez un certificat à afficher sur vos profils professionnels.</p>
-      <div class="flex items-center mb-9 mt-9 md:mb-0">
-        <IconCertificate size="86"/>
-        <p class="ml-5 font-bold text-lg leading-7">Certificat de participation au cours</p>
+<div class="py-14 bg-canary rounded-[30px] xl:rounded-none">
+  <div class="container">
+    <Grid>
+      <div class="col-span-full xl:col-span-5">
+        <h2 class="text-2xl font-serif xl:text-[34px] xl:leading-[48px]">Obtenez un certificat</h2>
+        <p class="mt-5 xl:text-2xl">Validez vos connaissances nouvellement acquises et recevez un certificat à afficher sur vos profils professionnels.</p>
+        <div class="flex items-center mb-9 mt-9 xl:mb-0">
+          <IconCertificate size="86"/>
+          <p class="ml-5 font-bold text-lg leading-7 xl:text-[22px]">Certificat de participation au cours</p>
+        </div>
       </div>
-    </div>
-    <div class="w-full md:w-7/12">
-      <img
-        src="/fake-certificate.png"
-        width="503"
-        height="355"
-        class="rounded-xl border-2 border-downriver"
-      />
-    </div>
+      <div class="col-span-full xl:col-start-7 xl:col-span-5">
+        <img
+          src="/fake-certificate.png"
+          width="503"
+          height="355"
+          class="rounded-xl border-2 border-downriver"
+        />
+      </div>
+    </Grid>
   </div>
 </div>
 
