@@ -14,7 +14,7 @@ const { title, description } = Astro.props;
   <span class="mr-6" role="presentation">
     <slot name="icon" />
   </span>
-  <p class="text-lg font-bold">{title}</p>
+  <p class="font-bold">{title}</p>
 </div>
 
 {description && <p class="description">{description}</p>}
