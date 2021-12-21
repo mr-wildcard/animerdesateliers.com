@@ -1,0 +1,337 @@
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, {enumerable: true, configurable: true, writable: true, value}) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+import parser from "@astrojs/parser";
+import {existsSync, promises as fs} from "fs";
+import {posix as path} from "path";
+import {performance} from "perf_hooks";
+import resolve from "resolve";
+import {
+  loadConfiguration,
+  logger as snowpackLogger,
+  NotFoundError,
+  startServer as startSnowpackServer
+} from "snowpack";
+import {fileURLToPath} from "url";
+import {z} from "zod";
+import {generatePaginateFunction} from "./build/paginate.js";
+import {canonicalURL, getSrcPath, stopTimer} from "./build/util.js";
+import {formatConfigError} from "./config.js";
+import {ConfigManager} from "./config_manager.js";
+import snowpackExternals from "./external.js";
+import {debug, info} from "./logger.js";
+import {createManifest} from "./manifest/create.js";
+import {nodeBuiltinsMap} from "./node_builtins.js";
+import {configureSnowpackLogger} from "./snowpack-logger.js";
+import {convertMatchToLocation, validateGetStaticPathsModule, validateGetStaticPathsResult} from "./util.js";
+const {CompileError} = parser;
+configureSnowpackLogger(snowpackLogger);
+function getParams(array) {
+  const fn = (match) => {
+    const params = {};
+    array.forEach((key, i) => {
+      if (key.startsWith("...")) {
+        params[key.slice(3)] = match[i + 1] ? decodeURIComponent(match[i + 1]) : void 0;
+      } else {
+        params[key] = decodeURIComponent(match[i + 1]);
+      }
+    });
+    return params;
+  };
+  return fn;
+}
+async function getStaticPathsMemoized(runtimeConfig, component, mod, args) {
+  runtimeConfig.cache.staticPaths[component] = runtimeConfig.cache.staticPaths[component] || mod.exports.getStaticPaths(args);
+  return (await runtimeConfig.cache.staticPaths[component]).flat();
+}
+async function load(config, rawPathname) {
+  const {logging, snowpackRuntime, snowpack, configManager} = config;
+  const {buildOptions, devOptions} = config.astroConfig;
+  const site = new URL(buildOptions.site || `http://${devOptions.hostname}:${devOptions.port}`);
+  const fullurl = new URL(rawPathname || "/", site.origin);
+  const reqPath = decodeURI(fullurl.pathname);
+  try {
+    const result = await snowpack.loadUrl(reqPath);
+    if (!result)
+      throw new Error(`Unable to load ${reqPath}`);
+    debug(logging, "access", reqPath);
+    return __spreadValues({
+      statusCode: 200
+    }, result);
+  } catch (err) {
+    if (err.failed) {
+      return {statusCode: 500, type: "unknown", error: err};
+    }
+  }
+  info(logging, "access", reqPath);
+  const routeMatch = config.manifest.routes.find((route) => route.pattern.test(reqPath));
+  if (!routeMatch) {
+    return {statusCode: 404, error: new Error("No matching route found.")};
+  }
+  const paramsMatch = routeMatch.pattern.exec(reqPath);
+  const routeLocation = convertMatchToLocation(routeMatch, config.astroConfig);
+  const params = paramsMatch ? getParams(routeMatch.params)(paramsMatch) : {};
+  let pageProps = {};
+  try {
+    if (configManager.needsUpdate()) {
+      await configManager.update();
+    }
+    const mod = await snowpackRuntime.importModule(routeLocation.snowpackURL);
+    debug(logging, "resolve", `${reqPath} -> ${routeLocation.snowpackURL}`);
+    if (!routeMatch.path) {
+      validateGetStaticPathsModule(mod);
+      const staticPaths = await getStaticPathsMemoized(config, routeMatch.component, mod, {
+        paginate: generatePaginateFunction(routeMatch),
+        rss: () => {
+        }
+      });
+      validateGetStaticPathsResult(staticPaths, logging);
+      const matchedStaticPath = staticPaths.find(({params: _params}) => JSON.stringify(_params) === JSON.stringify(params));
+      if (!matchedStaticPath) {
+        return {statusCode: 404, error: new Error(`[getStaticPaths] route pattern matched, but no matching static path found. (${reqPath})`)};
+      }
+      pageProps = __spreadValues({}, matchedStaticPath.props) || {};
+    }
+    const requestURL = new URL(fullurl.toString());
+    if (reqPath !== "/500") {
+      requestURL.search = "";
+    }
+    let html = await mod.exports.__renderPage({
+      request: {
+        params,
+        url: requestURL,
+        canonicalURL: canonicalURL(requestURL.pathname, site.toString())
+      },
+      children: [],
+      props: pageProps,
+      css: Array.isArray(mod.css) ? mod.css : typeof mod.css === "string" ? [mod.css] : [],
+      scripts: mod.exports.default[Symbol.for("astro.hoistedScripts")]
+    });
+    return {
+      statusCode: 200,
+      contentType: "text/html; charset=utf-8",
+      contents: html,
+      rss: void 0
+    };
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      console.log(formatConfigError(err));
+      return {
+        statusCode: 500,
+        type: "config-error",
+        error: err
+      };
+    }
+    if (err.code === "parse-error" || err instanceof SyntaxError) {
+      return {
+        statusCode: 500,
+        type: "parse-error",
+        error: err
+      };
+    }
+    if (err instanceof ReferenceError && err.toString().includes("window is not defined")) {
+      return {
+        statusCode: 500,
+        type: "ssr",
+        error: new Error(`[${reqPath}]
+    The window object is not available during server-side rendering (SSR).
+    Try using \`import.meta.env.SSR\` to write SSR-friendly code.
+    https://docs.astro.build/reference/api-reference/#importmeta`)
+      };
+    }
+    if (err instanceof NotFoundError && rawPathname) {
+      const fileMatch = err.toString().match(/\(([^\)]+)\)/);
+      const missingFile = fileMatch && fileMatch[1].replace(/^\/_astro/, "").replace(/\.proxy\.js$/, "") || void 0;
+      const distPath = path.extname(rawPathname) ? rawPathname : rawPathname.replace(/\/?$/, "/index.html");
+      const srcFile = getSrcPath(distPath, {astroConfig: config.astroConfig});
+      const code = existsSync(srcFile) ? await fs.readFile(srcFile, "utf8") : "";
+      let start = 0;
+      const segments = missingFile ? missingFile.split("/").filter((segment) => !!segment) : [];
+      while (segments.length) {
+        const importMatch = code.indexOf(segments.join("/"));
+        if (importMatch >= 0) {
+          start = importMatch;
+          break;
+        }
+        segments.shift();
+      }
+      return {
+        statusCode: 500,
+        type: "not-found",
+        error: new CompileError({
+          code,
+          filename: srcFile.pathname,
+          start,
+          end: 1,
+          message: `Could not find${missingFile ? ` "${missingFile}"` : " file"}`
+        })
+      };
+    }
+    return {
+      statusCode: 500,
+      type: "unknown",
+      error: err
+    };
+  }
+}
+async function createSnowpack(astroConfig, options) {
+  var _a;
+  const {projectRoot, src} = astroConfig;
+  const {mode, logging, resolvePackageUrl} = options;
+  const frontendPath = new URL("./frontend/", import.meta.url);
+  const resolveDependency = (dep) => resolve.sync(dep, {basedir: fileURLToPath(projectRoot)});
+  const isHmrEnabled = mode === "development";
+  const configManager = new ConfigManager(astroConfig, resolvePackageUrl);
+  let snowpack;
+  let astroPluginOptions = {
+    astroConfig,
+    mode,
+    logging,
+    resolvePackageUrl,
+    configManager
+  };
+  const mountOptions = __spreadProps(__spreadValues({}, existsSync(astroConfig.public) ? {[fileURLToPath(astroConfig.public)]: {url: "/", static: true, resolve: false}} : {}), {
+    [fileURLToPath(frontendPath)]: "/_astro_frontend",
+    [fileURLToPath(src)]: "/_astro/src"
+  });
+  if (astroConfig.devOptions.tailwindConfig) {
+    process.env.TAILWIND_DISABLE_TOUCH = true;
+  }
+  const rendererInstances = await configManager.buildRendererInstances();
+  const knownEntrypoints = [
+    "astro/dist/internal/__astro_component.js",
+    "astro/dist/internal/element-registry.js",
+    "astro/dist/internal/fetch-content.js",
+    "astro/dist/internal/__astro_slot.js",
+    "astro/dist/internal/__astro_hoisted_scripts.js",
+    "prismjs"
+  ];
+  for (const renderer of rendererInstances) {
+    knownEntrypoints.push(renderer.server);
+    if (renderer.client) {
+      knownEntrypoints.push(renderer.client);
+    }
+    if (renderer.knownEntrypoints) {
+      knownEntrypoints.push(...renderer.knownEntrypoints);
+    }
+    knownEntrypoints.push(...renderer.polyfills);
+    knownEntrypoints.push(...renderer.hydrationPolyfills);
+  }
+  const external = snowpackExternals.concat([]);
+  for (const renderer of rendererInstances) {
+    if (renderer.external) {
+      external.push(...renderer.external);
+    }
+  }
+  const rendererSnowpackPlugins = rendererInstances.filter((renderer) => renderer.snowpackPlugin).map((renderer) => renderer.snowpackPlugin);
+  const snowpackConfig = await loadConfiguration({
+    root: fileURLToPath(projectRoot),
+    mount: mountOptions,
+    mode,
+    plugins: [
+      [fileURLToPath(new URL("../snowpack-plugin-jsx.cjs", import.meta.url)), astroPluginOptions],
+      [fileURLToPath(new URL("../snowpack-plugin.cjs", import.meta.url)), astroPluginOptions],
+      ...rendererSnowpackPlugins,
+      resolveDependency("@snowpack/plugin-sass"),
+      [
+        resolveDependency("@snowpack/plugin-postcss"),
+        {
+          config: {
+            plugins: __spreadValues({
+              [resolveDependency("autoprefixer")]: {}
+            }, astroConfig.devOptions.tailwindConfig ? {[resolveDependency("tailwindcss")]: astroConfig.devOptions.tailwindConfig} : {})
+          }
+        }
+      ]
+    ],
+    devOptions: {
+      open: "none",
+      output: "stream",
+      port: 0,
+      hmr: isHmrEnabled,
+      tailwindConfig: astroConfig.devOptions.tailwindConfig
+    },
+    buildOptions: {
+      baseUrl: astroConfig.buildOptions.site || "/",
+      out: fileURLToPath(astroConfig.dist)
+    },
+    packageOptions: {
+      knownEntrypoints,
+      external
+    }
+  });
+  const polyfillNode = snowpackConfig.packageOptions.polyfillNode;
+  if (!polyfillNode) {
+    snowpackConfig.alias = Object.assign({}, Object.fromEntries(nodeBuiltinsMap), (_a = snowpackConfig.alias) != null ? _a : {});
+  }
+  snowpack = await startSnowpackServer({
+    config: snowpackConfig,
+    lockfile: null
+  }, {
+    isWatch: mode === "development"
+  });
+  const snowpackRuntime = snowpack.getServerRuntime();
+  astroPluginOptions.configManager.snowpackRuntime = snowpackRuntime;
+  return {snowpack, snowpackRuntime, snowpackConfig, configManager};
+}
+async function createRuntime(astroConfig, {mode, logging}) {
+  let snowpack;
+  const timer = {};
+  const resolvePackageUrl = async (pkgName) => snowpack.getUrlForPackage(pkgName);
+  timer.backend = performance.now();
+  const {
+    snowpack: snowpackInstance,
+    snowpackRuntime,
+    snowpackConfig,
+    configManager
+  } = await createSnowpack(astroConfig, {
+    logging,
+    mode,
+    resolvePackageUrl
+  });
+  snowpack = snowpackInstance;
+  debug(logging, "core", `snowpack created [${stopTimer(timer.backend)}]`);
+  const runtimeConfig = {
+    astroConfig,
+    cache: {staticPaths: {}},
+    logging,
+    mode,
+    snowpack,
+    snowpackRuntime,
+    snowpackConfig,
+    configManager,
+    manifest: createManifest({config: astroConfig})
+  };
+  snowpack.onFileChange(({filePath}) => {
+    runtimeConfig.cache.staticPaths = {};
+    if (filePath.includes(fileURLToPath(astroConfig.pages))) {
+      runtimeConfig.manifest = createManifest({config: astroConfig});
+    }
+  });
+  return {
+    runtimeConfig,
+    load: load.bind(null, runtimeConfig),
+    getStaticPaths: getStaticPathsMemoized.bind(null, runtimeConfig),
+    shutdown: () => snowpack.shutdown()
+  };
+}
+export {
+  createRuntime
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vc3JjL3J1bnRpbWUudHMiXSwKICAibWFwcGluZ3MiOiAiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQVNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBLE1BQU0sQ0FBRSxnQkFBaUI7QUFnQ3pCLHdCQUF3QjtBQUV4QixtQkFBbUIsT0FBaUI7QUFJbEMsUUFBTSxLQUFLLENBQUMsVUFBMkI7QUFDckMsVUFBTSxTQUFpQjtBQUN2QixVQUFNLFFBQVEsQ0FBQyxLQUFLLE1BQU07QUFDeEIsVUFBSSxJQUFJLFdBQVcsUUFBUTtBQUN6QixlQUFPLElBQUksTUFBTSxNQUFNLE1BQU0sSUFBSSxLQUFLLG1CQUFtQixNQUFNLElBQUksTUFBTTtBQUFBLGFBQ3BFO0FBQ0wsZUFBTyxPQUFPLG1CQUFtQixNQUFNLElBQUk7QUFBQTtBQUFBO0FBRy9DLFdBQU87QUFBQTtBQUdULFNBQU87QUFBQTtBQUdULHNDQUFzQyxlQUFtQyxXQUFtQixLQUFVLE1BQXlEO0FBQzdKLGdCQUFjLE1BQU0sWUFBWSxhQUFhLGNBQWMsTUFBTSxZQUFZLGNBQWMsSUFBSSxRQUFRLGVBQWU7QUFDdEgsU0FBUSxPQUFNLGNBQWMsTUFBTSxZQUFZLFlBQVk7QUFBQTtBQUk1RCxvQkFBb0IsUUFBNEIsYUFBc0Q7QUFDcEcsUUFBTSxDQUFFLFNBQVMsaUJBQWlCLFVBQVUsaUJBQWtCO0FBQzlELFFBQU0sQ0FBRSxjQUFjLGNBQWUsT0FBTztBQUU1QyxRQUFNLE9BQU8sSUFBSSxJQUFJLGFBQWEsUUFBUSxVQUFVLFdBQVcsWUFBWSxXQUFXO0FBQ3RGLFFBQU0sVUFBVSxJQUFJLElBQUksZUFBZSxLQUFLLEtBQUs7QUFFakQsUUFBTSxVQUFVLFVBQVUsUUFBUTtBQUVsQyxNQUFJO0FBQ0YsVUFBTSxTQUFTLE1BQU0sU0FBUyxRQUFRO0FBQ3RDLFFBQUksQ0FBQztBQUFRLFlBQU0sSUFBSSxNQUFNLGtCQUFrQjtBQUUvQyxVQUFNLFNBQVMsVUFBVTtBQUN6QixXQUFPO0FBQUEsTUFDTCxZQUFZO0FBQUEsT0FDVDtBQUFBLFdBRUUsS0FBUDtBQUVBLFFBQUksSUFBSSxRQUFRO0FBQ2QsYUFBTyxDQUFFLFlBQVksS0FBSyxNQUFNLFdBQVcsT0FBTztBQUFBO0FBQUE7QUFNdEQsT0FBSyxTQUFTLFVBQVU7QUFDeEIsUUFBTSxhQUFhLE9BQU8sU0FBUyxPQUFPLEtBQUssQ0FBQyxVQUFVLE1BQU0sUUFBUSxLQUFLO0FBQzdFLE1BQUksQ0FBQyxZQUFZO0FBQ2YsV0FBTyxDQUFFLFlBQVksS0FBSyxPQUFPLElBQUksTUFBTTtBQUFBO0FBRzdDLFFBQU0sY0FBYyxXQUFXLFFBQVEsS0FBSztBQUM1QyxRQUFNLGdCQUFnQix1QkFBdUIsWUFBWSxPQUFPO0FBQ2hFLFFBQU0sU0FBUyxjQUFjLFVBQVUsV0FBVyxRQUFRLGVBQWU7QUFDekUsTUFBSSxZQUFZO0FBRWhCLE1BQUk7QUFDRixRQUFJLGNBQWMsZUFBZTtBQUMvQixZQUFNLGNBQWM7QUFBQTtBQUV0QixVQUFNLE1BQU0sTUFBTSxnQkFBZ0IsYUFBYSxjQUFjO0FBQzdELFVBQU0sU0FBUyxXQUFXLEdBQUcsY0FBYyxjQUFjO0FBSXpELFFBQUksQ0FBQyxXQUFXLE1BQU07QUFDcEIsbUNBQTZCO0FBQzdCLFlBQU0sY0FBYyxNQUFNLHVCQUF1QixRQUFRLFdBQVcsV0FBVyxLQUFLO0FBQUEsUUFDbEYsVUFBVSx5QkFBeUI7QUFBQSxRQUNuQyxLQUFLLE1BQU07QUFBQTtBQUFBO0FBSWIsbUNBQTZCLGFBQWE7QUFDMUMsWUFBTSxvQkFBb0IsWUFBWSxLQUFLLENBQUMsQ0FBRSxRQUFRLGFBQWMsS0FBSyxVQUFVLGFBQWEsS0FBSyxVQUFVO0FBQy9HLFVBQUksQ0FBQyxtQkFBbUI7QUFDdEIsZUFBTyxDQUFFLFlBQVksS0FBSyxPQUFPLElBQUksTUFBTSwrRUFBK0U7QUFBQTtBQUU1SCxrQkFBWSxtQkFBSyxrQkFBa0IsVUFBVztBQUFBO0FBR2hELFVBQU0sYUFBYSxJQUFJLElBQUksUUFBUTtBQUluQyxRQUFJLFlBQVksUUFBUTtBQUN0QixpQkFBVyxTQUFTO0FBQUE7QUFHdEIsUUFBSSxPQUFRLE1BQU0sSUFBSSxRQUFRLGFBQWE7QUFBQSxNQUN6QyxTQUFTO0FBQUEsUUFDUDtBQUFBLFFBQ0EsS0FBSztBQUFBLFFBQ0wsY0FBYyxhQUFhLFdBQVcsVUFBVSxLQUFLO0FBQUE7QUFBQSxNQUV2RCxVQUFVO0FBQUEsTUFDVixPQUFPO0FBQUEsTUFDUCxLQUFLLE1BQU0sUUFBUSxJQUFJLE9BQU8sSUFBSSxNQUFNLE9BQU8sSUFBSSxRQUFRLFdBQVcsQ0FBQyxJQUFJLE9BQU87QUFBQSxNQUNsRixTQUFTLElBQUksUUFBUSxRQUFRLE9BQU8sSUFBSTtBQUFBO0FBRzFDLFdBQU87QUFBQSxNQUNMLFlBQVk7QUFBQSxNQUNaLGFBQWE7QUFBQSxNQUNiLFVBQVU7QUFBQSxNQUNWLEtBQUs7QUFBQTtBQUFBLFdBRUEsS0FBUDtBQUNBLFFBQUksZUFBZSxFQUFFLFVBQVU7QUFDN0IsY0FBUSxJQUFJLGtCQUFrQjtBQUM5QixhQUFPO0FBQUEsUUFDTCxZQUFZO0FBQUEsUUFDWixNQUFNO0FBQUEsUUFDTixPQUFPO0FBQUE7QUFBQTtBQUlYLFFBQUksSUFBSSxTQUFTLGlCQUFpQixlQUFlLGFBQWE7QUFDNUQsYUFBTztBQUFBLFFBQ0wsWUFBWTtBQUFBLFFBQ1osTUFBTTtBQUFBLFFBQ04sT0FBTztBQUFBO0FBQUE7QUFJWCxRQUFJLGVBQWUsa0JBQWtCLElBQUksV0FBVyxTQUFTLDBCQUEwQjtBQUNyRixhQUFPO0FBQUEsUUFDTCxZQUFZO0FBQUEsUUFDWixNQUFNO0FBQUEsUUFDTixPQUFPLElBQUksTUFDVCxJQUFJO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQVFWLFFBQUksZUFBZSxpQkFBaUIsYUFBYTtBQUMvQyxZQUFNLFlBQVksSUFBSSxXQUFXLE1BQU07QUFDdkMsWUFBTSxjQUFtQyxhQUFhLFVBQVUsR0FBRyxRQUFRLGFBQWEsSUFBSSxRQUFRLGdCQUFnQixPQUFRO0FBQzVILFlBQU0sV0FBVyxLQUFLLFFBQVEsZUFBZSxjQUFjLFlBQVksUUFBUSxRQUFRO0FBQ3ZGLFlBQU0sVUFBVSxXQUFXLFVBQVUsQ0FBRSxhQUFhLE9BQU87QUFDM0QsWUFBTSxPQUFPLFdBQVcsV0FBVyxNQUFNLEdBQUcsU0FBUyxTQUFTLFVBQVU7QUFLeEUsVUFBSSxRQUFRO0FBQ1osWUFBTSxXQUFXLGNBQWMsWUFBWSxNQUFNLEtBQUssT0FBTyxDQUFDLFlBQVksQ0FBQyxDQUFDLFdBQVc7QUFDdkYsYUFBTyxTQUFTLFFBQVE7QUFDdEIsY0FBTSxjQUFjLEtBQUssUUFBUSxTQUFTLEtBQUs7QUFDL0MsWUFBSSxlQUFlLEdBQUc7QUFDcEIsa0JBQVE7QUFDUjtBQUFBO0FBRUYsaUJBQVM7QUFBQTtBQUdYLGFBQU87QUFBQSxRQUNMLFlBQVk7QUFBQSxRQUNaLE1BQU07QUFBQSxRQUNOLE9BQU8sSUFBSSxhQUFhO0FBQUEsVUFDdEI7QUFBQSxVQUNBLFVBQVUsUUFBUTtBQUFBLFVBQ2xCO0FBQUEsVUFFQSxLQUFLO0FBQUEsVUFDTCxTQUFTLGlCQUFpQixjQUFjLEtBQUssaUJBQWlCO0FBQUE7QUFBQTtBQUFBO0FBS3BFLFdBQU87QUFBQSxNQUNMLFlBQVk7QUFBQSxNQUNaLE1BQU07QUFBQSxNQUNOLE9BQU87QUFBQTtBQUFBO0FBQUE7QUF3QmIsOEJBQThCLGFBQTBCLFNBQWdDO0FBOVF4RjtBQStRRSxRQUFNLENBQUUsYUFBYSxPQUFRO0FBQzdCLFFBQU0sQ0FBRSxNQUFNLFNBQVMscUJBQXNCO0FBRTdDLFFBQU0sZUFBZSxJQUFJLElBQUksZUFBZSxZQUFZO0FBQ3hELFFBQU0sb0JBQW9CLENBQUMsUUFBZ0IsUUFBUSxLQUFLLEtBQUssQ0FBRSxTQUFTLGNBQWM7QUFDdEYsUUFBTSxlQUFlLFNBQVM7QUFHOUIsUUFBTSxnQkFBZ0IsSUFBSSxjQUFjLGFBQWE7QUFFckQsTUFBSTtBQUNKLE1BQUkscUJBT0E7QUFBQSxJQUNGO0FBQUEsSUFDQTtBQUFBLElBQ0E7QUFBQSxJQUNBO0FBQUEsSUFDQTtBQUFBO0FBR0YsUUFBTSxlQUFlLGlDQUNmLFdBQVcsWUFBWSxVQUFVLEVBQUcsY0FBYyxZQUFZLFVBQVUsQ0FBRSxLQUFLLEtBQUssUUFBUSxNQUFNLFNBQVMsVUFBWSxLQUR4RztBQUFBLEtBRWxCLGNBQWMsZ0JBQWdCO0FBQUEsS0FDOUIsY0FBYyxPQUFPO0FBQUE7QUFJeEIsTUFBSSxZQUFZLFdBQVcsZ0JBQWdCO0FBQ3pDLElBQUMsUUFBUSxJQUFZLHlCQUF5QjtBQUFBO0FBSWhELFFBQU0sb0JBQW9CLE1BQU0sY0FBYztBQUM5QyxRQUFNLG1CQUE2QjtBQUFBLElBQ2pDO0FBQUEsSUFDQTtBQUFBLElBQ0E7QUFBQSxJQUNBO0FBQUEsSUFDQTtBQUFBLElBQ0E7QUFBQTtBQUVGLGFBQVcsWUFBWSxtQkFBbUI7QUFDeEMscUJBQWlCLEtBQUssU0FBUztBQUMvQixRQUFJLFNBQVMsUUFBUTtBQUNuQix1QkFBaUIsS0FBSyxTQUFTO0FBQUE7QUFFakMsUUFBSSxTQUFTLGtCQUFrQjtBQUM3Qix1QkFBaUIsS0FBSyxHQUFHLFNBQVM7QUFBQTtBQUVwQyxxQkFBaUIsS0FBSyxHQUFHLFNBQVM7QUFDbEMscUJBQWlCLEtBQUssR0FBRyxTQUFTO0FBQUE7QUFFcEMsUUFBTSxXQUFXLGtCQUFrQixPQUFPO0FBQzFDLGFBQVcsWUFBWSxtQkFBbUI7QUFDeEMsUUFBSSxTQUFTLFVBQVU7QUFDckIsZUFBUyxLQUFLLEdBQUcsU0FBUztBQUFBO0FBQUE7QUFHOUIsUUFBTSwwQkFBMEIsa0JBQWtCLE9BQU8sQ0FBQyxhQUFhLFNBQVMsZ0JBQWdCLElBQUksQ0FBQyxhQUFhLFNBQVM7QUFFM0gsUUFBTSxpQkFBaUIsTUFBTSxrQkFBa0I7QUFBQSxJQUM3QyxNQUFNLGNBQWM7QUFBQSxJQUNwQixPQUFPO0FBQUEsSUFDUDtBQUFBLElBQ0EsU0FBUztBQUFBLE1BQ1AsQ0FBQyxjQUFjLElBQUksSUFBSSw4QkFBOEIsWUFBWSxPQUFPO0FBQUEsTUFDeEUsQ0FBQyxjQUFjLElBQUksSUFBSSwwQkFBMEIsWUFBWSxPQUFPO0FBQUEsTUFDcEUsR0FBRztBQUFBLE1BQ0gsa0JBQWtCO0FBQUEsTUFDbEI7QUFBQSxRQUNFLGtCQUFrQjtBQUFBLFFBQ2xCO0FBQUEsVUFDRSxRQUFRO0FBQUEsWUFDTixTQUFTO0FBQUEsZUFDTixrQkFBa0Isa0JBQWtCO0FBQUEsZUFDakMsWUFBWSxXQUFXLGlCQUFpQixFQUFHLGtCQUFrQixpQkFBaUIsWUFBWSxXQUFXLGtCQUFtQjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsSUFNdEksWUFBWTtBQUFBLE1BQ1YsTUFBTTtBQUFBLE1BQ04sUUFBUTtBQUFBLE1BQ1IsTUFBTTtBQUFBLE1BQ04sS0FBSztBQUFBLE1BQ0wsZ0JBQWdCLFlBQVksV0FBVztBQUFBO0FBQUEsSUFFekMsY0FBYztBQUFBLE1BQ1osU0FBUyxZQUFZLGFBQWEsUUFBUTtBQUFBLE1BQzFDLEtBQUssY0FBYyxZQUFZO0FBQUE7QUFBQSxJQUVqQyxnQkFBZ0I7QUFBQSxNQUNkO0FBQUEsTUFDQTtBQUFBO0FBQUE7QUFJSixRQUFNLGVBQWdCLGVBQWUsZUFBdUI7QUFDNUQsTUFBSSxDQUFDLGNBQWM7QUFDakIsbUJBQWUsUUFBUSxPQUFPLE9BQU8sSUFBSSxPQUFPLFlBQVksa0JBQWtCLHFCQUFlLFVBQWYsWUFBd0I7QUFBQTtBQUd4RyxhQUFXLE1BQU0sb0JBQ2Y7QUFBQSxJQUNFLFFBQVE7QUFBQSxJQUNSLFVBQVU7QUFBQSxLQUVaO0FBQUEsSUFDRSxTQUFTLFNBQVM7QUFBQTtBQUd0QixRQUFNLGtCQUFrQixTQUFTO0FBQ2pDLHFCQUFtQixjQUFjLGtCQUFrQjtBQUVuRCxTQUFPLENBQUUsVUFBVSxpQkFBaUIsZ0JBQWdCO0FBQUE7QUFJdEQsNkJBQW9DLGFBQTBCLENBQUUsTUFBTSxVQUFrRDtBQUN0SCxNQUFJO0FBQ0osUUFBTSxRQUFnQztBQUN0QyxRQUFNLG9CQUFvQixPQUFPLFlBQW9CLFNBQVMsaUJBQWlCO0FBRS9FLFFBQU0sVUFBVSxZQUFZO0FBQzVCLFFBQU07QUFBQSxJQUNKLFVBQVU7QUFBQSxJQUNWO0FBQUEsSUFDQTtBQUFBLElBQ0E7QUFBQSxNQUNFLE1BQU0sZUFBZSxhQUFhO0FBQUEsSUFDcEM7QUFBQSxJQUNBO0FBQUEsSUFDQTtBQUFBO0FBRUYsYUFBVztBQUNYLFFBQU0sU0FBUyxRQUFRLHFCQUFxQixVQUFVLE1BQU07QUFFNUQsUUFBTSxnQkFBb0M7QUFBQSxJQUN4QztBQUFBLElBQ0EsT0FBTyxDQUFFLGFBQWE7QUFBQSxJQUN0QjtBQUFBLElBQ0E7QUFBQSxJQUNBO0FBQUEsSUFDQTtBQUFBLElBQ0E7QUFBQSxJQUNBO0FBQUEsSUFDQSxVQUFVLGVBQWUsQ0FBRSxRQUFRO0FBQUE7QUFHckMsV0FBUyxhQUFhLENBQUMsQ0FBRSxjQUFxQztBQUU1RCxrQkFBYyxNQUFNLGNBQWM7QUFFbEMsUUFBSSxTQUFTLFNBQVMsY0FBYyxZQUFZLFNBQVM7QUFDdkQsb0JBQWMsV0FBVyxlQUFlLENBQUUsUUFBUTtBQUFBO0FBQUE7QUFJdEQsU0FBTztBQUFBLElBQ0w7QUFBQSxJQUNBLE1BQU0sS0FBSyxLQUFLLE1BQU07QUFBQSxJQUN0QixnQkFBZ0IsdUJBQXVCLEtBQUssTUFBTTtBQUFBLElBQ2xELFVBQVUsTUFBTSxTQUFTO0FBQUE7QUFBQTsiLAogICJuYW1lcyI6IFtdCn0K
