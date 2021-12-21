@@ -3,7 +3,7 @@ import BlueTag from "../components/BlueTag.astro"
 import Bubbles from "../components/bubbles/index.astro"
 import ExternalLink from "../components/ExternalLink.astro"
 import Button from "../components/button/index.astro"
-import IconShoppingCart from "../components/icons/IconShoppingCart.astro"
+import IconNotification from "../components/icons/IconNotification.astro"
 ---
 
 <html lang="en">
@@ -150,20 +150,15 @@ import IconShoppingCart from "../components/icons/IconShoppingCart.astro"
             <BlueTag label="cours en ligne" />
         </div>
         <p class="mt-10 text-lg">Apprendre à concevoir et faciliter des ateliers collaboratifs, stratégiques et productifs</p>
-        <div class="flex flex-wrap">
-            <div class="w-full">
-                <div class="flex items-center justify-center border-2 border-downriver h-[58px] rounded-[50px] bg-white">
-                    Suivre l'avancée du projet
-                </div>
-            </div>
-            <div class="w-full">
-                <br>
+        <div class="mt-12">
+            <div class="w-[291px] mx-auto md:w-auto md:flex md:items-center">
                 <Button type="primary">
-                    <IconShoppingCart slot="icon" />
+                    <IconNotification slot="icon" />
                     <span slot="label">
-                        Précommander le cours
+                        Me prévenir du lancement
                     </span>
                 </Button>
+                <p class="mt-4 font-bold tracking-[0.03em] text-[14px] md:inline-block w-[230px] md:ml-4 md:mt-0">Vous recevrez un code promo en avant-première !</p>
             </div>
         </div>
     </div>
