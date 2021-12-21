@@ -4,10 +4,10 @@ import BlueTag from "../components/@commons/BlueTag.astro"
 import Hero from "../components/hero/index.astro"
 import CoursProposePar from "../components/cours-propose-par/index.astro"
 import QuiAApprisALecole from "../components/qui-a-appris-a-lecole/index.astro"
-
 import Bubbles from "../components/bubbles/index.astro"
-import ExternalLink from "../components/ExternalLink.astro"
-import BlueQuote from "../components/BlueQuote.astro"
+import Signatures from "../components/signatures/index.astro"
+
+import BlueQuote from "../components/@commons/BlueQuote.astro"
 import Punchline from "../components/Punchline.astro"
 import IconNotification from "../components/icons/IconNotification.astro"
 import CoursBientotDisponible from "../components/cours-bientot-disponible/index.astro"
@@ -59,7 +59,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
       <Hero />
     </div>
 
-    <div class="bg-white pt-24">
+    <div class="bg-white py-24">
 
       <div class="container">
         <CoursProposePar />
@@ -69,53 +69,12 @@ import MentionsLegales from "../components/MentionsLegales.astro"
         <QuiAApprisALecole />
       </div>
 
-      <div class="md:container mt-16">
+      <div class="mt-16">
         <Bubbles/>
       </div>
 
-      <div class="container pt-16 pb-28">
-        <div class="flex flex-wrap">
-          <div class="w-full">
-            <BlueQuote />
-          </div>
-          <div class="w-full">
-            <h3 class="my-4 text-2xl leading-10 font-serif">
-              Tout ce qu'on aurait aimé savoir avant d'organiser notre premier atelier UX 🔥
-            </h3>
-            <div class="text-lg">
-              <p>Ce cours en ligne moderne et pragmatique condense nos apprentissages et retours d'expérience des dizaines
-                d'ateliers que l'on a pu penser, mener puis analyser pour les entreprises dans lesquelles ou pour lesquelles
-                on a travaillé.</p>
-              <br>
-              <p>Concrètement, on y rassemble ce que l'on aurait adoré savoir avant d'organiser notre premier atelier il y a
-                7 ans déjà : les stratégies possibles, les méthodologies éprouvées, les moyens de les hacker, les erreurs à
-                ne pas commettre, les astuces à dégainer, les bonnes pratiques à respecter...</p>
-              <br>
-              <p>Bref, un cours pensé par des pros, pour des pros, sans bullshit et principalement fondé sur le partage
-                d'expériences.</p>
-              <p>Who's in? 🤘</p>
-            </div>
-          </div>
-          <div class="w-full flex mt-4 text-lg">
-            <div class="flex-1">
-              <div class="flex items-center h-[83px]">
-                <img src="/yuna-signature.png" width="83" height="56" alt="Yuna Orsini's signature"/>
-              </div>
-              <p class="mb-3">Yuna Orsini</p>
-              <ExternalLink label="Linkedin" href="http://google.fr"/>
-            </div>
-            <div class="flex-1">
-              <div class="flex items-center h-[83px]">
-                <img src="/dani-signature.png" width="83" height="62" alt="Daniela Peñeranda's signature"/>
-              </div>
-              <p class="mb-3">Daniela<br>Peñeranda</p>
-              <ExternalLink label="Linkedin" href="http://google.fr"/>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+      <div class="container mt-16">
+        <Signatures />
       </div>
     </div>
 
