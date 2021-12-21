@@ -1,11 +1,18 @@
 ---
-import styles from "./CourseCharacteristic.module.css";
-
 const { icon, title, description } = Astro.props;
 ---
+
+<style>
+  .description {
+    @apply text-sm;
+
+    margin-left: calc(40px + theme("spacing.6"));
+  }
+</style>
 
 <div class="flex items-center">
   <div class="mr-6">{icon}</div>
   <p class="text-lg font-bold">{title}</p>
 </div>
-{description && <p class={styles.description}>{description}</p>}
+
+{description && <p class="description">{description}</p>}
