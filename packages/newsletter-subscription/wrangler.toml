@@ -8,5 +8,9 @@ compatibility_date = "2021-12-20"
 
 [build]
 command = "pnpm run build"
+
 [build.upload]
 format = "service-worker"
+
+[dev]
+ip = "0.0.0.0"

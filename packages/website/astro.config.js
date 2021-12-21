@@ -28,5 +28,14 @@ module.exports = {
     define: {
       tailwindConfig: JSON.stringify(fullConfig),
     },
+    server: {
+      proxy: {
+        "/subscribe": {
+          target: "http://0.0.0.0:8787",
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/subscribe/, ""),
+        },
+      },
+    },
   },
 };
