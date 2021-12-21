@@ -1,0 +1,5 @@
+.description {
+  @apply text-sm;
+
+  margin-left: calc(40px + theme("spacing.6"));
+}
