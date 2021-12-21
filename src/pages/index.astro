@@ -179,7 +179,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
   <div class="bg-magnolia py-24">
     <div class="container">
       <Grid>
-        <div class="col-start-2 col-span-7">
+        <div class="col-span-full xl:col-start-2 xl:col-span-7">
           <CoursBientotDisponible />
 
           <div class="mt-12">
@@ -192,13 +192,15 @@ import MentionsLegales from "../components/MentionsLegales.astro"
 
   <div class="bg-downriver pt-24">
     <div class="container">
-      <QuestionsFrequentes />
-    </div>
-  </div>
+      <Grid>
+        <div class="mb-14 col-span-full xl:col-start-1 xl:col-span-10">
+          <QuestionsFrequentes />
+        </div>
 
-  <div class="bg-downriver">
-    <div class="container">
-      <MentionsLegales />
+        <div class="pb-10 col-span-full">
+          <MentionsLegales />
+        </div>
+      </Grid>
     </div>
   </div>
 </body>
