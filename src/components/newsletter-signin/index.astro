@@ -9,7 +9,7 @@ import IconNotification from "../@commons/icons/IconNotification.astro"
     @apply text-base bg-white rounded-full border border-gray;
 
     width: 100%;
-    height: 60px;
+    height: 62px;
     padding: 22px 30px;
   }
 
@@ -32,7 +32,7 @@ import IconNotification from "../@commons/icons/IconNotification.astro"
 
   .input:focus + label::after,
   .input:not(:placeholder-shown) + label::after {
-    transform: translate(31px, -53px) scale(0.75);
+    transform: translate(31px, -54px) scale(0.75);
   }
 
   .input:invalid {
@@ -52,7 +52,7 @@ import IconNotification from "../@commons/icons/IconNotification.astro"
     content: attr(data-content);
     display: inline-block;
     transform-origin: left center;
-    transform: translate(31px, -43px) scale(1);
+    transform: translate(31px, -44px) scale(1);
     transition: all 200ms;
   }
 
@@ -69,7 +69,7 @@ import IconNotification from "../@commons/icons/IconNotification.astro"
 </div>
 
 <form>
-  <fieldset class="flex flex-wrap flex-col xl:gap-[25px] xl:flex-row">
+  <fieldset class="flex flex-wrap flex-col xl:gap-[25px] xl:items-center xl:flex-row">
     <div class="flex-1">
       <input
         type="email"
@@ -77,14 +77,13 @@ import IconNotification from "../@commons/icons/IconNotification.astro"
         class="input"
         name="email"
         placeholder="Votre adresse email"
-        required="true"
       />
       <label class="label" for="email" data-content="Votre adresse email">
         <span class="sr-only">Votre adresse email</span>
       </label>
     </div>
 
-    <div class="flex justify-center mt-6 xl:block xl:mt-0">
+    <div class="flex justify-center mt-6 xl:block xl:mt-0 xl:translate-y-[2px]">
       <Button type="submit">
         <IconNotification slot="icon"/>
         <span slot="label">Me prévenir du lancement</span>
