@@ -5,16 +5,20 @@ declare var MJ_APIKEY_PRIVATE: string;
 addEventListener("fetch", (event) => {
   if (event.request.method !== "POST") {
     event.respondWith(new Response("", { status: 405 }));
+  } else if (!event.request.headers.get("content-type")?.includes("application/json")) {
+    event.respondWith(new Response("", { status: 415 }));
   } else {
-    event.respondWith(handleResponse());
+    event.respondWith(handleResponse(event.request));
   }
 });
 
-async function handleResponse() {
+async function handleResponse(request: Request) {
+  const { email } = await request.json();
+
   return fetch(`https://api.mailjet.com/v3/REST/contactslist/${MJ_LIST_ID}/managecontact`, {
     body: JSON.stringify({
       Action: "addforce",
-      Email: "test1@gmail.com",
+      Email: email,
     }),
     headers: {
       Authorization: `Basic ${btoa(`${MJ_APIKEY_PUBLIC}:${MJ_APIKEY_PRIVATE}`)}`,
