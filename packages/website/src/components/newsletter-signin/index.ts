@@ -1,4 +1,4 @@
-type FormValidationType = "invalid-email" | "api-error";
+type FormValidationType = "invalid-email" | "api-error" | "successfully-subscribed" | "already-subscribed";
 
 (() => {
   document.querySelectorAll(".newsletter-form").forEach((htmlFormElement) => {
@@ -8,14 +8,15 @@ type FormValidationType = "invalid-email" | "api-error";
 
     const emailInput = htmlFormElement.querySelector<HTMLInputElement>("input[type=email]");
 
-    //emailInput.setCustomValidity("L’adresse email doit être au format : adresse@email.com");
     emailInput.addEventListener("input", (e) => {
       if (emailInputValueIsValid()) {
-        removeValidationMessage("invalid-email");
+        removeAllValidationMessages();
       }
     });
 
     emailInput.addEventListener("blur", (e) => {
+      removeAllValidationMessages();
+
       if (emailInputValueIsValid()) {
         removeValidationMessage("invalid-email");
       } else {
@@ -27,10 +28,30 @@ type FormValidationType = "invalid-email" | "api-error";
     htmlFormElement.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      if (emailInputValueIsValid()) {
+      if (!emailInputValueIsValid()) {
+        displayValidationMessage("invalid-email");
+      } else {
         removeAllValidationMessages();
 
         fetching = true;
+
+        fetch("/subscribe", {
+          method: "POST",
+          body: JSON.stringify({
+            email: emailInput.value,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }).then((response) => {
+          if (response.ok) {
+            displayValidationMessage("successfully-subscribed");
+          } else {
+            displayValidationMessage("api-error");
+          }
+
+          fetching = false;
+        });
       }
     });
 

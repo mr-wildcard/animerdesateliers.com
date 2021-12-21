@@ -2,6 +2,10 @@ declare var MJ_LIST_ID: string;
 declare var MJ_APIKEY_PUBLIC: string;
 declare var MJ_APIKEY_PRIVATE: string;
 
+/**
+ * https://dev.mailjet.com/email/reference/contacts/subscriptions/
+ */
+
 addEventListener("fetch", (event) => {
   if (event.request.method !== "POST") {
     event.respondWith(new Response("", { status: 405 }));
@@ -13,11 +17,13 @@ addEventListener("fetch", (event) => {
 });
 
 async function handleResponse(request: Request) {
+  // return new Response("", { status: 500 });
+
   const { email } = await request.json();
 
   return fetch(`https://api.mailjet.com/v3/REST/contactslist/${MJ_LIST_ID}/managecontact`, {
     body: JSON.stringify({
-      Action: "addforce",
+      Action: "addnoforce",
       Email: email,
     }),
     headers: {
