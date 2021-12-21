@@ -3,17 +3,17 @@
     {
       "title": "Module 1. Stratégie",
       "content": {
-        "title": "Comprendre les besoins et proposer une stratégie d’atelier UX adaptée.",
+        "title": "Comprendre les besoins et proposer une stratégie d'atelier UX adaptée.",
         "items": [
-          "Comment détecter un besoin d’atelier UX ?",
-          "Comment convaincre en interne ou sa clientèle d’organiser un atelier UX ?",
+          "Comment détecter un besoin d'atelier UX ?",
+          "Comment convaincre en interne ou sa clientèle d'organiser un atelier UX ?",
           "Combien un atelier UX se vend-il ?",
-          "Comment définir les objectifs de l’atelier UX avec les parties prenantes ?",
+          "Comment définir les objectifs de l'atelier UX avec les parties prenantes ?",
           "Quel format choisir entre présentiel, distanciel, hybride, synchrone et asynchrone ?",
           "Combien de temps dédier à un atelier UX ?",
           "Quels profils de personnes participantes recruter ?"
         ],
-        "toolbox": ["Template de brief pour un atelier UX", "Template d’email pour convaincre son boss"]
+        "toolbox": ["Template de brief pour un atelier UX", "Template d'email pour convaincre son boss"]
       }
     },
     {
@@ -22,18 +22,18 @@
         "title": "Maîtriser les exercices-clés puis les hacker pour concevoir un atelier UX sur-mesure.",
         "items": [
           "Comment utiliser le design thinking en atelier UX ?",
-          "Quels sont les exercices d’atelier les plus éprouvés ?",
-          "Comment mettre au point un exercice d’atelier sur-mesure ?",
+          "Quels sont les exercices d'atelier les plus éprouvés ?",
+          "Comment mettre au point un exercice d'atelier sur-mesure ?",
           "Un ice breaker est-il nécessaire ?",
-          "Les exercices d’un atelier en ligne sont-ils différents de ceux d’un atelier présentiel ?",
+          "Les exercices d'un atelier en ligne sont-ils différents de ceux d'un atelier présentiel ?",
           "Quel outil numérique choisir pour un exercice UX en ligne ?",
-          "Comment garantir un déroulé fluide dans l’atelier UX ?",
-          "Comment garantir l’accessibilité et l’inclusivité dans un atelier UX ?"
+          "Comment garantir un déroulé fluide dans l'atelier UX ?",
+          "Comment garantir l'accessibilité et l'inclusivité dans un atelier UX ?"
         ],
         "toolbox": [
           "Mémo des exercices éprouvés",
-          "Méthodologie de conception d’exercices",
-          "Kit d’ice breakers",
+          "Méthodologie de conception d'exercices",
+          "Kit d'ice breakers",
           "Checklist accessibilité",
           "Checklist inclusivité"
         ]
@@ -42,37 +42,37 @@
     {
       "title": "Module 3. Organisation",
       "content": {
-        "title": "Rendre tangibles les concepts d’exercices et mettre en place le setup de l’atelier UX.",
+        "title": "Rendre tangibles les concepts d'exercices et mettre en place le setup de l'atelier UX.",
         "items": [
           "Pourquoi travailler sur le branding de chaque atelier UX ?",
           "Comment communiquer avant un atelier UX ?",
           "Quels supports de présentation et de travail prévoir ?",
           "Comment rédiger et communiquer les règles de chaque exercice ?",
-          "Quel matériel et quelle mise en place prévoir pour la salle d’atelier UX ?",
-          "Comment préparer l’espace de travail en ligne d’un atelier UX ?",
-          "Comment tester l’atelier UX en amont ?",
-          "Comment s’adapter en période de Covid-19 ?"
+          "Quel matériel et quelle mise en place prévoir pour la salle d'atelier UX ?",
+          "Comment préparer l'espace de travail en ligne d'un atelier UX ?",
+          "Comment tester l'atelier UX en amont ?",
+          "Comment s'adapter en période de Covid-19 ?"
         ],
         "toolbox": [
           "Planning de communication avant/pendant/après",
           "Templates Miro, Figjam, MURAL...",
-          "Liste d’achat de matériel"
+          "Liste d'achat de matériel"
         ]
       }
     },
     {
       "title": "Module 4. Animation",
       "content": {
-        "title": "Faciliter l’atelier UX, créer une dynamique et gérer les imprévus.",
+        "title": "Faciliter l'atelier UX, créer une dynamique et gérer les imprévus.",
         "items": [
           "Quels sont les rôles et devoirs de la personne facilitatrice ?",
-          "Comment accueillir les personnes participantes et les introduire à l’atelier ?",
+          "Comment accueillir les personnes participantes et les introduire à l'atelier ?",
           "Quelles techniques de facilitation utiliser ?",
-          "Comment s’adapter aux différents profils des personnes participantes ?",
-          "Comment gérer un flux d’idées trop faible ou trop fort ?",
+          "Comment s'adapter aux différents profils des personnes participantes ?",
+          "Comment gérer un flux d'idées trop faible ou trop fort ?",
           "Comment réagir quand rien ne se passe comme prévu dans un atelier UX ?",
-          "Peut-on modifier le déroulé de l’atelier UX en cours de route ?",
-          "Comment s’assurer de l’éthique des idées générées pendant un atelier UX ?",
+          "Peut-on modifier le déroulé de l'atelier UX en cours de route ?",
+          "Comment s'assurer de l'éthique des idées générées pendant un atelier UX ?",
           "Comment animer un atelier UX en ligne asynchrone ?",
           "Comment clore un atelier UX ?"
         ],
@@ -84,12 +84,12 @@
       "content": {
         "title": "Analyser les données générées pendant un atelier UX et les communiquer.",
         "items": [
-          "Quels sont les critères d’un atelier UX réussi ?",
-          "Quelle méthode d’analyse utiliser pour traiter les données générées en atelier UX ?",
+          "Quels sont les critères d'un atelier UX réussi ?",
+          "Quelle méthode d'analyse utiliser pour traiter les données générées en atelier UX ?",
           "Quel type de compte-rendu rédiger après un atelier UX ?",
-          "Comment partager les résultats de l’analyse de l’atelier UX avec les équipes ?"
+          "Comment partager les résultats de l'analyse de l'atelier UX avec les équipes ?"
         ],
-        "toolbox": ["Squelette de compte-rendu d’atelier UX"]
+        "toolbox": ["Squelette de compte-rendu d'atelier UX"]
       }
     }
   ]
