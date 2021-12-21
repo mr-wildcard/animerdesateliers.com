@@ -7,6 +7,7 @@ import IconQuiz from "../icons/IconQuiz.astro"
 import IconCockade from "../icons/IconCockade.astro"
 import IconFlag from "../icons/IconFlag.astro"
 import IconSmiley from "../icons/IconSmiley.astro"
+import Screenshot from "../Screenshot.astro"
 ---
 
 <style>
@@ -18,7 +19,7 @@ import IconSmiley from "../icons/IconSmiley.astro"
 </style>
 
 <div class="flex flex-wrap">
-  <div class="w-full">
+  <div>
     <ul class="space-y-8">
       <li>
         <CourseCharacteristic
@@ -71,26 +72,20 @@ import IconSmiley from "../icons/IconSmiley.astro"
   <div class="w-full mt-16">
     <ul class="space-y-5">
       <li>
-        <img
+        <Screenshot
           src="/course-screenshot-1.webp"
-          class="screenshot"
-          loading="lazy"
           alt="Première capture d'écran du site d'apprentissage en ligne"
         />
       </li>
       <li>
-        <img
+        <Screenshot
           src="/course-screenshot-2.webp"
-          class="screenshot"
-          loading="lazy"
           alt="Seconde capture d'écran du site d'apprentissage en ligne"
         />
       </li>
       <li>
-        <img
+        <Screenshot
           src="/course-screenshot-3.webp"
-          class="screenshot"
-          loading="lazy"
           alt="Troisième capture d'écran du site d'apprentissage en ligne"
         />
       </li>
