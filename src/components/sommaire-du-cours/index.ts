@@ -1,6 +1,6 @@
-// TODO: replace with relal Tailwind value passed on build time.
-const sommaireHTMLElement = document.querySelector("#sommaire");
-const mdBreakpoint = "(min-width: 1280px)";
+const sommaireHTMLElement = document.querySelector<HTMLDivElement>("#sommaire");
+const { desktopMinWidth } = sommaireHTMLElement.dataset;
+const mdBreakpoint = `(min-width: ${desktopMinWidth})`;
 const desktopMedia = window.matchMedia(mdBreakpoint);
 const openerMappedToContent = new Map<HTMLButtonElement, HTMLDivElement>();
 const openers = findOpeners();
