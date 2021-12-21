@@ -1,0 +1,21 @@
+---
+import BlueQuote from "../BlueQuote.astro";
+
+const { text, author } = Astro.props;
+---
+
+<div class="flex flex-col">
+  <div class="mb-5">
+    <BlueQuote width="34" height="25" />
+  </div>
+  <figure>
+    <blockquote class="mb-5">
+      <p class="md:text-xl">
+        {text}
+      </p>
+    </blockquote>
+    <figcaption class="font-bold md:text-lg">
+      {author}
+    </figcaption>
+  </figure>
+</div>

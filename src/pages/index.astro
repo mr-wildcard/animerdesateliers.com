@@ -2,12 +2,14 @@
 import BlueTag from "../components/BlueTag.astro"
 import Bubbles from "../components/bubbles/index.astro"
 import ExternalLink from "../components/ExternalLink.astro"
+import BlueQuote from "../components/BlueQuote.astro"
 import IconNotification from "../components/icons/IconNotification.astro"
 import CourseCharacteristics from "../components/course-characteristics/index.astro"
 import IncludedInThisCourse from "../components/included-in-this-course/index.astro"
 import Screenshot from "../components/Screenshot.astro"
 import NewsletterSignIn from "../components/NewsletterSignIn.astro"
 import LesFormatrices from "../components/les-formatrices/index.astro"
+import UneExperienceEprouvee from "../components/une-experience-eprouvee/index.astro"
 import SommaireDuCours from "../components/sommaire-du-cours/index.astro"
 import ObtenezUnCertificat from "../components/obtenez-un-certificat/index.astro"
 ---
@@ -130,13 +132,12 @@ import ObtenezUnCertificat from "../components/obtenez-un-certificat/index.astro
       <div class="container pt-16 pb-28">
         <div class="flex flex-wrap">
           <div class="w-full">
-            <svg width="81" height="60" viewBox="0 0 81 60" xmlns="http://www.w3.org/2000/svg">
-              <path d="M31.9407 0H0L6.68041 60H25.2603L31.9407 0ZM81 0H49.0593L55.7397 60H74.3196L81 0Z" fill="#0F24F7"/>
-            </svg>
+            <BlueQuote />
           </div>
           <div class="w-full">
-            <h3 class="my-4 text-2xl leading-10 font-serif">Tout ce qu'on aurait aimé savoir avant d'organiser notre premier
-              atelier UX 🔥</h3>
+            <h3 class="my-4 text-2xl leading-10 font-serif">
+              Tout ce qu'on aurait aimé savoir avant d'organiser notre premier atelier UX 🔥
+            </h3>
             <div class="text-lg">
               <p>Ce cours en ligne moderne et pragmatique condense nos apprentissages et retours d'expérience des dizaines
                 d'ateliers que l'on a pu penser, mener puis analyser pour les entreprises dans lesquelles ou pour lesquelles
@@ -246,6 +247,10 @@ import ObtenezUnCertificat from "../components/obtenez-un-certificat/index.astro
     <div class="bg-white py-28">
       <div class="container px-0">
         <LesFormatrices />
+      </div>
+
+      <div class="mt-24">
+        <UneExperienceEprouvee />
       </div>
     </div>
 
