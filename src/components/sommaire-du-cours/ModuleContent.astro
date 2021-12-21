@@ -7,7 +7,7 @@ const { index, title, items, toolbox } = Astro.props;
 const defaultCSSClasses = ["content"];
 
 if (index > 0) {
-  defaultCSSClasses.push("md:hidden");
+  defaultCSSClasses.push("xl:hidden");
 }
 ---
 <style lang="scss">
@@ -34,8 +34,8 @@ if (index > 0) {
   aria-labelledby={`module${index}_opener`}
   class={cs(defaultCSSClasses)}
 >
-  <div class="py-10 px-5 md:px-10 lg:px-0 lg:pl-32 lg:pt-20 lg:pb-32 lg:w-4/6">
-    <header class="mb-10 text-xl leading-[36px] font-bold md:text-2xl md:leading-[32px]">{title}</header>
+  <div class="py-10 px-5 xl:px-10 lg:px-0 lg:pl-32 lg:pt-20 lg:pb-32 lg:w-4/6">
+    <header class="mb-10 text-xl leading-[36px] font-bold xl:text-2xl xl:leading-[32px]">{title}</header>
 
     <ul class="space-y-4">
       {items.map((item, index) => (
@@ -43,7 +43,7 @@ if (index > 0) {
       ))}
     </ul>
 
-    <div class="mt-10 md:mt-20 lg:w-5/6">
+    <div class="mt-10 xl:mt-20 lg:w-5/6">
       <Toolbox items={toolbox} />
     </div>
   </div>
