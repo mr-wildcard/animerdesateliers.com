@@ -4,31 +4,11 @@ import cs from "classnames";
 import styles from "./styles.module.css";
 
 const { type } = Astro.props;
-
-const buttonContentCSSClasses = [
-    'flex',
-    'items-center',
-    'relative',
-    'h-[58px]',
-    'px-6',
-    'z-20',
-    'text-downriver',
-    'rounded-[50px]',
-    'bg-canary',
-    'border-2',
-    'border-downriver',
-    'translate-y-[-2px]',
-    'hover:bg-chiffon',
-    'active:translate-y-[0px]',
-    'transition-all'
-]
 ---
-<button class="{cs('group', 'relative', styles.button)}">
-    <span class="{cs(buttonContentCSSClasses)}">
+<button class="{styles.pushable}">
+    <span class="{styles.edge}" role="presentation"/>
+    <span class="{styles.front}">
         <slot name="icon" />
         <slot name="label" />
     </span>
-    <span role="presentation"
-          class="bg-downriver absolute inset-0 rounded-[50px] translate-y-[2px]"
-    />
 </button>

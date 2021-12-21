@@ -1,11 +1,56 @@
-.button {
-    isolation: isolate;
+/* https://www.joshwcomeau.com/animation/3d-button/ */
+.pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
 }
 
-.button:focus {
-    @apply outline-button rounded-[50px];
+.edge {
+  @apply bg-downriver;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
 }
 
-.button svg {
-    @apply mr-3;
+.front {
+  @apply bg-canary text-downriver border-2 border-downriver;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 15px 28px;
+  border-radius: 50px;
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: all 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.front svg {
+  @apply mr-3;
+}
+
+.pushable:hover .front {
+  @apply bg-chiffon;
+
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .front,
+.pushable:focus .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.pushable:focus:not(:focus-visible) {
+  outline: none;
 }
