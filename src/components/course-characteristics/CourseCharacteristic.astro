@@ -1,5 +1,5 @@
 ---
-const { icon, title, description } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <style>
@@ -11,7 +11,9 @@ const { icon, title, description } = Astro.props;
 </style>
 
 <div class="flex items-center">
-  <div class="mr-6">{icon}</div>
+  <span class="mr-6" role="presentation">
+    <slot name="icon" />
+  </span>
   <p class="text-lg font-bold">{title}</p>
 </div>
 

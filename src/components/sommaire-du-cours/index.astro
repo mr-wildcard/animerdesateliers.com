@@ -5,6 +5,8 @@ import Toolbox from "./Toolbox.astro"
 import data from "./data.json"
 ---
 
+<script src={Astro.resolve('./index.ts')} hoist></script>
+
 <style lang="scss">
   .summary-item {
     @apply border-b-2 border-downriver;
@@ -49,14 +51,14 @@ import data from "./data.json"
   }
 </style>
 
-<ul class="relative">
+<ul>
   {data.items.map((item, index) => (
     <li class="summary-item">
       <button
-        id="{`module${index}_trigger`}"
-        aria-expanded="{index === 0 ? 'true' : 'false'}"
-        aria-controls="{`module${index}_content`}"
-        data-target="{`module${index}`}"
+        id={`module${index}_trigger`}
+        aria-expanded={index === 0 ? 'true' : 'false'}
+        aria-controls={`module${index}_content`}
+        data-target={`module${index}`}
         class="trigger"
       >
         {item.title}
@@ -67,8 +69,8 @@ import data from "./data.json"
 
       <section
         role="region"
-        id="{`module${index}`}"
-        aria-labelledby="{`module${index}_trigger`}"
+        id={`module${index}`}
+        aria-labelledby={`module${index}_trigger`}
         class="content py-10 px-5"
       >
         <header class="mb-10 text-xl font-bold">{item.content.title}</header>
