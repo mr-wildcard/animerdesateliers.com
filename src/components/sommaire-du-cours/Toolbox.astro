@@ -1,0 +1,25 @@
+---
+import IconGiftHuge from "../icons/IconGiftHuge.astro"
+import IconCheck from "../icons/IconCheck.astro"
+
+const { items } = Astro.props;
+---
+
+<div class="flex items-center p-5 bg-chiffon border-2 border-downriver rounded-[20px]">
+  <div class="mr-5">
+    <IconGiftHuge size={60} />
+  </div>
+  <div>
+    <p class="mb-2 text-[22px] leading-[32px] font-bold">Boîte à outils</p>
+    <ul class="space-y-1">
+      {items.map((item) => (
+        <li class="flex text-sm">
+          <span class="mt-[2px] mr-[10px]" role="presentation">
+            <IconCheck />
+          </span>
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
