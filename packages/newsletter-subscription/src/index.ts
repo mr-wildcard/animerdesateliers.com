@@ -3,7 +3,11 @@ declare var MJ_APIKEY_PUBLIC: string;
 declare var MJ_APIKEY_PRIVATE: string;
 
 addEventListener("fetch", (event) => {
-  event.respondWith(handleResponse());
+  if (event.request.method !== "POST") {
+    event.respondWith(new Response("", { status: 405 }));
+  } else {
+    event.respondWith(handleResponse());
+  }
 });
 
 async function handleResponse() {
