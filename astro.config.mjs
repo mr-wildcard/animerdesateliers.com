@@ -11,8 +11,5 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
   renderers: [],
   devOptions: {
     tailwindConfig: './tailwind.config.js',
-  },
-  buildOptions: {
-    site: "https://mr-wildcard.github.io/team-ux-elearning/"
   }
 });
