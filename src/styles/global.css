@@ -16,14 +16,14 @@ body {
 
 @font-face {
     font-family: 'Filson Pro';
-    src: url('/filsonproregular.woff2') format('woff2');
+    src: url('/FilsonProRegular.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Filson Pro';
-    src: url('/filsonprobold.woff2') format('woff2');
+    src: url('/FilsonProMedium.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
 }
