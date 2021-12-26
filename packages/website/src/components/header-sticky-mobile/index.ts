@@ -1,60 +1,18 @@
-(function () {
-  enum ScrollDirection {
-    UP,
-    DOWN,
-  }
+enum ScrollDirection {
+  UP,
+  DOWN,
+}
 
+(function () {
   const stickyButtonShowCSSClass = "show";
 
-  const stickyButton = document.querySelector("#sticky-button");
-
-  function scrollDirectionChanged(callback) {
-    let last_known_scroll_position = 0;
-    let ticking = false;
-    let currentScrollDirection: ScrollDirection;
-
-    window.addEventListener(
-      "scroll",
-      function () {
-        let previous_known_scroll_position = last_known_scroll_position;
-        last_known_scroll_position = window.scrollY;
-
-        if (!ticking) {
-          window.requestAnimationFrame(function () {
-            const newScrollDirection: ScrollDirection =
-              last_known_scroll_position > previous_known_scroll_position ? ScrollDirection.DOWN : ScrollDirection.UP;
-
-            if (newScrollDirection !== currentScrollDirection) {
-              currentScrollDirection = newScrollDirection;
-
-              callback(newScrollDirection);
-            }
-
-            ticking = false;
-          });
-
-          ticking = true;
-        }
-      },
-      { passive: true }
-    );
-  }
+  const stickyButton = document.querySelector<HTMLDivElement>("#sticky-button");
 
   window.addEventListener("DOMContentLoaded", (event) => {
-    const headerHTMLElement = document.querySelector("#header-wrapper");
+    const headerHTMLElement = document.querySelector<HTMLDivElement>("#header-wrapper");
 
     let { height: stickyHeaderHeight } = stickyButton.getBoundingClientRect();
     let headerHTMLElementIsVisible = false;
-
-    const headerIO = new IntersectionObserver((entries) => {
-      const [header] = entries;
-
-      headerHTMLElementIsVisible = header.isIntersecting;
-
-      if (headerHTMLElementIsVisible && stickyButton.classList.contains(stickyButtonShowCSSClass)) {
-        stickyButton.classList.remove(stickyButtonShowCSSClass);
-      }
-    });
 
     const stickyHeaderRO = new ResizeObserver((entries) => {
       const [stickyHeader] = entries;
@@ -64,17 +22,42 @@
       stickyHeaderHeight = blockSize;
     });
 
-    headerIO.observe(headerHTMLElement);
     stickyHeaderRO.observe(stickyButton);
 
-    scrollDirectionChanged((scrollDirection: ScrollDirection) => {
-      const stickyButtonIsVisible = stickyButton.classList.contains(stickyButtonShowCSSClass);
+    let previous_known_scroll_position = window.scrollY;
+    let last_known_scroll_position = window.scrollY;
+    let ticking = false;
+    let currentScrollDirection: ScrollDirection;
+    let scrollAmount = 0;
 
-      if (scrollDirection === ScrollDirection.UP && !stickyButtonIsVisible && !headerHTMLElementIsVisible) {
-        stickyButton.classList.add(stickyButtonShowCSSClass);
-      } else if (scrollDirection === ScrollDirection.DOWN && stickyButtonIsVisible) {
-        stickyButton.classList.remove(stickyButtonShowCSSClass);
-      }
-    });
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!ticking) {
+          ticking = true;
+
+          window.requestAnimationFrame(function () {
+            previous_known_scroll_position = last_known_scroll_position;
+            last_known_scroll_position = window.scrollY;
+
+            const scrollDirection: ScrollDirection =
+              last_known_scroll_position > previous_known_scroll_position ? ScrollDirection.DOWN : ScrollDirection.UP;
+
+            scrollAmount -= last_known_scroll_position - previous_known_scroll_position;
+
+            if (scrollDirection === ScrollDirection.UP) {
+              scrollAmount = Math.min(scrollAmount, 0);
+            } else {
+              scrollAmount = Math.max(scrollAmount, -stickyHeaderHeight);
+            }
+
+            stickyButton.style.transform = `translateY(${scrollAmount}px)`;
+
+            ticking = false;
+          });
+        }
+      },
+      { passive: true }
+    );
   });
 })();

@@ -4,10 +4,16 @@ import IconNotification from "../@commons/icons/IconNotification.astro"
 ---
 
 <style>
+  /*
   #sticky-button {
-    transform: translateY(-100%);
+    transform: translateY(calc(-100% - 1px));
     transition: transform 400ms ease;
   }
+
+  #sticky-button.show {
+    transform: translateY(0);
+  }
+  */
 
   #sticky-button :global(a) {
     display: inline-block;
@@ -16,13 +22,9 @@ import IconNotification from "../@commons/icons/IconNotification.astro"
   #sticky-button :global(a) :global(.front) {
     padding: 6px 20px 6px 20px
   }
-
-  #sticky-button.show {
-    transform: translateY(0);
-  }
 </style>
 
-<div id="sticky-button" class="fixed w-full z-10 text-center bg-white pt-5 pb-4 border-b border-downriver xl:hidden">
+<div id="sticky-button" class="sticky top-0 w-full z-10 text-center bg-white pt-5 pb-4 border-b border-downriver xl:hidden">
   <Button href="#newsletter-anchor">
     <IconNotification slot="icon"/>
     <span slot="label">Me prévenir du lancement</span>
