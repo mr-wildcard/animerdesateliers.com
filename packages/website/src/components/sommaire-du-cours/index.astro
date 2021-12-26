@@ -27,11 +27,13 @@ const desktopMinWidth = tailwindConfig.theme.screens.xl;
   }
 
   .opener[aria-expanded=true] {
-    @apply bg-canary;
-  }
+    @apply bg-white;
 
-  .opener[aria-expanded=true] {
     & ~ .accordion-content {
+      @apply bg-white;
+    }
+
+    @screen xl {
       @apply bg-canary;
     }
 
