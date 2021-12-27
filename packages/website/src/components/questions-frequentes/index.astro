@@ -13,7 +13,7 @@ import data from "./data.json"
     transition: background-color 100ms ease-out;
   }
 
-  .list details[open], .list details:hover {
+  .list details[open] {
     @apply border-downriver;
   }
 
@@ -41,6 +41,10 @@ import data from "./data.json"
   }
 
   @screen xl {
+    .list details:hover {
+      @apply border-downriver;
+    }
+
     .summary:hover {
       @apply bg-chiffon text-downriver;
     }
