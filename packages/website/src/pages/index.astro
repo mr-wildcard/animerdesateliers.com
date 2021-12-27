@@ -1,4 +1,5 @@
 ---
+import PageLayout from "../layouts/PageLayout.astro"
 import BlueTag from "../components/@commons/BlueTag.astro"
 import BlueQuote from "../components/@commons/BlueQuote.astro"
 import Screenshot from "../components/@commons/Screenshot.astro"
@@ -32,36 +33,7 @@ import QuestionsFrequentes from "../components/questions-frequentes/index.astro"
 import MentionsLegales from "../components/MentionsLegales.astro"
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="/favicon/site.webmanifest" />
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
-    <link rel="shortcut icon" href="/favicon/favicon.ico" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet"/>
-    <link
-      rel="stylesheet"
-      href={Astro.resolve("../styles/global.css")}
-    />
-    <meta name="viewport" content="width=device-width"/>
-    <title>Animer des ateliers UX</title>
-    <style>
-      #newsletter-anchor {
-        scroll-margin-block: 50vh;
-      }
-    </style>
-  </head>
-
-<body>
+<PageLayout title="Animer des ateliers UX">
   <MobileStickyHeader />
 
   <div class="container">
@@ -203,7 +175,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
         <div class="col-span-full xl:col-start-2 xl:col-span-7">
           <CoursBientotDisponible />
 
-          <div id="newsletter-anchor" class="mt-12">
+          <div id="newsletter-anchor" class="mt-12 scroll-my-[50vh]">
             <NewsletterSignIn id="0" />
           </div>
         </div>
@@ -273,6 +245,4 @@ import MentionsLegales from "../components/MentionsLegales.astro"
   </div>
 
   <script src={Astro.resolve('../components/newsletter-signin/index.ts')}></script>
-</body>
-
-</html>
+</PageLayout>
