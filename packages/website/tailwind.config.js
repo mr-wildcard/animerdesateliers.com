@@ -23,6 +23,7 @@ module.exports = {
         selago: "#f4f6fe",
         shipgray: "#3f3e47",
         gray: "#838383",
+        silversand: "#bdbfc1",
         concrete: "#f3f3f3",
       },
     },
