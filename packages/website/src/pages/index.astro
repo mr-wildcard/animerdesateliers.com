@@ -30,7 +30,7 @@ import SommaireDuCours from "../components/sommaire-du-cours/index.astro"
 import ObtenezUnCertificat from "../components/obtenez-un-certificat/index.astro"
 import ALaFinDeCeCours from "../components/a-la-fin-de-ce-cours/index.astro"
 import QuestionsFrequentes from "../components/questions-frequentes/index.astro"
-import MentionsLegales from "../components/MentionsLegales.astro"
+import Footer from "../components/Footer.astro"
 ---
 
 <PageLayout
@@ -178,7 +178,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
         <div class="col-span-full xl:col-start-2 xl:col-span-7">
           <CoursBientotDisponible />
 
-          <div id="newsletter-anchor" class="mt-12 scroll-my-[50vh]">
+          <div id="inscription-newsletter" class="mt-12 scroll-my-[50vh]">
             <NewsletterSignIn id="0" />
           </div>
         </div>
@@ -240,9 +240,9 @@ import MentionsLegales from "../components/MentionsLegales.astro"
           <QuestionsFrequentes />
         </div>
 
-        <div class="pb-10 col-span-full xl:col-start-2">
-          <MentionsLegales />
-        </div>
+        <footer class="pb-10 col-span-full xl:col-start-2">
+          <Footer linkToLegal={true} />
+        </footer>
       </Grid>
     </div>
   </div>
