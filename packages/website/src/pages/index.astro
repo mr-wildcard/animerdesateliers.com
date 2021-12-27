@@ -1,8 +1,14 @@
 ---
+import PageLayout from "../layouts/PageLayout.astro"
 import BlueTag from "../components/@commons/BlueTag.astro"
 import BlueQuote from "../components/@commons/BlueQuote.astro"
 import Screenshot from "../components/@commons/Screenshot.astro"
 import Grid from "../components/@commons/Grid.astro"
+
+import Sticker1 from "../images/stickers/sticker1.svg"
+import Sticker2 from "../images/stickers/sticker2.svg"
+import Sticker4 from "../images/stickers/sticker4.svg"
+import Sticker5 from "../images/stickers/sticker5.svg"
 
 import MobileStickyHeader from "../components/header-sticky-mobile/index.astro"
 import Header from "../components/header/index.astro"
@@ -19,47 +25,23 @@ import Punchline from "../components/Punchline.astro"
 import CoursBientotDisponible from "../components/cours-bientot-disponible/index.astro"
 import NewsletterSignIn from "../components/newsletter-signin/index.astro"
 import LesFormatrices from "../components/les-formatrices/index.astro"
-import UneExperienceEprouvee from "../components/une-experience-eprouvee/index.astro"
+import UneExpertiseEprouvee from "../components/une-expertise-eprouvee/index.astro"
 import SommaireDuCours from "../components/sommaire-du-cours/index.astro"
 import ObtenezUnCertificat from "../components/obtenez-un-certificat/index.astro"
 import ALaFinDeCeCours from "../components/a-la-fin-de-ce-cours/index.astro"
 import QuestionsFrequentes from "../components/questions-frequentes/index.astro"
-import MentionsLegales from "../components/MentionsLegales.astro"
+import Footer from "../components/Footer.astro"
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet"/>
-    <link
-      rel="stylesheet"
-      href={Astro.resolve("../styles/global.css")}
-    />
-    <meta name="viewport" content="width=device-width"/>
-    <title>Animer des ateliers UX</title>
-    <style>
-      #newsletter-anchor {
-        scroll-margin-block: 50vh;
-      }
-    </style>
-  </head>
-
-<body>
+<PageLayout
+  title="Animer des ateliers UX - Cours en ligne"
+  description="Un cours interactif, complet et pragmatique, qui aide les designers à se lancer dans l’animation d’ateliers UX et design thinking"
+>
   <MobileStickyHeader />
 
   <div class="container">
     <Grid>
-      <div id="header-wrapper" class="col-span-full mt-8">
+      <div id="header-wrapper" class="col-span-full mt-4">
         <Header />
       </div>
 
@@ -69,21 +51,40 @@ import MentionsLegales from "../components/MentionsLegales.astro"
     </Grid>
   </div>
 
-  <div class="bg-white py-32">
+  <div class="bg-white">
+    <div class="container relative h-[215px] xl:h-[120px]">
+      <img
+        class="absolute
+               w-[260px]
+               h-[263px]
+               left-[calc(50%-130px)]
+               translate-y-[-65px]
+               rotate-[-10deg]
+               xl:left-0
+               xl:w-auto
+               xl:h-auto
+               xl:translate-y-[-220px]"
+        src={Sticker1}
+        width="300"
+        height="304"
+        alt="Welcome to the facilitator club"
+      />
+    </div>
+
     <div class="container">
       <Grid>
         <div class="col-span-full xl:col-start-3 xl:col-span-7 ">
           <CoursProposePar />
 
-          <div class="mt-16">
+          <div class="mt-16 xl:mt-24">
             <QuiAApprisALecole />
           </div>
         </div>
       </Grid>
     </div>
 
-    <div class="my-32">
-      <Bubbles/>
+    <div class="my-24">
+      <Bubbles />
     </div>
 
     <div class="container">
@@ -92,6 +93,25 @@ import MentionsLegales from "../components/MentionsLegales.astro"
           <Signatures />
         </div>
       </Grid>
+    </div>
+
+    <div class="container relative h-[230px] xl:h-[120px]">
+      <img
+        class="absolute
+               w-[260px]
+               h-[260px]
+               left-[calc(50%-130px)]
+               translate-y-[40px]
+               xl:left-auto
+               xl:right-[100px]
+               xl:translate-y-[25px]
+               xl:w-auto
+               xl:h-auto"
+        src={Sticker2}
+        width="300"
+        height="300"
+        alt="Workshop fever"
+      />
     </div>
   </div>
 
@@ -126,7 +146,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
       <ALaFinDeCeCours />
     </div>
 
-    <div class="my-24">
+    <div class="mt-[260px] mb-24">
       <Grid outerGap={false}>
         <div class="col-span-full xl:col-start-2 xl:col-span-10">
           <UneApprocheReponsable />
@@ -136,30 +156,37 @@ import MentionsLegales from "../components/MentionsLegales.astro"
   </div>
 
   <div class="bg-white">
-    <div class="container">
+    <div class="container relative">
       <Grid>
-        <div class="col-span-full full xl:col-start-3 xl:col-span-8 py-32">
+        <div class=" col-span-full full xl:col-start-3 xl:col-span-8 pt-24 pb-[240px] xl:py-32">
           <Punchline text="Favoriser l'intelligence collective est le nouveau pouvoir du designer." />
         </div>
+        <img
+          class="absolute right-[10%] bottom-[-34px] w-[226px] h-[260px] rotate-[16.36deg] xl:w-auto xl:h-auto xl:right-[70px] xl:bottom-[-205px]"
+          src={Sticker4}
+          width="270"
+          height="310"
+          alt="To the top together"
+        />
       </Grid>
     </div>
   </div>
 
-  <div class="bg-magnolia py-24">
+  <div class="bg-magnolia pt-20 pb-24">
     <div class="container">
       <Grid>
         <div class="col-span-full xl:col-start-2 xl:col-span-7">
           <CoursBientotDisponible />
 
-          <div id="newsletter-anchor" class="mt-12">
-            <NewsletterSignIn />
+          <div id="inscription-newsletter" class="mt-12 scroll-my-[50vh]">
+            <NewsletterSignIn id="0" />
           </div>
         </div>
       </Grid>
     </div>
   </div>
 
-  <div class="bg-white py-24">
+  <div class="bg-white pt-24">
     <div class="container">
       <Grid outerGap={false}>
         <div class="col-span-full xl:col-start-2 xl:col-span-10">
@@ -168,17 +195,24 @@ import MentionsLegales from "../components/MentionsLegales.astro"
       </Grid>
     </div>
 
-    <div class="mt-24">
+    <div class="mt-24 xl:mt-28">
       <div class="container">
-        <UneExperienceEprouvee />
+        <UneExpertiseEprouvee />
       </div>
     </div>
   </div>
 
   <div class="bg-white">
-    <div class="container">
+    <div class="container pt-16 pb-24">
+      <img
+        class="mx-auto mb-6 w-[260px] h-[260px] rotate-[-4.96deg] xl:w-auto xl:h-auto"
+        src={Sticker5}
+        width="300"
+        height="300"
+        alt="To the top together"
+      />
       <Grid>
-        <div class="col-span-full xl:col-start-2 xl:col-span-10 py-32">
+        <div class="col-span-full xl:col-start-2 xl:col-span-10">
           <Punchline text="Passer de la vision d'un jeu de Lego à celle d'un outil de design tactique et imbattable !" />
         </div>
       </Grid>
@@ -192,7 +226,7 @@ import MentionsLegales from "../components/MentionsLegales.astro"
           <CoursBientotDisponible />
 
           <div class="mt-12">
-            <NewsletterSignIn />
+            <NewsletterSignIn id="1" />
           </div>
         </div>
       </Grid>
@@ -206,12 +240,12 @@ import MentionsLegales from "../components/MentionsLegales.astro"
           <QuestionsFrequentes />
         </div>
 
-        <div class="pb-10 col-span-full xl:col-start-2">
-          <MentionsLegales />
-        </div>
+        <footer class="pb-10 col-span-full xl:col-start-2">
+          <Footer linkToLegal={true} />
+        </footer>
       </Grid>
     </div>
   </div>
-</body>
 
-</html>
+  <script src={Astro.resolve('../components/newsletter-signin/index.ts')}></script>
+</PageLayout>

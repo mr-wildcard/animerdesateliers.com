@@ -5,14 +5,14 @@ const { imgSrc, fullname, label } = Astro.props;
 <div class="flex items-center xl:flex-col xl:text-center">
   <img
     src={imgSrc}
-    width="140"
-    height="140"
-    class="border-downriver border-[3px] rounded-full w-[140px] h-[140px] xl:mb-6"
+    width="128"
+    height="128"
+    class="border-downriver border-[3px] rounded-full w-[128px] h-[128px] xl:w-[200px] xl:h-[200px] xl:mb-6"
     alt={fullname}
   />
-  <p class="text-lg ml-6 xl:ml-0">
+  <p class="text-lg ml-9 xl:ml-0">
     <span class="font-bold">{fullname}</span>
     <br/>
-    <span class="text-sm">{label}</span>
+    <span class="text-base">{label}</span>
   </p>
 </div>

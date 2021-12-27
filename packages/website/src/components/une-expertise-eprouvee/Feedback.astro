@@ -7,13 +7,13 @@ const { text, author } = Astro.props;
 <div class="flex flex-col xl:flex-row">
   <div class="mb-5 xl:mr-6">
     <span class="xl:hidden">
-      <BlueQuote width="34" height="25" client:media="(max-width: 1279px)" />
+      <BlueQuote width="34" height="25" />
     </span>
     <span class="hidden xl:block">
-      <BlueQuote width="48" height="35" client:media="(min-width: 1280px)" />
+      <BlueQuote width="48" height="35" />
     </span>
   </div>
-  <figure class="text-base leading-[26px] xl:mt-6">
+  <figure class="text-base leading-[26px] xl:translate-y-[12px]">
     <blockquote class="mb-5">
       <p class="xl:text-xl">
         {text}

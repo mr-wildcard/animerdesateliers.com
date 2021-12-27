@@ -9,12 +9,6 @@ const { text } = Astro.props;
     filter: drop-shadow(4px 5px 0px theme('colors.canary'));
   }
 
-  @screen xl {
-    .bubble {
-      padding: 30px 45px 37px;
-    }
-  }
-
   .arrow {
     position: absolute;
     right: 40px;
@@ -22,7 +16,7 @@ const { text } = Astro.props;
   }
 </style>
 
-<div class="bubble relative bg-selago font-bold rounded-[20px] xl:text-2xl">
+<div class="bubble relative bg-selago font-bold rounded-[20px] text-lg leading-6">
   <p>
     {text}
   </p>

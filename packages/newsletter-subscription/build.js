@@ -5,6 +5,7 @@ return esbuild
     bundle: true,
     entryPoints: ["src/index.ts"],
     outfile: "dist/worker.js",
+    platform: "node",
     define: {
       MJ_APIKEY_PUBLIC: JSON.stringify(process.env.MJ_APIKEY_PUBLIC),
       MJ_APIKEY_PRIVATE: JSON.stringify(process.env.MJ_APIKEY_PRIVATE),

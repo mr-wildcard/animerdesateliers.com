@@ -1,15 +1,17 @@
 ---
 import Bubble from "./Bubble.astro"
+import IconNav from "./IconNav.astro"
 import data from "./data.json"
+
+const desktopMinWidth = tailwindConfig.theme.screens.xl;
 ---
 
 <style lang="scss">
   $padding-x-xl: calc((max(100vw, 1240px) - 1240px) / 2);
 
-  .bubbles {
+  .list {
     gap: 28px;
     padding: 0 20px 50px 20px;
-    scroll-snap-type: x mandatory;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 
@@ -26,19 +28,48 @@ import data from "./data.json"
 
   .bubble-wrapper {
     flex: 0 0 auto;
-    width: 270px;
+    width: 275px;
     scroll-snap-align: center;
+  }
 
-    @screen xl {
-      width: 395px;
-    }
+  .nav-right {
+    transform: scaleX(-1);
+  }
+
+  nav button[disabled] {
+    @apply text-silversand;
+
+    cursor: not-allowed;
+  }
+
+  :global(nav button svg) {
+    transition: transform 200ms;
+  }
+
+  .nav-left:hover:not([disabled]) :global(svg) {
+    transform: translateX(3px);
+  }
+
+  .nav-right:hover:not([disabled]) :global(svg) {
+    transform: translateX(-3px);
   }
 </style>
 
-<ul class="bubbles flex overflow-x-auto overscroll-x-contain">
-  {data.map((text) => (
-    <li class="bubble-wrapper">
-      <Bubble text={text} />
-    </li>
-  ))}
-</ul>
+<div id="bubbles" data-desktop-min-width={desktopMinWidth}>
+  <nav class="hidden container xl:flex justify-between mb-4 px-[20px]">
+    <button disabled class="nav-left p-2">
+      <IconNav />
+    </button>
+    <button class="nav-right p-2">
+      <IconNav />
+    </button>
+  </nav>
+  <ul class="list flex overflow-x-auto overscroll-x-contain snap-x snap-mandatory xl:snap-none">
+    {data.map((text) => (
+      <li class="bubble-wrapper">
+        <Bubble text={text} />
+      </li>
+    ))}
+  </ul>
+</div>
+<script src={Astro.resolve('./index.ts')}></script>

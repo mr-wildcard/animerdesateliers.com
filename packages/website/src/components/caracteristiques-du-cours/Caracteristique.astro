@@ -4,8 +4,6 @@ const { title, description } = Astro.props;
 
 <style>
   .description {
-    @apply text-sm;
-
     margin-left: calc(40px + theme("spacing.6"));
   }
 </style>
@@ -14,7 +12,7 @@ const { title, description } = Astro.props;
   <span class="mr-6" role="presentation">
     <slot name="icon" />
   </span>
-  <p class="font-bold">{title}</p>
+  <p class="font-bold text-lg">{title}</p>
 </div>
 
-{description && <p class="description">{description}</p>}
+{description && <p class="description text-lg xl:text-sm">{description}</p>}

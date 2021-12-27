@@ -1,8 +1,18 @@
 ---
+import Sticker3 from "../../images/stickers/sticker3.svg"
 import Screenshot from "../@commons/Screenshot.astro"
 ---
 
-<div class="rounded-[30px] py-16 px-[20px] bg-canary xl:px-0">
+<div class="relative rounded-[30px] py-16 px-[20px] bg-canary xl:px-0">
+  <div class="absolute left-[calc(50%-130px)] translate-y-[-280px] xl:left-auto xl:right-[-100px] xl:translate-y-[-270px]">
+    <img
+      class="w-[260px] h-[260px] rotate-[14.26deg] xl:w-auto xl:h-auto"
+      src={Sticker3}
+      width="300"
+      height="300"
+      alt="Design responsibily"
+    />
+  </div>
   <div class="xl:w-[80%] xl:mx-auto">
     <h2 class="font-serif text-2xl leading-[42px] xl:text-[34px] xl:leading-[48px] xl:text-center">
       Une approche responsable de la conception d'ateliers UX

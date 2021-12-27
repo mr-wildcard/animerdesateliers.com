@@ -33,17 +33,17 @@ html {
 }
 
 body {
-  @apply text-lg font-sans text-downriver tracking-[0.01em] bg-selago;
-}
-
-@screen xl {
-  body {
-    @apply text-xl;
-  }
+  @apply text-xl font-sans text-downriver tracking-[0.01em] bg-selago;
 }
 
 .container {
   @apply mx-auto;
 
   max-width: 1240px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }

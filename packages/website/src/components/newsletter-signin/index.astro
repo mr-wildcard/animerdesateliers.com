@@ -2,6 +2,9 @@
 import CodePromo from "./CodePromo.astro"
 import Button from "../@commons/button/index.astro"
 import IconNotification from "../@commons/icons/IconNotification.astro"
+
+const { id } = Astro.props;
+const emailInputId = `email_${id}`;
 ---
 
 <style lang="scss">
@@ -35,15 +38,20 @@ import IconNotification from "../@commons/icons/IconNotification.astro"
     transform: translate(31px, -54px) scale(0.75);
   }
 
-  .input:invalid {
+  .input:invalid:not(:focus) {
     @apply border-[3px] border-brightred bg-cosmos;
 
     padding-left: 28px;
     padding-right: 28px;
+    outline-color: theme('colors.brightred');
   }
 
-  .input:invalid:focus {
-    outline-color: theme('colors.brightred');
+  .label {
+    @apply text-base;
+
+    display: block;
+    max-height: 0;
+    cursor: text;
   }
 
   .label::after {
@@ -55,43 +63,49 @@ import IconNotification from "../@commons/icons/IconNotification.astro"
     transform: translate(31px, -44px) scale(1);
     transition: all 200ms;
   }
-
-  .label {
-    @apply text-base;
-
-    display: block;
-    max-height: 0;
-  }
 </style>
 
 <div class="mb-10 xl:mb-6">
   <CodePromo />
 </div>
 
-<form>
-  <fieldset class="flex flex-wrap flex-col xl:gap-[25px] xl:items-center xl:flex-row">
-    <div class="flex-1">
+<form class="newsletter-form">
+  <fieldset class="flex flex-wrap flex-col xl:gap-[25px] xl:items-start xl:flex-row xl:relative xl:pb-10">
+    <div class="order-1 flex-1">
       <input
         type="email"
-        id="email"
+        id={emailInputId}
         class="input"
         name="email"
         placeholder="Votre adresse email"
       />
-      <label class="label" for="email" data-content="Votre adresse email">
+      <label class="label" for={emailInputId} data-content="Votre adresse email">
         <span class="sr-only">Votre adresse email</span>
       </label>
     </div>
 
-    <div class="flex justify-center mt-6 xl:block xl:mt-0 xl:translate-y-[2px]">
+    <div class="order-3 flex justify-center mt-6 xl:block xl:mt-0 xl:translate-y-[4px]">
       <Button type="submit">
         <IconNotification slot="icon"/>
         <span slot="label">Me prévenir du lancement</span>
       </Button>
     </div>
+    <div class="w-full order-2 text-center xl:absolute xl:bottom-[8px] xl:left-[30px] xl:text-left">
+      <p class="validation-messages mt-5 text-lg font-bold xl:mt-0">
+        <span data-validation-type="invalid-email" class="hidden text-brightred">
+          ❌ L’adresse email doit être au format : adresse@email.com
+        </span>
+        <span data-validation-type="api-error" class="hidden text-brightred">
+          ❌ Mince, ça ne marche pas... Écrivez-nous : contact@animerdesateliers.com
+        </span>
+        <span data-validation-type="successfully-subscribed" class="hidden text-blue">
+          ✅ Cool, votre adresse email est enregistrée. À très bientôt !
+        </span>
+      </p>
+    </div>
   </fieldset>
 
-  <p class="mt-16 text-sm leading-6 tracking-[0.03em] xl:w-11/12 xl:mt-10">
-    Votre adresse email ne sera ni communiquée à des tiers, ni utilisée à d'autres fins que de vous tenir au courant de l'avancée du projet. Vous pourrez à tout moment vous désinscrire de la liste. N'hésitez pas à consulter <strong class="underline">notre politique de données</strong>.
+  <p class="mt-16 text-sm leading-6 tracking-[0.03em] xl:w-11/12 xl:mt-0">
+    Votre adresse email ne sera ni communiquée à des tiers, ni utilisée à d'autres fins que de vous tenir au courant de l'avancée du projet. Vous pourrez à tout moment vous désinscrire de la liste. N'hésitez pas à consulter <a href="/mentions-legales#donnees-personnelles" class="underline">notre politique de données</a>.
   </p>
 </form>

@@ -5,12 +5,16 @@ import data from "./data.json"
 ---
 
 <style>
-  .list li {
+  .list details {
     @apply border-b-2 border-white;
   }
 
   .list details[open] {
     transition: background-color 100ms ease-out;
+  }
+
+  .list details[open] {
+    @apply border-downriver;
   }
 
   .list details :global(svg) {
@@ -37,12 +41,18 @@ import data from "./data.json"
   }
 
   @screen xl {
+    .list details:hover {
+      @apply border-downriver;
+    }
+
     .summary:hover {
       @apply bg-chiffon text-downriver;
     }
 
     .answer {
       padding-left: calc(theme('space.5') * 2 + 18px);
+      padding-right: 31px;
+      padding-bottom: 60px;
     }
   }
 </style>
