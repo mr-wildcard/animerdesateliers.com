@@ -1,5 +1,5 @@
 ---
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
@@ -23,6 +23,7 @@ const { title } = Astro.props;
       href={Astro.resolve("../styles/global.css")}
     />
     <meta name="viewport" content="width=device-width"/>
+    <meta name="description" content={description} />
     <title>{title}</title>
   </head>
 

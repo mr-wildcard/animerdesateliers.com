@@ -1,7 +1,141 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro"
+import Header from "../components/header/index.astro"
+import IconArrowBack from "../components/@commons/icons/IconArrowBack.astro"
+import Section from "../components/mentions-legales/Section.astro"
+import MentionsLegales from "../components/MentionsLegales.astro"
 ---
 
-<PageLayout title="Mentions légales">
-  
+<PageLayout
+  title="Mentions légales | Animer des ateliers UX - Cours en ligne"
+  description="Identification des personnes actrices, politique de données personnelles et mentions complémentaires à propos du projet."
+>
+  <div class="container mt-4">
+    <Header />
+  </div>
+
+  <div class="container mt-16">
+    <a href="/" class="flex items-center text-lg underline hover:text-blue">
+      <IconArrowBack />
+      <span class="pl-4">Retour</span>
+    </a>
+  </div>
+
+  <div class="container mt-10">
+    <div class="w-8/12 mx-auto">
+      <h1 class="mb-24 font-serif text-[60px] leading-[82px]">Mentions légales</h1>
+
+      <div class="space-y-[100px]">
+        <Section title="Identification">
+          <p>
+            Le projet de cours en ligne “Animer un atelier UX” vous est proposé par le binôme “Team UX”, constitué de 2 micro-entrepreneures :
+          </p>
+          <ul class="list-disc ml-5">
+            <li>
+              Yuna Orsini
+            </li>
+            <li>
+              Daniela Peñaranda
+            </li>
+          </ul>
+
+          <div class="mt-24">
+            <h3 class="mb-6 font-bold text-[22px] leading-[32px]">À propos de Yuna Orsini</h3>
+            <ul class="list-disc ml-5">
+              <li>SIRET (Système Informatique pour le Répertoire des Entreprises sur le Territoire) : 789 657 202 00030</li>
+              <li>Code APE (Activité Principale de l'Entreprise) : 7490B - Activités spécialisées, scientifiques et techniques diverses</li>
+              <li>Adresse : 3 rue Lebrun - 33140 Villenave d’Ornon - France</li>
+              <li>Contacts : <a href="tel:+33 642 29 86 31" class="underline">+33 642 29 86 31</a> - <a href="mailto:yuna@team-ux.com" class="underline">yuna@team-ux.com</a></li>
+              <li>Directrice de la publication "animerdesateliers.com</li>
+            </ul>
+          </div>
+          <div class="mt-24">
+            <h3 class="mb-6 font-bold text-[22px] leading-[32px]">À propos de Daniela Peñaranda</h3>
+            <ul class="list-disc ml-5">
+              <li>SIRET : 834 402 570 00016</li>
+              <li>Code APE : 7410Z - Activités spécialisées de design</li>
+              <li>Adresse : 48 rue Bouffard - 33000 Bordeaux - France</li>
+              <li>Contacts : <a href="tel:+33 780 30 90 25" class="underline">+33 780 30 90 25</a> - <a href="mailto:daniela@team-ux.com" class="underline">daniela@team-ux.com</a></li>
+              <li>Co-directrice de la publication "animerdesateliers.com"</li>
+            </ul>
+          </div>
+        </Section>
+
+        <div id="donnees-personnelles">
+          <Section title="Données personnelles">
+            <div class="space-y-24">
+              <div>
+                <h3 class="mb-6 font-bold text-[22px] leading-[32px]">Généralités</h3>
+                <p>D'une façon générale, vous pouvez visiter cette page Web sans avoir à décliner votre identité et à fournir des informations personnelles vous concernant. Cependant, nous pouvons parfois vous demander des informations par email ou téléphone si vous prenez contact avec nous via l’adresse email <a href="mailto:contact@animerdesateliers.com" class="underline">contact@animerdesateliers.com</a>.</p>
+              </div>
+              <div>
+                <h3 class="mb-6 font-bold text-[22px] leading-[32px]">Inscription à la newsletter</h3>
+                <p>Par ailleurs, si vous souhaitez vous abonner à notre newsletter, vous saisirez votre adresse email dans le champ dédié. Cette donnée personnelle sera stockée chez le prestataire français Mailjet. Votre adresse email ne sera ni communiquée à des tiers, ni utilisée à d’autres fins que de vous tenir au courant de l’évolution du projet. Vous pourrez à tout moment vous désinscrire de la liste depuis chaque newsletter ou en nous écrivant à l’adresse <a href="mailto:contact@animerdesateliers.com" class="underline">contact@animerdesateliers.com</a>.</p>
+              </div>
+              <div>
+                <h3 class="mb-6 font-bold text-[22px] leading-[32px]">Droit d'accès</h3>
+                <p>
+                  Vous disposez d'un droit d'accès, de rectification, de modification et de suppression concernant les données qui vous concernent personnellement.
+                  <br/>
+                  Ce droit peut être exercé par voie postale auprès de :
+                  Yuna Orsini - 3 rue Lebrun - 33140 Villenave d’Ornon - France
+                  ou par courrier électronique à l’adresse <a href="mailto:contact@animerdesateliers.com" class="underline">contact@animerdesateliers.com</a>.
+                  Vous disposez également  du droit d'introduire une réclamation auprès de la CNIL.
+                </p>
+              </div>
+              <div>
+                <h3 class="mb-6 font-bold text-[22px] leading-[32px]">Confidentialité</h3>
+                <p>Vos données personnelles sont confidentielles et ne seront en aucun cas communiquées à des tiers hormis pour la bonne exécution d’une prestation particulière que vous auriez commandée.</p>
+              </div>
+              <div>
+                <h3 class="mb-6 font-bold text-[22px] leading-[32px]">Cookies</h3>
+                <p>Un cookie est un petit fichier informatique, un traceur. Il permet d'analyser le comportement des usagers lors de la visite d'un site internet, de la lecture d'un courrier électronique, de l'installation ou de l'utilisation d'un logiciel ou d'une application mobile.</p>
+              </div>
+              <div>
+                <h3 class="mb-6 font-bold text-[22px] leading-[32px]">Voici les cookies qui sont utilisés par ce site :</h3>
+                <p>-</p>
+              </div>
+            </div
+          </Section>
+        </div>
+
+        <Section title="Demandes d'informations">
+          <h3 class="mb-6 font-bold text-[22px] leading-[32px]">Délai de réponse</h3>
+          <p>Nous tâcherons de répondre au plus vite à vos demandes d'informations, au maximum dans les 72 heures suivant la réception de votre email.</p>
+        </Section>
+
+        <Section title="Hébergement">
+          <p>
+            Site hébergé chez OVH.
+            <br/>
+            OVH SAS est une filiale de la société OVH Groupe SAS, société immatriculée au RCS (Registre du commerce et des sociétés) de Lille sous le numéro 537 407 926 sise 2, rue Kellermann, 59100 Roubaix.
+            <br/>
+            Contact téléphonique : 1007
+          </p>
+        </Section>
+
+        <Section title="Crédits">
+          <p>
+            Site développé par <a href="https://github.com/mr-wildcard" class="underline" target="_blank" rel="noopener">Julien Viala</a>.
+            <br/>
+            <br/>
+            Tout le contenu du présent site, incluant, de façon non limitative, les graphismes, images, textes, vidéos, animations, sons, logos, gifs et icônes ainsi que leur mise en forme sont la propriété exclusive de binôme Team UX, à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.
+            <br/>
+            <br/>
+            Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord exprès par écrit du binôme Team UX. Cette représentation ou reproduction, par quelque procédé que ce soit, constitue une contrefaçon sanctionnée par les articles L.3335-2 et suivants du Code de la propriété intellectuelle.
+            <br/>
+            <br/>
+            Le non-respect de cette interdiction constitue une contrefaçon pouvant engager la responsabilité civile et pénale du contrefacteur. En outre, les propriétaires des contenus copiés pourraient intenter une action en justice à votre encontre.
+            <br/>
+            Pour toute demande d'autorisation ou d'information, veuillez nous contacter par email : <a href="mailto:hello@team-ux.com" class="underline">hello@team-ux.com</a>.
+          </p>
+        </Section>
+      </div>
+    </div>
+  </div>
+  <div class="mt-24 bg-downriver">
+    <div class="container py-10">
+      <MentionsLegales />
+    </div>
+  </div>
 </PageLayout>
