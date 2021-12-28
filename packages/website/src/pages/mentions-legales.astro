@@ -4,11 +4,14 @@ import Header from "../components/header/index.astro"
 import IconArrowBack from "../components/@commons/icons/IconArrowBack.astro"
 import Section from "../components/mentions-legales/Section.astro"
 import Footer from "../components/Footer.astro"
+
+const title = "Mentions légales | Animer des ateliers UX - Cours en ligne"
+const description = "Identification des personnes actrices, politique de données personnelles et mentions complémentaires à propos du projet."
 ---
 
 <PageLayout
-  title="Mentions légales | Animer des ateliers UX - Cours en ligne"
-  description="Identification des personnes actrices, politique de données personnelles et mentions complémentaires à propos du projet."
+  title={title}
+  description={description}
 >
   <div class="container mt-4 px-[20px] xl:px-0">
     <Header />
