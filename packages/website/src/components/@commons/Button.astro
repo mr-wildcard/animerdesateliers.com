@@ -116,7 +116,9 @@ const { href } = Astro.props;
   <a href={href} class="block pushable">
     <span class="edge" role="presentation" />
     <span class="front">
-      <slot name="icon" />
+      <span class="icon">
+        <slot name="icon" />
+      </span>
       <slot name="label" />
     </span>
   </a>
