@@ -1,4 +1,5 @@
 ---
+import Debug from "astro/debug"
 const { title, description } = Astro.props;
 
 const imageForSocialNetworkSharing = Astro.site + "sn-sharing.png";
@@ -15,7 +16,7 @@ const imageForSocialNetworkSharing = Astro.site + "sn-sharing.png";
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
 
-    <meta property="og:url" content="URL HP" />
+    <meta property="og:url" content={Astro.request.url} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
