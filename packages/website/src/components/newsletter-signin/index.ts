@@ -2,6 +2,8 @@ type FormValidationType = "invalid-email" | "api-error" | "successfully-subscrib
 
 (() => {
   document.querySelectorAll(".newsletter-form").forEach((htmlFormElement) => {
+    const submitButton = htmlFormElement.querySelector("button.pushable");
+
     const allValidationMessages = Array.from(
       htmlFormElement.querySelectorAll<HTMLSpanElement>("[data-validation-type]")
     );
@@ -32,6 +34,7 @@ type FormValidationType = "invalid-email" | "api-error" | "successfully-subscrib
         displayValidationMessage("invalid-email");
       } else {
         removeAllValidationMessages();
+        submitButton.classList.add("loading");
 
         fetching = true;
 
@@ -49,6 +52,8 @@ type FormValidationType = "invalid-email" | "api-error" | "successfully-subscrib
           } else {
             displayValidationMessage("api-error");
           }
+
+          submitButton.classList.remove("loading");
 
           fetching = false;
         });

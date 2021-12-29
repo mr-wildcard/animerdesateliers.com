@@ -1,8 +1,14 @@
 ---
+import Loader from "../Loader.astro"
+
 const { href } = Astro.props;
 ---
 
-<style>
+<style lang="scss">
+  $easeBackIn: cubic-bezier(0.36, 0, 0.66, -0.56);
+  $easeBackOut: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+
   .pushable {
     position: relative;
     border: none;
@@ -31,6 +37,7 @@ const { href } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     position: relative;
     padding: 15px 28px 15px 24px;
     border-radius: 50px;
@@ -39,10 +46,11 @@ const { href } = Astro.props;
     transition: all 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
   }
 
-  .front :global(svg) {
-    @apply mr-3;
+  .front .icon {
+    @apply pr-3;
   }
 
+  .pushable.loading .front,
   .pushable:hover .front {
     @apply bg-chiffon;
 
@@ -50,13 +58,41 @@ const { href } = Astro.props;
     transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
   }
 
-  .pushable:active .front {
+  .pushable:active .front,
+  .pushable.loading .front {
     transform: translateY(-2px);
     transition: transform 34ms;
   }
 
   .pushable:focus:not(:focus-visible) {
     outline: none;
+  }
+
+  .loader {
+    position: absolute;
+    left: 20px;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 300ms;
+  }
+
+  .icon {
+    transform: translateY(0);
+    transition: transform 300ms $easeBackOut;
+  }
+
+  .pushable.loading {
+    .loader {
+      transition-timing-function: $easeBackOut;
+      transition-delay: 150ms;
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .icon {
+      transition-timing-function: ease-out;
+      transform: translateY(-40px);
+    }
   }
 </style>
 
@@ -65,8 +101,13 @@ const { href } = Astro.props;
   <button class="pushable">
     <span class="edge" role="presentation" />
     <span class="front">
-      <slot name="icon" />
+      <span class="icon">
+        <slot name="icon" />
+      </span>
       <slot name="label" />
+      <span class="loader">
+        <Loader />
+      </span>
     </span>
   </button>
 )}
