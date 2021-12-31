@@ -48,7 +48,7 @@ enum ScrollDirection {
             if (scrollDirection === ScrollDirection.UP) {
               scrollAmount = Math.min(scrollAmount, 0);
             } else {
-              scrollAmount = Math.max(scrollAmount, -stickyHeaderHeight);
+              scrollAmount = Math.max(scrollAmount, -stickyHeaderHeight - 1);
             }
 
             stickyButton.style.transform = `translateY(${scrollAmount}px)`;
