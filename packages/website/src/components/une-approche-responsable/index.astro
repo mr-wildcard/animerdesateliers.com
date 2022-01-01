@@ -1,17 +1,23 @@
 ---
-import Sticker3 from "images/stickers/sticker3.svg"
-import Screenshot from "components/@commons/Screenshot.astro"
+import Sticker3 from "images/stickers/sticker3.png"
+import Sticker3Avif from "images/stickers/sticker3.avif"
+import Screenshot4 from "images/course-screenshots/screenshot-4.png"
+import Screenshot4Avif from "images/course-screenshots/screenshot-4.avif"
 ---
 
 <div class="relative rounded-[30px] py-16 px-[20px] bg-canary xl:px-0">
   <div class="absolute left-[calc(50%-130px)] translate-y-[-280px] xl:left-auto xl:right-[-100px] xl:translate-y-[-270px]">
-    <img
-      class="w-[260px] h-[260px] rotate-[14.26deg] xl:w-auto xl:h-auto"
-      src={Sticker3}
-      width="300"
-      height="300"
-      alt="Design responsibily"
-    />
+    <picture>
+      <source srcset={Sticker3Avif} type="image/avif">
+      <img
+        class="w-[260px] h-[260px] rotate-[14.26deg] xl:w-[300px] xl:h-[300px]"
+        src={Sticker3}
+        width="300"
+        height="300"
+        alt="Design responsibily"
+        loading="lazy"
+      />
+    </picture>
   </div>
   <div class="xl:w-[80%] xl:mx-auto">
     <h2 class="font-serif text-2xl leading-[42px] xl:text-[34px] xl:leading-[48px] xl:text-center">
@@ -20,13 +26,17 @@ import Screenshot from "components/@commons/Screenshot.astro"
     <div class="gap-[25px] xl:flex xl:mt-16">
       <p class="mt-5 mb-16 xl:flex-1 xl:m-0 xl:text-xl xl:leading-[32px]">Au moment d'imaginer et de mettre en place des ateliers UX puis certaines des solutions qui y seront générées, <strong>intégrer un mode de pensée responsable et raisonnable</strong>, respectant les critères d'inclusivité et d'accessibilité ainsi que l'environnement et le vivant, est une compétence fondamentale ! Cette réflexion est incluse “by design” dans ce cours en ligne.</p>
       <div class="xl:flex-1">
-        <Screenshot
-          width="395"
-          height="281"
-          src="/course-screenshot-4.webp"
-          alt="Capture d'écran du site d'apprentissage en ligne"
-          style="width: 100%"
-        />
+        <picture>
+          <source srcset={Screenshot4Avif} type="image/avif">
+          <img
+            class="screenshot w-full"
+            src={Screenshot4}
+            width="395"
+            height="281"
+            alt="Capture d'écran du site d'apprentissage en ligne"
+            loading="lazy"
+          />
+        </picture>
       </div>
     </div>
   </div>

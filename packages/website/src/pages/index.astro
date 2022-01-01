@@ -2,13 +2,16 @@
 import PageLayout from "layouts/PageLayout.astro"
 import BlueTag from "components/@commons/BlueTag.astro"
 import BlueQuote from "components/@commons/BlueQuote.astro"
-import Screenshot from "components/@commons/Screenshot.astro"
 import Grid from "components/@commons/Grid.astro"
 
-import Sticker1 from "images/stickers/sticker1.svg"
-import Sticker2 from "images/stickers/sticker2.svg"
-import Sticker4 from "images/stickers/sticker4.svg"
-import Sticker5 from "images/stickers/sticker5.svg"
+import Sticker1 from "images/stickers/sticker1.png"
+import Sticker1Avif from "images/stickers/sticker1.avif"
+import Sticker2 from "images/stickers/sticker2.png"
+import Sticker2Avif from "images/stickers/sticker2.avif"
+import Sticker4 from "images/stickers/sticker4.png"
+import Sticker4Avif from "images/stickers/sticker4.avif"
+import Sticker5 from "images/stickers/sticker5.png"
+import Sticker5Avif from "images/stickers/sticker5.avif"
 
 import MobileStickyHeader from "components/header-sticky-mobile/index.astro"
 import Header from "components/header/index.astro"
@@ -56,22 +59,26 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
 
   <div class="bg-white">
     <div class="container relative h-[215px] xl:h-[120px]">
-      <img
-        class="absolute
-               w-[260px]
-               h-[263px]
-               left-[calc(50%-130px)]
-               translate-y-[-65px]
-               rotate-[-10deg]
-               xl:left-0
-               xl:w-auto
-               xl:h-auto
-               xl:translate-y-[-220px]"
-        src={Sticker1}
-        width="300"
-        height="304"
-        alt="Welcome to the facilitator club"
-      />
+      <picture>
+        <source srcset={Sticker1Avif} type="image/avif">
+        <img
+          class="absolute
+                 w-[260px]
+                 h-[263px]
+                 left-[calc(50%-130px)]
+                 translate-y-[-65px]
+                 rotate-[-10deg]
+                 xl:left-0
+                 xl:w-[300px]
+                 xl:h-[304px]
+                 xl:translate-y-[-220px]"
+          src={Sticker1}
+          width="300"
+          height="304"
+          alt="Welcome to the facilitator club"
+          loading="lazy"
+        />
+      </picture>
     </div>
 
     <div class="container">
@@ -99,22 +106,26 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
     </div>
 
     <div class="container relative h-[230px] xl:h-[120px]">
-      <img
-        class="absolute
-               w-[260px]
-               h-[260px]
-               left-[calc(50%-130px)]
-               translate-y-[40px]
-               xl:left-auto
-               xl:right-[100px]
-               xl:translate-y-[25px]
-               xl:w-auto
-               xl:h-auto"
-        src={Sticker2}
-        width="300"
-        height="300"
-        alt="Workshop fever"
-      />
+      <picture>
+        <source srcset={Sticker2Avif} type="image/avif">
+        <img
+          class="absolute
+                 w-[260px]
+                 h-[260px]
+                 left-[calc(50%-130px)]
+                 translate-y-[40px]
+                 xl:left-auto
+                 xl:right-[100px]
+                 xl:translate-y-[25px]
+                 xl:w-[300px]
+                 xl:h-[300px]"
+          src={Sticker2}
+          width="300"
+          height="300"
+          alt="Workshop fever"
+          loading="lazy"
+        />
+      </picture>
     </div>
   </div>
 
@@ -164,13 +175,26 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
         <div class=" col-span-full full xl:col-start-3 xl:col-span-8 pt-24 pb-[240px] xl:py-32">
           <Punchline text="Favoriser l'intelligence collective est le nouveau pouvoir du designer." />
         </div>
-        <img
-          class="absolute right-[10%] bottom-[-34px] w-[226px] h-[260px] rotate-[16.36deg] xl:w-auto xl:h-auto xl:right-[70px] xl:bottom-[-205px]"
-          src={Sticker4}
-          width="270"
-          height="310"
-          alt="To the top together"
-        />
+        <picture>
+          <source srcset={Sticker4Avif} type="image/avif">
+          <img
+            class="absolute
+                  right-[10%]
+                  bottom-[-34px]
+                  w-[226px]
+                  h-[260px]
+                  rotate-[16.36deg]
+                  xl:w-[270px]
+                  xl:h-[310px]
+                  xl:right-[70px]
+                  xl:bottom-[-205px]"
+            src={Sticker4}
+            width="270"
+            height="310"
+            alt="To the top together"
+            loading="lazy"
+          />
+        </picture>
       </Grid>
     </div>
   </div>
@@ -207,13 +231,24 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
 
   <div class="bg-white">
     <div class="container pt-16 pb-24">
-      <img
-        class="mx-auto mb-6 w-[260px] h-[260px] rotate-[-4.96deg] xl:w-auto xl:h-auto"
-        src={Sticker5}
-        width="300"
-        height="300"
-        alt="To the top together"
-      />
+      <picture>
+        <source srcset={Sticker5Avif} type="image/avif">
+        <img
+          class="mx-auto
+                mb-6
+                w-[260px]
+                h-[260px]
+                rotate-[-4.96deg]
+                xl:w-[300px]
+                xl:h-[300px]
+          "
+          src={Sticker5}
+          width="300"
+          height="300"
+          alt="To the top together"
+          loading="lazy"
+        />
+      </picture>
       <Grid>
         <div class="col-span-full xl:col-start-2 xl:col-span-10">
           <Punchline text="Passer de la vision d'un jeu de Lego à celle d'un outil de design tactique et imbattable !" />

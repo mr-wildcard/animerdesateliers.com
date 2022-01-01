@@ -1,5 +1,4 @@
 ---
-import Screenshot from "components/@commons/Screenshot.astro"
 import Grid from "components/@commons/Grid.astro"
 import Caracteristique from "./Caracteristique.astro"
 import IconOnlineCourse from "components/@commons/icons/IconOnlineCourse.astro"
@@ -9,91 +8,91 @@ import IconQuiz from "components/@commons/icons/IconQuiz.astro"
 import IconCockade from "components/@commons/icons/IconCockade.astro"
 import IconFlag from "components/@commons/icons/IconFlag.astro"
 import IconSmiley from "components/@commons/icons/IconSmiley.astro"
+
+import Screenshot1 from "images/course-screenshots/screenshot-1.png"
+import Screenshot1Webp from "images/course-screenshots/screenshot-1.webp"
+import Screenshot1Avif from "images/course-screenshots/screenshot-1.avif"
+import Screenshot2 from "images/course-screenshots/screenshot-2.png"
+import Screenshot2Avif from "images/course-screenshots/screenshot-2.avif"
+import Screenshot3 from "images/course-screenshots/screenshot-3.png"
+import Screenshot3Avif from "images/course-screenshots/screenshot-3.avif"
 ---
 
 <Grid>
   <ul class="col-span-full space-y-8 xl:col-span-4">
-      <li>
-        <Caracteristique
-          title="Cours en ligne"
-          description="À votre rythme"
-        >
-          <IconOnlineCourse slot="icon" />
-        </Caracteristique>
-      </li>
-      <li>
-        <Caracteristique
-          title="5 modules thématiques"
-        >
-          <IconSimplifiedModules slot="icon" />
-        </Caracteristique>
-      </li>
-      <li>
-        <Caracteristique
-          title="Outils clé-en-main à télécharger"
-        >
-          <IconGift slot="icon" />
-        </Caracteristique>
-      </li>
-      <li>
-        <Caracteristique
-          title="Quiz instantanés"
-        >
-          <IconQuiz slot="icon" />
-        </Caracteristique>
-      </li>
-      <li>
-        <Caracteristique
-          title="Certificat de participation"
-        >
-          <IconCockade slot="icon" />
-        </Caracteristique>
-      </li>
-      <li>
-        <Caracteristique
-          title="Français"
-        >
-          <IconFlag slot="icon" />
-        </Caracteristique>
-      </li>
-      <li>
-        <Caracteristique
-          title="Public"
-          description="Designers UX, designers produit, chef&middot;fe&middot;s de projet, product owners, responsables d'équipe..."
-        >
-          <IconSmiley slot="icon" />
-        </Caracteristique>
-      </li>
-    </ul>
+    <li>
+      <Caracteristique
+        title="Cours en ligne"
+        description="À votre rythme"
+      >
+        <IconOnlineCourse slot="icon" />
+      </Caracteristique>
+    </li>
+    <li>
+      <Caracteristique
+        title="5 modules thématiques"
+      >
+        <IconSimplifiedModules slot="icon" />
+      </Caracteristique>
+    </li>
+    <li>
+      <Caracteristique
+        title="Outils clé-en-main à télécharger"
+      >
+        <IconGift slot="icon" />
+      </Caracteristique>
+    </li>
+    <li>
+      <Caracteristique
+        title="Quiz instantanés"
+      >
+        <IconQuiz slot="icon" />
+      </Caracteristique>
+    </li>
+    <li>
+      <Caracteristique
+        title="Certificat de participation"
+      >
+        <IconCockade slot="icon" />
+      </Caracteristique>
+    </li>
+    <li>
+      <Caracteristique
+        title="Français"
+      >
+        <IconFlag slot="icon" />
+      </Caracteristique>
+    </li>
+    <li>
+      <Caracteristique
+        title="Public"
+        description="Designers UX, designers produit, chef&middot;fe&middot;s de projet, product owners, responsables d'équipe..."
+      >
+        <IconSmiley slot="icon" />
+      </Caracteristique>
+    </li>
+  </ul>
 
   <div class="col-span-full mt-16 xl:mt-0 xl:col-start-6 xl:col-span-7">
     <ul class="relative space-y-5 xl:space-y-0 xl:h-full isolate">
       <li class="xl:w-[70%] xl:z-[0]">
-        <Screenshot
-          width="495"
-          height="457"
-          src="/course-screenshot-1.webp"
-          alt="Première capture d'écran du site d'apprentissage en ligne"
-          style="width: 100%"
-        />
+        <picture>
+          <source srcset={Screenshot1Avif} type="image/avif">
+          <source srcset={Screenshot1Webp} type="image/webp">
+          <img class="screenshot w-full" src={Screenshot1} width="495" height="457" loading="lazy" alt="Première capture d'écran du site d'apprentissage en ligne" />
+        </picture>
       </li>
       <li class="xl:absolute xl:w-[55%] xl:top-[248px] xl:right-0 xl:z-[2]">
-        <Screenshot
-          width="388"
-          height="276"
-          src="/course-screenshot-2.webp"
-          alt="Seconde capture d'écran du site d'apprentissage en ligne"
-          style="width: 100%"
-        />
+        <picture>
+          <source srcset={Screenshot2Avif} type="image/avif">
+          <img class="screenshot w-full" src={Screenshot2} width="388" height="276" loading="lazy" alt="Seconde capture d'écran du site d'apprentissage en ligne" />
+        </picture>
       </li>
-      <li class="xl:w-[40%] xl:translate-x-[105px] xl:xl:translate-y-[-10px] xl:z-[1]">
-        <Screenshot
-          width="281"
-          height="200"
-          src="/course-screenshot-3.webp"
-          alt="Troisième capture d'écran du site d'apprentissage en ligne"
-          style="width: 100%"
-        />
+      <li class="xl:w-[40%] xl:translate-x-[105px] xl:translate-y-[-10px] xl:z-[1]">
+        <picture>
+          <source srcset={Screenshot3Avif} type="image/avif">
+          <img class="screenshot w-full" src={Screenshot3} width="281" height="200" loading="lazy" alt="Troisième capture d'écran du site d'apprentissage en ligne" />
+        </picture>
       </li>
     </ul>
   </div>

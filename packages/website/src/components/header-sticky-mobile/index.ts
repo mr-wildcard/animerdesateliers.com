@@ -48,6 +48,9 @@ enum ScrollDirection {
             if (scrollDirection === ScrollDirection.UP) {
               scrollAmount = Math.min(scrollAmount, 0);
             } else {
+              /**
+               * -1 : hide the remaining 1px border bottom of sticky header.
+               */
               scrollAmount = Math.max(scrollAmount, -stickyHeaderHeight - 1);
             }
 
