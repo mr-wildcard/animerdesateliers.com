@@ -1,7 +1,8 @@
 ---
-import Grid from "../@commons/Grid.astro"
-import IconCertificate from "../@commons/icons/IconCertificate.astro"
-import Certificat from "../../images/faux-certificat.webp"
+import Grid from "components/@commons/Grid.astro"
+import IconCertificate from "components/@commons/icons/IconCertificate.astro"
+import Certificat from "images/faux-certificat.png"
+import CertificatAvif from "images/faux-certificat.avif"
 ---
 
 <div class="py-14 bg-canary rounded-[30px] xl:rounded-none">
@@ -16,13 +17,16 @@ import Certificat from "../../images/faux-certificat.webp"
         </div>
       </div>
       <div class="col-span-full xl:col-start-7 xl:col-span-5">
-        <img
-          src={Certificat}
-          width="503"
-          height="355"
-          class="rounded-xl border-2 border-downriver"
-          alt="Certificat"
-        />
+        <picture>
+          <source srcset={CertificatAvif} type="image/avif">
+          <img
+            src={Certificat}
+            width="503"
+            height="355"
+            class="w-full rounded-xl border-2 border-downriver"
+            alt="Certificat"
+          />
+        </picture>
       </div>
     </Grid>
   </div>

@@ -12,6 +12,8 @@ if (index > 0) {
 ---
 <style lang="scss">
   .item {
+    @apply text-lg;
+
     position: relative;
     padding-left: 25px;
 
@@ -41,7 +43,7 @@ if (index > 0) {
   class={cs(defaultCSSClasses)}
 >
   <div class="py-10 px-5 xl:px-10 xl:pl-32 xl:pt-20 xl:pb-32">
-    <header class="mb-10 text-[26px] leading-[36px] font-bold xl:text-[32px] xl:leading-[42px]">{title}</header>
+    <h3 class="mb-10 text-[26px] leading-[36px] font-bold xl:text-[32px] xl:leading-[42px]">{title}</h3>
 
     <ul class="space-y-4">
       {items.map((item, index) => (

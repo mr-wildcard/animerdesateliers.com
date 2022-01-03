@@ -1,16 +1,22 @@
 ---
-const { imgSrc, fullname, label } = Astro.props;
+const { imgSources, fullname, label } = Astro.props;
+
+const [avifSrc, webpSrc, pngSrc] = imgSources;
 ---
 
 <div class="flex items-center xl:flex-col xl:text-center">
-  <img
-    src={imgSrc}
-    width="128"
-    height="128"
-    class="border-downriver border-[3px] rounded-full w-[128px] h-[128px] xl:w-[200px] xl:h-[200px] xl:mb-6"
-    alt={fullname}
-  />
-  <p class="text-lg ml-9 xl:ml-0">
+  <picture>
+    <source srcset={avifSrc} type="image/avif">
+    <source srcset={webpSrc} type="image/webp">
+    <img
+      src={pngSrc}
+      width="128"
+      height="128"
+      class="border-downriver border-[3px] rounded-full w-[128px] h-[128px] xl:w-[200px] xl:h-[200px] xl:mb-6"
+      alt={fullname}
+    />
+  </picture>
+  <p class="flex-1 text-lg ml-9 xl:ml-0">
     <span class="font-bold">{fullname}</span>
     <br/>
     <span class="text-base">{label}</span>

@@ -1,17 +1,24 @@
 ---
-import BlueQuote from "../@commons/BlueQuote.astro"
-import ExternalLink from "../@commons/ExternalLink.astro"
+import BlueQuote from "components/@commons/BlueQuote.astro"
+import ExternalLink from "components/@commons/ExternalLink.astro"
+
+import SignatureDani from "images/team/dani-signature.png"
+import SignatureDaniWebp from "images/team/dani-signature.webp"
+import SignatureDaniAvif from "images/team/dani-signature.avif"
+import SignatureYuna from "images/team/yuna-signature.png"
+import SignatureYunaWebp from "images/team/yuna-signature.webp"
+import SignatureYunaAvif from "images/team/yuna-signature.avif"
 ---
 
 <div class="flex flex-wrap xl:flex-nowrap xl:gap-[25px]">
   <div class="w-full xl:w-auto">
     <BlueQuote />
   </div>
-  <div class="w-full xl:translate-y-[14px]">
-    <h3 class="my-4 text-2xl leading-[42px] font-serif">
+  <div class="w-full xl:mt-[14px]">
+    <h2 class="my-4 text-2xl leading-[42px] font-serif">
       Tout ce qu'on aurait aimé savoir avant d'organiser notre premier atelier UX 🔥
-    </h3>
-    <div class="xl:text-xl">
+    </h2>
+    <section class="xl:text-xl">
       <p>
         Ce cours en ligne moderne et pragmatique condense nos apprentissages et retours d'expérience des dizaines
         d'ateliers que l'on a pu penser, mener puis analyser pour les entreprises dans lesquelles ou pour lesquelles
@@ -29,11 +36,15 @@ import ExternalLink from "../@commons/ExternalLink.astro"
         d'expériences.
       </p>
       <p>Who's in? 🤘</p>
-    </div>
+    </section>
     <div class="w-full flex gap-[24px] mt-4 font-bold">
       <div class="flex-1">
         <div class="flex items-center h-[83px]">
-          <img src="/yuna-signature.png" width="83" height="56" alt="Yuna Orsini's signature"/>
+          <picture>
+            <source srcset={SignatureYunaAvif} type="image/avif">
+            <source srcset={SignatureYunaWebp} type="image/webp">
+            <img src={SignatureYuna} width="83" height="56" alt="Yuna Orsini's signature" />
+          </picture>
         </div>
         <p class="mb-2 text-lg">Yuna Orsini</p>
         <p class="xl:text-sm">
@@ -42,7 +53,11 @@ import ExternalLink from "../@commons/ExternalLink.astro"
       </div>
       <div class="flex-1">
         <div class="flex items-center h-[83px]">
-          <img src="/dani-signature.png" width="83" height="62" alt="Daniela Peñeranda's signature"/>
+          <picture>
+            <source srcset={SignatureDaniAvif} type="image/avif">
+            <source srcset={SignatureDaniWebp} type="image/webp">
+            <img src={SignatureDani} width="83" height="62" alt="Daniela Peñaranda's signature" />
+          </picture>
         </div>
         <p class="mb-2 text-lg">Daniela Peñaranda</p>
         <p class="xl:text-sm">

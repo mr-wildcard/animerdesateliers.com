@@ -1,20 +1,11 @@
 ---
-import Button from "../@commons/button/index.astro"
-import IconNotification from "../@commons/icons/IconNotification.astro"
+import Button from "components/@commons/Button.astro"
+import IconNotification from "components/@commons/icons/IconNotification.astro"
+
+const desktopMinWidth = tailwindConfig.theme.screens.xl;
 ---
 
 <style>
-  /*
-  #sticky-button {
-    transform: translateY(calc(-100% - 1px));
-    transition: transform 400ms ease;
-  }
-
-  #sticky-button.show {
-    transform: translateY(0);
-  }
-  */
-
   #sticky-button :global(a) {
     display: inline-block;
   }
@@ -24,7 +15,10 @@ import IconNotification from "../@commons/icons/IconNotification.astro"
   }
 </style>
 
-<div id="sticky-button" class="sticky top-0 w-full z-10 text-center bg-white pt-5 pb-4 border-b border-downriver xl:hidden">
+<div id="sticky-button"
+     class="sticky top-0 w-full z-10 text-center bg-white pt-5 pb-4 border-b border-downriver xl:hidden"
+     data-desktop-min-width={desktopMinWidth}
+>
   <Button href="#inscription-newsletter">
     <IconNotification slot="icon"/>
     <span slot="label">Me prévenir du lancement</span>

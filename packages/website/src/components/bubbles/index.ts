@@ -42,6 +42,9 @@
   }
 
   function onClickOnLeftNav() {
+    /**
+     * 275 : the with of a bubble. (normally)
+     */
     const scrollAmount = Math.max(slider.scrollLeft - 275, 0);
 
     scroll(scrollAmount);

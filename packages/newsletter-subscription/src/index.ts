@@ -17,8 +17,6 @@ addEventListener("fetch", (event) => {
 });
 
 async function handleResponse(request: Request) {
-  // return new Response("", { status: 500 });
-
   const { email } = await request.json();
 
   return fetch(`https://api.mailjet.com/v3/REST/contactslist/${MJ_LIST_ID}/managecontact`, {

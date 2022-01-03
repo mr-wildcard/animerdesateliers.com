@@ -3,10 +3,12 @@ const tailwindConfig = require("./tailwind.config.js");
 
 const fullConfig = resolveConfig(tailwindConfig);
 
+const isProd = process.env.CF_PAGES_BRANCH === "main";
+
 function getSiteURL() {
-  if (process.env.CF_PAGES_BRANCH) {
+  if (process.env.CF_PAGES) {
     if (process.env.CF_PAGES_BRANCH !== "main") {
-      return "https://animerdesateliers.pages.dev/";
+      return `https://${process.env.CF_PAGES_BRANCH}.animerdesateliers.pages.dev/`;
     } else {
       return "https://animerdesateliers.com/";
     }
@@ -28,6 +30,7 @@ module.exports = {
   vite: {
     define: {
       tailwindConfig: JSON.stringify(fullConfig),
+      __PROD__: JSON.stringify(isProd),
     },
     server: {
       proxy: {
