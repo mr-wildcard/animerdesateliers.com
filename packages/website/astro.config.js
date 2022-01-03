@@ -3,6 +3,8 @@ const tailwindConfig = require("./tailwind.config.js");
 
 const fullConfig = resolveConfig(tailwindConfig);
 
+const isProd = process.env.CF_PAGES_BRANCH === "main";
+
 function getSiteURL() {
   if (process.env.CF_PAGES) {
     if (process.env.CF_PAGES_BRANCH !== "main") {
@@ -28,6 +30,7 @@ module.exports = {
   vite: {
     define: {
       tailwindConfig: JSON.stringify(fullConfig),
+      __PROD__: JSON.stringify(isProd),
     },
     server: {
       proxy: {

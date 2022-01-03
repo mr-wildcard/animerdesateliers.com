@@ -2,6 +2,8 @@
 const { title, description } = Astro.props;
 
 const imageForSocialNetworkSharing = Astro.site + "sn-sharing.png";
+
+const isProd = __PROD__;
 ---
 
 <html lang="en">
@@ -39,9 +41,12 @@ const imageForSocialNetworkSharing = Astro.site + "sn-sharing.png";
       rel="stylesheet"
       href={Astro.resolve("../styles/global.css")}
     />
+    {isProd && <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="3afa2750-6d4f-4599-9ff5-ad97c46373ed" type="text/javascript" async></script>}
   </head>
 
   <body>
     <slot />
+
+    {isProd && <script id="CookieDeclaration" src="https://consent.cookiebot.com/3afa2750-6d4f-4599-9ff5-ad97c46373ed/cd.js" type="text/javascript" async></script>}
   </body>
 </html>
