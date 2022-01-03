@@ -54,7 +54,7 @@
 
     const content = openerMappedToContent.get(opener);
 
-    content.classList.remove("xl:hidden");
+    content.classList.remove("lg:hidden");
   }
 
   function closeContent(opener: HTMLButtonElement) {
@@ -62,7 +62,7 @@
 
     const content = openerMappedToContent.get(opener);
 
-    content.classList.add("xl:hidden");
+    content.classList.add("lg:hidden");
   }
 
   function closeOtherContentsFromOpener(opener: HTMLButtonElement) {

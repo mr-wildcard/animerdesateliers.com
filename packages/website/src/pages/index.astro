@@ -51,7 +51,7 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
         <Header />
       </div>
 
-      <div class="col-span-full xl:col-start-2 xl:col-span-10 my-24 lg:my-36">
+      <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-2 xl:col-span-10 my-24 lg:my-36">
         <Hero />
       </div>
     </Grid>
@@ -83,7 +83,7 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
 
     <div class="container">
       <Grid>
-        <div class="col-span-full xl:col-start-3 xl:col-span-7 ">
+        <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-3 xl:col-span-7 ">
           <CoursProposePar />
 
           <div class="mt-16 xl:mt-24">
@@ -99,7 +99,7 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
 
     <div class="container">
       <Grid>
-        <div class="col-span-full xl:col-start-4 xl:col-span-7">
+        <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-4 xl:col-span-7">
           <Signatures />
         </div>
       </Grid>
@@ -113,7 +113,7 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
                  w-[260px]
                  h-[260px]
                  left-[calc(50%-130px)]
-                 translate-y-[40px]
+                 translate-y-[50px]
                  xl:left-auto
                  xl:right-[100px]
                  xl:translate-y-[25px]
@@ -131,15 +131,15 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
 
   <div class="container">
     <Grid>
-      <div class="col-span-full xl:col-span-6 mt-24">
+      <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-span-6 mt-28">
         <AnimerDesAteliers />
       </div>
 
-      <div class="col-span-full mt-16">
+      <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-span-full mt-16">
         <CaracteristiquesDuCours/>
       </div>
 
-      <div class="col-span-full mt-24">
+      <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-span-full mt-24">
         <InclusDansCeCours />
       </div>
     </Grid>
@@ -172,7 +172,7 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
   <div class="bg-white">
     <div class="container relative">
       <Grid>
-        <div class=" col-span-full full xl:col-start-3 xl:col-span-8 pt-24 pb-[240px] xl:py-32">
+        <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-3 xl:col-span-8 pt-24 pb-[240px] xl:py-32">
           <Punchline text="Favoriser l'intelligence collective est le nouveau pouvoir du designer." />
         </div>
         <picture>
@@ -180,13 +180,15 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
           <img
             class="absolute
                   right-[10%]
-                  bottom-[-34px]
+                  bottom-[-44px]
                   w-[226px]
                   h-[260px]
                   rotate-[16.36deg]
+                  md:left-[calc(50%-113px)]
                   xl:w-[270px]
                   xl:h-[310px]
                   xl:right-[70px]
+                  xl:left-auto
                   xl:bottom-[-205px]"
             src={Sticker4}
             width="270"
@@ -202,7 +204,7 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
   <div class="bg-magnolia pt-20 pb-24">
     <div class="container">
       <Grid>
-        <div class="col-span-full xl:col-start-2 xl:col-span-7">
+        <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-2 xl:col-span-7">
           <CoursBientotDisponible />
 
           <div id="inscription-newsletter" class="mt-12 scroll-my-[50vh]">
@@ -239,6 +241,8 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
                 w-[260px]
                 h-[260px]
                 rotate-[-4.96deg]
+                md:translate-y-[-20px]
+                xl:translate-y-0
                 xl:w-[300px]
                 xl:h-[300px]
           "
@@ -250,7 +254,7 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
         />
       </picture>
       <Grid>
-        <div class="col-span-full xl:col-start-2 xl:col-span-10">
+        <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-2 xl:col-span-10">
           <Punchline text="Passer de la vision d'un jeu de Lego à celle d'un outil de design tactique et imbattable !" />
         </div>
       </Grid>
@@ -260,7 +264,7 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
   <div class="bg-magnolia py-24">
     <div class="container">
       <Grid>
-        <div class="col-span-full xl:col-start-2 xl:col-span-7">
+        <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-2 xl:col-span-7">
           <CoursBientotDisponible />
 
           <div class="mt-12">
@@ -274,11 +278,11 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
   <div class="bg-downriver pt-24">
     <div class="container">
       <Grid>
-        <div class="mb-14 col-span-full xl:col-start-2 xl:col-span-10">
+        <div class="mb-14 col-span-full md:col-start-2 md:col-span-6 xl:col-start-2 xl:col-span-10">
           <QuestionsFrequentes />
         </div>
 
-        <footer class="pb-10 col-span-full xl:col-start-2">
+        <footer class="pb-10 col-span-full md:col-start-2 md:col-span-6 xl:col-start-2">
           <Footer linkToLegal={true} />
         </footer>
       </Grid>

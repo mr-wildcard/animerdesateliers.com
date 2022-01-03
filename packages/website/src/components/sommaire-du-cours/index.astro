@@ -4,7 +4,7 @@ import ModuleContent from "./ModuleContent.astro"
 
 import data from "./data.json"
 
-const desktopMinWidth = tailwindConfig.theme.screens.xl;
+const desktopMinWidth = tailwindConfig.theme.screens.lg;
 ---
 
 <style lang="scss">
@@ -13,7 +13,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.xl;
   }
 
   .opener {
-    @apply text-lg p-5 w-full flex items-center font-bold;
+    @apply text-lg p-5 md:px-16 lg:px-5 w-full flex items-center font-bold;
   }
 
   .opener .right-icon :global(svg) {
@@ -21,7 +21,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.xl;
     transform-origin: center center;
     transition: 100ms ease-out;
 
-    @screen xl {
+    @screen lg {
       transform: rotate(0deg);
     }
   }
@@ -33,14 +33,14 @@ const desktopMinWidth = tailwindConfig.theme.screens.xl;
       @apply bg-white;
     }
 
-    @screen xl {
+    @screen lg {
       @apply bg-canary;
     }
 
     .right-icon :global(svg) {
       transform: rotate(270deg);
 
-      @screen xl {
+      @screen lg {
         transform: rotate(0deg);
       }
     }
@@ -52,7 +52,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.xl;
       overflow: hidden;
     }
 
-    @screen xl {
+    @screen lg {
       &:hover {
         @apply bg-white;
       }
@@ -64,10 +64,10 @@ const desktopMinWidth = tailwindConfig.theme.screens.xl;
   }
 </style>
 
-<h2 class="px-[20px] mb-10 text-2xl font-serif xl:p-0 xl:mb-16 xl:text-[34px]">Sommaire</h2>
+<h2 class="px-[20px] md:px-16 mb-10 text-2xl font-serif xl:p-0 xl:mb-16 xl:text-[34px]">Sommaire</h2>
 
-<div id="sommaire" data-desktop-min-width={desktopMinWidth} class="border-t-2 border-downriver xl:flex" tabindex="0">
-  <ul class="xl:w-[290px]">
+<div id="sommaire" data-desktop-min-width={desktopMinWidth} class="border-t-2 border-downriver lg:flex" tabindex="0">
+  <ul class="lg:w-[290px]">
     {data.items.map((item, index) => (
       <li class="summary-item">
         <button
@@ -96,7 +96,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.xl;
   </ul>
   <div
     id="sommaire-desktop-content"
-    class="hidden xl:block xl:flex-1 bg-white"
+    class="hidden lg:block lg:flex-1 bg-white"
   >
     <!--
       Empty div.

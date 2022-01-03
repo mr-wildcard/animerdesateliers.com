@@ -8,7 +8,7 @@ import CertificatAvif from "images/faux-certificat.avif"
 <div class="py-14 bg-canary rounded-[30px] xl:rounded-none">
   <div class="container">
     <Grid>
-      <div class="col-span-full xl:col-span-5">
+      <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-span-5">
         <h2 class="text-2xl leading-[42px] font-serif xl:text-[34px] xl:leading-[48px]">Obtenez un certificat</h2>
         <p class="mt-5">Validez vos connaissances nouvellement acquises et recevez un certificat à afficher sur vos profils professionnels.</p>
         <div class="flex items-center mb-9 mt-9 xl:mb-0">
@@ -16,7 +16,7 @@ import CertificatAvif from "images/faux-certificat.avif"
           <p class="ml-5 font-bold xl:text-[22px]">Certificat de participation au cours</p>
         </div>
       </div>
-      <div class="col-span-full xl:col-start-7 xl:col-span-5">
+      <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-7 xl:col-span-5">
         <picture>
           <source srcset={CertificatAvif} type="image/avif">
           <img
@@ -32,6 +32,12 @@ import CertificatAvif from "images/faux-certificat.avif"
   </div>
 </div>
 
-<p class="mt-5 px-[20px] text-sm text-center">
-  Le contenu pressenti de ce cours pourra être soumis à de légères variations au moment de sa création finale.
-</p>
+<div class="mt-5">
+  <Grid>
+    <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-span-full">
+        <p class="px-[20px] md:px-0 text-sm text-center">
+          Le contenu pressenti de ce cours pourra être soumis à de légères variations au moment de sa création finale.
+        </p>
+    </div>
+  </Grid>
+</div>
