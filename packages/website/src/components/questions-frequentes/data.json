@@ -9,6 +9,6 @@
   },
   {
     "question": "J'ai une question non listée...",
-    "answer": "Pas de souci : vous pouvez nous poser toutes vos questions à l'adresse contact@animerdesateliers.com. À très vite !"
+    "answer": "Pas de souci : vous pouvez nous poser toutes vos questions à l'adresse <a href='mailto:contact@animerdesateliers.com' class='underline'>contact@animerdesateliers.com</a>. À très vite !"
   }
 ]
