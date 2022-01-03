@@ -6,43 +6,42 @@ import data from "./data.json"
 
 <style>
   .feedbacks {
-    @apply gap-x-4 xl:grid xl:gap-x-[24px] xl:grid-cols-12 xl:gap-y-28;
+    @apply gap-x-12 lg:grid lg:gap-x-[24px] lg:grid-cols-12 lg:gap-y-20 xl:gap-y-28;
 
     scroll-snap-type: x mandatory;
   }
 
   .feedback-wrapper {
-    @apply xl:col-span-5 xl:ml-[34px];
+    @apply max-w-[80vw] md:max-w-[60vw] lg:max-w-none lg:col-start-2 lg:col-span-5;
 
     flex: 0 0 auto;
     scroll-snap-align: center;
-    max-width: 80vw;
   }
 
   .feedback-wrapper:nth-child(2n) {
-    @apply xl:col-start-7;
+    @apply lg:col-start-7;
   }
 </style>
 
-<Grid outerGap={false}>
-  <div class="col-span-full px-[20px] md:col-start-2 md:col-span-6 xl:col-span-full xl:px-0">
-    <h2 class="mb-5 font-serif text-2xl leading-[42px] md:text-center xl:mb-10 xl:text-4xl xl:leading[48px]">
+<Grid>
+  <div class="col-span-full px-[20px] md:col-start-2 md:col-span-6 lg:col-span-full">
+    <h2 class="mb-5 font-serif text-2xl leading-[42px] md:text-center lg:mb-10 xl:text-4xl xl:leading[48px]">
       Une expertise éprouvée
     </h2>
   </div>
 
-  <h3 class="col-span-full px-[20px] md:col-start-2 md:col-span-6 md:text-center xl:px-0 xl:col-start-4 xl:col-span-6 xl:text-[22px] xl:leading-[32px] xl:font-bold">
+  <h3 class="col-span-full px-[20px] md:col-start-2 md:col-span-6 md:text-center xl:col-start-4 xl:col-span-6 xl:text-[22px] xl:leading-[32px] xl:font-bold">
     Nous rendons les équipes plus autonomes, plus transparentes, plus ouvertes et plus créatives.
   </h3>
-
-  <ul class="feedbacks col-span-full flex px-[20px] mt-16 pb-6 overflow-x-auto overscroll-x-contain">
-    {data.feedbacks.map((feedback) => (
-      <li class="feedback-wrapper">
-        <Feedback
-          text={feedback.text}
-          author={feedback.author}
-        />
-      </li>
-    ))}
-  </ul>
 </Grid>
+
+<ul class="feedbacks px-[20px] flex mt-16 pb-6 overflow-x-auto overscroll-x-contain">
+  {data.feedbacks.map((feedback) => (
+    <li class="feedback-wrapper">
+      <Feedback
+        text={feedback.text}
+      author={feedback.author}
+      />
+    </li>
+  ))}
+</ul>
