@@ -6,11 +6,6 @@ return esbuild
     entryPoints: ["src/index.ts"],
     outfile: "dist/worker.js",
     platform: "node",
-    define: {
-      MJ_APIKEY_PUBLIC: JSON.stringify(process.env.MJ_APIKEY_PUBLIC),
-      MJ_APIKEY_PRIVATE: JSON.stringify(process.env.MJ_APIKEY_PRIVATE),
-      MJ_LIST_ID: JSON.stringify(6339),
-    },
   })
   .then(() => {
     console.log("✅  Build successful.");
