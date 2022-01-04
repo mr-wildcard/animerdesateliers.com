@@ -19,9 +19,13 @@ addEventListener("fetch", (event) => {
 async function handleResponse(request: Request) {
   const { email } = await request.json();
 
+  if (!email.length) {
+    return new Response("You need to provide an email address", { status: 400 });
+  }
+
   return fetch(`https://api.mailjet.com/v3/REST/contactslist/${MJ_LIST_ID}/managecontact`, {
     body: JSON.stringify({
-      Action: "addnoforce",
+      Action: "addforce",
       Email: email,
     }),
     headers: {
@@ -29,9 +33,23 @@ async function handleResponse(request: Request) {
       "Content-Type": "application/json",
     },
     method: "POST",
-  }).catch((error) => {
-    console.error("An error occured while contacting MailJet.", "Submitted email:", email, { error });
+  })
+    .then((response) => {
+      if (response.ok) {
+        return new Response(`Email address ${email} successfully added to newsletter subscription !`);
+      } else {
+        console.error("An error occured while contacting MailJet.", "Submitted email:", email);
 
-    return new Response("An error occured while contacting MailJet.", { status: 500 });
-  });
+        return new Response(`An error occured while adding ${email} address to newsletter subscription.`, {
+          status: response.status,
+        });
+      }
+    })
+    .catch((error) => {
+      console.error("An error occured while contacting MailJet", error);
+
+      return new Response(`An error occured while adding ${email} address to newsletter subscription.`, {
+        status: 500,
+      });
+    });
 }
