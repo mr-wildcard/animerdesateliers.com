@@ -3,15 +3,23 @@ import BlueQuote from "components/@commons/BlueQuote.astro";
 
 const { text, author } = Astro.props;
 ---
+<style>
+  .blue-quote :global(svg) {
+    width: 34px;
+    height: 25px;
+  }
+
+  @screen xl {
+    .blue-quote :global(svg) {
+      width: 48px;
+      height: 35px;
+    }
+  }
+</style>
 
 <div class="flex flex-col xl:flex-row">
-  <div class="mb-5 xl:mr-6">
-    <span class="xl:hidden">
-      <BlueQuote width="34" height="25" />
-    </span>
-    <span class="hidden xl:block">
-      <BlueQuote width="48" height="35" />
-    </span>
+  <div class="blue-quote mb-5 xl:mr-6">
+    <BlueQuote width="34" height="25" />
   </div>
   <figure class="text-base leading-[26px] xl:translate-y-[12px]">
     <blockquote class="mb-5">
