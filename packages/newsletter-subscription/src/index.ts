@@ -5,7 +5,6 @@ declare var MJ_APIKEY_PRIVATE: string;
 /**
  * https://dev.mailjet.com/email/reference/contacts/subscriptions/
  */
-
 addEventListener("fetch", (event) => {
   if (event.request.method !== "POST") {
     event.respondWith(new Response("", { status: 405 }));
