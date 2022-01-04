@@ -13,7 +13,7 @@ import Sticker4Avif from "images/stickers/sticker4.avif"
 import Sticker5 from "images/stickers/sticker5.png"
 import Sticker5Avif from "images/stickers/sticker5.avif"
 
-import MobileStickyHeader from "components/header-sticky-mobile/index.astro"
+import StickyHeader from "components/header-sticky/index.astro"
 import Header from "components/header/index.astro"
 import Hero from "components/hero/index.astro"
 import CoursProposePar from "components/cours-propose-par/index.astro"
@@ -43,11 +43,11 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
   title={title}
   description={description}
 >
-  <MobileStickyHeader />
+  <StickyHeader />
 
   <div class="container">
     <Grid>
-      <div id="header-wrapper" class="col-span-full mt-4">
+      <div class="col-span-full mt-4">
         <Header />
       </div>
 
