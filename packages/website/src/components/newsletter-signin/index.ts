@@ -38,6 +38,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       if (!state.statuses.loading) {
         if (state.statuses.success) {
           displayValidationHTML(true);
+          emailInput.value = "";
         } else if (state.statuses.failed) {
           displayValidationHTML(false);
         }
@@ -54,6 +55,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
       e.preventDefault();
 
       if (state.statuses.loading || state.errors.invalidEmail) {
+        if (state.errors.invalidEmail) {
+          toggleInputValidationMessage(true);
+        }
+
         return;
       }
 
@@ -109,13 +114,20 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     function displayValidationHTML(success: boolean) {
       htmlFormElement.style.display = "none";
+      htmlFormElement.style.opacity = "0";
 
       const htmlContent = getValidationHTML(success);
       const wrapper = document.createElement("div");
       wrapper.setAttribute("role", "status");
+      wrapper.style.opacity = "0";
+      wrapper.style.transition = "opacity 250ms ease-out";
       wrapper.innerHTML = htmlContent;
 
       htmlFormElement.before(wrapper);
+
+      requestAnimationFrame(() => {
+        wrapper.style.opacity = "1";
+      });
 
       wrapper.querySelector("button").addEventListener(
         "click",
@@ -127,6 +139,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
           state.statuses.failed = false;
 
           htmlFormElement.style.display = "block";
+
+          requestAnimationFrame(() => {
+            htmlFormElement.style.opacity = "1";
+          });
         },
         { once: true }
       );
