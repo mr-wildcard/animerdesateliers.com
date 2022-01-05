@@ -12,7 +12,7 @@ import data from "./data.json"
   }
 
   .feedback-wrapper {
-    @apply max-w-[80vw] md:max-w-[60vw] lg:max-w-none lg:col-start-2 lg:col-span-5;
+    @apply max-w-[80vw] md:max-w-[60vw] lg:max-w-none lg:col-start-2 lg:col-span-5 xl:col-start-1;
 
     flex: 0 0 auto;
     scroll-snap-align: center;
@@ -35,7 +35,7 @@ import data from "./data.json"
   </h3>
 </Grid>
 
-<ul class="feedbacks px-[20px] flex mt-16 pb-6 overflow-x-auto overscroll-x-contain">
+<ul class="feedbacks px-[20px] flex mt-16 pb-6 overflow-x-auto overscroll-x-contain xl:px-0">
   {data.feedbacks.map((feedback) => (
     <li class="feedback-wrapper">
       <Feedback
