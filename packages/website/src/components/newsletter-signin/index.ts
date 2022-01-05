@@ -1,95 +1,176 @@
-type FormValidationType = "invalid-email" | "api-error" | "successfully-subscribed" | "already-subscribed";
+// @ts-ignore
+import { proxy, subscribe } from "valtio";
 
-(() => {
-  document.querySelectorAll(".newsletter-form").forEach((htmlFormElement) => {
+window.addEventListener("DOMContentLoaded", (event) => {
+  document.querySelectorAll<HTMLFormElement>(".newsletter-form").forEach((htmlFormElement) => {
     const submitButton = htmlFormElement.querySelector("button.pushable");
-
-    const allValidationMessages = Array.from(
-      htmlFormElement.querySelectorAll<HTMLSpanElement>("[data-validation-type]")
-    );
-
+    const invalidEmailMessage = htmlFormElement.querySelector('[data-validation-type="invalid-email"]');
     const emailInput = htmlFormElement.querySelector<HTMLInputElement>("input[type=email]");
 
-    emailInput.addEventListener("input", (e) => {
-      if (emailInputValueIsValid()) {
-        removeAllValidationMessages();
-      }
+    const state = proxy({
+      statuses: {
+        loading: false,
+        success: false,
+        failed: false,
+      },
+      errors: {
+        invalidEmail: getEmailInputValueIsValid(),
+      },
     });
 
-    emailInput.addEventListener("blur", (e) => {
-      removeAllValidationMessages();
-
-      if (emailInputValueIsValid()) {
-        removeValidationMessage("invalid-email");
+    subscribe(state.errors, () => {
+      if (state.errors.invalidEmail) {
+        toggleInputValidationMessage(true);
       } else {
-        displayValidationMessage("invalid-email");
+        toggleInputValidationMessage(false);
       }
     });
 
-    let fetching = false;
+    subscribe(state.statuses, () => {
+      if (state.statuses.loading) {
+        toggleButtonLoadingState(true);
+      } else {
+        toggleButtonLoadingState(false);
+      }
+    });
+
+    subscribe(state.statuses, () => {
+      if (!state.statuses.loading) {
+        if (state.statuses.success) {
+          displayValidationHTML(true);
+        } else if (state.statuses.failed) {
+          displayValidationHTML(false);
+        }
+      }
+    });
+
+    ["input", "focus", "blur"].forEach((event) => {
+      emailInput.addEventListener(event, (e) => {
+        state.errors.invalidEmail = !getEmailInputValueIsValid();
+      });
+    });
+
     htmlFormElement.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      if (!emailInputValueIsValid()) {
-        displayValidationMessage("invalid-email");
-      } else {
-        removeAllValidationMessages();
-        submitButton.classList.add("loading");
-
-        fetching = true;
-
-        fetch("/subscribe", {
-          method: "POST",
-          body: JSON.stringify({
-            email: emailInput.value,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }).then((response) => {
-          if (response.ok) {
-            displayValidationMessage("successfully-subscribed");
-          } else {
-            displayValidationMessage("api-error");
-          }
-
-          submitButton.classList.remove("loading");
-
-          fetching = false;
-        });
+      if (state.statuses.loading || state.errors.invalidEmail) {
+        return;
       }
+
+      submitForm();
     });
 
-    function emailInputValueIsValid() {
-      return emailInput.value.length && emailInput.validity.valid;
+    function submitForm() {
+      state.statuses.loading = true;
+
+      fetch("/subscribe", {
+        method: "POST",
+        body: JSON.stringify({
+          email: emailInput.value,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          state.statuses.loading = false;
+
+          if (response.ok) {
+            state.statuses.success = true;
+          } else {
+            state.statuses.failed = true;
+          }
+        })
+        .catch((error) => {
+          state.statuses.loading = false;
+          state.statuses.failed = true;
+        });
     }
 
-    function displayValidationMessage(validationType: FormValidationType) {
-      const validationMessage = allValidationMessages.find(
-        (htmlElement) => htmlElement.dataset.validationType === validationType
-      );
-
-      if (validationMessage && validationMessage.classList.contains("hidden")) {
-        validationMessage.classList.remove("hidden");
+    function toggleInputValidationMessage(show: boolean) {
+      if (show) {
+        invalidEmailMessage.classList.remove("hidden");
+      } else {
+        invalidEmailMessage.classList.add("hidden");
       }
     }
 
-    function removeValidationMessage(validationType: FormValidationType) {
-      const validationMessage = allValidationMessages.find(
-        (htmlElement) => htmlElement.dataset.validationType === validationType
-      );
-
-      if (validationMessage && !validationMessage.classList.contains("hidden")) {
-        validationMessage.classList.add("hidden");
+    function toggleButtonLoadingState(loading: boolean) {
+      if (loading) {
+        submitButton.classList.add("loading");
+      } else {
+        submitButton.classList.remove("loading");
       }
     }
 
-    function removeAllValidationMessages() {
-      allValidationMessages.forEach((htmlElement) => {
-        if (!htmlElement.classList.contains("hidden")) {
-          htmlElement.classList.add("hidden");
-        }
-      });
+    function getEmailInputValueIsValid() {
+      return !emailInput.value.length || (emailInput.value.length && emailInput.checkValidity());
+    }
+
+    function displayValidationHTML(success: boolean) {
+      htmlFormElement.style.display = "none";
+
+      const htmlContent = getValidationHTML(success);
+      const wrapper = document.createElement("div");
+      wrapper.setAttribute("role", "status");
+      wrapper.innerHTML = htmlContent;
+
+      htmlFormElement.before(wrapper);
+
+      wrapper.querySelector("button").addEventListener(
+        "click",
+        () => {
+          wrapper.remove();
+
+          state.statuses.loading = false;
+          state.statuses.success = false;
+          state.statuses.failed = false;
+
+          htmlFormElement.style.display = "block";
+        },
+        { once: true }
+      );
+    }
+
+    function getValidationHTML(success: boolean) {
+      return `
+        <p class="text-[22px] leading-[34px] mb-4 text-blue font-bold lg:text-4xl lg:leading-[56px]">
+          ${
+            success
+              ? "✅ Cool, votre adresse email est enregistrée. À très bientôt !"
+              : "❌ Petit souci technique... L’inscription n’a pas fonctionné."
+          }
+        </p>
+
+        <p class="text-lg mb-10">
+          ${
+            success
+              ? "On vous a envoyé un email de confirmation où l’on vous demande votre avis sur le futur prix du cours en ligne."
+              : "Réessayez un peu plus tard ou écrivez-nous à <a href='mailto:contact@animerdesateliers.com' class='underline'>contact@animerdesateliers.com</a>."
+          }
+        </p>
+
+        <button
+          class="
+            w-full
+            text-lg
+            px-[22px]
+            py-[14px]
+            bg-downriver
+            rounded-full
+            text-white
+            text-center
+            border-2
+            border-downriver
+            transition
+            lg:text-sm
+            md:w-auto
+            hover:bg-chiffon
+            hover:text-downriver
+          ">
+            ${success ? "Bien compris, je checke mes emails" : "Revenir à l’étape précédente"}
+          </button>
+      `;
     }
   });
-})();
+});
