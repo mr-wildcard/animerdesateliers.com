@@ -179,7 +179,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             border-2
             border-downriver
             transition
-            lg:text-sm
+            md:text-base
             md:w-auto
             hover:bg-chiffon
             hover:text-downriver
