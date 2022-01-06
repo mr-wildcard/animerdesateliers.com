@@ -1,11 +1,13 @@
 {
-  "name": "newsletter-subscription-worker",
+  "name": "basic-auth-worker",
   "version": "1.0.0",
-  "description": "Cloudflare worker for Newsletter subscription",
+  "description": "Cloudflare worker for Basic Authentication on production site",
   "main": "dist/worker.js",
   "scripts": {
     "dev": "wrangler dev",
-    "build": "node build.js"
+    "build": "node build.js",
+    "preview": "wrangler preview",
+    "publish": "wrangler publish"
   },
   "author": "Julien Viala <dev.vialajulien@gmail.com>",
   "license": "MIT OR Apache-2.0",
