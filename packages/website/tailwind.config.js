@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Filson Pro", "sans-serif"],
-      serif: ["Dela Gothic One", "serif"],
+      serif: ["Termina", "serif"],
     },
     extend: {
       fontSize: {
