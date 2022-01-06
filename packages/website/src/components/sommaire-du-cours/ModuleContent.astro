@@ -41,6 +41,7 @@ if (index > 0) {
   id={`module${index}`}
   aria-labelledby={`module${index}_opener`}
   class={cs(defaultCSSClasses)}
+  style={`opacity: ${index === 0 ? "1" : "0"}`}
 >
   <div class="py-10 px-5 md:p-16 xl:px-10 xl:pl-32 xl:pt-20 xl:pb-32">
     <h3 class="mb-10 text-[26px] leading-[36px] font-bold xl:text-[32px] xl:leading-[42px]">{title}</h3>
