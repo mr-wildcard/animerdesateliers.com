@@ -4,7 +4,7 @@ import Toolbox from "./Toolbox.astro"
 
 const { index, title, items, toolbox } = Astro.props;
 
-const defaultCSSClasses = ["content"];
+const defaultCSSClasses = ["content", "transition"];
 
 if (index > 0) {
   defaultCSSClasses.push("lg:hidden");

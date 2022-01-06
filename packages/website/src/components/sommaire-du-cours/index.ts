@@ -1,4 +1,5 @@
-(function () {
+window.addEventListener("DOMContentLoaded", (event) => {
+  const desktopWrapper = document.querySelector("#sommaire-desktop-content");
   const sommaireHTMLElement = document.querySelector<HTMLDivElement>("#sommaire");
   const { desktopMinWidth } = sommaireHTMLElement.dataset;
   const mdBreakpoint = `(min-width: ${desktopMinWidth})`;
@@ -7,6 +8,31 @@
   const openers = findOpeners();
 
   let matchDesktopBreakpoint = desktopMedia.matches;
+
+  /**
+   * MutationObserver to handle opacity animations.
+   * This allows to decouple the display mechanisms from the animations.
+   */
+  const contentsMO = new MutationObserver((entries) => {
+    const [mutation] = entries;
+
+    for (let mutation of entries) {
+      if (mutation.attributeName === "class") {
+        const target = mutation.target as HTMLElement;
+
+        const elementIsNowVisible = mutation.oldValue.includes("lg:hidden") && !target.classList.contains("lg:hidden");
+        const elementIsNowHidden = !mutation.oldValue.includes("lg:hidden") && target.classList.contains("lg:hidden");
+
+        if (elementIsNowVisible) {
+          requestAnimationFrame(() => {
+            target.style.opacity = "1";
+          });
+        } else if (elementIsNowHidden) {
+          target.style.opacity = "0";
+        }
+      }
+    }
+  });
 
   desktopMedia.addEventListener("change", (e) => {
     matchDesktopBreakpoint = e.matches;
@@ -19,13 +45,13 @@
        * In case all items are closed and we switch to desktop layout,
        * we need to open at least one item.
        */
-      const openedContent = Array.from(openerMappedToContent.keys()).filter(
+      const openedContents = Array.from(openerMappedToContent.keys()).filter(
         (opener) => opener.getAttribute("aria-expanded") === "true"
       );
 
-      if (!openedContent.length) {
+      if (!openedContents.length) {
         openContent(openers[0]);
-      } else if (openedContent.length > 1) {
+      } else if (openedContents.length > 1) {
         closeOtherContentsFromOpener(openers[0]);
       }
     } else {
@@ -136,13 +162,25 @@
 
   function moveOpenersContentToDesktopWrapper(openers: NodeListOf<HTMLButtonElement>) {
     openers.forEach((opener) => {
-      const desktopWrapper = document.querySelector("#sommaire-desktop-content");
-
       desktopWrapper.appendChild(openerMappedToContent.get(opener));
     });
   }
 
+  function observeContentsForAnimations(openers: NodeListOf<HTMLButtonElement>) {
+    openers.forEach((opener) => {
+      const content = openerMappedToContent.get(opener);
+
+      contentsMO.observe(content, {
+        subtree: false,
+        attributes: true,
+        attributeOldValue: true,
+        attributeFilter: ["class"],
+      });
+    });
+  }
+
   mapOpenersToTheirContents(openers);
+  observeContentsForAnimations(openers);
   addClickEventListeners(openers);
   addKeyboardNavigation();
 
@@ -150,4 +188,4 @@
     moveOpenersContentToDesktopWrapper(openers);
     openContent(openers[0]);
   }
-})();
+});
