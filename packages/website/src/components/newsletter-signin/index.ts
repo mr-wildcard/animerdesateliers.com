@@ -149,6 +149,25 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
 
     function getValidationHTML(success: boolean) {
+      const buttonCSSClassnames = [
+        "w-full",
+        "text-lg",
+        "px-[22px]",
+        "py-[14px]",
+        "bg-downriver",
+        "rounded-full",
+        "text-white",
+        "text-center",
+        "font-bold",
+        "border-2",
+        "border-downriver",
+        "transition",
+        "md:text-base",
+        "md:w-auto",
+        "hover:bg-chiffon",
+        "hover:text-downriver",
+      ];
+
       return `
         <p class="text-[22px] leading-[34px] mb-4 text-blue font-bold lg:text-4xl lg:leading-[56px]">
           ${
@@ -166,26 +185,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
           }
         </p>
 
-        <button
-          class="
-            w-full
-            text-lg
-            px-[22px]
-            py-[14px]
-            bg-downriver
-            rounded-full
-            text-white
-            text-center
-            border-2
-            border-downriver
-            transition
-            md:text-base
-            md:w-auto
-            hover:bg-chiffon
-            hover:text-downriver
-          ">
-            ${success ? "Bien compris, je checke mes emails" : "Revenir à l’étape précédente"}
-          </button>
+        <button class="${buttonCSSClassnames.join(" ")}">
+          ${success ? "Bien compris, je checke mes emails" : "Revenir à l’étape précédente"}
+        </button>
       `;
     }
   });
