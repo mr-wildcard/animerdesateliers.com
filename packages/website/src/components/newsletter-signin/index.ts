@@ -169,7 +169,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       ];
 
       return `
-        <p class="text-[22px] leading-[34px] mb-4 text-blue font-bold lg:text-4xl lg:leading-[56px]">
+        <p class="text-2xl leading-[34px] mb-4 text-blue font-bold lg:text-4xl lg:leading-[56px]">
           ${
             success
               ? "✅ Cool, votre adresse email est enregistrée. À très bientôt !"
