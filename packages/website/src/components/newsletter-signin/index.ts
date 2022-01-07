@@ -1,61 +1,62 @@
 // @ts-ignore
 import { proxy, subscribe } from "valtio";
 
+interface State {
+  httpStatus: null | number;
+  loading: boolean;
+  invalidEmail: boolean;
+}
+
 window.addEventListener("DOMContentLoaded", (event) => {
   document.querySelectorAll<HTMLFormElement>(".newsletter-form").forEach((htmlFormElement) => {
     const submitButton = htmlFormElement.querySelector("button.pushable");
     const invalidEmailMessage = htmlFormElement.querySelector('[data-validation-type="invalid-email"]');
     const emailInput = htmlFormElement.querySelector<HTMLInputElement>("input[type=email]");
 
-    const state = proxy({
-      statuses: {
-        loading: false,
-        success: false,
-        failed: false,
-      },
-      errors: {
-        invalidEmail: getEmailInputValueIsValid(),
-      },
+    const state = proxy<State>({
+      httpStatus: null,
+      loading: false,
+      invalidEmail: getEmailInputValueIsValid(),
     });
 
-    subscribe(state.errors, () => {
-      if (state.errors.invalidEmail) {
+    subscribe(state, () => {
+      if (state.invalidEmail) {
         toggleInputValidationMessage(true);
       } else {
         toggleInputValidationMessage(false);
       }
     });
 
-    subscribe(state.statuses, () => {
-      if (state.statuses.loading) {
+    subscribe(state, () => {
+      if (state.loading) {
         toggleButtonLoadingState(true);
       } else {
         toggleButtonLoadingState(false);
       }
     });
 
-    subscribe(state.statuses, () => {
-      if (!state.statuses.loading) {
-        if (state.statuses.success) {
-          displayValidationHTML(true);
+    subscribe(state, () => {
+      if (!state.loading && state.httpStatus !== null) {
+        if (state.httpStatus === 409 || state.httpStatus < 400) {
           emailInput.value = "";
-        } else if (state.statuses.failed) {
-          displayValidationHTML(false);
+          emailInput.checkValidity();
         }
+
+        displayValidationHTML();
       }
     });
 
     ["input", "focus", "blur"].forEach((event) => {
       emailInput.addEventListener(event, (e) => {
-        state.errors.invalidEmail = !getEmailInputValueIsValid();
+        state.invalidEmail = !getEmailInputValueIsValid();
       });
     });
 
     htmlFormElement.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      if (state.statuses.loading || state.errors.invalidEmail) {
-        if (state.errors.invalidEmail) {
+      if (state.loading || state.invalidEmail) {
+        if (state.invalidEmail) {
           toggleInputValidationMessage(true);
         }
 
@@ -66,7 +67,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 
     function submitForm() {
-      state.statuses.loading = true;
+      state.loading = true;
 
       fetch("/subscribe", {
         method: "POST",
@@ -78,17 +79,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
         },
       })
         .then((response) => {
-          state.statuses.loading = false;
-
-          if (response.ok) {
-            state.statuses.success = true;
-          } else {
-            state.statuses.failed = true;
-          }
+          state.httpStatus = response.status;
+          state.loading = false;
         })
         .catch((error) => {
-          state.statuses.loading = false;
-          state.statuses.failed = true;
+          state.httpStatus = 500;
+          state.loading = false;
         });
     }
 
@@ -112,11 +108,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
       return !emailInput.value.length || (emailInput.value.length && emailInput.checkValidity());
     }
 
-    function displayValidationHTML(success: boolean) {
+    function displayValidationHTML() {
       htmlFormElement.style.display = "none";
       htmlFormElement.style.opacity = "0";
 
-      const htmlContent = getValidationHTML(success);
+      const htmlContent = getValidationHTML();
       const wrapper = document.createElement("div");
       wrapper.setAttribute("role", "status");
       wrapper.style.opacity = "0";
@@ -134,9 +130,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
         () => {
           wrapper.remove();
 
-          state.statuses.loading = false;
-          state.statuses.success = false;
-          state.statuses.failed = false;
+          state.httpStatus = null;
+          state.loading = false;
 
           htmlFormElement.style.display = "block";
 
@@ -148,7 +143,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
       );
     }
 
-    function getValidationHTML(success: boolean) {
+    function getValidationHTML() {
+      const { httpStatus } = state;
+
       const buttonCSSClassnames = [
         "w-full",
         "text-lg",
@@ -166,27 +163,31 @@ window.addEventListener("DOMContentLoaded", (event) => {
         "md:w-auto",
         "hover:bg-chiffon",
         "hover:text-downriver",
-      ];
+      ].join(" ");
 
       return `
         <p class="text-2xl leading-[34px] mb-4 text-blue font-bold lg:text-4xl lg:leading-[56px]">
           ${
-            success
+            httpStatus < 400
               ? "✅ Cool, votre adresse email est enregistrée. À très bientôt !"
+              : httpStatus === 409
+              ? "✅ Pas d’inquiétude, votre adresse email est déjà dans notre liste !"
               : "❌ Petit souci technique... L’inscription n’a pas fonctionné."
           }
         </p>
 
         <p class="text-lg mb-10">
-          ${
-            success
-              ? "On vous a envoyé un email de confirmation où l’on vous demande votre avis sur le futur prix du cours en ligne."
-              : "Réessayez un peu plus tard ou écrivez-nous à <a href='mailto:contact@animerdesateliers.com' class='underline'>contact@animerdesateliers.com</a>."
-          }
+        ${
+          httpStatus < 400
+            ? "On vous a envoyé un email de confirmation où l’on vous demande votre avis sur le futur prix du cours en ligne."
+            : httpStatus === 409
+            ? "Ça, c’est de la motivation. À très bientôt !"
+            : "Réessayez un peu plus tard ou écrivez-nous à <a href='mailto:contact@animerdesateliers.com' class='underline'>contact@animerdesateliers.com</a>."
+        }
         </p>
 
-        <button class="${buttonCSSClassnames.join(" ")}">
-          ${success ? "Bien compris, je checke mes emails" : "Revenir à l’étape précédente"}
+        <button class="${buttonCSSClassnames}">
+        ${httpStatus < 400 ? "Bien compris, je checke mes emails" : "Revenir à l’étape précédente"}
         </button>
       `;
     }
