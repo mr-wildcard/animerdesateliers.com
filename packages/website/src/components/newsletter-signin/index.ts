@@ -169,7 +169,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         <p class="text-2xl leading-[34px] mb-4 text-blue font-bold lg:text-4xl lg:leading-[56px]">
           ${
             httpStatus < 400
-              ? "✅ Cool, votre demande est enregistrée. N’oubliez pas de la confirmer !"
+              ? "✅ Cool, votre demande est enregistrée. Pensez à la confirmer !"
               : httpStatus === 409
               ? "✅ Pas d’inquiétude, votre adresse email est déjà dans notre liste !"
               : "❌ Petit souci technique... L’inscription n’a pas fonctionné."
