@@ -40,6 +40,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
         if (state.httpStatus === 409 || state.httpStatus < 400) {
           emailInput.value = "";
           emailInput.checkValidity();
+
+          try {
+            window.lintrk("track", { conversion_id: 6087946 });
+          } catch (error) {
+            console.error("Couldn't send Linkedin tracking event after successful newsletter form submission.");
+          }
         }
 
         displayValidationHTML();
