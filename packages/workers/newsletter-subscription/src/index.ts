@@ -69,9 +69,7 @@ async function addEmailToNewsletterRequest(email: string) {
       {
         body: JSON.stringify({
           email_address: email,
-          email_type: "html",
           status_if_new: "pending",
-          status: "pending",
         }),
         headers: {
           Authorization: `Basic ${btoa(`${MC_API_KEY_LABEL}:${MC_API_KEY}`)}`,
