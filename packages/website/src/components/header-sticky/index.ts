@@ -9,36 +9,27 @@ window.addEventListener("DOMContentLoaded", (event) => {
   let previous_known_scroll_position = window.scrollY;
   let last_known_scroll_position = window.scrollY;
   let scrollAmount = 0;
-  let ticking = false;
   let currentScrollDirection: ScrollDirection;
 
   function onScroll() {
-    if (!ticking) {
-      ticking = true;
+    previous_known_scroll_position = last_known_scroll_position;
+    last_known_scroll_position = window.scrollY;
 
-      window.requestAnimationFrame(function () {
-        previous_known_scroll_position = last_known_scroll_position;
-        last_known_scroll_position = window.scrollY;
+    const scrollDirection: ScrollDirection =
+      last_known_scroll_position > previous_known_scroll_position ? ScrollDirection.DOWN : ScrollDirection.UP;
 
-        const scrollDirection: ScrollDirection =
-          last_known_scroll_position > previous_known_scroll_position ? ScrollDirection.DOWN : ScrollDirection.UP;
+    scrollAmount -= last_known_scroll_position - previous_known_scroll_position;
 
-        scrollAmount -= last_known_scroll_position - previous_known_scroll_position;
-
-        if (scrollDirection === ScrollDirection.UP) {
-          scrollAmount = Math.min(scrollAmount, 0);
-        } else {
-          /**
-           * -1 : hide the remaining 1px border bottom of sticky header.
-           */
-          scrollAmount = Math.max(scrollAmount, -stickyHeaderHeight - 1);
-        }
-
-        stickyHeader.style.transform = `translateY(${scrollAmount}px)`;
-
-        ticking = false;
-      });
+    if (scrollDirection === ScrollDirection.UP) {
+      scrollAmount = Math.min(scrollAmount, 0);
+    } else {
+      /**
+       * -1 : hide the remaining 1px border bottom of sticky header.
+       */
+      scrollAmount = Math.max(scrollAmount, -stickyHeaderHeight - 1);
     }
+
+    stickyHeader.style.transform = `translateY(${scrollAmount}px)`;
   }
 
   /**
