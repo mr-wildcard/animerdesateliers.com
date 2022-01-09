@@ -81,6 +81,8 @@ async function addEmailToNewsletterRequest(email: string) {
     );
 
     if (response.ok) {
+      console.log(`✅ ${email} subscribed !`);
+
       return new Response(`Email address ${email} successfully added to newsletter !`, {
         status: response.status,
       });
