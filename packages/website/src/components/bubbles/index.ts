@@ -1,4 +1,5 @@
 import { onDOMReady } from "scripts/onDOMReady";
+import { listenToMediaQueryListChange } from "scripts/listenToMatchQueryChange";
 
 onDOMReady(() => {
   const bubbles = document.querySelector<HTMLDivElement>("#bubbles");
@@ -70,7 +71,7 @@ onDOMReady(() => {
     }
   }
 
-  desktopMedia.addEventListener("change", onBreakpointChange);
+  listenToMediaQueryListChange(desktopMedia, onBreakpointChange);
 
   const sliderRO = new ResizeObserver((entries) => {
     const [slider] = entries;

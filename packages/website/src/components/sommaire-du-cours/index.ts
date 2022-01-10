@@ -1,4 +1,5 @@
 import { onDOMReady } from "scripts/onDOMReady";
+import { listenToMediaQueryListChange } from "scripts/listenToMatchQueryChange";
 
 onDOMReady(() => {
   const desktopWrapper = document.querySelector("#sommaire-desktop-content");
@@ -36,7 +37,7 @@ onDOMReady(() => {
     }
   });
 
-  desktopMedia.addEventListener("change", (e) => {
+  listenToMediaQueryListChange(desktopMedia, (e) => {
     matchDesktopBreakpoint = e.matches;
 
     if (matchDesktopBreakpoint) {
