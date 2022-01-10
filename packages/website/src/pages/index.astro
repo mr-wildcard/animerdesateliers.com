@@ -1,5 +1,6 @@
 ---
 import PageLayout from "layouts/PageLayout.astro"
+import Scripts from "components/homepage/Scripts.astro"
 import BlueTag from "components/@commons/BlueTag.astro"
 import BlueQuote from "components/@commons/BlueQuote.astro"
 import Grid from "components/@commons/Grid.astro"
@@ -291,9 +292,5 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
     </div>
   </div>
 
-  <script type="module" src={Astro.resolve('../components/header-sticky/index.ts')}></script>
-  <script type="module" src={Astro.resolve('../components/bubbles/index.ts')}></script>
-  <script type="module" src={Astro.resolve('../components/sommaire-du-cours/index.ts')}></script>
-  <script type="module" src={Astro.resolve('../components/sticky-scroll-to-top/index.ts')}></script>
-  <script type="module" src={Astro.resolve('../components/newsletter-signin/index.ts')}></script>
+  <Scripts slot="scripts" />
 </PageLayout>

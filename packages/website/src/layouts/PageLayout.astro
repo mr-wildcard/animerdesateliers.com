@@ -67,6 +67,10 @@ const isProd = __PROD__;
 
     <StickyScrollToTop />
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CIntersectionObserverEntry%2CResizeObserver"></script>
+
+    <slot name="scripts" />
+
     {isProd && (
       <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" defer></script>
       <script type="text/javascript">
