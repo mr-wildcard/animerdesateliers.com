@@ -18,7 +18,7 @@ async function md5(message: string) {
   // encode as (utf-8) uint8array
   const msgUint8 = new TextEncoder().encode(message);
 
-  // hash the message with md5
+  // hash the message
   const hashBuffer = await crypto.subtle.digest("MD5", msgUint8);
 
   // convert buffer to byte array
