@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const siteHeader = document.querySelector<HTMLElement>("#site-header");
   let headerIsVisible = true;
 
-  function onScroll(scrollDirection: ScrollDirection, scrollAmount: number) {
+  function onScroll(scrollDirection: ScrollDirection) {
     const buttonShouldBeVisible = !headerIsVisible && scrollDirection === ScrollDirection.UP;
     const buttonShouldBeHidden = headerIsVisible || scrollDirection === ScrollDirection.DOWN;
 

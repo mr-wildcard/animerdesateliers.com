@@ -3,7 +3,7 @@ export enum ScrollDirection {
   DOWN,
 }
 
-type Callback = (scrollDirection: ScrollDirection, scrollAmount: number) => void;
+type Callback = (scrollDirection: ScrollDirection) => void;
 
 export function watchScrollDirection(callback: Callback): () => void {
   let previous_known_scroll_position = window.scrollY;
@@ -20,7 +20,7 @@ export function watchScrollDirection(callback: Callback): () => void {
 
     scrollAmount -= last_known_scroll_position - previous_known_scroll_position;
 
-    callback(scrollDirection, scrollAmount);
+    callback(scrollDirection);
   }
 
   window.addEventListener("scroll", onScroll);
