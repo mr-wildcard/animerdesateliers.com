@@ -7,7 +7,7 @@ interface State {
   invalidEmail: boolean;
 }
 
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll<HTMLFormElement>(".newsletter-form").forEach((htmlFormElement) => {
     const submitButton = htmlFormElement.querySelector("button.pushable");
     const invalidEmailMessage = htmlFormElement.querySelector('[data-validation-type="invalid-email"]');

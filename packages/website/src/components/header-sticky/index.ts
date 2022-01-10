@@ -3,7 +3,7 @@ enum ScrollDirection {
   DOWN,
 }
 
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", () => {
   const stickyHeader = document.querySelector<HTMLDivElement>("#sticky-header");
   let { height: stickyHeaderHeight } = stickyHeader.getBoundingClientRect();
   let previous_known_scroll_position = window.scrollY;
