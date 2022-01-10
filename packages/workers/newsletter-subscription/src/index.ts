@@ -1,7 +1,8 @@
-declare var MC_API_KEY: string;
-declare var MC_API_KEY_LABEL: string;
-declare var MC_LIST_ID: string;
-declare var MC_SERVER_PREFIX: string;
+declare const MC_API_KEY: string;
+declare const MC_API_KEY_LABEL: string;
+declare const MC_LIST_ID: string;
+declare const MC_SERVER_PREFIX: string;
+declare const LOGS_MANAGER_HTTP_URL: string;
 
 interface HTTPBodyRequest {
   email: string;
@@ -12,6 +13,13 @@ interface MailChimpResponseError {
   status: number;
   detail: string;
   instance: string;
+}
+
+function postLog(log: string) {
+  return fetch(LOGS_MANAGER_HTTP_URL, {
+    body: JSON.stringify(log),
+    method: "POST",
+  });
 }
 
 async function md5(message: string) {
@@ -88,22 +96,36 @@ async function addEmailToNewsletterRequest(email: string) {
       try {
         const mailChimpError = (await response.json()) as MailChimpResponseError;
 
-        console.error(
-          `An error occurred while contacting MailChimp. Submitted email: ${email}`,
-          JSON.stringify(mailChimpError, null, 2)
-        );
-
         if (mailChimpError.status === 400 && mailChimpError.title === "Member Exists") {
-          return new Response("Email address has already been subscribed to newsletter.", {
+          await postLog(`Email address ${email} has already been subscribed to newsletter.`);
+
+          console.error(`Email address ${email} has already been subscribed to newsletter.`);
+
+          return new Response(`Email address ${email} has already been subscribed to newsletter.`, {
             status: 409,
           });
         } else {
+          await postLog(
+            `An error occurred while contacting MailChimp. Submitted email: ${email} ${JSON.stringify(
+              mailChimpError,
+              null,
+              2
+            )}`
+          );
+
+          console.error(
+            `An error occurred while contacting MailChimp. Submitted email: ${email}`,
+            JSON.stringify(mailChimpError, null, 2)
+          );
+
           return new Response(`An error occurred while contacting MailChimp. Submitted email: ${email}`, {
             status: response.status,
           });
         }
       } catch (error) {
         const mailChimpError = await response.text();
+
+        await postLog(`An error occurred while contacting MailChimp. Submitted email: ${email}, ${mailChimpError}`);
 
         console.error(`An error occurred while contacting MailChimp. Submitted email: ${email}`, mailChimpError);
 
@@ -113,7 +135,9 @@ async function addEmailToNewsletterRequest(email: string) {
       }
     }
   } catch (error) {
-    console.error("An unknown error occurred.", error);
+    console.error(`An unknown error occurred while contacting MailChimp. Submitted email: ${email}`, error);
+
+    await postLog(`An unknown error occurred while contacting MailChimp. Submitted email: ${email}, ${error}`);
 
     return new Response("An unknown error occurred :(", {
       status: 500,
