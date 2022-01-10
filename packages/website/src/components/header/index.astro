@@ -5,6 +5,18 @@ import IconNotification from "components/@commons/icons/IconNotification.astro"
 import IconPresale from "components/@commons/icons/IconPresale.astro"
 ---
 
+<style>
+  @supports not (position: sticky) {
+    /**
+     * Give space to the sticky header "Me prevenir du lancement"
+     * in case position: sticky is not supported.
+     */
+    #site-header {
+      margin-top: 80px;
+    }
+  }
+</style>
+
 <header id="site-header" class="flex justify-between">
   <div>
     <h1 class="mb-[5px] text-lg leading-[26px] font-serif">Animer des ateliers UX</h1>

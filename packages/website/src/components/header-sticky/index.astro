@@ -6,6 +6,10 @@ const mdMinWidth = tailwindConfig.theme.screens.md;
 ---
 
 <style>
+  #sticky-header {
+    background-color: white;
+  }
+
   #sticky-header.overlapping-header {
     transition: transform 250ms ease-out;
   }
@@ -17,11 +21,17 @@ const mdMinWidth = tailwindConfig.theme.screens.md;
   #sticky-header :global(a) :global(.front) {
     padding: 6px 20px 6px 20px
   }
+
+  @supports not (position: sticky) {
+    #sticky-header {
+      position: fixed;
+    }
+  }
 </style>
 
 <div
   id="sticky-header"
-  class="sticky top-0 w-full z-10 text-center bg-white pt-5 pb-4 border-b border-downriver md:fixed md:-translate-y-full"
+  class="sticky top-0 w-full z-10 text-center pt-5 pb-4 border-b border-downriver md:fixed md:-translate-y-full"
   data-md-min-width={mdMinWidth}
 >
   <Button href="#inscription-newsletter">
