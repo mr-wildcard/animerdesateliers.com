@@ -1,10 +1,6 @@
 import { onDOMReady } from "scripts/onDOMReady";
 
 onDOMReady(() => {
-  if (!CSS.supports("position", "sticky")) {
-    return;
-  }
-
   enum ScrollDirection {
     UP,
     DOWN,
