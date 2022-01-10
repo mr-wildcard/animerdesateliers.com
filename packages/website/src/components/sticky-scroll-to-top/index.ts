@@ -1,6 +1,7 @@
 import { ScrollDirection, watchScrollDirection } from "scripts/watchScrollDirection";
+import { onDOMReady } from "scripts/onDOMReady";
 
-window.addEventListener("DOMContentLoaded", () => {
+onDOMReady(() => {
   const scrollToTopButton = document.querySelector("#scroll-to-top-button");
   const siteHeader = document.querySelector<HTMLElement>("#site-header");
   let headerIsVisible = true;

@@ -1,4 +1,6 @@
-window.addEventListener("DOMContentLoaded", () => {
+import { onDOMReady } from "scripts/onDOMReady";
+
+onDOMReady(() => {
   const desktopWrapper = document.querySelector("#sommaire-desktop-content");
   const sommaireHTMLElement = document.querySelector<HTMLDivElement>("#sommaire");
   const { desktopMinWidth } = sommaireHTMLElement.dataset;

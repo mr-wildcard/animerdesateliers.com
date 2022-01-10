@@ -1,5 +1,6 @@
 // @ts-ignore
 import { proxy, subscribe } from "valtio";
+import { onDOMReady } from "scripts/onDOMReady";
 
 interface State {
   httpStatus: null | number;
@@ -7,7 +8,7 @@ interface State {
   invalidEmail: boolean;
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+onDOMReady(() => {
   document.querySelectorAll<HTMLFormElement>(".newsletter-form").forEach((htmlFormElement) => {
     const submitButton = htmlFormElement.querySelector("button.pushable");
     const invalidEmailMessage = htmlFormElement.querySelector('[data-validation-type="invalid-email"]');

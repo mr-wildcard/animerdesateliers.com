@@ -1,4 +1,6 @@
-window.addEventListener("DOMContentLoaded", () => {
+import { onDOMReady } from "scripts/onDOMReady";
+
+onDOMReady(() => {
   const bubbles = document.querySelector<HTMLDivElement>("#bubbles");
   const nav = bubbles.querySelector<HTMLElement>("nav");
   const slider = bubbles.querySelector<HTMLUListElement>(".list");
