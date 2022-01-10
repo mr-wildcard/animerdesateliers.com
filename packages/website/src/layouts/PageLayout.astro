@@ -1,4 +1,6 @@
 ---
+import StickyScrollToTop from "components/sticky-scroll-to-top/index.astro"
+
 const { title, description } = Astro.props;
 
 const imageForSocialNetworkSharing = Astro.site + "sn-sharing.jpg";
@@ -62,6 +64,8 @@ const isProd = __PROD__;
 
   <body>
     <slot />
+
+    <StickyScrollToTop />
 
     {isProd && (
       <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" defer></script>

@@ -1,0 +1,53 @@
+---
+import IconArrowTop from "components/@commons/icons/IconArrowTop.astro"
+---
+
+<style>
+  #scroll-to-top-button {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  #scroll-to-top-button :global(svg) {
+    transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: translateY(5px);
+  }
+
+  #scroll-to-top-button.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #scroll-to-top-button.show :global(svg) {
+    transform: translateY(0);
+  }
+</style>
+
+<button
+  id="scroll-to-top-button"
+  class="
+    fixed
+    right-[20px]
+    bottom-[20px]
+    flex
+    items-center
+    gap-[10px]
+    px-[20px]
+    py-[10px]
+    text-sm
+    text-white
+    bg-downriver
+    rounded-full
+    border-2
+    lg:transition
+    lg:hover:bg-chiffon
+    lg:hover:text-downriver
+    lg:hover:border-downriver"
+  title="Revenir en haut de la page"
+>
+  <IconArrowTop />
+  <span class="hidden md:block">Haut de page</span>
+</button>
+
+<script type="module" src={Astro.resolve('./index.ts')}></script>
