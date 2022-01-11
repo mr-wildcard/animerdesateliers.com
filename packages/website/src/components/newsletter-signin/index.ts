@@ -17,8 +17,10 @@ onDOMReady(() => {
     const state = proxy<State>({
       httpStatus: null,
       loading: false,
-      invalidEmail: getEmailInputValueIsValid(),
+      invalidEmail: !getEmailInputValueIsValid(),
     });
+
+    console.log(state.invalidEmail);
 
     subscribe(state, () => {
       if (state.invalidEmail) {
@@ -112,7 +114,7 @@ onDOMReady(() => {
     }
 
     function getEmailInputValueIsValid() {
-      return !emailInput.value.length || (emailInput.value.length && emailInput.checkValidity());
+      return emailInput.value.length > 3 && emailInput.checkValidity();
     }
 
     function displayValidationHTML() {
