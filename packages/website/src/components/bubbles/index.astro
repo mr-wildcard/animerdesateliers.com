@@ -3,7 +3,7 @@ import Bubble from "./Bubble.astro"
 import IconNav from "./IconNav.astro"
 import data from "./data.json"
 
-const desktopMinWidth = tailwindConfig.theme.screens.xl;
+const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
 ---
 
 <style lang="scss">
@@ -14,7 +14,6 @@ const desktopMinWidth = tailwindConfig.theme.screens.xl;
     padding: 0 20px 50px 20px;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-
     -webkit-overflow-scrolling: touch;
 
     &::-webkit-scrollbar {
@@ -57,8 +56,8 @@ const desktopMinWidth = tailwindConfig.theme.screens.xl;
   }
 </style>
 
-<div id="bubbles" data-desktop-min-width={desktopMinWidth}>
-  <nav class="hidden container xl:flex justify-between mb-4 px-[20px]">
+<div id="bubbles" data-toggle-nav-arrows-from-viewport-width={toggleNavArrowsFromViewportWidth}>
+  <nav class="hidden container sm:flex justify-between mb-4 px-[20px]">
     <button disabled class="nav-left p-2" aria-label="Naviguer vers les problématiques précédentes">
       <IconNav />
     </button>

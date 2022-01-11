@@ -20,8 +20,6 @@ onDOMReady(() => {
       invalidEmail: !getEmailInputValueIsValid(),
     });
 
-    console.log(state.invalidEmail);
-
     subscribe(state, () => {
       if (state.invalidEmail) {
         toggleInputValidationMessage(true);

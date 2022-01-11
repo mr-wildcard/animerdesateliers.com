@@ -7,8 +7,8 @@ onDOMReady(() => {
   const slider = bubbles.querySelector<HTMLUListElement>(".list");
   const leftNavButton = bubbles.querySelector("button.nav-left");
   const rightNavButton = bubbles.querySelector("button.nav-right");
-  const { desktopMinWidth } = bubbles.dataset;
-  const desktopMedia = window.matchMedia(`(min-width: ${desktopMinWidth})`);
+  const { toggleNavArrowsFromViewportWidth } = bubbles.dataset;
+  const toggleNavArrowsMediaQueryList = window.matchMedia(`(min-width: ${toggleNavArrowsFromViewportWidth})`);
 
   let maxScrollWidth = slider.scrollWidth - slider.clientWidth;
   let computingNavButtonsDisabledState = false;
@@ -60,7 +60,7 @@ onDOMReady(() => {
   }
 
   function onBreakpointChange() {
-    if (desktopMedia.matches) {
+    if (toggleNavArrowsMediaQueryList.matches) {
       slider.addEventListener("scroll", onScroll, { passive: true });
       leftNavButton.addEventListener("click", onClickOnLeftNav);
       rightNavButton.addEventListener("click", onClickOnRightNav);
@@ -71,8 +71,6 @@ onDOMReady(() => {
     }
   }
 
-  listenToMediaQueryListChange(desktopMedia, onBreakpointChange);
-
   const sliderRO = new ResizeObserver((entries) => {
     const [slider] = entries;
 
@@ -80,5 +78,8 @@ onDOMReady(() => {
   });
 
   sliderRO.observe(slider);
+
+  listenToMediaQueryListChange(toggleNavArrowsMediaQueryList, onBreakpointChange);
+
   onBreakpointChange();
 });
