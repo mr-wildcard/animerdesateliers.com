@@ -3,7 +3,6 @@ import { listenToMediaQueryListChange } from "scripts/listenToMatchQueryChange";
 
 onDOMReady(() => {
   const bubbles = document.querySelector<HTMLDivElement>("#bubbles");
-  const nav = bubbles.querySelector<HTMLElement>("nav");
   const slider = bubbles.querySelector<HTMLUListElement>(".list");
   const leftNavButton = bubbles.querySelector("button.nav-left");
   const rightNavButton = bubbles.querySelector("button.nav-right");
