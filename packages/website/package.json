@@ -12,8 +12,7 @@
     "astro": "^0.22.9",
     "autoprefixer": "^10.4.2",
     "morphdom": "^2.6.1",
-    "postcss": "^8.4.5",
-    "prettier": "^2.5.1"
+    "postcss": "^8.4.5"
   },
   "dependencies": {
     "classnames": "^2.3.1",

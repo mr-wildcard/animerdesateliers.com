@@ -1,0 +1,12 @@
+{
+  "name": "animerdesateliers.com",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm dev --recursive --parallel"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  }
+}
