@@ -8,13 +8,6 @@ interface HTTPBodyRequest {
   email: string;
 }
 
-interface MailChimpResponseError {
-  title: string;
-  status: number;
-  detail: string;
-  instance: string;
-}
-
 function postLog(log: string) {
   return fetch(LOGS_MANAGER_HTTP_URL, {
     body: JSON.stringify(log),
@@ -45,102 +38,67 @@ addEventListener("fetch", (event) => {
     event.respondWith(
       event.request
         .json()
-        .then((jsonBody) => {
-          const { email } = jsonBody as HTTPBodyRequest;
+        .then((payload) => {
+          const jsonPayload = payload as HTTPBodyRequest;
 
-          if (!email) {
+          if (!("email" in jsonPayload)) {
             return new Response("`email` key is missing in JSON", { status: 400 });
-          } else if (!email.length) {
+          } else if (!jsonPayload.email.length) {
             return new Response("Email address value must not be empty.", { status: 400 });
           } else {
-            return addEmailToNewsletterRequest(email);
+            return addEmailToNewsletterRequest(jsonPayload.email);
           }
         })
         .catch((error) => {
-          return new Response(
-            "An unknown error occurred while retrieving the email address from HTTP request on Cloudflare Worker side.",
-            {
-              status: 500,
-            }
-          );
+          const errorMessage =
+            "An unknown error occurred while retrieving the email address from HTTP request on Cloudflare Worker side";
+
+          return postLog(`${errorMessage}: ${error}`)
+            .then(() => console.error(`${errorMessage}: ${error}`))
+            .then(() => {
+              return new Response(errorMessage, {
+                status: 500,
+              });
+            });
         })
     );
   }
 });
 
 async function addEmailToNewsletterRequest(email: string) {
-  try {
-    const hashedEmail = await md5(email);
+  const hashedEmail = await md5(email);
 
-    const response = await fetch(
-      `https://${MC_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${MC_LIST_ID}/members/${hashedEmail}`,
-      {
-        body: JSON.stringify({
-          email_address: email,
-          status_if_new: "pending",
-        }),
-        headers: {
-          Authorization: `Basic ${btoa(`${MC_API_KEY_LABEL}:${MC_API_KEY}`)}`,
-        },
-        method: "PUT",
-      }
-    );
-
-    if (response.ok) {
-      console.log(`✅ ${email} subscribed !`);
-
-      return new Response(`Email address ${email} successfully added to newsletter !`, {
-        status: response.status,
-      });
-    } else {
-      try {
-        const mailChimpError = (await response.json()) as MailChimpResponseError;
-
-        if (mailChimpError.status === 400 && mailChimpError.title === "Member Exists") {
-          await postLog(`Email address ${email} has already been subscribed to newsletter.`);
-
-          console.error(`Email address ${email} has already been subscribed to newsletter.`);
-
-          return new Response(`Email address ${email} has already been subscribed to newsletter.`, {
-            status: 409,
-          });
-        } else {
-          await postLog(
-            `An error occurred while contacting MailChimp. Submitted email: ${email} ${JSON.stringify(
-              mailChimpError,
-              null,
-              2
-            )}`
-          );
-
-          console.error(
-            `An error occurred while contacting MailChimp. Submitted email: ${email}`,
-            JSON.stringify(mailChimpError, null, 2)
-          );
-
-          return new Response(`An error occurred while contacting MailChimp. Submitted email: ${email}`, {
-            status: response.status,
-          });
-        }
-      } catch (error) {
-        const mailChimpError = await response.text();
-
-        await postLog(`An error occurred while contacting MailChimp. Submitted email: ${email}, ${mailChimpError}`);
-
-        console.error(`An error occurred while contacting MailChimp. Submitted email: ${email}`, mailChimpError);
-
-        return new Response(`An error occurred while subscribing email ${email} to newsletter.`, {
-          status: response.status,
-        });
-      }
+  const response = await fetch(
+    `https://${MC_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${MC_LIST_ID}/members/${hashedEmail}`,
+    {
+      body: JSON.stringify({
+        email_address: email,
+        status_if_new: "pending",
+      }),
+      headers: {
+        Authorization: `Basic ${btoa(`${MC_API_KEY_LABEL}:${MC_API_KEY}`)}`,
+      },
+      method: "PUT",
     }
-  } catch (error) {
-    console.error(`An unknown error occurred while contacting MailChimp. Submitted email: ${email}`, error);
+  );
 
-    await postLog(`An unknown error occurred while contacting MailChimp. Submitted email: ${email}, ${error}`);
+  if (response.ok) {
+    const successMessage = `${email} successfully subscribed.`;
 
-    return new Response("An unknown error occurred :(", {
-      status: 500,
-    });
+    console.log(`✅ ${successMessage}`);
+
+    return new Response(successMessage, { status: response.status });
+  } else {
+    const mailChimpError = await response.text();
+    const errorMessage = `An error occurred while contacting MailChimp with email: ${email}.
+      HTTP Status: ${response.status}
+      Error: ${mailChimpError}
+    `;
+
+    console.error(`❌ ${errorMessage}`);
+
+    await postLog(errorMessage);
+
+    return new Response("An error occurred while contacting MailChimp.", { status: 500 });
   }
 }
