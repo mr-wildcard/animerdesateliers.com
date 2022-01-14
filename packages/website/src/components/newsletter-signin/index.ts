@@ -22,9 +22,10 @@ onDOMReady(() => {
 
     subscribe(state, () => {
       if (state.invalidEmail) {
-        toggleInputValidationMessage(true);
+        toggleValidationMessage(true);
       } else {
-        toggleInputValidationMessage(false);
+        toggleValidationMessage(false);
+        toggleInputInvalidCSSClass(false);
       }
     });
 
@@ -45,7 +46,7 @@ onDOMReady(() => {
           try {
             window.lintrk("track", { conversion_id: 6087946 });
           } catch (error) {
-            console.error("Couldn't send Linkedin tracking event after successful newsletter form submission.");
+            console.error("Couldn't send LinkedIn tracking event after successful newsletter form submission.", error);
           }
         }
 
@@ -64,7 +65,8 @@ onDOMReady(() => {
 
       if (state.loading || state.invalidEmail) {
         if (state.invalidEmail) {
-          toggleInputValidationMessage(true);
+          toggleInputInvalidCSSClass(true);
+          toggleValidationMessage(true);
         }
 
         return;
@@ -95,7 +97,15 @@ onDOMReady(() => {
         });
     }
 
-    function toggleInputValidationMessage(show: boolean) {
+    function toggleInputInvalidCSSClass(addClass: boolean) {
+      if (addClass) {
+        emailInput.classList.add("invalid");
+      } else {
+        emailInput.classList.remove("invalid");
+      }
+    }
+
+    function toggleValidationMessage(show: boolean) {
       if (show) {
         invalidEmailMessage.classList.remove("hidden");
       } else {
