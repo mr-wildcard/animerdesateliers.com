@@ -49,8 +49,6 @@ onDOMReady(() => {
             console.error("Couldn't send LinkedIn tracking event after successful newsletter form submission.", error);
           }
         }
-
-        displayValidationHTML();
       }
     });
 
@@ -90,6 +88,8 @@ onDOMReady(() => {
         .then((response) => {
           state.httpStatus = response.status;
           state.loading = false;
+
+          displayValidationHTML();
         })
         .catch((error) => {
           state.httpStatus = 500;
