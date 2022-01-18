@@ -21,15 +21,6 @@ onDOMReady(() => {
     });
 
     subscribe(state, () => {
-      if (state.invalidEmail) {
-        toggleValidationMessage(true);
-      } else {
-        toggleValidationMessage(false);
-        toggleInputInvalidCSSClass(false);
-      }
-    });
-
-    subscribe(state, () => {
       if (state.loading) {
         toggleButtonLoadingState(true);
       } else {
@@ -41,7 +32,6 @@ onDOMReady(() => {
       if (!state.loading && state.httpStatus !== null) {
         if (state.httpStatus === 409 || state.httpStatus < 400) {
           emailInput.value = "";
-          emailInput.checkValidity();
 
           try {
             window.lintrk("track", { conversion_id: 6087946 });
@@ -55,6 +45,15 @@ onDOMReady(() => {
     ["input", "focus", "blur"].forEach((event) => {
       emailInput.addEventListener(event, (e) => {
         state.invalidEmail = !getEmailInputValueIsValid();
+
+        if (state.invalidEmail) {
+          if (e.type === "blur" && emailInput.value.length) {
+            toggleValidationMessage(true);
+          }
+        } else {
+          toggleInputInvalidCSSClass(false);
+          toggleValidationMessage(false);
+        }
       });
     });
 
@@ -122,7 +121,7 @@ onDOMReady(() => {
     }
 
     function getEmailInputValueIsValid() {
-      return emailInput.value.length > 3 && emailInput.checkValidity();
+      return emailInput.value.length > 0 && emailInput.checkValidity();
     }
 
     function displayValidationHTML() {
@@ -149,6 +148,7 @@ onDOMReady(() => {
 
           state.httpStatus = null;
           state.loading = false;
+          state.invalidEmail = !getEmailInputValueIsValid();
 
           htmlFormElement.style.display = "block";
 
