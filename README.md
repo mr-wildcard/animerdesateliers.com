@@ -21,5 +21,5 @@ $ pnpm dev
 
 From a worker folder:
 ```
-$ pnpm publish
+$ pnpm wrangler publish
 ```
