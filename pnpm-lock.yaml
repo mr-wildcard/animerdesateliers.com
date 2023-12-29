@@ -40,27 +40,6 @@ importers:
         specifier: ^8.4.5
         version: 8.4.5
 
-  packages/workers/basic-auth:
-    devDependencies:
-      '@cloudflare/workers-types':
-        specifier: ^3.0.0
-        version: 3.3.0
-      '@cloudflare/wrangler':
-        specifier: ^1.19.7
-        version: 1.19.7
-      '@types/node':
-        specifier: ^17.0.8
-        version: 17.0.8
-      '@types/service-worker-mock':
-        specifier: ^2.0.1
-        version: 2.0.1
-      esbuild:
-        specifier: ^0.14.10
-        version: 0.14.10
-      service-worker-mock:
-        specifier: ^2.0.5
-        version: 2.0.5
-
   packages/workers/newsletter-subscription:
     devDependencies:
       '@cloudflare/workers-types':
