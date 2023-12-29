@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm dev --recursive --parallel"
+    "dev": "pnpm -r run dev"
   },
   "devDependencies": {
     "prettier": "^2.5.1",
