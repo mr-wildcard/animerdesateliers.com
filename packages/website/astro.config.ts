@@ -1,5 +1,7 @@
-const resolveConfig = require("tailwindcss/resolveConfig");
-const tailwindConfig = require("./tailwind.config.js");
+import tailwind from "@astrojs/tailwind";
+
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "./tailwind.config";
 
 const fullConfig = resolveConfig(tailwindConfig);
 
@@ -17,16 +19,13 @@ function getSiteURL() {
   }
 }
 
-module.exports = {
-  renderers: [],
-  devOptions: {
-    tailwindConfig: "./tailwind.config.js",
+export default {
+  server: {
     hostname: "0.0.0.0",
     port: 3000,
   },
-  buildOptions: {
-    site: getSiteURL(),
-  },
+  integrations: [tailwind()],
+  site: getSiteURL(),
   vite: {
     define: {
       tailwindConfig: JSON.stringify(fullConfig),
