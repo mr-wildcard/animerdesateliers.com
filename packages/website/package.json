@@ -15,7 +15,9 @@
     "autoprefixer": "^10.4.2",
     "morphdom": "^2.6.1",
     "postcss": "^8.4.5",
-    "postcss-import": "16.0.0"
+    "postcss-import": "16.0.0",
+    "prettier": "^3.1.1",
+    "prettier-plugin-astro": "0.12.3"
   },
   "dependencies": {
     "classnames": "^2.3.1",

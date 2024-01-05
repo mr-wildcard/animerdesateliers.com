@@ -156,7 +156,7 @@ onDOMReady(() => {
             htmlFormElement.style.opacity = "1";
           });
         },
-        { once: true }
+        { once: true },
       );
     }
 
@@ -188,8 +188,8 @@ onDOMReady(() => {
             httpStatus < 400
               ? "✅ Cool, votre demande est enregistrée. Pensez à la confirmer !"
               : httpStatus === 409
-              ? "✅ Pas d’inquiétude, votre adresse email est déjà dans notre liste !"
-              : "❌ Petit souci technique... L’inscription n’a pas fonctionné."
+                ? "✅ Pas d’inquiétude, votre adresse email est déjà dans notre liste !"
+                : "❌ Petit souci technique... L’inscription n’a pas fonctionné."
           }
         </p>
 
@@ -198,8 +198,8 @@ onDOMReady(() => {
           httpStatus < 400
             ? "On vous demandera bientôt de nous aider à définir le prix du cours. Pour vous remercier, vous recevrez un code promo valable lors du lancement !"
             : httpStatus === 409
-            ? "Ça, c’est de la motivation. À très bientôt !"
-            : "Réessayez un peu plus tard ou écrivez-nous à <a href='mailto:contact@animerdesateliers.com' class='underline'>contact@animerdesateliers.com</a>."
+              ? "Ça, c’est de la motivation. À très bientôt !"
+              : "Réessayez un peu plus tard ou écrivez-nous à <a href='mailto:contact@animerdesateliers.com' class='underline'>contact@animerdesateliers.com</a>."
         }
         </p>
 
