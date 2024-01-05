@@ -4,11 +4,7 @@ import Loader from "components/@commons/Loader.astro"
 const { href } = Astro.props;
 ---
 
-<style lang="scss">
-  $easeBackIn: cubic-bezier(0.36, 0, 0.66, -0.56);
-  $easeBackOut: cubic-bezier(0.34, 1.56, 0.64, 1);
-
-
+<style>
   .pushable {
     position: relative;
     border: none;
@@ -78,12 +74,12 @@ const { href } = Astro.props;
 
   .icon {
     transform: translateY(0);
-    transition: transform 300ms $easeBackOut;
+    transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .pushable.loading {
     .loader {
-      transition-timing-function: $easeBackOut;
+      transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
       transition-delay: 150ms;
       transform: scale(1);
       opacity: 1;

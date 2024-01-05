@@ -6,9 +6,7 @@ import data from "./data.json"
 const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
 ---
 
-<style lang="scss">
-  $padding-x-xl: calc((max(100vw, 1240px) - 1240px) / 2);
-
+<style>
   .list {
     gap: 28px;
     padding: 0 20px 50px 20px;
@@ -21,9 +19,7 @@ const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
     }
 
     @screen xl {
-      $padding-x: calc((max(100vw, 1240px) - 1240px) / 2);
-
-      padding: 0 $padding-x-xl 50px $padding-x-xl;
+      padding: 0 calc((max(100vw, 1240px) - 1240px) / 2) 50px calc((max(100vw, 1240px) - 1240px) / 2);
     }
   }
 
