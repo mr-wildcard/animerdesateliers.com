@@ -1,4 +1,3 @@
-// @ts-ignore
 import { proxy, subscribe } from "valtio";
 import { onDOMReady } from "scripts/onDOMReady";
 
