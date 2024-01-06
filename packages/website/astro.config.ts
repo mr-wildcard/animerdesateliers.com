@@ -40,7 +40,7 @@ export default {
         "/subscribe": {
           target: "http://0.0.0.0:8401",
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/subscribe/, ""),
+          rewrite: (path: string) => path.replace(/^\/subscribe/, ""),
         },
       },
     },
