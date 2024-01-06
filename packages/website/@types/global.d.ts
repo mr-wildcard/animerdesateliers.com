@@ -8,4 +8,11 @@ declare global {
   interface Window {
     lintrk(string, { conversion_id: number }): void;
   }
+
+  namespace NodeJS {
+    interface ProcessEnv {
+      CF_PAGES_BRANCH: string;
+      CF_PAGES: string;
+    }
+  }
 }
