@@ -1,4 +1,5 @@
 import { proxy, subscribe } from "valtio";
+import cs from "classnames";
 import { onDOMReady } from "scripts/onDOMReady";
 
 interface State {
@@ -162,7 +163,7 @@ onDOMReady(() => {
     function getValidationHTML() {
       const { httpStatus } = state;
 
-      const buttonCSSClassnames = [
+      const buttonCSSClassnames = cs([
         "w-full",
         "text-lg",
         "px-[22px]",
@@ -179,7 +180,7 @@ onDOMReady(() => {
         "md:w-auto",
         "hover:bg-chiffon",
         "hover:text-downriver",
-      ].join(" ");
+      ]);
 
       return `
         <p class="text-2xl leading-[34px] mb-4 text-blue font-bold lg:text-4xl lg:leading-[56px]">
