@@ -24,7 +24,7 @@ function getSiteURL() {
 /** @type {import('astro').AstroUserConfig} */
 export default defineConfig({
   server: {
-    hostname: LOCAL_HOST,
+    host: LOCAL_HOST,
     port: LOCAL_PORT,
   },
   integrations: [
