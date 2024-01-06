@@ -27,6 +27,7 @@ export default {
   integrations: [
     tailwind({
       applyBaseStyles: false,
+      nesting: true,
     }),
   ],
   site: getSiteURL(),
