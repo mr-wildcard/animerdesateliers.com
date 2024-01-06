@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css"
+
 import StickyScrollToTop from "components/sticky-scroll-to-top/index.astro"
 
 const { title, description } = Astro.props;
@@ -36,7 +38,6 @@ const isProd = __PROD__;
     <link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
     <link rel="shortcut icon" href="/favicon/favicon.ico" />
-    <link rel="stylesheet" href="../styles/global.css" />
     {isProd && (
       <script
         type="text/javascript"
