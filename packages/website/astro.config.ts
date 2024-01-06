@@ -1,9 +1,13 @@
-const resolveConfig = require("tailwindcss/resolveConfig");
-const tailwindConfig = require("./tailwind.config.js");
+import tailwind from "@astrojs/tailwind";
+import { defineConfig } from "astro/config";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "./tailwind.config";
 
 const fullConfig = resolveConfig(tailwindConfig);
-
 const isProd = process.env.CF_PAGES_BRANCH === "main";
+
+const LOCAL_PORT = 4321;
+const LOCAL_HOST = "localhost";
 
 function getSiteURL() {
   if (process.env.CF_PAGES) {
@@ -13,20 +17,23 @@ function getSiteURL() {
       return "https://animerdesateliers.com/";
     }
   } else {
-    return "http://localhost:3000/";
+    return `http://${LOCAL_HOST}:${LOCAL_PORT}/`;
   }
 }
 
-module.exports = {
-  renderers: [],
-  devOptions: {
-    tailwindConfig: "./tailwind.config.js",
-    hostname: "0.0.0.0",
-    port: 3000,
+/** @type {import('astro').AstroUserConfig} */
+export default defineConfig({
+  server: {
+    host: LOCAL_HOST,
+    port: LOCAL_PORT,
   },
-  buildOptions: {
-    site: getSiteURL(),
-  },
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+      nesting: true,
+    }),
+  ],
+  site: getSiteURL(),
   vite: {
     define: {
       tailwindConfig: JSON.stringify(fullConfig),
@@ -37,9 +44,9 @@ module.exports = {
         "/subscribe": {
           target: "http://0.0.0.0:8401",
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/subscribe/, ""),
+          rewrite: (path: string) => path.replace(/^\/subscribe/, ""),
         },
       },
     },
   },
-};
+});

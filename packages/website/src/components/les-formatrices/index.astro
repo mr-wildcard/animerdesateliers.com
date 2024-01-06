@@ -1,28 +1,16 @@
 ---
+import { Picture } from 'astro:assets';
+
 import Grid from "components/@commons/Grid.astro"
 import Formatrice from "./Formatrice.astro";
 
 import Yuna from "images/team/yuna.png"
-import YunaWebp from "images/team/yuna.webp"
-import YunaAvif from "images/team/yuna.avif"
 import Daniela from "images/team/dani.png"
-import DanielaWebp from "images/team/dani.webp"
-import DanielaAvif from "images/team/dani.avif"
 import Imatech from "images/clients/imatech.png"
-import ImatechWebp from "images/clients/imatech.webp"
-import ImatechAvif from "images/clients/imatech.avif"
 import Dxomark from "images/clients/dxomark.png"
-import DxomarkWebp from "images/clients/dxomark.webp"
-import DxomarkAvif from "images/clients/dxomark.avif"
 import Journey from "images/clients/journey.png"
-import JourneyWebp from "images/clients/journey.webp"
-import JourneyAvif from "images/clients/journey.avif"
 import Orange from "images/clients/orange.png"
-import OrangeWebp from "images/clients/orange.webp"
-import OrangeAvif from "images/clients/orange.avif"
 import Merignac from "images/clients/merignac.png"
-import MerignacWebp from "images/clients/merignac.webp"
-import MerignacAvif from "images/clients/merignac.avif"
 ---
 
 <style>
@@ -49,12 +37,12 @@ import MerignacAvif from "images/clients/merignac.avif"
         <Formatrice
           fullname="Yuna Orsini"
           label="10 années d'expérience"
-          imgSources={[YunaAvif, YunaWebp, Yuna]}
+          imgSource={Yuna}
         />
         <Formatrice
           fullname="Daniela Peñaranda"
           label="18 années d'expérience"
-          imgSources={[DanielaAvif, DanielaWebp, Daniela]}
+          imgSource={Daniela}
         />
       </div>
     </div>
@@ -70,70 +58,55 @@ import MerignacAvif from "images/clients/merignac.avif"
       </p>
       <ul class="flex flex-wrap justify-center gap-4 mt-8">
         <li class="client">
-          <picture>
-            <source srcset={MerignacAvif} type="image/avif">
-            <source srcset={MerignacWebp} type="image/webp">
-            <img
-              src={Merignac}
-              width="125"
-              height="21"
-              loading="lazy"
-              alt="Logotype de la Ville de Mérignac"
-            />
-          </picture>
+          <Picture
+            formats={["avif", "webp"]}
+            src={Merignac}
+            width="125"
+            height="21"
+            loading="lazy"
+            alt="Logotype de la Ville de Mérignac"
+          />
         </li>
         <li class="client">
-          <picture>
-            <source srcset={OrangeAvif} type="image/avif">
-            <source srcset={OrangeWebp} type="image/webp">
-            <img
-              src={Orange}
-              width="57"
-              height="58"
-              alt="Logotype du Groupe Orange"
-              loading="lazy"
-            />
-          </picture>
+          <Picture
+            formats={['avif', 'webp']}
+            src={Orange}
+            width="57"
+            height="58"
+            alt="Logotype du Groupe Orange"
+            loading="lazy"
+          />
         </li>
         <li class="client">
-          <picture>
-            <source srcset={DxomarkAvif} type="image/avif">
-            <source srcset={DxomarkWebp} type="image/webp">
-            <img
-              src={Dxomark}
-              width="131"
-              height="18"
-              alt="Logotype de l'entreprise DXOMARK"
-              loading="lazy"
-            />
-          </picture>
+          <Picture
+            formats={['avif', 'webp']}
+            src={Dxomark}
+            width="131"
+            height="18"
+            alt="Logotype de l'entreprise DXOMARK"
+            loading="lazy"
+          />
         </li>
         <li class="client">
-          <picture>
-            <source srcset={JourneyAvif} type="image/avif">
-            <source srcset={JourneyWebp} type="image/webp">
-            <img
-              src={Journey}
-              alt="Logotype de l'entreprise Journey"
-              width="108"
-              height="23"
-              class="translate-y-[4px]"
-              loading="lazy"
-            />
-          </picture>
+          <Picture
+            formats={['avif', 'webp']}
+            src={Journey}
+            alt="Logotype de l'entreprise Journey"
+            width="108"
+            height="23"
+            class="translate-y-[4px]"
+            loading="lazy"
+          />
         </li>
         <li class="client">
-          <picture>
-            <source srcset={ImatechAvif} type="image/avif">
-            <source srcset={ImatechWebp} type="image/webp">
-            <img
-              src={Imatech}
-              width="142"
-              height="60"
-              loading="lazy"
-              alt="Logotype du Groupe IMA"
-            />
-          </picture>
+          <Picture
+            formats={['avif', 'webp']}
+            src={Imatech}
+            width="142"
+            height="60"
+            loading="lazy"
+            alt="Logotype du Groupe IMA"
+          />
         </li>
       </ul>
     </div>

@@ -49,7 +49,7 @@ onDOMReady(() => {
        * we need to open at least one item.
        */
       const openedContents = Array.from(openerMappedToContent.keys()).filter(
-        (opener) => opener.getAttribute("aria-expanded") === "true"
+        (opener) => opener.getAttribute("aria-expanded") === "true",
       );
 
       if (!openedContents.length) {
