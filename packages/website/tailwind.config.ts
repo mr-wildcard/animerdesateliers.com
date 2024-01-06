@@ -1,5 +1,3 @@
-import defaultTheme from "tailwindcss/defaultTheme";
-
 export default {
   content: ["./public/**/*.html", "./src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}"],
   theme: {
