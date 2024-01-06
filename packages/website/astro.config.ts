@@ -1,11 +1,13 @@
 import tailwind from "@astrojs/tailwind";
-
+import { defineConfig } from "astro/config";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "./tailwind.config";
 
 const fullConfig = resolveConfig(tailwindConfig);
-
 const isProd = process.env.CF_PAGES_BRANCH === "main";
+
+const LOCAL_PORT = 4321;
+const LOCAL_HOST = "localhost";
 
 function getSiteURL() {
   if (process.env.CF_PAGES) {
@@ -15,14 +17,15 @@ function getSiteURL() {
       return "https://animerdesateliers.com/";
     }
   } else {
-    return "http://localhost:3000/";
+    return `http://${LOCAL_HOST}:${LOCAL_PORT}/`;
   }
 }
 
-export default {
+/** @type {import('astro').AstroUserConfig} */
+export default defineConfig({
   server: {
-    hostname: "0.0.0.0",
-    port: 3000,
+    hostname: LOCAL_HOST,
+    port: LOCAL_PORT,
   },
   integrations: [
     tailwind({
@@ -46,4 +49,4 @@ export default {
       },
     },
   },
-};
+});

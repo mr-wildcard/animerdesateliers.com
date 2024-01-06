@@ -11,8 +11,8 @@ declare global {
 
   namespace NodeJS {
     interface ProcessEnv {
-      CF_PAGES_BRANCH: string;
       CF_PAGES: string;
+      CF_PAGES_URL: string;
     }
   }
 }
