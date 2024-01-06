@@ -1,17 +1,15 @@
 ---
+import { Picture } from "astro:assets";
+
 import PageLayout from "layouts/PageLayout.astro"
 import BlueTag from "components/@commons/BlueTag.astro"
 import BlueQuote from "components/@commons/BlueQuote.astro"
 import Grid from "components/@commons/Grid.astro"
 
 import Sticker1 from "images/stickers/sticker1.png"
-import Sticker1Avif from "images/stickers/sticker1.avif"
 import Sticker2 from "images/stickers/sticker2.png"
-import Sticker2Avif from "images/stickers/sticker2.avif"
 import Sticker4 from "images/stickers/sticker4.png"
-import Sticker4Avif from "images/stickers/sticker4.avif"
 import Sticker5 from "images/stickers/sticker5.png"
-import Sticker5Avif from "images/stickers/sticker5.avif"
 
 import StickyHeader from "components/header-sticky/index.astro"
 import Header from "components/header/index.astro"
@@ -59,26 +57,15 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
 
   <div class="bg-white">
     <div class="container relative h-[215px] xl:h-[120px]">
-      <picture>
-        <source srcset={Sticker1Avif} type="image/avif">
-        <img
-          class="absolute
-                 w-[260px]
-                 h-[263px]
-                 left-[calc(50%-130px)]
-                 translate-y-[-65px]
-                 rotate-[-10deg]
-                 xl:left-0
-                 xl:w-[300px]
-                 xl:h-[304px]
-                 xl:translate-y-[-220px]"
-          src={Sticker1}
-          width="300"
-          height="304"
-          loading="lazy"
-          role="presentation"
-        />
-      </picture>
+      <Picture
+        formats={['avif']}
+        class="absolute w-[260px] h-[263px] left-[calc(50%-130px)] translate-y-[-65px] rotate-[-10deg] xl:left-0 xl:w-[300px] xl:h-[304px] xl:translate-y-[-220px]"
+        src={Sticker1}
+        width="300"
+        height="304"
+        loading="lazy"
+        role="presentation"
+      />
     </div>
 
     <div class="container">
@@ -106,27 +93,15 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
     </div>
 
     <div class="container relative h-[230px] md:h-[290px] xl:h-[120px]">
-      <picture>
-        <source srcset={Sticker2Avif} type="image/avif">
-        <img
-          class="absolute
-                 w-[260px]
-                 h-[260px]
-                 left-[calc(50%-130px)]
-                 translate-y-[50px]
-                 md:translate-y-[110px]
-                 xl:left-auto
-                 xl:right-[100px]
-                 xl:translate-y-[25px]
-                 xl:w-[300px]
-                 xl:h-[300px]"
-          src={Sticker2}
-          width="300"
-          height="300"
-          loading="lazy"
-          role="presentation"
-        />
-      </picture>
+      <Picture
+        formats={['avif']}
+        class="absolute w-[260px] h-[260px] left-[calc(50%-130px)] translate-y-[50px] md:translate-y-[110px] xl:left-auto xl:right-[100px] xl:translate-y-[25px] xl:w-[300px] xl:h-[300px]"
+        src={Sticker2}
+        width="300"
+        height="300"
+        loading="lazy"
+        role="presentation"
+      />
     </div>
   </div>
 
@@ -176,28 +151,15 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
         <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-3 xl:col-span-8 pt-24 pb-[240px] md:pb-[300px] xl:py-32">
           <Punchline text="Favoriser l'intelligence collective est le nouveau pouvoir du designer." />
         </div>
-        <picture>
-          <source srcset={Sticker4Avif} type="image/avif">
-          <img
-            class="absolute
-                  left-[calc(50%-113px)]
-                  bottom-[-44px]
-                  w-[226px]
-                  h-[260px]
-                  rotate-[16.36deg]
-                  md:right-[10%]
-                  xl:w-[270px]
-                  xl:h-[310px]
-                  xl:right-[70px]
-                  xl:left-auto
-                  xl:bottom-[-205px]"
-            src={Sticker4}
-            width="270"
-            height="310"
-            loading="lazy"
-            role="presentation"
-          />
-        </picture>
+        <Picture
+          formats={['avif']}
+          class="absolute left-[calc(50%-113px)] bottom-[-44px] w-[226px] h-[260px] rotate-[16.36deg] md:right-[10%] xl:w-[270px] xl:h-[310px] xl:right-[70px] xl:left-auto xl:bottom-[-205px]"
+          src={Sticker4}
+          width="270"
+          height="310"
+          loading="lazy"
+          role="presentation"
+        />
       </Grid>
     </div>
   </div>
@@ -234,27 +196,15 @@ const description = "Un cours interactif, complet et pragmatique, qui aide les d
 
   <div class="bg-white">
     <div class="container pt-16 pb-24">
-      <picture>
-        <source srcset={Sticker5Avif} type="image/avif">
-        <img
-          class="mx-auto
-                mb-6
-                w-[260px]
-                h-[260px]
-                rotate-[-4.96deg]
-                md:translate-y-[-20px]
-                md:mt-[60px]
-                xl:translate-y-0
-                xl:w-[300px]
-                xl:h-[300px]
-          "
-          src={Sticker5}
-          width="300"
-          height="300"
-          loading="lazy"
-          role="presentation"
-        />
-      </picture>
+      <Picture
+        formats={['avif']}
+        class="mx-auto mb-6 w-[260px] h-[260px] rotate-[-4.96deg] md:translate-y-[-20px] md:mt-[60px] xl:translate-y-0 xl:w-[300px] xl:h-[300px]"
+        src={Sticker5}
+        width="300"
+        height="300"
+        loading="lazy"
+        role="presentation"
+      />
       <Grid>
         <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-2 xl:col-span-10">
           <Punchline text="Passer de la vision d'un jeu de Lego à celle d'un outil de design tactique et imbattable !" />

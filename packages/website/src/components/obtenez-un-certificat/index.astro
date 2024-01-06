@@ -1,8 +1,9 @@
 ---
+import { Picture } from "astro:assets";
+
 import Grid from "components/@commons/Grid.astro"
 import IconCertificate from "components/@commons/icons/IconCertificate.astro"
 import Certificat from "images/faux-certificat.png"
-import CertificatAvif from "images/faux-certificat.avif"
 ---
 
 <div class="py-14 bg-canary rounded-[30px] lg:rounded-none">
@@ -17,16 +18,14 @@ import CertificatAvif from "images/faux-certificat.avif"
         </div>
       </div>
       <div class="col-span-full md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-4 xl:col-start-7 xl:col-span-5">
-        <picture>
-          <source srcset={CertificatAvif} type="image/avif">
-          <img
-            src={Certificat}
-            width="503"
-            height="355"
-            class="w-full rounded-xl border-2 border-downriver"
-            alt="Exemple de certificat de participation délivré à la fin du cours en ligne (spécimen)"
-          />
-        </picture>
+        <Picture
+          formats={['avif', 'webp']}
+          src={Certificat}
+          width="503"
+          height="355"
+          class="w-full rounded-xl border-2 border-downriver"
+          alt="Exemple de certificat de participation délivré à la fin du cours en ligne (spécimen)"
+        />
       </div>
     </Grid>
   </div>
