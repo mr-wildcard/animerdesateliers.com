@@ -15,7 +15,8 @@
     "morphdom": "^2.7.1",
     "postcss": "^8.4.33",
     "prettier": "^3.1.1",
-    "prettier-plugin-astro": "0.14.1"
+    "prettier-plugin-astro": "0.14.1",
+    "sharp": "0.33.5"
   },
   "dependencies": {
     "classnames": "^2.5.1",
