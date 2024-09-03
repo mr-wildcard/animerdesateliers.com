@@ -1,28 +1,26 @@
 ---
-import BlueTag from "components/@commons/BlueTag.astro"
-import Button from "components/@commons/Button.astro"
-import IconNotification from "components/@commons/icons/IconNotification.astro"
-import IconPresale from "components/@commons/icons/IconPresale.astro"
+import BlueTag from "components/@commons/BlueTag.astro";
+import Button from "components/@commons/Button.astro";
+import IconNotification from "components/@commons/icons/IconNotification.astro";
+import IconPresale from "components/@commons/icons/IconPresale.astro";
 ---
 
 <header id="site-header" class="flex justify-between">
   <div>
     <h1 class="mb-[5px] text-lg leading-[26px] font-serif" translate="no">Animer des ateliers UX</h1>
-    <BlueTag label="cours en ligne"/>
+    <BlueTag label="cours en ligne" />
   </div>
   <div class="hidden md:flex items-center">
     <p class="hidden lg:flex mr-5 font-bold text-sm text-right leading-5">
       <span class="pr-2">
         <IconPresale size="20" />
       </span>
-      <span>
-        Bientôt les préventes !
-      </span>
+      <span> Bientôt les préventes ! </span>
     </p>
 
     <div id="header-newsletter-anchor" class="whitespace-nowrap translate-y-[3px]">
       <Button href="/#inscription-newsletter">
-        <IconNotification slot="icon"/>
+        <IconNotification slot="icon" />
         <span slot="label">Me prévenir du lancement</span>
       </Button>
     </div>

@@ -1,8 +1,8 @@
 ---
-import IconChevronForward from "components/@commons/icons/IconChevronForward.astro"
-import ModuleContent from "./ModuleContent.astro"
+import IconChevronForward from "components/@commons/icons/IconChevronForward.astro";
+import ModuleContent from "./ModuleContent.astro";
 
-import data from "./data.json"
+import data from "./data.json";
 
 const desktopMinWidth = tailwindConfig.theme.screens.lg;
 ---
@@ -26,7 +26,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
     }
   }
 
-  .opener[aria-expanded=true] {
+  .opener[aria-expanded="true"] {
     @apply bg-white;
 
     & ~ .accordion-content {
@@ -46,7 +46,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
     }
   }
 
-  .opener[aria-expanded=false] {
+  .opener[aria-expanded="false"] {
     & ~ .accordion-content {
       height: 0;
       overflow: hidden;
@@ -68,36 +68,35 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
 
 <div id="sommaire" data-desktop-min-width={desktopMinWidth} class="border-t-2 border-downriver lg:flex" tabindex="0">
   <ul class="lg:w-[290px]">
-    {data.items.map((item, index) => (
-      <li class="summary-item">
-        <button
-          id={`module${index}_opener`}
-          aria-expanded="false"
-          aria-controls={`module${index}_content`}
-          data-content-target={`module${index}`}
-          class="opener"
-        >
-          {item.title}
-          <span class="right-icon ml-auto">
-            <IconChevronForward />
-          </span>
-        </button>
+    {
+      data.items.map((item, index) => (
+        <li class="summary-item">
+          <button
+            id={`module${index}_opener`}
+            aria-expanded="false"
+            aria-controls={`module${index}_content`}
+            data-content-target={`module${index}`}
+            class="opener"
+          >
+            {item.title}
+            <span class="right-icon ml-auto">
+              <IconChevronForward />
+            </span>
+          </button>
 
-        <div class="accordion-content">
-          <ModuleContent
-            index={index}
-            title={item.content.title}
-            items={item.content.items}
-            toolbox={item.content.toolbox}
-          />
-        </div>
-      </li>
-    ))}
+          <div class="accordion-content">
+            <ModuleContent
+              index={index}
+              title={item.content.title}
+              items={item.content.items}
+              toolbox={item.content.toolbox}
+            />
+          </div>
+        </li>
+      ))
+    }
   </ul>
-  <div
-    id="sommaire-desktop-content"
-    class="hidden lg:block lg:flex-1 bg-white"
-  >
+  <div id="sommaire-desktop-content" class="hidden lg:block lg:flex-1 bg-white">
     <!--
       Empty div.
       Content is copied here by JavaScript when user reach desktop breakpoint.

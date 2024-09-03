@@ -1,7 +1,7 @@
 ---
-import Grid from "components/@commons/Grid.astro"
-import Feedback from "./Feedback.astro"
-import data from "./data.json"
+import Grid from "components/@commons/Grid.astro";
+import Feedback from "./Feedback.astro";
+import data from "./data.json";
 ---
 
 <style>
@@ -30,18 +30,19 @@ import data from "./data.json"
     </h2>
   </div>
 
-  <h3 class="col-span-full px-[20px] md:col-start-2 md:col-span-6 md:text-center xl:col-start-4 xl:col-span-6 xl:text-[22px] xl:leading-[32px] xl:font-bold">
+  <h3
+    class="col-span-full px-[20px] md:col-start-2 md:col-span-6 md:text-center xl:col-start-4 xl:col-span-6 xl:text-[22px] xl:leading-[32px] xl:font-bold"
+  >
     Nous rendons les équipes plus autonomes, plus transparentes, plus ouvertes et plus créatives.
   </h3>
 </Grid>
 
 <ul class="feedbacks px-[20px] flex mt-16 pb-6 overflow-x-auto overscroll-x-contain xl:px-0">
-  {data.feedbacks.map((feedback) => (
-    <li class="feedback-wrapper">
-      <Feedback
-        text={feedback.text}
-        author={feedback.author}
-      />
-    </li>
-  ))}
+  {
+    data.feedbacks.map((feedback) => (
+      <li class="feedback-wrapper">
+        <Feedback text={feedback.text} author={feedback.author} />
+      </li>
+    ))
+  }
 </ul>

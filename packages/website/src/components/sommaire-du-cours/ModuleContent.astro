@@ -1,6 +1,6 @@
 ---
 import cs from "classnames";
-import Toolbox from "./Toolbox.astro"
+import Toolbox from "./Toolbox.astro";
 
 const { index, title, items, toolbox } = Astro.props;
 
@@ -10,6 +10,7 @@ if (index > 0) {
   defaultCSSClasses.push("lg:hidden");
 }
 ---
+
 <style>
   .item {
     @apply text-lg xl:text-xl;
@@ -28,11 +29,11 @@ if (index > 0) {
       top: 9px;
     }
 
-     @screen xl {
-       &::before {
-          top: 13px;
-       }
-     }
+    @screen xl {
+      &::before {
+        top: 13px;
+      }
+    }
   }
 </style>
 
@@ -47,9 +48,7 @@ if (index > 0) {
     <h3 class="mb-10 text-[26px] leading-[36px] font-bold xl:text-[32px] xl:leading-[42px]">{title}</h3>
 
     <ul class="space-y-4">
-      {items.map((item, index) => (
-        <li class="item">{item}</li>
-      ))}
+      {items.map((item, index) => <li class="item">{item}</li>)}
     </ul>
 
     <div class="mt-10 xl:mt-20 lg:w-5/6">

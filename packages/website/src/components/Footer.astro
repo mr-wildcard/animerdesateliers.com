@@ -2,18 +2,19 @@
 const { linkToLegal = false } = Astro.props;
 ---
 
-<div class=" text-sm text-white">
+<div class="text-sm text-white">
   <p class="mb-5 font-bold">
-    {linkToLegal
-      ? <a href="/mentions-legales" class="underline">Mentions légales</a>
-      : 'Mentions légales'
+    {
+      linkToLegal ? (
+        <a href="/mentions-legales" class="underline">
+          Mentions légales
+        </a>
+      ) : (
+        "Mentions légales"
+      )
     }
     &middot;
-    <a href="javascript: Cookiebot.renew()" class="underline">
-      Modifier votre consentement aux cookies
-    </a>
+    <a href="javascript: Cookiebot.renew()" class="underline"> Modifier votre consentement aux cookies </a>
   </p>
-  <p>
-    Copyright &copy; 2024 Animer des ateliers UX. Tous droits réservés.
-  </p>
+  <p>Copyright &copy; 2024 Animer des ateliers UX. Tous droits réservés.</p>
 </div>

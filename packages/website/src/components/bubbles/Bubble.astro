@@ -5,8 +5,8 @@ const { text } = Astro.props;
 <style>
   .bubble {
     padding: 16px 20px 18px 22px;
-    border: 2px solid theme('colors.downriver');
-    filter: drop-shadow(4px 5px 0px theme('colors.canary'));
+    border: 2px solid theme("colors.downriver");
+    filter: drop-shadow(4px 5px 0px theme("colors.canary"));
   }
 
   .arrow {
@@ -21,15 +21,11 @@ const { text } = Astro.props;
     {text}
   </p>
   <svg class="arrow" width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M 1 0 L 12.5 21 C 14 23.7 17.9 23.7 19.4 21 L 31 0"
-      fill="#F4F6FE"
-    />
+    <path d="M 1 0 L 12.5 21 C 14 23.7 17.9 23.7 19.4 21 L 31 0" fill="#F4F6FE"></path>
     <path
       d="M 1 2 L 12.5 21 C 14 23.7 17.9 23.7 19.4 21 L 31 2"
       stroke="#08124F"
       stroke-width="2"
-      stroke-linecap="round"
-    />
+      stroke-linecap="round"></path>
   </svg>
 </div>

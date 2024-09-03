@@ -1,7 +1,7 @@
 ---
-import IconChevronForward from "components/@commons/icons/IconChevronForward.astro"
+import IconChevronForward from "components/@commons/icons/IconChevronForward.astro";
 
-import data from "./data.json"
+import data from "./data.json";
 ---
 
 <style>
@@ -38,7 +38,7 @@ import data from "./data.json"
   }
 
   .answer {
-    padding-left: calc(theme('space.5') + 18px);
+    padding-left: calc(theme("space.5") + 18px);
   }
 
   @screen xl {
@@ -51,7 +51,7 @@ import data from "./data.json"
     }
 
     .answer {
-      padding-left: calc(theme('space.5') * 2 + 18px);
+      padding-left: calc(theme("space.5") * 2 + 18px);
       padding-right: 31px;
       padding-bottom: 60px;
     }
@@ -59,28 +59,25 @@ import data from "./data.json"
 </style>
 
 <div class="pb-14 text-white">
-  <h2 class="mb-6 md:mb-14 font-serif leading-[42px] text-2xl">
-    Questions fréquentes
-  </h2>
+  <h2 class="mb-6 md:mb-14 font-serif leading-[42px] text-2xl">Questions fréquentes</h2>
 
   <ul class="list">
-    {data.map(({ question, answer }, index) => (
-      <li>
-        <details class="p-5 xl:p-0">
-          <summary class="summary xl:px-5 xl:py-6 cursor-pointer">
-            <div class="flex items-center">
-              <span class="mr-5">
-                <IconChevronForward size={18} />
-              </span>
-              <p class="font-bold xl:text-[22px]">{question}</p>
-            </div>
-          </summary>
-          <div class="answer py-6 pr-5 break-words">
-            {answer}
-          </div>
-        </details>
-      </li>
-    ))}
+    {
+      data.map(({ question, answer }, index) => (
+        <li>
+          <details class="p-5 xl:p-0">
+            <summary class="summary xl:px-5 xl:py-6 cursor-pointer">
+              <div class="flex items-center">
+                <span class="mr-5">
+                  <IconChevronForward size={18} />
+                </span>
+                <p class="font-bold xl:text-[22px]">{question}</p>
+              </div>
+            </summary>
+            <div class="answer py-6 pr-5 break-words">{answer}</div>
+          </details>
+        </li>
+      ))
+    }
   </ul>
 </div>
-

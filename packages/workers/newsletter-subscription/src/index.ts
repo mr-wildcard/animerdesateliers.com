@@ -60,7 +60,7 @@ addEventListener("fetch", (event) => {
                 status: 500,
               });
             });
-        })
+        }),
     );
   }
 });
@@ -79,7 +79,7 @@ async function addEmailToNewsletterRequest(email: string) {
         Authorization: `Basic ${btoa(`${MC_API_KEY_LABEL}:${MC_API_KEY}`)}`,
       },
       method: "PUT",
-    }
+    },
   );
 
   if (response.ok) {

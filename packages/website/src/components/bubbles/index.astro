@@ -1,7 +1,7 @@
 ---
-import Bubble from "./Bubble.astro"
-import IconNav from "./IconNav.astro"
-import data from "./data.json"
+import Bubble from "./Bubble.astro";
+import IconNav from "./IconNav.astro";
+import data from "./data.json";
 
 const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
 ---
@@ -10,8 +10,8 @@ const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
   .list {
     gap: 28px;
     padding: 0 20px 50px 20px;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
     -webkit-overflow-scrolling: touch;
 
     &::-webkit-scrollbar {
@@ -62,11 +62,13 @@ const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
     </button>
   </nav>
   <ul class="list flex overflow-x-auto overscroll-x-contain snap-x snap-mandatory xl:snap-none">
-    {data.map((text) => (
-      <li class="bubble-wrapper">
-        <Bubble text={text} />
-      </li>
-    ))}
+    {
+      data.map((text) => (
+        <li class="bubble-wrapper">
+          <Bubble text={text} />
+        </li>
+      ))
+    }
   </ul>
 </div>
 

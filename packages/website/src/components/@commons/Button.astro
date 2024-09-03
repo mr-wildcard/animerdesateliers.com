@@ -1,5 +1,5 @@
 ---
-import Loader from "components/@commons/Loader.astro"
+import Loader from "components/@commons/Loader.astro";
 
 const { href } = Astro.props;
 ---
@@ -93,29 +93,33 @@ const { href } = Astro.props;
 </style>
 
 <!-- Thank you Josh :) -->
-{!href && (
-  <button class="pushable">
-    <span class="edge" role="presentation" />
-    <span class="front">
-      <span class="icon">
-        <slot name="icon" />
+{
+  !href && (
+    <button class="pushable">
+      <span class="edge" role="presentation" />
+      <span class="front">
+        <span class="icon">
+          <slot name="icon" />
+        </span>
+        <slot name="label" />
+        <span class="loader">
+          <Loader />
+        </span>
       </span>
-      <slot name="label" />
-      <span class="loader">
-        <Loader />
-      </span>
-    </span>
-  </button>
-)}
+    </button>
+  )
+}
 
-{!!href && (
-  <a href={href} class="block pushable">
-    <span class="edge" role="presentation" />
-    <span class="front">
-      <span class="icon">
-        <slot name="icon" />
+{
+  !!href && (
+    <a href={href} class="block pushable">
+      <span class="edge" role="presentation" />
+      <span class="front">
+        <span class="icon">
+          <slot name="icon" />
+        </span>
+        <slot name="label" />
       </span>
-      <slot name="label" />
-    </span>
-  </a>
-)}
+    </a>
+  )
+}

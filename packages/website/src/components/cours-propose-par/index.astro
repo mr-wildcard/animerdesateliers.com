@@ -1,8 +1,8 @@
 ---
-import { Picture } from 'astro:assets';
+import { Picture } from "astro:assets";
 
-import Yuna from "images/team/yuna.png"
-import Daniela from "images/team/dani.png"
+import Yuna from "images/team/yuna.png";
+import Daniela from "images/team/dani.png";
 ---
 
 <p class="mb-4 font-bold text-base leading-[34px] xl:mb-7 xl:text-lg">Cours proposé par</p>
@@ -10,7 +10,8 @@ import Daniela from "images/team/dani.png"
   <div class="flex gap-5 lg:mr-6">
     <Picture
       src={Yuna}
-      formats={['avif', 'webp']}
+      formats={["avif", "webp"]}
+      densities={[1, 2]}
       alt="Photographie de Yuna Orsini"
       width="82"
       height="82"

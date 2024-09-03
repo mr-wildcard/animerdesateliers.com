@@ -1,16 +1,16 @@
 ---
-import { Picture } from 'astro:assets';
+import { Picture } from "astro:assets";
 
-import Grid from "components/@commons/Grid.astro"
+import Grid from "components/@commons/Grid.astro";
 import Formatrice from "./Formatrice.astro";
 
-import Yuna from "images/team/yuna.png"
-import Daniela from "images/team/dani.png"
-import Imatech from "images/clients/imatech.png"
-import Dxomark from "images/clients/dxomark.png"
-import Journey from "images/clients/journey.png"
-import Orange from "images/clients/orange.png"
-import Merignac from "images/clients/merignac.png"
+import Yuna from "images/team/yuna.png";
+import Daniela from "images/team/dani.png";
+import Imatech from "images/clients/imatech.png";
+import Dxomark from "images/clients/dxomark.png";
+import Journey from "images/clients/journey.png";
+import Orange from "images/clients/orange.png";
+import Merignac from "images/clients/merignac.png";
 ---
 
 <style>
@@ -31,31 +31,30 @@ import Merignac from "images/clients/merignac.png"
         Les formatrices
       </h2>
       <h3 class="mt-8 font-bold xl:mt-10 xl:w-1/2 xl:mx-auto xl:text-center xl:text-[22px] xl:leading-[32px]">
-        Nous sommes designers UX seniors, facilitatrices certifiées en design thinking et intervenantes en écoles et en conférences
+        Nous sommes designers UX seniors, facilitatrices certifiées en design thinking et intervenantes en écoles et en
+        conférences
       </h3>
-      <div class="mt-16 mb-12 px-[15px] md:px-0 flex flex-col gap-y-8 lg:flex-row lg:justify-center lg:gap-x-[50px] xl:gap-x-[78px] xl:mt-20">
-        <Formatrice
-          fullname="Yuna Orsini"
-          label="10 années d'expérience"
-          imgSource={Yuna}
-        />
-        <Formatrice
-          fullname="Daniela Peñaranda"
-          label="18 années d'expérience"
-          imgSource={Daniela}
-        />
+      <div
+        class="mt-16 mb-12 px-[15px] md:px-0 flex flex-col gap-y-8 lg:flex-row lg:justify-center lg:gap-x-[50px] xl:gap-x-[78px] xl:mt-20"
+      >
+        <Formatrice fullname="Yuna Orsini" label="10 années d'expérience" imgSource={Yuna} />
+        <Formatrice fullname="Daniela Peñaranda" label="18 années d'expérience" imgSource={Daniela} />
       </div>
     </div>
     <div class="col-span-full md:col-start-2 md:col-span-6 xl:col-start-2 xl:col-span-10">
       <p class="mt-16">
-        Après avoir exercé chacune pendant quelques années, nous nous sommes rencontrées en agence en 2014. Nous travaillions alors au planning stratégique et au design interactif et notre binôme a été une évidence. Nous avons ensuite intégré une startup tech en tant que responsables du design et de l’UX. En parallèle, nous avons lancé nos activités indépendantes de design UX en 2018, enthousiasmées par l'idée d'avoir un impact sur de nombreux autres projets.
-        <br/>
-        <br/>
-        Mission après mission, nous avons développé notre expertise de conception d’ateliers et de facilitation en design thinking. Ateliers UX, exercices d’idéation, workshops de co-conception... nous avons mis en place des ateliers variés, dans tous types d’entreprises, d’équipes et de secteurs d’activité.
+        Après avoir exercé chacune pendant quelques années, nous nous sommes rencontrées en agence en 2014. Nous
+        travaillions alors au planning stratégique et au design interactif et notre binôme a été une évidence. Nous
+        avons ensuite intégré une startup tech en tant que responsables du design et de l’UX. En parallèle, nous avons
+        lancé nos activités indépendantes de design UX en 2018, enthousiasmées par l'idée d'avoir un impact sur de
+        nombreux autres projets.
+        <br />
+        <br />
+        Mission après mission, nous avons développé notre expertise de conception d’ateliers et de facilitation en design
+        thinking. Ateliers UX, exercices d’idéation, workshops de co-conception... nous avons mis en place des ateliers variés,
+        dans tous types d’entreprises, d’équipes et de secteurs d’activité.
       </p>
-      <p class="mt-16 text-lg xl:leading-6">
-        Des entreprises avec qui l'on a workshoppé
-      </p>
+      <p class="mt-16 text-lg xl:leading-6">Des entreprises avec qui l'on a workshoppé</p>
       <ul class="flex flex-wrap justify-center gap-4 mt-8">
         <li class="client">
           <Picture
@@ -69,7 +68,8 @@ import Merignac from "images/clients/merignac.png"
         </li>
         <li class="client">
           <Picture
-            formats={['avif', 'webp']}
+            formats={["avif", "webp"]}
+            densities={[1, 2]}
             src={Orange}
             width="57"
             height="58"
@@ -79,7 +79,8 @@ import Merignac from "images/clients/merignac.png"
         </li>
         <li class="client">
           <Picture
-            formats={['avif', 'webp']}
+            formats={["avif", "webp"]}
+            densities={[1, 2]}
             src={Dxomark}
             width="131"
             height="18"
@@ -89,7 +90,8 @@ import Merignac from "images/clients/merignac.png"
         </li>
         <li class="client">
           <Picture
-            formats={['avif', 'webp']}
+            formats={["avif", "webp"]}
+            densities={[1, 2]}
             src={Journey}
             alt="Logotype de l'entreprise Journey"
             width="108"
@@ -100,7 +102,8 @@ import Merignac from "images/clients/merignac.png"
         </li>
         <li class="client">
           <Picture
-            formats={['avif', 'webp']}
+            formats={["avif", "webp"]}
+            densities={[1, 2]}
             src={Imatech}
             width="142"
             height="60"

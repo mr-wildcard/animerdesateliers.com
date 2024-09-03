@@ -1,20 +1,20 @@
 ---
-import cs from "classnames"
+import cs from "classnames";
 
 const { outerGap = true } = Astro.props;
 
 const cssClassnames = [
-  'grid',
-  'gap-y-0',
-  'gap-x-[20px]',
-  'grid-cols-4',
-  'md:grid-cols-8',
-  'xl:gap-x-[24px]',
-  'xl:grid-cols-12'
-]
+  "grid",
+  "gap-y-0",
+  "gap-x-[20px]",
+  "grid-cols-4",
+  "md:grid-cols-8",
+  "xl:gap-x-[24px]",
+  "xl:grid-cols-12",
+];
 
 if (outerGap) {
-  cssClassnames.push('px-[20px]', 'xl:px-0');
+  cssClassnames.push("px-[20px]", "xl:px-0");
 }
 ---
 

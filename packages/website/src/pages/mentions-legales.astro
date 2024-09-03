@@ -1,18 +1,16 @@
 ---
-import PageLayout from "layouts/PageLayout.astro"
-import Header from "components/header/index.astro"
-import IconArrowBack from "components/@commons/icons/IconArrowBack.astro"
-import Section from "components/mentions-legales/Section.astro"
-import Footer from "components/Footer.astro"
+import PageLayout from "layouts/PageLayout.astro";
+import Header from "components/header/index.astro";
+import IconArrowBack from "components/@commons/icons/IconArrowBack.astro";
+import Section from "components/mentions-legales/Section.astro";
+import Footer from "components/Footer.astro";
 
-const title = "Mentions légales | Animer des ateliers UX - Cours en ligne"
-const description = "Identification des personnes actrices, politique de données personnelles et mentions complémentaires à propos du projet."
+const title = "Mentions légales | Animer des ateliers UX - Cours en ligne";
+const description =
+  "Identification des personnes actrices, politique de données personnelles et mentions complémentaires à propos du projet.";
 ---
 
-<PageLayout
-  title={title}
-  description={description}
->
+<PageLayout title={title} description={description}>
   <div class="container mt-4 px-[20px] xl:px-0">
     <Header />
   </div>
@@ -31,24 +29,31 @@ const description = "Identification des personnes actrices, politique de donnée
       <div class="space-y-16 xl:space-y-[100px]">
         <Section title="Identification">
           <p>
-            Le projet de cours en ligne “Animer des ateliers UX” vous est proposé par le binôme “Team UX”, constitué de 2 micro-entrepreneures :
+            Le projet de cours en ligne “Animer des ateliers UX” vous est proposé par le binôme “Team UX”, constitué de
+            2 micro-entrepreneures :
           </p>
           <ul class="list-disc ml-5">
-            <li>
-              Yuna Orsini
-            </li>
-            <li>
-              Daniela Peñaranda
-            </li>
+            <li>Yuna Orsini</li>
+            <li>Daniela Peñaranda</li>
           </ul>
 
           <div class="mt-10 xl:mt-24">
             <h4 class="mb-6 font-bold text-[22px] leading-[32px]">À propos de Yuna Orsini</h4>
             <ul class="list-disc ml-5">
-              <li>SIRET (Système Informatique pour le Répertoire des Entreprises sur le Territoire) : 789 657 202 00030</li>
-              <li>Code APE (Activité Principale de l'Entreprise) : 7490B - Activités spécialisées, scientifiques et techniques diverses</li>
+              <li>
+                SIRET (Système Informatique pour le Répertoire des Entreprises sur le Territoire) : 789 657 202 00030
+              </li>
+              <li>
+                Code APE (Activité Principale de l'Entreprise) : 7490B - Activités spécialisées, scientifiques et
+                techniques diverses
+              </li>
               <li>Adresse : 3 rue Lebrun - 33140 Villenave d’Ornon - France</li>
-              <li>Contacts : <a href="tel:+33642298631" class="underline">+33 642 29 86 31</a> - <a href="mailto:yuna@team-ux.com" class="underline">yuna@team-ux.com</a></li>
+              <li>
+                Contacts : <a href="tel:+33642298631" class="underline">+33 642 29 86 31</a> - <a
+                  href="mailto:yuna@team-ux.com"
+                  class="underline">yuna@team-ux.com</a
+                >
+              </li>
               <li>Directrice de la publication "animerdesateliers.com"</li>
             </ul>
           </div>
@@ -58,7 +63,12 @@ const description = "Identification des personnes actrices, politique de donnée
               <li>SIRET : 834 402 570 00024</li>
               <li>Code APE : 7410Z - Activités spécialisées de design</li>
               <li>Adresse : 8 rue Charles Durand - 33300 Bordeaux - France</li>
-              <li>Contacts : <a href="tel:+33780309025" class="underline">+33 780 30 90 25</a> - <a href="mailto:daniela@team-ux.com" class="underline">daniela@team-ux.com</a></li>
+              <li>
+                Contacts : <a href="tel:+33780309025" class="underline">+33 780 30 90 25</a> - <a
+                  href="mailto:daniela@team-ux.com"
+                  class="underline">daniela@team-ux.com</a
+                >
+              </li>
               <li>Co-directrice de la publication "animerdesateliers.com"</li>
             </ul>
           </div>
@@ -69,57 +79,100 @@ const description = "Identification des personnes actrices, politique de donnée
             <div class="space-y-16 xl:space-y-24">
               <div>
                 <h4 class="mb-6 font-bold text-[22px] leading-[32px]">Généralités</h4>
-                <p>D'une façon générale, vous pouvez visiter cette page Web sans avoir à décliner votre identité et à fournir des informations personnelles vous concernant. Cependant, nous pouvons parfois vous demander des informations par email ou téléphone si vous prenez contact avec nous via l’adresse email <a href="mailto:contact@animerdesateliers.com" class="underline">contact@animerdesateliers.com</a>.</p>
+                <p>
+                  D'une façon générale, vous pouvez visiter cette page Web sans avoir à décliner votre identité et à
+                  fournir des informations personnelles vous concernant. Cependant, nous pouvons parfois vous demander
+                  des informations par email ou téléphone si vous prenez contact avec nous via l’adresse email <a
+                    href="mailto:contact@animerdesateliers.com"
+                    class="underline">contact@animerdesateliers.com</a
+                  >.
+                </p>
               </div>
               <div>
                 <h4 class="mb-6 font-bold text-[22px] leading-[32px]">Inscription à la newsletter</h4>
                 <p>
-                  Par ailleurs, si vous souhaitez vous abonner à notre newsletter, vous saisirez votre adresse email dans le champ dédié. Cette donnée personnelle sera stockée chez le prestataire Mailchimp tant que vous ne vous ne vous désinscrirez pas de notre liste. Votre adresse email ne sera jamais communiquée à des tiers, ni utilisée à d’autres fins que de vous tenir au courant de l’évolution du projet.
+                  Par ailleurs, si vous souhaitez vous abonner à notre newsletter, vous saisirez votre adresse email
+                  dans le champ dédié. Cette donnée personnelle sera stockée chez le prestataire Mailchimp tant que vous
+                  ne vous ne vous désinscrirez pas de notre liste. Votre adresse email ne sera jamais communiquée à des
+                  tiers, ni utilisée à d’autres fins que de vous tenir au courant de l’évolution du projet.
                 </p>
 
                 <ul class="list-disc list-inside">
-                  <li>Finalité du traitement de données : gestion de l'envoi de la newsletter du cours en ligne “Animer des ateliers UX” (gestion des abonnements, élaboration de statistiques liées au service).</li>
-                  <li>Catégories de données traitées : adresse de courrier électronique (e-mail), date d’abonnement, statistiques liées au service de newsletter.</li>
-                  <li>Source des données : les données sont issues de l’enregistrement, par la personne souhaitant recevoir la newsletter, de son e-mail dans le champ d’inscription du site www.animerdesateliers.com.</li>
-                  <li>Caractère obligatoire du recueil des données : le recueil de l’adresse de courrier électronique est obligatoire pour l’envoi de la newsletter.</li>
-                  <li>Personnes concernées : uniquement les personnes qui souhaitent s’enregistrer sur animerdesateliers.com pour recevoir la newsletter.</li>
-                  <li>Durée de conservation des données : conservation de l’adresse e-mail tant que la personne concernée ne se désinscrit pas (via le lien de désinscription intégré aux newsletters).</li>
+                  <li>
+                    Finalité du traitement de données : gestion de l'envoi de la newsletter du cours en ligne “Animer
+                    des ateliers UX” (gestion des abonnements, élaboration de statistiques liées au service).
+                  </li>
+                  <li>
+                    Catégories de données traitées : adresse de courrier électronique (e-mail), date d’abonnement,
+                    statistiques liées au service de newsletter.
+                  </li>
+                  <li>
+                    Source des données : les données sont issues de l’enregistrement, par la personne souhaitant
+                    recevoir la newsletter, de son e-mail dans le champ d’inscription du site www.animerdesateliers.com.
+                  </li>
+                  <li>
+                    Caractère obligatoire du recueil des données : le recueil de l’adresse de courrier électronique est
+                    obligatoire pour l’envoi de la newsletter.
+                  </li>
+                  <li>
+                    Personnes concernées : uniquement les personnes qui souhaitent s’enregistrer sur
+                    animerdesateliers.com pour recevoir la newsletter.
+                  </li>
+                  <li>
+                    Durée de conservation des données : conservation de l’adresse e-mail tant que la personne concernée
+                    ne se désinscrit pas (via le lien de désinscription intégré aux newsletters).
+                  </li>
                 </ul>
               </div>
               <div>
                 <h4 class="mb-6 font-bold text-[22px] leading-[32px]">Recueil de votre consentement</h4>
                 <p>
-                  Une fois que vous aurez communiqué votre adresse email, vous recevrez un email pour confirmer votre souhait d’inscription. Votre adresse email ne sera ajoutée à la liste que si vous confirmez ce souhait.
-                  Ensuite, vous pourrez à tout moment vous désinscrire de la liste depuis chaque newsletter ou en nous écrivant à l’adresse email <a href="mailto:contact@animerdesateliers.com" class="underline">contact@animerdesateliers.com</a>.
+                  Une fois que vous aurez communiqué votre adresse email, vous recevrez un email pour confirmer votre
+                  souhait d’inscription. Votre adresse email ne sera ajoutée à la liste que si vous confirmez ce
+                  souhait. Ensuite, vous pourrez à tout moment vous désinscrire de la liste depuis chaque newsletter ou
+                  en nous écrivant à l’adresse email <a href="mailto:contact@animerdesateliers.com" class="underline"
+                    >contact@animerdesateliers.com</a
+                  >.
                 </p>
               </div>
               <div>
                 <h4 class="mb-6 font-bold text-[22px] leading-[32px]">Droit d'accès</h4>
                 <p>
-                  Vous disposez d'un droit d'accès, de rectification, de modification et de suppression concernant les données qui vous concernent personnellement.
-                  <br/>
-                  Ce droit peut être exercé par voie postale auprès de :
-                  Yuna Orsini - 3 rue Lebrun - 33140 Villenave d’Ornon - France
-                  ou par courrier électronique à l’adresse <a href="mailto:contact@animerdesateliers.com" class="underline">contact@animerdesateliers.com</a>.
-                  Vous disposez également  du droit d'introduire une réclamation auprès de la CNIL.
+                  Vous disposez d'un droit d'accès, de rectification, de modification et de suppression concernant les
+                  données qui vous concernent personnellement.
+                  <br />
+                  Ce droit peut être exercé par voie postale auprès de : Yuna Orsini - 3 rue Lebrun - 33140 Villenave d’Ornon
+                  - France ou par courrier électronique à l’adresse <a
+                    href="mailto:contact@animerdesateliers.com"
+                    class="underline">contact@animerdesateliers.com</a
+                  >. Vous disposez également du droit d'introduire une réclamation auprès de la CNIL.
                 </p>
               </div>
               <div>
                 <h4 class="mb-6 font-bold text-[22px] leading-[32px]">Confidentialité</h4>
-                <p>Vos données personnelles sont confidentielles et ne seront en aucun cas communiquées à des tiers hormis pour la bonne exécution d’une prestation particulière que vous auriez commandée.</p>
+                <p>
+                  Vos données personnelles sont confidentielles et ne seront en aucun cas communiquées à des tiers
+                  hormis pour la bonne exécution d’une prestation particulière que vous auriez commandée.
+                </p>
               </div>
               <div>
                 <h4 class="mb-6 font-bold text-[22px] leading-[32px]">Cookies</h4>
                 <p>
-                  Un cookie est un petit fichier informatique, un traceur. Il permet d'analyser le comportement des usagers lors de la visite d'un site internet, de la lecture d'un courrier électronique, de l'installation ou de l'utilisation d'un logiciel ou d'une application mobile.
-                  <br/>
+                  Un cookie est un petit fichier informatique, un traceur. Il permet d'analyser le comportement des
+                  usagers lors de la visite d'un site internet, de la lecture d'un courrier électronique, de
+                  l'installation ou de l'utilisation d'un logiciel ou d'une application mobile.
+                  <br />
                   À votre arrivée sur le site, votre consentement est demandé pour le stockage de tout ou partie de ces cookies.
                 </p>
               </div>
               <div>
                 <h4 class="mb-6 font-bold text-[22px] leading-[32px]">Liste des cookies utilisés par ce site</h4>
                 <section>
-                  <script id="CookieDeclaration" src="https://consent.cookiebot.com/3afa2750-6d4f-4599-9ff5-ad97c46373ed/cd.js" type="text/javascript" async></script>
+                  <script
+                    id="CookieDeclaration"
+                    src="https://consent.cookiebot.com/3afa2750-6d4f-4599-9ff5-ad97c46373ed/cd.js"
+                    type="text/javascript"
+                    async></script>
                 </section>
               </div>
             </div>
@@ -128,15 +181,19 @@ const description = "Identification des personnes actrices, politique de donnée
 
         <Section title="Demandes d'informations">
           <h4 class="mb-6 font-bold text-[22px] leading-[32px]">Délai de réponse</h4>
-          <p>Nous tâcherons de répondre au plus vite à vos demandes d'informations, au maximum dans les 72 heures suivant la réception de votre email.</p>
+          <p>
+            Nous tâcherons de répondre au plus vite à vos demandes d'informations, au maximum dans les 72 heures suivant
+            la réception de votre email.
+          </p>
         </Section>
 
         <Section title="Nom de domaine">
           <p>
             Nom de domaine chez OVH.
-            <br/>
-            OVH SAS est une filiale de la société OVH Groupe SAS, société immatriculée au RCS (Registre du commerce et des sociétés) de Lille sous le numéro 537 407 926 sise 2, rue Kellermann, 59100 Roubaix.
-            <br/>
+            <br />
+            OVH SAS est une filiale de la société OVH Groupe SAS, société immatriculée au RCS (Registre du commerce et des
+            sociétés) de Lille sous le numéro 537 407 926 sise 2, rue Kellermann, 59100 Roubaix.
+            <br />
             Contact téléphonique : 1007
           </p>
         </Section>
@@ -144,29 +201,43 @@ const description = "Identification des personnes actrices, politique de donnée
         <Section title="Hébergement">
           <p>
             Hébergement chez Cloudflare.
-            <br/>
+            <br />
             Adresse : Cloudflare, Inc. - 101 Townsend St. - San Francisco, CA 94107
-            <br/>
+            <br />
             Contact téléphonique : +33 7 57 90 52 73
-            <br/>
-            Data Protection Officer : <a href="mailto:privacyquestions@cloudflare.com" class="underline">privacyquestions@cloudflare.com</a>
+            <br />
+            Data Protection Officer : <a href="mailto:privacyquestions@cloudflare.com" class="underline"
+              >privacyquestions@cloudflare.com</a
+            >
           </p>
         </Section>
 
         <Section title="Crédits">
           <p>
-            Site développé par <a href="https://github.com/mr-wildcard" class="underline" target="_blank" rel="noopener">Julien Viala</a>.
-            <br/>
-            <br/>
-            Tout le contenu du présent site, incluant, de façon non limitative, les graphismes, images, textes, vidéos, animations, sons, logos, gifs et icônes ainsi que leur mise en forme sont la propriété exclusive de binôme Team UX, à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.
-            <br/>
-            <br/>
-            Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord exprès par écrit du binôme Team UX. Cette représentation ou reproduction, par quelque procédé que ce soit, constitue une contrefaçon sanctionnée par les articles L.3335-2 et suivants du Code de la propriété intellectuelle.
-            <br/>
-            <br/>
-            Le non-respect de cette interdiction constitue une contrefaçon pouvant engager la responsabilité civile et pénale du contrefacteur. En outre, les propriétaires des contenus copiés pourraient intenter une action en justice à votre encontre.
-            <br/>
-            Pour toute demande d'autorisation ou d'information, veuillez nous contacter par email : <a href="mailto:contact@animerdesateliers.com" class="underline">contact@animerdesateliers.com</a>.
+            Site développé par <a href="https://github.com/mr-wildcard" class="underline" target="_blank" rel="noopener"
+              >Julien Viala</a
+            >.
+            <br />
+            <br />
+            Tout le contenu du présent site, incluant, de façon non limitative, les graphismes, images, textes, vidéos, animations,
+            sons, logos, gifs et icônes ainsi que leur mise en forme sont la propriété exclusive de binôme Team UX, à l'exception
+            des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.
+            <br />
+            <br />
+            Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de
+            ces différents éléments est strictement interdite sans l'accord exprès par écrit du binôme Team UX. Cette représentation
+            ou reproduction, par quelque procédé que ce soit, constitue une contrefaçon sanctionnée par les articles L.3335-2
+            et suivants du Code de la propriété intellectuelle.
+            <br />
+            <br />
+            Le non-respect de cette interdiction constitue une contrefaçon pouvant engager la responsabilité civile et pénale
+            du contrefacteur. En outre, les propriétaires des contenus copiés pourraient intenter une action en justice à
+            votre encontre.
+            <br />
+            Pour toute demande d'autorisation ou d'information, veuillez nous contacter par email : <a
+              href="mailto:contact@animerdesateliers.com"
+              class="underline">contact@animerdesateliers.com</a
+            >.
           </p>
         </Section>
       </div>

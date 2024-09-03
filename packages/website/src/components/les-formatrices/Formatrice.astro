@@ -1,13 +1,13 @@
 ---
-import { Picture } from 'astro:assets';
+import { Picture } from "astro:assets";
 
-import Screenshot1 from "../../images/course-screenshots/screenshot-1.png";
 const { imgSource, fullname, label } = Astro.props;
 ---
 
 <div class="flex items-center xl:flex-col xl:text-center">
   <Picture
-    formats={['avif', 'webp']}
+    densities={[1, 2]}
+    formats={["avif", "webp"]}
     src={imgSource}
     width="128"
     height="128"
@@ -16,7 +16,7 @@ const { imgSource, fullname, label } = Astro.props;
   />
   <p class="flex-1 text-lg ml-9 xl:ml-0">
     <span class="font-bold">{fullname}</span>
-    <br/>
+    <br />
     <span class="text-base">{label}</span>
   </p>
 </div>

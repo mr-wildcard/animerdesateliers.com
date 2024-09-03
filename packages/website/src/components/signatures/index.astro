@@ -1,11 +1,11 @@
 ---
 import { Picture } from "astro:assets";
 
-import BlueQuote from "components/@commons/BlueQuote.astro"
-import ExternalLink from "components/@commons/ExternalLink.astro"
+import BlueQuote from "components/@commons/BlueQuote.astro";
+import ExternalLink from "components/@commons/ExternalLink.astro";
 
-import SignatureDani from "images/team/dani-signature.png"
-import SignatureYuna from "images/team/yuna-signature.png"
+import SignatureDani from "images/team/dani-signature.png";
+import SignatureYuna from "images/team/yuna-signature.png";
 ---
 
 <div class="flex flex-wrap xl:flex-nowrap xl:gap-[25px]">
@@ -19,14 +19,14 @@ import SignatureYuna from "images/team/yuna-signature.png"
     <section class="xl:text-xl">
       <p>
         Ce cours en ligne moderne et pragmatique condense nos apprentissages et retours d'expérience des dizaines
-        d'ateliers que l'on a pu penser, mener puis analyser pour les entreprises dans lesquelles ou pour lesquelles
-        on a travaillé.
+        d'ateliers que l'on a pu penser, mener puis analyser pour les entreprises dans lesquelles ou pour lesquelles on
+        a travaillé.
       </p>
       <br />
       <p>
-        Concrètement, on y rassemble ce que l'on aurait adoré savoir avant d'organiser notre premier atelier il y a
-        7 ans déjà : les stratégies possibles, les méthodologies éprouvées, les moyens de les hacker, les erreurs à
-        ne pas commettre, les astuces à dégainer, les bonnes pratiques à respecter...
+        Concrètement, on y rassemble ce que l'on aurait adoré savoir avant d'organiser notre premier atelier il y a 7
+        ans déjà : les stratégies possibles, les méthodologies éprouvées, les moyens de les hacker, les erreurs à ne pas
+        commettre, les astuces à dégainer, les bonnes pratiques à respecter...
       </p>
       <br />
       <p>
@@ -39,7 +39,8 @@ import SignatureYuna from "images/team/yuna-signature.png"
       <div class="flex-1">
         <div class="flex items-center h-[83px]">
           <Picture
-            formats={['avif', 'webp']}
+            formats={["avif", "webp"]}
+            densities={[1, 2]}
             src={SignatureYuna}
             width="83"
             height="56"
@@ -48,13 +49,14 @@ import SignatureYuna from "images/team/yuna-signature.png"
         </div>
         <p class="mb-2 text-lg">Yuna Orsini</p>
         <p class="xl:text-sm">
-          <ExternalLink label="Linkedin" href="https://www.linkedin.com/in/yunaorsini/"/>
+          <ExternalLink label="Linkedin" href="https://www.linkedin.com/in/yunaorsini/" />
         </p>
       </div>
       <div class="flex-1">
         <div class="flex items-center h-[83px]">
           <Picture
-            formats={['avif', 'webp']}
+            formats={["avif", "webp"]}
+            densities={[1, 2]}
             src={SignatureDani}
             width="83"
             height="62"
@@ -63,7 +65,7 @@ import SignatureYuna from "images/team/yuna-signature.png"
         </div>
         <p class="mb-2 text-lg">Daniela Peñaranda</p>
         <p class="xl:text-sm">
-          <ExternalLink label="Linkedin" href="https://www.linkedin.com/in/daniela-penaranda/"/>
+          <ExternalLink label="Linkedin" href="https://www.linkedin.com/in/daniela-penaranda/" />
         </p>
       </div>
     </div>

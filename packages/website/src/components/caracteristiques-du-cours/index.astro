@@ -1,70 +1,57 @@
 ---
-import { Picture } from 'astro:assets';
+import { Picture } from "astro:assets";
 
-import Grid from "components/@commons/Grid.astro"
-import Caracteristique from "./Caracteristique.astro"
-import IconOnlineCourse from "components/@commons/icons/IconOnlineCourse.astro"
-import IconSimplifiedModules from "components/@commons/icons/IconSimplifiedModules.astro"
-import IconGift from "components/@commons/icons/IconGift.astro"
-import IconQuiz from "components/@commons/icons/IconQuiz.astro"
-import IconCockade from "components/@commons/icons/IconCockade.astro"
-import IconFlag from "components/@commons/icons/IconFlag.astro"
-import IconSmiley from "components/@commons/icons/IconSmiley.astro"
+import Grid from "components/@commons/Grid.astro";
+import Caracteristique from "./Caracteristique.astro";
+import IconOnlineCourse from "components/@commons/icons/IconOnlineCourse.astro";
+import IconSimplifiedModules from "components/@commons/icons/IconSimplifiedModules.astro";
+import IconGift from "components/@commons/icons/IconGift.astro";
+import IconQuiz from "components/@commons/icons/IconQuiz.astro";
+import IconCockade from "components/@commons/icons/IconCockade.astro";
+import IconFlag from "components/@commons/icons/IconFlag.astro";
+import IconSmiley from "components/@commons/icons/IconSmiley.astro";
 
-import Screenshot1 from "images/course-screenshots/screenshot-1.png"
-import Screenshot2 from "images/course-screenshots/screenshot-2.png"
-import Screenshot3 from "images/course-screenshots/screenshot-3.png"
+import Screenshot1 from "images/course-screenshots/screenshot-1.png";
+import Screenshot2 from "images/course-screenshots/screenshot-2.png";
+import Screenshot3 from "images/course-screenshots/screenshot-3.png";
 ---
 
 <Grid outerGap={false}>
   <ul class="col-span-full space-y-8 xl:col-span-4">
     <li>
-      <Caracteristique
-        title="Cours en ligne"
-        description="À votre rythme"
-      >
+      <Caracteristique title="Cours en ligne" description="À votre rythme">
         <IconOnlineCourse slot="icon" />
       </Caracteristique>
     </li>
     <li>
-      <Caracteristique
-        title="5 modules thématiques"
-      >
+      <Caracteristique title="5 modules thématiques">
         <IconSimplifiedModules slot="icon" />
       </Caracteristique>
     </li>
     <li>
-      <Caracteristique
-        title="Outils clé-en-main à télécharger"
-      >
+      <Caracteristique title="Outils clé-en-main à télécharger">
         <IconGift slot="icon" />
       </Caracteristique>
     </li>
     <li>
-      <Caracteristique
-        title="Quiz instantanés"
-      >
+      <Caracteristique title="Quiz instantanés">
         <IconQuiz slot="icon" />
       </Caracteristique>
     </li>
     <li>
-      <Caracteristique
-        title="Certificat de participation"
-      >
+      <Caracteristique title="Certificat de participation">
         <IconCockade slot="icon" />
       </Caracteristique>
     </li>
     <li>
-      <Caracteristique
-        title="Français"
-      >
+      <Caracteristique title="Français">
         <IconFlag slot="icon" />
       </Caracteristique>
     </li>
     <li>
       <Caracteristique
         title="Public"
-        description="Designers UX, designers produit, chef&middot;fe&middot;s de projet, product owners, responsables d'équipe..."
+        description="Designers UX, designers produit, chef·fe·s de projet, product owners, responsables d'équipe..."
       >
         <IconSmiley slot="icon" />
       </Caracteristique>
@@ -75,36 +62,39 @@ import Screenshot3 from "images/course-screenshots/screenshot-3.png"
     <ul class="relative space-y-5 lg:gap-4 lg:space-y-0 lg:flex lg:flex-wrap xl:block xl:h-full isolate">
       <li class="lg:w-full xl:w-[70%] xl:z-[0]">
         <Picture
-            formats={['avif', 'webp']}
-            class="screenshot w-full"
-            src={Screenshot1}
-            width="495"
-            height="457"
-            loading="lazy"
-            alt="Capture d'écran de l'interface de cours en ligne sur l'animation et la facilitation d'ateliers UX montrant une introduction de module"
-          />
+          formats={["avif", "webp"]}
+          densities={[1, 2]}
+          class="screenshot w-full"
+          src={Screenshot1}
+          width="495"
+          height="457"
+          loading="lazy"
+          alt="Capture d'écran de l'interface de cours en ligne sur l'animation et la facilitation d'ateliers UX montrant une introduction de module"
+        />
       </li>
       <li class="lg:flex-1 xl:absolute xl:w-[55%] xl:top-[248px] xl:right-0 xl:z-[2]">
-          <Picture
-            formats={['avif', 'webp']}
-            class="screenshot w-full"
-            src={Screenshot2}
-            width="388"
-            height="276"
-            loading="lazy"
-            alt="Capture d'écran de l'interface de cours en ligne sur l'animation et la facilitation d'ateliers UX montrant un extrait vidéo"
-          />
+        <Picture
+          densities={[1, 2]}
+          formats={["avif", "webp"]}
+          class="screenshot w-full"
+          src={Screenshot2}
+          width="388"
+          height="276"
+          loading="lazy"
+          alt="Capture d'écran de l'interface de cours en ligne sur l'animation et la facilitation d'ateliers UX montrant un extrait vidéo"
+        />
       </li>
       <li class="lg:flex-1 xl:w-[40%] xl:translate-x-[105px] xl:translate-y-[-10px] xl:z-[1]">
-          <Picture
-            formats={['avif', 'webp']}
-            class="screenshot w-full"
-            src={Screenshot3}
-            width="281"
-            height="200"
-            loading="lazy"
-            alt="Capture d'écran de l'interface de cours en ligne sur l'animation et la facilitation d'ateliers UX montrant un extrait de quiz"
-          />
+        <Picture
+          densities={[1, 2]}
+          formats={["avif", "webp"]}
+          class="screenshot w-full"
+          src={Screenshot3}
+          width="281"
+          height="200"
+          loading="lazy"
+          alt="Capture d'écran de l'interface de cours en ligne sur l'animation et la facilitation d'ateliers UX montrant un extrait de quiz"
+        />
       </li>
     </ul>
   </div>

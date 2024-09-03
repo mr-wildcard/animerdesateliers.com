@@ -20,6 +20,7 @@ $ pnpm dev
 ## Deploy a worker
 
 From a worker folder:
+
 ```
 $ pnpm wrangler publish
 ```
