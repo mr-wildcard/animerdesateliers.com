@@ -14,6 +14,10 @@ onDOMReady(() => {
     const invalidEmailMessage = htmlFormElement.querySelector('[data-validation-type="invalid-email"]');
     const emailInput = htmlFormElement.querySelector<HTMLInputElement>("input[type=email]");
 
+    if (!emailInput) {
+      return;
+    }
+
     const state = proxy<State>({
       httpStatus: null,
       loading: false,
@@ -69,16 +73,16 @@ onDOMReady(() => {
         return;
       }
 
-      submitForm();
+      submitForm(emailInput.value);
     });
 
-    function submitForm() {
+    function submitForm(emailValue: string) {
       state.loading = true;
 
       fetch("/subscribe", {
         method: "POST",
         body: JSON.stringify({
-          email: emailInput.value,
+          email: emailValue,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +94,7 @@ onDOMReady(() => {
 
           displayValidationHTML();
         })
-        .catch((error) => {
+        .catch(() => {
           state.httpStatus = 500;
           state.loading = false;
         });
@@ -98,30 +102,30 @@ onDOMReady(() => {
 
     function toggleInputInvalidCSSClass(addClass: boolean) {
       if (addClass) {
-        emailInput.classList.add("invalid");
+        emailInput?.classList.add("invalid");
       } else {
-        emailInput.classList.remove("invalid");
+        emailInput?.classList.remove("invalid");
       }
     }
 
     function toggleValidationMessage(show: boolean) {
       if (show) {
-        invalidEmailMessage.classList.remove("hidden");
+        invalidEmailMessage?.classList.remove("hidden");
       } else {
-        invalidEmailMessage.classList.add("hidden");
+        invalidEmailMessage?.classList.add("hidden");
       }
     }
 
     function toggleButtonLoadingState(loading: boolean) {
       if (loading) {
-        submitButton.classList.add("loading");
+        submitButton?.classList.add("loading");
       } else {
-        submitButton.classList.remove("loading");
+        submitButton?.classList.remove("loading");
       }
     }
 
     function getEmailInputValueIsValid() {
-      return emailInput.value.length > 0 && emailInput.checkValidity();
+      return !emailInput ? false : emailInput.value.length > 0 && emailInput.checkValidity();
     }
 
     function displayValidationHTML() {
@@ -141,7 +145,7 @@ onDOMReady(() => {
         wrapper.style.opacity = "1";
       });
 
-      wrapper.querySelector("button").addEventListener(
+      wrapper.querySelector("button")?.addEventListener(
         "click",
         () => {
           wrapper.remove();
@@ -160,8 +164,12 @@ onDOMReady(() => {
       );
     }
 
-    function getValidationHTML() {
+    function getValidationHTML(): string {
       const { httpStatus } = state;
+
+      if (!httpStatus) {
+        return "";
+      }
 
       const buttonCSSClassnames = cs([
         "w-full",
