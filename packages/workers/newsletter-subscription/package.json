@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Cloudflare Worker for newsletter subscription",
   "main": "dist/worker.js",
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.10.0",
   "scripts": {
     "dev": "wrangler dev",
     "build": "node build.js",
@@ -17,7 +17,7 @@
     "@cloudflare/wrangler": "1.21.0",
     "@types/node": "^20.0.0",
     "@types/service-worker-mock": "2.0.4",
-    "esbuild": "0.14.54",
+    "esbuild": "0.23.1",
     "service-worker-mock": "^2.0.5"
   }
 }
