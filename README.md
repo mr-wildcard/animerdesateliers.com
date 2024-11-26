@@ -1,6 +1,6 @@
 # Animer des ateliers UX
 
-https://animerdesateliers.com
+https://animerdesateliers.pages.dev/
 
 ![Animer des ateliers UX](./packages/website/public/sn-sharing.jpg)
 
