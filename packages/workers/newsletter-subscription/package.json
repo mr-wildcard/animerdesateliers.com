@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Cloudflare Worker for newsletter subscription",
   "main": "dist/worker.js",
-  "packageManager": "pnpm@9.14.3",
+  "packageManager": "pnpm@9.14.4",
   "scripts": {
     "dev": "wrangler dev",
     "build": "node build.js",
