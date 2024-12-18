@@ -17,7 +17,7 @@
   "devDependencies": {
     "@astrojs/tailwind": "5.1.3",
     "@astrojs/ts-plugin": "1.10.4",
-    "astro": "4.16.17",
+    "astro": "4.16.18",
     "morphdom": "2.7.4",
     "postcss": "8.4.49",
     "prettier": "3.4.2",
