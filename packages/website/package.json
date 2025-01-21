@@ -15,9 +15,9 @@
     "valtio": "^2.0.0"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "5.1.4",
+    "@astrojs/tailwind": "5.1.5",
     "@astrojs/ts-plugin": "1.10.4",
-    "astro": "5.1.7",
+    "astro": "5.1.8",
     "morphdom": "2.7.4",
     "postcss": "8.5.1",
     "prettier": "3.4.2",
