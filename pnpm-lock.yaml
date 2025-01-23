@@ -29,13 +29,13 @@ importers:
     devDependencies:
       '@astrojs/tailwind':
         specifier: 5.1.5
-        version: 5.1.5(astro@5.1.8(@types/node@22.10.8)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1))(tailwindcss@3.4.17)
+        version: 5.1.5(astro@5.1.8(@types/node@22.10.9)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1))(tailwindcss@3.4.17)
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
       astro:
         specifier: 5.1.8
-        version: 5.1.8(@types/node@22.10.8)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1)
+        version: 5.1.8(@types/node@22.10.9)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1)
       morphdom:
         specifier: 2.7.4
         version: 2.7.4
@@ -62,7 +62,7 @@ importers:
         version: 1.21.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.10.8
+        version: 22.10.9
       '@types/service-worker-mock':
         specifier: 2.0.4
         version: 2.0.4
@@ -578,8 +578,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.10.8':
-    resolution: {integrity: sha512-rk+QvAEGsbX/ZPiiyel6hJHNUS9cnSbPWVaZLvE+Er3tLqQFzWMz9JOfWW7XUmKvRPfxJfbl3qYWve+RGXncFw==}
+  '@types/node@22.10.9':
+    resolution: {integrity: sha512-Ir6hwgsKyNESl/gLOcEz3krR4CBGgliDqBQ2ma4wIhEx0w+xnoeTq3tdrNw15kU3SxogDjOgv9sqdtLW8mIHaw==}
 
   '@types/service-worker-mock@2.0.4':
     resolution: {integrity: sha512-MEBT2eiqYfhxjqYm/oAf2AvKLbPTPwJJAYrMdheKnGyz1yG9XBRfxCzi93h27qpSvI7jOYfXqFLVMLBXFDqo4A==}
@@ -2113,9 +2113,9 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/tailwind@5.1.5(astro@5.1.8(@types/node@22.10.8)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@5.1.5(astro@5.1.8(@types/node@22.10.9)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 5.1.8(@types/node@22.10.8)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1)
+      astro: 5.1.8(@types/node@22.10.9)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1)
       autoprefixer: 10.4.20(postcss@8.5.1)
       postcss: 8.5.1
       postcss-load-config: 4.0.2(postcss@8.5.1)
@@ -2492,7 +2492,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.2
 
-  '@types/node@22.10.8':
+  '@types/node@22.10.9':
     dependencies:
       undici-types: 6.20.0
 
@@ -2549,7 +2549,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.1.8(@types/node@22.10.8)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1):
+  astro@5.1.8(@types/node@22.10.9)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.2
@@ -2601,8 +2601,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.14.4
       vfile: 6.0.3
-      vite: 6.0.10(@types/node@22.10.8)(jiti@1.21.6)(yaml@2.6.1)
-      vitefu: 1.0.5(vite@6.0.10(@types/node@22.10.8)(jiti@1.21.6)(yaml@2.6.1))
+      vite: 6.0.10(@types/node@22.10.9)(jiti@1.21.6)(yaml@2.6.1)
+      vitefu: 1.0.5(vite@6.0.10(@types/node@22.10.9)(jiti@1.21.6)(yaml@2.6.1))
       which-pm: 3.0.0
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
@@ -4198,20 +4198,20 @@ snapshots:
       '@types/unist': 3.0.2
       vfile-message: 4.0.2
 
-  vite@6.0.10(@types/node@22.10.8)(jiti@1.21.6)(yaml@2.6.1):
+  vite@6.0.10(@types/node@22.10.9)(jiti@1.21.6)(yaml@2.6.1):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.1
       rollup: 4.29.1
     optionalDependencies:
-      '@types/node': 22.10.8
+      '@types/node': 22.10.9
       fsevents: 2.3.3
       jiti: 1.21.6
       yaml: 2.6.1
 
-  vitefu@1.0.5(vite@6.0.10(@types/node@22.10.8)(jiti@1.21.6)(yaml@2.6.1)):
+  vitefu@1.0.5(vite@6.0.10(@types/node@22.10.9)(jiti@1.21.6)(yaml@2.6.1)):
     optionalDependencies:
-      vite: 6.0.10(@types/node@22.10.8)(jiti@1.21.6)(yaml@2.6.1)
+      vite: 6.0.10(@types/node@22.10.9)(jiti@1.21.6)(yaml@2.6.1)
 
   vscode-languageserver-textdocument@1.0.11: {}
 
