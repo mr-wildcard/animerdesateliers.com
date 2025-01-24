@@ -29,13 +29,13 @@ importers:
     devDependencies:
       '@astrojs/tailwind':
         specifier: 5.1.5
-        version: 5.1.5(astro@5.1.8(@types/node@22.10.10)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1))(tailwindcss@3.4.17)
+        version: 5.1.5(astro@5.1.9(@types/node@22.10.10)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1))(tailwindcss@3.4.17)
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
       astro:
-        specifier: 5.1.8
-        version: 5.1.8(@types/node@22.10.10)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1)
+        specifier: 5.1.9
+        version: 5.1.9(@types/node@22.10.10)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1)
       morphdom:
         specifier: 2.7.4
         version: 2.7.4
@@ -646,8 +646,8 @@ packages:
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
-  astro@5.1.8:
-    resolution: {integrity: sha512-7fNNceI/dXqGIkkZQjxhH31alAfgf33cDv34cPLCGFVSHHOpYG0NSrofnxdYf0BvWRlddqkq393UqDM5cJlv1w==}
+  astro@5.1.9:
+    resolution: {integrity: sha512-QB3MH7Ul3gEvmHXEfvPkGpTZyyB/TBKQbm0kTHpo0BTEB7BvaY+wrcWiGEJBVDpVdEAKY9fM3zrJ0c7hZSXVlw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2113,9 +2113,9 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/tailwind@5.1.5(astro@5.1.8(@types/node@22.10.10)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@5.1.5(astro@5.1.9(@types/node@22.10.10)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 5.1.8(@types/node@22.10.10)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1)
+      astro: 5.1.9(@types/node@22.10.10)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1)
       autoprefixer: 10.4.20(postcss@8.5.1)
       postcss: 8.5.1
       postcss-load-config: 4.0.2(postcss@8.5.1)
@@ -2549,7 +2549,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.1.8(@types/node@22.10.10)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1):
+  astro@5.1.9(@types/node@22.10.10)(jiti@1.21.6)(rollup@4.29.1)(typescript@5.7.3)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.2
