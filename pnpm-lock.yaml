@@ -56,7 +56,7 @@ importers:
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^4.0.0
-        version: 4.20250129.0
+        version: 4.20250204.0
       '@cloudflare/wrangler':
         specifier: 1.21.0
         version: 1.21.0
@@ -125,8 +125,8 @@ packages:
     resolution: {integrity: sha512-Z/yiTPj+lDVnF7lWeKCIJzaIkI0vYO87dMpZ4bg4TDrFe4XXLFWL1TbXU27gBP3QccxV9mZICCrnjnYlJjXHOA==}
     engines: {node: '>=6.9.0'}
 
-  '@cloudflare/workers-types@4.20250129.0':
-    resolution: {integrity: sha512-H7g/sDB9GaV+fIPf3utNEYncFhryIvDThiBbfZtu0bZmVXcVd9ApP3OMqUYhNV8MShWQASvgWletKKBZGT9/oA==}
+  '@cloudflare/workers-types@4.20250204.0':
+    resolution: {integrity: sha512-mWoQbYaP+nYztx9I7q9sgaiNlT54Cypszz0RfzMxYnT5W3NXDuwGcjGB+5B5H5VB8tEC2dYnBRpa70lX94ueaQ==}
 
   '@cloudflare/wrangler@1.21.0':
     resolution: {integrity: sha512-rsF1cGQT+CcTbk6d/s7c/CWOnKAtKi26LSkSbjDPnXsaEMso3RGRPWdStav/xmMLbvKOeDdtL8NDoxrtimrpQg==}
@@ -2172,7 +2172,7 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@cloudflare/workers-types@4.20250129.0': {}
+  '@cloudflare/workers-types@4.20250204.0': {}
 
   '@cloudflare/wrangler@1.21.0':
     dependencies:
