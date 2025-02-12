@@ -2,7 +2,7 @@
   "name": "website",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@9.15.5",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -17,10 +17,10 @@
   "devDependencies": {
     "@astrojs/tailwind": "5.1.5",
     "@astrojs/ts-plugin": "1.10.4",
-    "astro": "5.2.3",
+    "astro": "5.2.6",
     "morphdom": "2.7.4",
-    "postcss": "8.5.1",
-    "prettier": "3.4.2",
+    "postcss": "8.5.2",
+    "prettier": "3.5.0",
     "prettier-plugin-astro": "0.14.1",
     "sharp": "0.33.5"
   }
