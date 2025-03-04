@@ -29,13 +29,13 @@ importers:
     devDependencies:
       '@astrojs/tailwind':
         specifier: 5.1.5
-        version: 5.1.5(astro@5.4.1(@types/node@22.13.8)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1))(tailwindcss@3.4.17)
+        version: 5.1.5(astro@5.4.1(@types/node@22.13.9)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1))(tailwindcss@3.4.17)
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
       astro:
         specifier: 5.4.1
-        version: 5.4.1(@types/node@22.13.8)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1)
+        version: 5.4.1(@types/node@22.13.9)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1)
       morphdom:
         specifier: 2.7.4
         version: 2.7.4
@@ -56,13 +56,13 @@ importers:
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^4.0.0
-        version: 4.20250224.0
+        version: 4.20250303.0
       '@cloudflare/wrangler':
         specifier: 1.21.0
         version: 1.21.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.13.8
+        version: 22.13.9
       '@types/service-worker-mock':
         specifier: 2.0.4
         version: 2.0.4
@@ -128,8 +128,8 @@ packages:
     resolution: {integrity: sha512-Z/yiTPj+lDVnF7lWeKCIJzaIkI0vYO87dMpZ4bg4TDrFe4XXLFWL1TbXU27gBP3QccxV9mZICCrnjnYlJjXHOA==}
     engines: {node: '>=6.9.0'}
 
-  '@cloudflare/workers-types@4.20250224.0':
-    resolution: {integrity: sha512-j6ZwQ5G2moQRaEtGI2u5TBQhVXv/XwOS5jfBAheZHcpCM07zm8j0i8jZHHLq/6VA8e6VRjKohOyj5j6tZ1KHLQ==}
+  '@cloudflare/workers-types@4.20250303.0':
+    resolution: {integrity: sha512-O7F7nRT4bbmwHf3gkRBLfJ7R6vHIJ/oZzWdby6obOiw2yavUfp/AIwS7aO2POu5Cv8+h3TXS3oHs3kKCZLraUA==}
 
   '@cloudflare/wrangler@1.21.0':
     resolution: {integrity: sha512-rsF1cGQT+CcTbk6d/s7c/CWOnKAtKi26LSkSbjDPnXsaEMso3RGRPWdStav/xmMLbvKOeDdtL8NDoxrtimrpQg==}
@@ -581,8 +581,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.13.8':
-    resolution: {integrity: sha512-G3EfaZS+iOGYWLLRCEAXdWK9my08oHNZ+FHluRiggIYJPOXzhOiDgpVCUHaUvyIC5/fj7C/p637jdzC666AOKQ==}
+  '@types/node@22.13.9':
+    resolution: {integrity: sha512-acBjXdRJ3A6Pb3tqnw9HZmyR3Fiol3aGxRCK1x3d+6CDAMjl7I649wpSd+yNURCjbOUGu9tqtLKnTGxmK6CyGw==}
 
   '@types/service-worker-mock@2.0.4':
     resolution: {integrity: sha512-MEBT2eiqYfhxjqYm/oAf2AvKLbPTPwJJAYrMdheKnGyz1yG9XBRfxCzi93h27qpSvI7jOYfXqFLVMLBXFDqo4A==}
@@ -2137,9 +2137,9 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/tailwind@5.1.5(astro@5.4.1(@types/node@22.13.8)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@5.1.5(astro@5.4.1(@types/node@22.13.9)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 5.4.1(@types/node@22.13.8)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1)
+      astro: 5.4.1(@types/node@22.13.9)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1)
       autoprefixer: 10.4.20(postcss@8.5.3)
       postcss: 8.5.3
       postcss-load-config: 4.0.2(postcss@8.5.3)
@@ -2186,7 +2186,7 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@cloudflare/workers-types@4.20250224.0': {}
+  '@cloudflare/workers-types@4.20250303.0': {}
 
   '@cloudflare/wrangler@1.21.0':
     dependencies:
@@ -2516,7 +2516,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.2
 
-  '@types/node@22.13.8':
+  '@types/node@22.13.9':
     dependencies:
       undici-types: 6.20.0
 
@@ -2573,7 +2573,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.4.1(@types/node@22.13.8)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1):
+  astro@5.4.1(@types/node@22.13.9)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.10.4
       '@astrojs/internal-helpers': 0.6.0
@@ -2625,8 +2625,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.14.4
       vfile: 6.0.3
-      vite: 6.2.0(@types/node@22.13.8)(jiti@1.21.6)(yaml@2.6.1)
-      vitefu: 1.0.5(vite@6.2.0(@types/node@22.13.8)(jiti@1.21.6)(yaml@2.6.1))
+      vite: 6.2.0(@types/node@22.13.9)(jiti@1.21.6)(yaml@2.6.1)
+      vitefu: 1.0.5(vite@6.2.0(@types/node@22.13.9)(jiti@1.21.6)(yaml@2.6.1))
       which-pm: 3.0.1
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
@@ -4227,20 +4227,20 @@ snapshots:
       '@types/unist': 3.0.2
       vfile-message: 4.0.2
 
-  vite@6.2.0(@types/node@22.13.8)(jiti@1.21.6)(yaml@2.6.1):
+  vite@6.2.0(@types/node@22.13.9)(jiti@1.21.6)(yaml@2.6.1):
     dependencies:
       esbuild: 0.25.0
       postcss: 8.5.3
       rollup: 4.34.8
     optionalDependencies:
-      '@types/node': 22.13.8
+      '@types/node': 22.13.9
       fsevents: 2.3.3
       jiti: 1.21.6
       yaml: 2.6.1
 
-  vitefu@1.0.5(vite@6.2.0(@types/node@22.13.8)(jiti@1.21.6)(yaml@2.6.1)):
+  vitefu@1.0.5(vite@6.2.0(@types/node@22.13.9)(jiti@1.21.6)(yaml@2.6.1)):
     optionalDependencies:
-      vite: 6.2.0(@types/node@22.13.8)(jiti@1.21.6)(yaml@2.6.1)
+      vite: 6.2.0(@types/node@22.13.9)(jiti@1.21.6)(yaml@2.6.1)
 
   vscode-languageserver-textdocument@1.0.11: {}
 
