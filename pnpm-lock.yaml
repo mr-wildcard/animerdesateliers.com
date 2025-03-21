@@ -29,13 +29,13 @@ importers:
     devDependencies:
       '@astrojs/tailwind':
         specifier: 5.1.5
-        version: 5.1.5(astro@5.5.3(@types/node@22.13.10)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1))(tailwindcss@3.4.17)
+        version: 5.1.5(astro@5.5.4(@types/node@22.13.11)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1))(tailwindcss@3.4.17)
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
       astro:
-        specifier: 5.5.3
-        version: 5.5.3(@types/node@22.13.10)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1)
+        specifier: 5.5.4
+        version: 5.5.4(@types/node@22.13.11)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1)
       morphdom:
         specifier: 2.7.4
         version: 2.7.4
@@ -62,7 +62,7 @@ importers:
         version: 1.21.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.13.10
+        version: 22.13.11
       '@types/service-worker-mock':
         specifier: 2.0.4
         version: 2.0.4
@@ -560,9 +560,6 @@ packages:
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
-  '@types/cookie@0.6.0':
-    resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
-
   '@types/debug@4.1.7':
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
 
@@ -581,8 +578,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.13.10':
-    resolution: {integrity: sha512-I6LPUvlRH+O6VRUqYOcMudhaIdUVWfsjnZavnsraHvpBwaEyMN29ry+0UVJhImYL16xsscu0aske3yA+uPOWfw==}
+  '@types/node@22.13.11':
+    resolution: {integrity: sha512-iEUCUJoU0i3VnrCmgoWCXttklWcvoCIx4jzcP22fioIVSdTmjgoEvmAO/QPw6TcS9k5FrNgn4w7q5lGOd1CT5g==}
 
   '@types/service-worker-mock@2.0.4':
     resolution: {integrity: sha512-MEBT2eiqYfhxjqYm/oAf2AvKLbPTPwJJAYrMdheKnGyz1yG9XBRfxCzi93h27qpSvI7jOYfXqFLVMLBXFDqo4A==}
@@ -646,8 +643,8 @@ packages:
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
-  astro@5.5.3:
-    resolution: {integrity: sha512-FvqIo5jkunP5R6FkY5vuFYElTOqjnazuiN0x/yf1F+nvedsGDemm5K7mS6RTmFVB291mE9WWn1AbuJsFWEcHgg==}
+  astro@5.5.4:
+    resolution: {integrity: sha512-rc9Mj6dIKM9ylTSQ0/S1l5f1iSDNs0PEjRMnvVpZ0W+wfBCu99JEuXy+fiWDNT6gf60bC4dKQehZxZGdSJB9kg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -784,9 +781,9 @@ packages:
   cookie-es@1.2.2:
     resolution: {integrity: sha512-+W7VmiVINB+ywl1HGXJXmrqkOhpKrIiVZV6tQuV54ZyQC7MMuBt81Vc336GMLoHBq5hV/F9eXgt5Mnx0Rha5Fg==}
 
-  cookie@0.7.2:
-    resolution: {integrity: sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w==}
-    engines: {node: '>= 0.6'}
+  cookie@1.0.2:
+    resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
+    engines: {node: '>=18'}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -1002,9 +999,6 @@ packages:
 
   hast-util-raw@9.0.1:
     resolution: {integrity: sha512-5m1gmba658Q+lO5uqL5YNGQWeh1MYWZbZmWrM5lncdcuiXuo5E2HT/CIOp0rLF8ksfSwiCVJ3twlgVRyTGThGA==}
-
-  hast-util-to-html@9.0.4:
-    resolution: {integrity: sha512-wxQzXtdbhiwGAUKrnQJXlOPmHnEehzphwkK7aluUPQ+lEc1xefC8pblMgpp2w5ldBTEfveRIrADcrhGIWrlTDA==}
 
   hast-util-to-html@9.0.5:
     resolution: {integrity: sha512-OguPdidb+fbHQSU4Q4ZiLKnzWo8Wwsf5bZfbvu7//a9oTYoqD/fWpe96NuHkoS9h0ccGOTe0C4NGXdtS0iObOw==}
@@ -2069,9 +2063,9 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/tailwind@5.1.5(astro@5.5.3(@types/node@22.13.10)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@5.1.5(astro@5.5.4(@types/node@22.13.11)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 5.5.3(@types/node@22.13.10)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1)
+      astro: 5.5.4(@types/node@22.13.11)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1)
       autoprefixer: 10.4.20(postcss@8.5.3)
       postcss: 8.5.3
       postcss-load-config: 4.0.2(postcss@8.5.3)
@@ -2424,8 +2418,6 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@types/cookie@0.6.0': {}
-
   '@types/debug@4.1.7':
     dependencies:
       '@types/ms': 0.7.31
@@ -2446,7 +2438,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.2
 
-  '@types/node@22.13.10':
+  '@types/node@22.13.11':
     dependencies:
       undici-types: 6.20.0
 
@@ -2499,7 +2491,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.5.3(@types/node@22.13.10)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1):
+  astro@5.5.4(@types/node@22.13.11)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@astrojs/internal-helpers': 0.6.1
@@ -2507,7 +2499,6 @@ snapshots:
       '@astrojs/telemetry': 3.2.0
       '@oslojs/encoding': 1.1.0
       '@rollup/pluginutils': 5.1.4(rollup@4.34.8)
-      '@types/cookie': 0.6.0
       acorn: 8.14.1
       aria-query: 5.3.2
       axobject-query: 4.1.0
@@ -2515,7 +2506,7 @@ snapshots:
       ci-info: 4.2.0
       clsx: 2.1.1
       common-ancestor-path: 1.0.1
-      cookie: 0.7.2
+      cookie: 1.0.2
       cssesc: 3.0.0
       debug: 4.4.0
       deterministic-object-hash: 2.0.2
@@ -2551,8 +2542,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.15.0
       vfile: 6.0.3
-      vite: 6.2.1(@types/node@22.13.10)(jiti@1.21.6)(yaml@2.6.1)
-      vitefu: 1.0.6(vite@6.2.1(@types/node@22.13.10)(jiti@1.21.6)(yaml@2.6.1))
+      vite: 6.2.1(@types/node@22.13.11)(jiti@1.21.6)(yaml@2.6.1)
+      vitefu: 1.0.6(vite@6.2.1(@types/node@22.13.11)(jiti@1.21.6)(yaml@2.6.1))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.1
@@ -2722,7 +2713,7 @@ snapshots:
 
   cookie-es@1.2.2: {}
 
-  cookie@0.7.2: {}
+  cookie@1.0.2: {}
 
   cross-spawn@7.0.6:
     dependencies:
@@ -2962,20 +2953,6 @@ snapshots:
       unist-util-visit: 5.0.0
       vfile: 6.0.3
       web-namespaces: 2.0.1
-      zwitch: 2.0.4
-
-  hast-util-to-html@9.0.4:
-    dependencies:
-      '@types/hast': 3.0.4
-      '@types/unist': 3.0.2
-      ccount: 2.0.1
-      comma-separated-tokens: 2.0.2
-      hast-util-whitespace: 3.0.0
-      html-void-elements: 3.0.0
-      mdast-util-to-hast: 13.0.2
-      property-information: 6.1.1
-      space-separated-tokens: 2.0.1
-      stringify-entities: 4.0.2
       zwitch: 2.0.4
 
   hast-util-to-html@9.0.5:
@@ -3682,7 +3659,7 @@ snapshots:
   rehype-stringify@10.0.1:
     dependencies:
       '@types/hast': 3.0.4
-      hast-util-to-html: 9.0.4
+      hast-util-to-html: 9.0.5
       unified: 11.0.5
 
   rehype@13.0.2:
@@ -4103,20 +4080,20 @@ snapshots:
       '@types/unist': 3.0.2
       vfile-message: 4.0.2
 
-  vite@6.2.1(@types/node@22.13.10)(jiti@1.21.6)(yaml@2.6.1):
+  vite@6.2.1(@types/node@22.13.11)(jiti@1.21.6)(yaml@2.6.1):
     dependencies:
       esbuild: 0.25.1
       postcss: 8.5.3
       rollup: 4.34.8
     optionalDependencies:
-      '@types/node': 22.13.10
+      '@types/node': 22.13.11
       fsevents: 2.3.3
       jiti: 1.21.6
       yaml: 2.6.1
 
-  vitefu@1.0.6(vite@6.2.1(@types/node@22.13.10)(jiti@1.21.6)(yaml@2.6.1)):
+  vitefu@1.0.6(vite@6.2.1(@types/node@22.13.11)(jiti@1.21.6)(yaml@2.6.1)):
     optionalDependencies:
-      vite: 6.2.1(@types/node@22.13.10)(jiti@1.21.6)(yaml@2.6.1)
+      vite: 6.2.1(@types/node@22.13.11)(jiti@1.21.6)(yaml@2.6.1)
 
   vscode-languageserver-textdocument@1.0.11: {}
 
