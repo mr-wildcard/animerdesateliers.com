@@ -12,8 +12,8 @@ importers:
         specifier: 3.5.3
         version: 3.5.3
       typescript:
-        specifier: 5.8.2
-        version: 5.8.2
+        specifier: 5.8.3
+        version: 5.8.3
 
   packages/website:
     dependencies:
@@ -29,13 +29,13 @@ importers:
     devDependencies:
       '@astrojs/tailwind':
         specifier: 5.1.5
-        version: 5.1.5(astro@5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1))(tailwindcss@3.4.17)
+        version: 5.1.5(astro@5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1))(tailwindcss@3.4.17)
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
       astro:
         specifier: 5.6.1
-        version: 5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1)
+        version: 5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1)
       morphdom:
         specifier: 2.7.4
         version: 2.7.4
@@ -1859,8 +1859,8 @@ packages:
     resolution: {integrity: sha512-3IMSWgP7C5KSQqmo1wjhKrwsvXAtF33jO3QY+Uy++ia7hqvgSK6iXbbg5PbDBc1P2ZbNEDgejOrN4YooXvhwCw==}
     engines: {node: '>=16'}
 
-  typescript@5.8.2:
-    resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
+  typescript@5.8.3:
+    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2180,9 +2180,9 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/tailwind@5.1.5(astro@5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@5.1.5(astro@5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1)
+      astro: 5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1)
       autoprefixer: 10.4.20(postcss@8.5.3)
       postcss: 8.5.3
       postcss-load-config: 4.0.2(postcss@8.5.3)
@@ -2691,7 +2691,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.6.1):
+  astro@5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@astrojs/internal-helpers': 0.6.1
@@ -2737,7 +2737,7 @@ snapshots:
       shiki: 3.2.1
       tinyexec: 0.3.2
       tinyglobby: 0.2.12
-      tsconfck: 3.1.5(typescript@5.8.2)
+      tsconfck: 3.1.5(typescript@5.8.3)
       ultrahtml: 1.6.0
       unist-util-visit: 5.0.0
       unstorage: 1.15.0
@@ -2749,7 +2749,7 @@ snapshots:
       yocto-spinner: 0.2.1
       zod: 3.24.2
       zod-to-json-schema: 3.24.5(zod@3.24.2)
-      zod-to-ts: 1.2.0(typescript@5.8.2)(zod@3.24.2)
+      zod-to-ts: 1.2.0(typescript@5.8.3)(zod@3.24.2)
     optionalDependencies:
       sharp: 0.33.5
     transitivePeerDependencies:
@@ -4193,16 +4193,16 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  tsconfck@3.1.5(typescript@5.8.2):
+  tsconfck@3.1.5(typescript@5.8.3):
     optionalDependencies:
-      typescript: 5.8.2
+      typescript: 5.8.3
 
   tslib@2.7.0:
     optional: true
 
   type-fest@4.27.0: {}
 
-  typescript@5.8.2: {}
+  typescript@5.8.3: {}
 
   ufo@1.5.4: {}
 
@@ -4385,9 +4385,9 @@ snapshots:
     dependencies:
       zod: 3.24.2
 
-  zod-to-ts@1.2.0(typescript@5.8.2)(zod@3.24.2):
+  zod-to-ts@1.2.0(typescript@5.8.3)(zod@3.24.2):
     dependencies:
-      typescript: 5.8.2
+      typescript: 5.8.3
       zod: 3.24.2
 
   zod@3.24.2: {}
