@@ -29,13 +29,13 @@ importers:
     devDependencies:
       '@astrojs/tailwind':
         specifier: 5.1.5
-        version: 5.1.5(astro@5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1))(tailwindcss@3.4.17)
+        version: 5.1.5(astro@5.6.2(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1))(tailwindcss@3.4.17)
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
       astro:
-        specifier: 5.6.1
-        version: 5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1)
+        specifier: 5.6.2
+        version: 5.6.2(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1)
       morphdom:
         specifier: 2.7.4
         version: 2.7.4
@@ -135,9 +135,6 @@ packages:
     resolution: {integrity: sha512-rsF1cGQT+CcTbk6d/s7c/CWOnKAtKi26LSkSbjDPnXsaEMso3RGRPWdStav/xmMLbvKOeDdtL8NDoxrtimrpQg==}
     deprecated: This package is for Wrangler v1.x and is no longer supported. Please visit https://www.npmjs.com/package/wrangler for Wrangler v2+.
     hasBin: true
-
-  '@emnapi/runtime@1.2.0':
-    resolution: {integrity: sha512-bV21/9LQmcQeCPEg3BDFtvwL6cwiTMksYNWQQ4KOxCZikEGalWtenoZ0wCiukJINlGCIi2KXx01g4FoH/LxpzQ==}
 
   '@emnapi/runtime@1.4.0':
     resolution: {integrity: sha512-64WYIf4UYcdLnbKn/umDlNjQDSS8AgZrI/R9+x5ilkUVFxXcA1Ebl+gQLc/6mERA4407Xof0R7wEyEuj091CVw==}
@@ -756,8 +753,8 @@ packages:
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
-  astro@5.6.1:
-    resolution: {integrity: sha512-aQ2TV7wIf+q2Oi6gGWMINHWEAZqoP0eH6/mihodfTJYATPWyd03JIGVfjtYUJlkNdNSKxDXwEe/r/Zx4CZ1FPg==}
+  astro@5.6.2:
+    resolution: {integrity: sha512-Ds4x3Au2s+YfBKLXY2HCHird+73ff4wTds+cuAGqaHmY4GR+Gc+sCAP54Mq6blkpuFqXwqjPUAcmxvAwovJPGQ==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2002,8 +1999,8 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  vite@6.2.4:
-    resolution: {integrity: sha512-veHMSew8CcRzhL5o8ONjy8gkfmFJAd5Ac16oxBUjlwgX3Gq2Wqr+qNC3TjPIpy7TPV/KporLga5GT9HqdrCizw==}
+  vite@6.2.6:
+    resolution: {integrity: sha512-9xpjNl3kR4rVDZgPNdTL0/c6ao4km69a/2ihNQbcANz8RuCOK3hQBmLSJf3bRKVQjVMda+YvizNE8AwvogcPbw==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -2180,9 +2177,9 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/tailwind@5.1.5(astro@5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@5.1.5(astro@5.6.2(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1)
+      astro: 5.6.2(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1)
       autoprefixer: 10.4.20(postcss@8.5.3)
       postcss: 8.5.3
       postcss-load-config: 4.0.2(postcss@8.5.3)
@@ -2238,11 +2235,6 @@ snapshots:
       tar: 6.2.1
     transitivePeerDependencies:
       - debug
-
-  '@emnapi/runtime@1.2.0':
-    dependencies:
-      tslib: 2.7.0
-    optional: true
 
   '@emnapi/runtime@1.4.0':
     dependencies:
@@ -2457,7 +2449,7 @@ snapshots:
 
   '@img/sharp-wasm32@0.33.5':
     dependencies:
-      '@emnapi/runtime': 1.2.0
+      '@emnapi/runtime': 1.4.0
     optional: true
 
   '@img/sharp-wasm32@0.34.1':
@@ -2691,7 +2683,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.6.1(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1):
+  astro@5.6.2(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@astrojs/internal-helpers': 0.6.1
@@ -2742,8 +2734,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.15.0
       vfile: 6.0.3
-      vite: 6.2.4(@types/node@22.13.15)(jiti@1.21.6)(yaml@2.6.1)
-      vitefu: 1.0.6(vite@6.2.4(@types/node@22.13.15)(jiti@1.21.6)(yaml@2.6.1))
+      vite: 6.2.6(@types/node@22.13.15)(jiti@1.21.6)(yaml@2.6.1)
+      vitefu: 1.0.6(vite@6.2.6(@types/node@22.13.15)(jiti@1.21.6)(yaml@2.6.1))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.1
@@ -4308,7 +4300,7 @@ snapshots:
       '@types/unist': 3.0.2
       vfile-message: 4.0.2
 
-  vite@6.2.4(@types/node@22.13.15)(jiti@1.21.6)(yaml@2.6.1):
+  vite@6.2.6(@types/node@22.13.15)(jiti@1.21.6)(yaml@2.6.1):
     dependencies:
       esbuild: 0.25.2
       postcss: 8.5.3
@@ -4319,9 +4311,9 @@ snapshots:
       jiti: 1.21.6
       yaml: 2.6.1
 
-  vitefu@1.0.6(vite@6.2.4(@types/node@22.13.15)(jiti@1.21.6)(yaml@2.6.1)):
+  vitefu@1.0.6(vite@6.2.6(@types/node@22.13.15)(jiti@1.21.6)(yaml@2.6.1)):
     optionalDependencies:
-      vite: 6.2.4(@types/node@22.13.15)(jiti@1.21.6)(yaml@2.6.1)
+      vite: 6.2.6(@types/node@22.13.15)(jiti@1.21.6)(yaml@2.6.1)
 
   vscode-languageserver-textdocument@1.0.11: {}
 
