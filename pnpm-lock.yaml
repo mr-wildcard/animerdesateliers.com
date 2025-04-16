@@ -29,16 +29,16 @@ importers:
     devDependencies:
       '@astrojs/tailwind':
         specifier: 5.1.5
-        version: 5.1.5(astro@5.7.0(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1))(tailwindcss@3.4.17)
+        version: 5.1.5(astro@5.7.2(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1))(tailwindcss@3.4.17)
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
       astro:
-        specifier: 5.7.0
-        version: 5.7.0(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1)
+        specifier: 5.7.2
+        version: 5.7.2(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1)
       morphdom:
-        specifier: 2.7.4
-        version: 2.7.4
+        specifier: 2.7.5
+        version: 2.7.5
       postcss:
         specifier: 8.5.3
         version: 8.5.3
@@ -127,9 +127,6 @@ packages:
   '@babel/types@7.26.0':
     resolution: {integrity: sha512-Z/yiTPj+lDVnF7lWeKCIJzaIkI0vYO87dMpZ4bg4TDrFe4XXLFWL1TbXU27gBP3QccxV9mZICCrnjnYlJjXHOA==}
     engines: {node: '>=6.9.0'}
-
-  '@capsizecss/metrics@3.5.0':
-    resolution: {integrity: sha512-Ju2I/Qn3c1OaU8FgeW4Tc22D4C9NwyVfKzNmzst59bvxBjPoLYNZMqFYn+HvCtn4MpXwiaDtCE8fNuQLpdi9yA==}
 
   '@capsizecss/unpack@2.4.0':
     resolution: {integrity: sha512-GrSU71meACqcmIUxPYOJvGKF0yryjN/L1aCuE9DViCTJI7bfkjgYDPD1zbNDcINJwSSP6UaBZY9GAbYDO7re0Q==}
@@ -762,8 +759,8 @@ packages:
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
-  astro@5.7.0:
-    resolution: {integrity: sha512-LxvWFlCQSxRLqvtCfZ/LFzlaHcvX++qtq0NrRmwtDmrZhAyHOoVfLkxEE0STKgn0wjLTuETyBrgCBWe2eb68/A==}
+  astro@5.7.2:
+    resolution: {integrity: sha512-h/+MjrirU2xT+khkxvwPxE7c1O4nxzVtuSnGIqx+3dtrmUoxJvnNeIBnO7ED0mWzo6ClZ4aVBQj63M7U47anLg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1458,8 +1455,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  morphdom@2.7.4:
-    resolution: {integrity: sha512-ATTbWMgGa+FaMU3FhnFYB6WgulCqwf6opOll4CBzmVDTLvPMmUPrEv8CudmLPK0MESa64+6B89fWOxP3+YIlxQ==}
+  morphdom@2.7.5:
+    resolution: {integrity: sha512-z6bfWFMra7kBqDjQGHud1LSXtq5JJC060viEkQFMBX6baIecpkNr2Ywrn2OQfWP3rXiNFQRPoFjD8/TvJcWcDg==}
 
   mrmime@2.0.1:
     resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
@@ -1520,8 +1517,8 @@ packages:
   ofetch@1.4.1:
     resolution: {integrity: sha512-QZj2DfGplQAr2oj9KzceK9Hwz6Whxazmn85yYeVuS3u9XTMOGMRx0kO95MQ+vLsj/S/NwBDMMLU5hpxvI6Tklw==}
 
-  ohash@1.1.6:
-    resolution: {integrity: sha512-TBu7PtV8YkAZn0tSxobKY2n2aAQva936lhRrj6957aDaCf9IEtqsKbgMzXE/F/sjqYOwmrukeORHNLe5glk7Cg==}
+  ohash@2.0.11:
+    resolution: {integrity: sha512-RdR9FQrFwNBNXAr4GixM8YaRZRJ5PUWbKYbE5eOsrwAjJW0q2REGcf79oYPsLyskQCZG1PLN+S/K1V00joZAoQ==}
 
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
@@ -1950,8 +1947,8 @@ packages:
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
 
-  unifont@0.1.7:
-    resolution: {integrity: sha512-UyN6r/TUyl69iW/jhXaCtuwA6bP9ZSLhVViwgP8LH9EHRGk5FyIMDxvClqD5z2BV6MI9GMATzd0dyLqFxKkUmQ==}
+  unifont@0.2.0:
+    resolution: {integrity: sha512-RoF14/tOhLvDa7R5K6A3PjsfJVFKvadvRpWjfV1ttabUe9704P1ie9z1ABLWEts/8SxrBVePav/XhgeFNltpsw==}
 
   unist-util-find-after@5.0.0:
     resolution: {integrity: sha512-amQa0Ep2m6hE2g72AugUItjbuM8X8cGQnFoHk0pGfrFeT9GZhzN5SW8nRsiGKK7Aif4CrACPENkA6P/Lw6fHGQ==}
@@ -2260,9 +2257,9 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/tailwind@5.1.5(astro@5.7.0(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@5.1.5(astro@5.7.2(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 5.7.0(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1)
+      astro: 5.7.2(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1)
       autoprefixer: 10.4.20(postcss@8.5.3)
       postcss: 8.5.3
       postcss-load-config: 4.0.2(postcss@8.5.3)
@@ -2308,8 +2305,6 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
-
-  '@capsizecss/metrics@3.5.0': {}
 
   '@capsizecss/unpack@2.4.0':
     dependencies:
@@ -2780,13 +2775,12 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.7.0(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1):
+  astro@5.7.2(@types/node@22.13.15)(jiti@1.21.6)(rollup@4.34.8)(typescript@5.8.3)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@astrojs/internal-helpers': 0.6.1
       '@astrojs/markdown-remark': 6.3.1
       '@astrojs/telemetry': 3.2.0
-      '@capsizecss/metrics': 3.5.0
       '@capsizecss/unpack': 2.4.0
       '@oslojs/encoding': 1.1.0
       '@rollup/pluginutils': 5.1.4(rollup@4.34.8)
@@ -2830,7 +2824,7 @@ snapshots:
       tinyglobby: 0.2.12
       tsconfck: 3.1.5(typescript@5.8.3)
       ultrahtml: 1.6.0
-      unifont: 0.1.7
+      unifont: 0.2.0
       unist-util-visit: 5.0.0
       unstorage: 1.15.0
       vfile: 6.0.3
@@ -3781,7 +3775,7 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  morphdom@2.7.4: {}
+  morphdom@2.7.5: {}
 
   mrmime@2.0.1: {}
 
@@ -3825,7 +3819,7 @@ snapshots:
       node-fetch-native: 1.6.6
       ufo: 1.5.4
 
-  ohash@1.1.6: {}
+  ohash@2.0.11: {}
 
   once@1.4.0:
     dependencies:
@@ -4380,10 +4374,10 @@ snapshots:
       trough: 2.0.2
       vfile: 6.0.3
 
-  unifont@0.1.7:
+  unifont@0.2.0:
     dependencies:
       css-tree: 3.1.0
-      ohash: 1.1.6
+      ohash: 2.0.11
 
   unist-util-find-after@5.0.0:
     dependencies:
