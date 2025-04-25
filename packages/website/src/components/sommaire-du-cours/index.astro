@@ -9,11 +9,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
 
 <style>
   .summary-item {
-    @apply border-b-2 border-downriver;
-  }
-
-  .opener {
-    @apply text-lg p-5 md:px-16 lg:px-5 w-full flex items-center font-bold transition;
+    border-bottom: 2px solid var(--color-downriver);
   }
 
   .opener .right-icon :global(svg) {
@@ -27,14 +23,14 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
   }
 
   .opener[aria-expanded="true"] {
-    @apply bg-white;
+    background-color: var(--color-white);
 
     & ~ .accordion-content {
-      @apply bg-white;
+      background-color: var(--color-white);
     }
 
     @screen lg {
-      @apply bg-canary;
+      background-color: var(--color-canary);
     }
 
     .right-icon :global(svg) {
@@ -54,7 +50,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
 
     @screen lg {
       &:hover {
-        @apply bg-white;
+        background-color: var(--color-white);
       }
 
       .right-icon {
@@ -76,7 +72,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
             aria-expanded="false"
             aria-controls={`module${index}_content`}
             data-content-target={`module${index}`}
-            class="opener"
+            class="opener text-lg p-5 md:px-16 lg:px-5 w-full flex items-center font-bold transition"
           >
             {item.title}
             <span class="right-icon ml-auto">

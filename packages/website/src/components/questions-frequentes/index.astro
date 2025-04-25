@@ -6,7 +6,7 @@ import data from "./data.json";
 
 <style>
   .list details {
-    @apply border-b-2 border-white;
+    border-bottom: 2px solid var(--color-white);
   }
 
   .list details[open] {
@@ -14,7 +14,7 @@ import data from "./data.json";
   }
 
   .list details[open] {
-    @apply border-downriver;
+    border-color: var(--color-downriver);
   }
 
   .list details :global(svg) {
@@ -24,7 +24,8 @@ import data from "./data.json";
   }
 
   .list details[open] {
-    @apply bg-chiffon text-downriver;
+    background-color: var(--color-chiffon);
+    color: var(--color-downriver);
   }
 
   .list details[open] :global(svg) {
@@ -38,20 +39,21 @@ import data from "./data.json";
   }
 
   .answer {
-    padding-left: calc(theme("space.5") + 18px);
+    padding-left: calc(var(--spacing) * 5 + 18px);
   }
 
   @screen xl {
     .list details:hover {
-      @apply border-downriver;
+      border-color: var(--color-downriver);
     }
 
     .summary:hover {
-      @apply bg-chiffon text-downriver;
+      border-color: var(--color-downriver);
+      background-color: var(--color-chiffon);
     }
 
     .answer {
-      padding-left: calc(theme("space.5") * 2 + 18px);
+      padding-left: calc(var(--spacing) * 5 * 2 + 18px);
       padding-right: 31px;
       padding-bottom: 60px;
     }

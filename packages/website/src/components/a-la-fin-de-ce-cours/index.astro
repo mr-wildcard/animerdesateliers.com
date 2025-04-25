@@ -3,16 +3,6 @@ import Grid from "components/@commons/Grid.astro";
 import Acquis from "./Acquis.astro";
 ---
 
-<style>
-  .list {
-    @apply grid gap-x-[24px] gap-y-20 md:grid-cols-8 xl:grid-cols-12;
-  }
-
-  .list li {
-    @apply col-span-full md:col-start-2 md:col-span-6 xl:col-span-4 xl:text-xl;
-  }
-</style>
-
 <div class="px-[20px]">
   <div class="mb-20">
     <Grid outerGap={false}>
@@ -24,33 +14,33 @@ import Acquis from "./Acquis.astro";
     </Grid>
   </div>
 
-  <ul class="list">
-    <li>
+  <ul class="grid gap-x-[24px] gap-y-20 md:grid-cols-8 xl:grid-cols-12">
+    <li class="col-span-full md:col-start-2 md:col-span-6 xl:col-span-4 xl:text-xl">
       <Acquis>
         <strong>construire le brief</strong> avec les parties prenantes et <strong>définir la stratégie</strong> d'un atelier
         UX en présentiel, à distance ou hybride
       </Acquis>
     </li>
-    <li>
+    <li class="col-span-full md:col-start-2 md:col-span-6 xl:col-span-4 xl:text-xl">
       <Acquis>
         <strong>concevoir des exercices</strong> UX synchrones ou asynchrones, sur-mesure et efficaces, et trouver le timing
         parfait
       </Acquis>
     </li>
-    <li>
+    <li class="col-span-full md:col-start-2 md:col-span-6 xl:col-span-4 xl:text-xl">
       <Acquis>
         <strong>préparer les supports, organiser</strong> et <strong>communiquer</strong> sur l'atelier en amont et mettre
         en place l'espace de travail pour le jour J
       </Acquis>
     </li>
-    <li>
+    <li class="col-span-full md:col-start-2 md:col-span-6 xl:col-span-4 xl:text-xl">
       <Acquis>
         <strong>faciliter l'atelier, gérer les personnes</strong> participantes et leurs idées, vous <strong
           >sortir de situations parfois bloquantes</strong
         > et conclure l'atelier
       </Acquis>
     </li>
-    <li>
+    <li class="col-span-full md:col-start-2 md:col-span-6 xl:col-span-4 xl:text-xl">
       <Acquis>
         <strong>analyser les résultats</strong> de l'atelier et les transformer en actions UX à mettre en oeuvre pour la
         suite du projet
