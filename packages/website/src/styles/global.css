@@ -96,7 +96,7 @@
   }
 }
 
-.container {
+@utility container {
   margin-inside: auto;
   max-width: 1240px;
 }
