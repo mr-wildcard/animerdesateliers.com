@@ -28,7 +28,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwind()],
     define: {
-      tailwindConfig: JSON.stringify({}),
       __PROD__: JSON.stringify(isProd),
     },
     server: {

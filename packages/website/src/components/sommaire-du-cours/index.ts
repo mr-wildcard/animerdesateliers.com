@@ -2,9 +2,10 @@ import { onDOMReady } from "scripts/onDOMReady";
 import { listenToMediaQueryListChange } from "scripts/listenToMatchQueryChange";
 
 onDOMReady(() => {
+  const styles = getComputedStyle(document.documentElement);
   const desktopWrapper = document.querySelector("#sommaire-desktop-content");
   const sommaireHTMLElement = document.querySelector<HTMLDivElement>("#sommaire");
-  const { desktopMinWidth } = sommaireHTMLElement.dataset;
+  const desktopMinWidth = styles.getPropertyValue("--breakpoint-lg");
   const mdBreakpoint = `(min-width: ${desktopMinWidth})`;
   const desktopMedia = window.matchMedia(mdBreakpoint);
   const openerMappedToContent = new Map<HTMLButtonElement, HTMLDivElement>();

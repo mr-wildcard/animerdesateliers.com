@@ -2,8 +2,6 @@
 import Bubble from "./Bubble.astro";
 import IconNav from "./IconNav.astro";
 import data from "./data.json";
-
-const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
 ---
 
 <style>
@@ -51,7 +49,7 @@ const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
   }
 </style>
 
-<div id="bubbles" data-toggle-nav-arrows-from-viewport-width={toggleNavArrowsFromViewportWidth}>
+<div id="bubbles">
   <nav class="hidden container sm:flex justify-between mb-4 px-[20px]">
     <button disabled class="nav-left p-2" aria-label="Naviguer vers les problématiques précédentes">
       <IconNav />

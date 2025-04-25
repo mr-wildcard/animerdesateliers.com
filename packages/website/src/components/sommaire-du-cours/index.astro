@@ -3,8 +3,6 @@ import IconChevronForward from "components/@commons/icons/IconChevronForward.ast
 import ModuleContent from "./ModuleContent.astro";
 
 import data from "./data.json";
-
-const desktopMinWidth = tailwindConfig.theme.screens.lg;
 ---
 
 <style>
@@ -62,7 +60,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
 
 <h2 class="px-[20px] md:px-16 mb-10 text-2xl font-serif xl:p-0 xl:mb-16 xl:text-[34px]">Sommaire</h2>
 
-<div id="sommaire" data-desktop-min-width={desktopMinWidth} class="border-t-2 border-downriver lg:flex" tabindex="0">
+<div id="sommaire" class="border-t-2 border-downriver lg:flex" tabindex="0">
   <ul class="lg:w-[290px]">
     {
       data.items.map((item, index) => (
