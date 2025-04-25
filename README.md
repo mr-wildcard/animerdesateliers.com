@@ -8,7 +8,7 @@ Built using [Astro](https://astro.build/) ♥️ [Tailwind CSS](https://tailwind
 
 ---
 
-This project uses [PNPM 8](https://pnpm.io/installation).
+This project uses [PNPM](https://pnpm.io/installation).
 
 ## Development
 
