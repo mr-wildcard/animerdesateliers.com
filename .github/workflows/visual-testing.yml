@@ -1,0 +1,49 @@
+name: Run visual testing
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+env:
+  ASTRO_PREVIEW_SERVER_PORT_FOR_VISUAL_TESTING: 4321
+
+jobs:
+  visual-testing:
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'visual-testing') || startsWith(github.head_ref, 'renovate/') }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/website
+
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      # should be temporary. fix: https://vercel.com/guides/corepack-errors-github-actions
+      - name: Install corepack
+        shell: "bash"
+        run: npm install -g corepack@latest
+
+      - name: Setup PNPM using corepack
+        shell: "bash"
+        run: |
+          corepack enable
+          corepack install
+
+      - name: Install
+        shell: "bash"
+        run: pnpm i
+
+      - name: Build
+        shell: "bash"
+        run: pnpm build
+
+      - name: Take screenshots and upload them to Percy
+        run: pnpm percy snapshot dist/
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
