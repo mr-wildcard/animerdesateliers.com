@@ -6,6 +6,8 @@ https://animerdesateliers.pages.dev/
 
 Built using [Astro](https://astro.build/) ♥️ [Tailwind CSS](https://tailwindcss.com/) ♥️ [Cloudflare](https://developers.cloudflare.com/) (Workers/Pages/Website)
 
+Visual testing is automated with [Percy](https://percy.io/)
+
 ---
 
 This project uses [PNPM](https://pnpm.io/installation).
