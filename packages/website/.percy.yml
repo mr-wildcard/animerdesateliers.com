@@ -1,0 +1,14 @@
+version: 2
+percy:
+  useSystemProxy: false
+  skipBaseBuild: false
+snapshot:
+  widths:
+    - 640
+    - 1024
+    - 1280
+  minHeight: 1024
+  enableJavaScript: false
+  cliEnableJavaScript: true
+  disableShadowDOM: false
+  responsiveSnapshotCapture: true
