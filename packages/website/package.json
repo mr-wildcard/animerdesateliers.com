@@ -2,7 +2,7 @@
   "name": "website",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.10.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "classnames": "^2.5.1",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^4.0.0",
     "valtio": "^2.0.0"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "5.1.5",
+    "@astrojs/tailwind": "6.0.2",
     "@astrojs/ts-plugin": "1.10.4",
     "@percy/cli": "1.30.10",
     "astro": "5.7.5",
