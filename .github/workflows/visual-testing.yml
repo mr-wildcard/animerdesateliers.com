@@ -7,14 +7,13 @@ on:
 env:
   ASTRO_PREVIEW_SERVER_PORT_FOR_VISUAL_TESTING: 4321
 
-defaults:
-  run:
-    working-directory: ./packages/website
-
 jobs:
   visual-testing:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'visual-testing') || startsWith(github.head_ref, 'renovate/') }}
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/website
 
     steps:
       - name: Checkout your repository using git
