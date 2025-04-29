@@ -2,7 +2,7 @@ name: Run visual testing
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, labeled]
 
 env:
   ASTRO_PREVIEW_SERVER_PORT_FOR_VISUAL_TESTING: 4321
