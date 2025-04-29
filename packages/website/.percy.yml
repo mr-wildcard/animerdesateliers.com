@@ -7,6 +7,8 @@ snapshot:
     - 640
     - 1024
     - 1280
+  percy-css: |
+    html { font-family: Filson Pro, sans-serif !important; }
   minHeight: 1024
   enableJavaScript: false
   cliEnableJavaScript: true
