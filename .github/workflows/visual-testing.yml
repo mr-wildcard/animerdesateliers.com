@@ -11,6 +11,9 @@ jobs:
   visual-testing:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'visual-testing') || startsWith(github.head_ref, 'renovate/') }}
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/website
 
     steps:
       - name: Checkout your repository using git
