@@ -100,7 +100,7 @@
 }
 
 @utility container {
-  margin-inside: auto;
+  margin: 0 auto;
   max-width: 1240px;
 }
 
