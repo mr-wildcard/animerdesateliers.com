@@ -2,11 +2,14 @@ import { onDOMReady } from "scripts/onDOMReady";
 import { listenToMediaQueryListChange } from "scripts/listenToMatchQueryChange";
 
 onDOMReady(() => {
+  const styles = getComputedStyle(document.documentElement);
   const bubbles = document.querySelector<HTMLDivElement>("#bubbles");
   const slider = bubbles.querySelector<HTMLUListElement>(".list");
   const leftNavButton = bubbles.querySelector("button.nav-left");
   const rightNavButton = bubbles.querySelector("button.nav-right");
-  const { toggleNavArrowsFromViewportWidth } = bubbles.dataset;
+
+  const toggleNavArrowsFromViewportWidth = styles.getPropertyValue("--breakpoint-md");
+
   const toggleNavArrowsMediaQueryList = window.matchMedia(`(min-width: ${toggleNavArrowsFromViewportWidth})`);
 
   let maxScrollWidth = slider.scrollWidth - slider.clientWidth;

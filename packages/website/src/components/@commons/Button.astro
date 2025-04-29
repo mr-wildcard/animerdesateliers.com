@@ -17,8 +17,7 @@ const { href } = Astro.props;
   }
 
   .edge {
-    @apply bg-downriver;
-
+    background-color: var(--color-downriver);
     position: absolute;
     top: 0;
     left: 0;
@@ -28,8 +27,11 @@ const { href } = Astro.props;
   }
 
   .front {
-    @apply text-base bg-canary border-2 border-downriver font-bold;
-
+    background-color: var(--color-canary);
+    border-width: 2px;
+    border-color: var(--color-downriver);
+    font-weight: 700;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,13 +45,12 @@ const { href } = Astro.props;
   }
 
   .front .icon {
-    @apply pr-3;
+    padding-right: calc(var(--spacing) * 3);
   }
 
   .pushable.loading .front,
   .pushable:hover .front {
-    @apply bg-chiffon;
-
+    background-color: var(--color-chiffon);
     transform: translateY(-6px);
     transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
   }

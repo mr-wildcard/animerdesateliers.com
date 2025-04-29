@@ -1,6 +1,48 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-*: initial;
+  --font-sans: Filson Pro, sans-serif;
+  --font-serif: Termina, serif;
+
+  --text-xl: 20px;
+  --text-xl--line-height: 34px;
+
+  --color-downriver: #08124f;
+  --color-blue: #0f24f7;
+  --color-denim: #197abf;
+  --color-canary: #e3fd52;
+  --color-chiffon: #f7fecb;
+  --color-brightred: #ad0002;
+  --color-cosmos: #ffe8e8;
+  --color-magnolia: #f6f1ff;
+  --color-selago: #f4f6fe;
+  --color-shipgray: #3f3e47;
+  --color-gray: #838383;
+  --color-silversand: #bdbfc1;
+  --color-concrete: #f3f3f3;
+}
+
+@custom-variant lg (@media (width >= theme(--breakpoint-lg)));
+@custom-variant xl (@media (width >= theme(--breakpoint-xl)));
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 @font-face {
   font-family: "Filson Pro";
@@ -44,17 +86,21 @@
   font-weight: 800;
 }
 
-html {
-  font-size: 16px;
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    font-size: var(--text-xl);
+    color: var(--color-downriver);
+    letter-spacing: 0.01em;
+    background-color: var(--color-selago);
+  }
 }
 
-body {
-  @apply text-xl font-sans text-downriver tracking-[0.01em] bg-selago;
-}
-
-.container {
-  @apply mx-auto;
-
+@utility container {
+  margin: 0 auto;
   max-width: 1240px;
 }
 
@@ -65,7 +111,7 @@ body {
 }
 
 .screenshot {
-  @apply border-2 border-downriver rounded-lg;
-
+  border: 2px solid var(--color-downriver);
+  border-radius: 50%;
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
 }

@@ -12,15 +12,15 @@ if (index > 0) {
 ---
 
 <style>
-  .item {
-    @apply text-lg xl:text-xl;
+  @reference "../../styles/global.css";
 
+  .item {
     position: relative;
     padding-left: 25px;
 
     &::before {
-      @apply bg-blue rounded-full;
-
+      background-color: var(--color-blue);
+      border-radius: 50%;
       position: absolute;
       content: "";
       width: 10px;
@@ -29,7 +29,7 @@ if (index > 0) {
       top: 9px;
     }
 
-    @screen xl {
+    @variant xl {
       &::before {
         top: 13px;
       }
@@ -48,7 +48,7 @@ if (index > 0) {
     <h3 class="mb-10 text-[26px] leading-[36px] font-bold xl:text-[32px] xl:leading-[42px]">{title}</h3>
 
     <ul class="space-y-4">
-      {items.map((item, index) => <li class="item">{item}</li>)}
+      {items.map((item, index) => <li class="item text-lg xl:text-xl">{item}</li>)}
     </ul>
 
     <div class="mt-10 xl:mt-20 lg:w-5/6">

@@ -11,7 +11,6 @@ onDOMReady(() => {
   let previous_known_scroll_position = window.scrollY;
   let last_known_scroll_position = window.scrollY;
   let scrollAmount = 0;
-  let currentScrollDirection: ScrollDirection;
 
   function onScroll() {
     previous_known_scroll_position = last_known_scroll_position;

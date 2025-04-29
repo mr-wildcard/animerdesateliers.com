@@ -3,17 +3,13 @@ import IconChevronForward from "components/@commons/icons/IconChevronForward.ast
 import ModuleContent from "./ModuleContent.astro";
 
 import data from "./data.json";
-
-const desktopMinWidth = tailwindConfig.theme.screens.lg;
 ---
 
 <style>
-  .summary-item {
-    @apply border-b-2 border-downriver;
-  }
+  @reference "../../styles/global.css";
 
-  .opener {
-    @apply text-lg p-5 md:px-16 lg:px-5 w-full flex items-center font-bold transition;
+  .summary-item {
+    border-bottom: 2px solid var(--color-downriver);
   }
 
   .opener .right-icon :global(svg) {
@@ -21,26 +17,26 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
     transform-origin: center center;
     transition: 100ms ease-out;
 
-    @screen lg {
+    @variant lg {
       transform: rotate(0deg);
     }
   }
 
   .opener[aria-expanded="true"] {
-    @apply bg-white;
+    background-color: var(--color-white);
 
     & ~ .accordion-content {
-      @apply bg-white;
+      background-color: var(--color-white);
     }
 
-    @screen lg {
-      @apply bg-canary;
+    @variant lg {
+      background-color: var(--color-canary);
     }
 
     .right-icon :global(svg) {
       transform: rotate(270deg);
 
-      @screen lg {
+      @variant lg {
         transform: rotate(0deg);
       }
     }
@@ -52,9 +48,9 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
       overflow: hidden;
     }
 
-    @screen lg {
+    @variant lg {
       &:hover {
-        @apply bg-white;
+        background-color: var(--color-white);
       }
 
       .right-icon {
@@ -66,7 +62,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
 
 <h2 class="px-[20px] md:px-16 mb-10 text-2xl font-serif xl:p-0 xl:mb-16 xl:text-[34px]">Sommaire</h2>
 
-<div id="sommaire" data-desktop-min-width={desktopMinWidth} class="border-t-2 border-downriver lg:flex" tabindex="0">
+<div id="sommaire" class="border-t-2 border-downriver lg:flex" tabindex="0">
   <ul class="lg:w-[290px]">
     {
       data.items.map((item, index) => (
@@ -76,7 +72,7 @@ const desktopMinWidth = tailwindConfig.theme.screens.lg;
             aria-expanded="false"
             aria-controls={`module${index}_content`}
             data-content-target={`module${index}`}
-            class="opener"
+            class="opener text-lg p-5 md:px-16 lg:px-5 w-full flex items-center font-bold transition"
           >
             {item.title}
             <span class="right-icon ml-auto">

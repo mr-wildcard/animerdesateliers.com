@@ -5,21 +5,21 @@ import data from "./data.json";
 ---
 
 <style>
-  .feedbacks {
-    @apply gap-x-4 md:gap-x-12 lg:grid lg:gap-x-[24px] lg:grid-cols-12 lg:gap-y-20 xl:gap-y-28;
+  @reference "../../styles/global.css";
 
+  .feedbacks {
     scroll-snap-type: x mandatory;
   }
 
   .feedback-wrapper {
-    @apply max-w-[80vw] md:max-w-[60vw] lg:max-w-none lg:col-start-2 lg:col-span-5 xl:col-start-1 xl:ml-[33px];
-
     flex: 0 0 auto;
     scroll-snap-align: center;
   }
 
-  .feedback-wrapper:nth-child(2n) {
-    @apply lg:col-start-7;
+  @variant lg {
+    .feedback-wrapper:nth-child(2n) {
+      grid-column-start: 7;
+    }
   }
 </style>
 
@@ -37,10 +37,12 @@ import data from "./data.json";
   </h3>
 </Grid>
 
-<ul class="feedbacks px-[20px] flex mt-16 pb-6 overflow-x-auto overscroll-x-contain xl:px-0">
+<ul
+  class="feedbacks gap-x-4 md:gap-x-12 lg:grid lg:gap-x-[24px] lg:grid-cols-12 lg:gap-y-20 xl:gap-y-28 px-[20px] flex mt-16 pb-6 overflow-x-auto overscroll-x-contain xl:px-0"
+>
   {
     data.feedbacks.map((feedback) => (
-      <li class="feedback-wrapper">
+      <li class="feedback-wrapper max-w-[80vw] md:max-w-[60vw] lg:max-w-none lg:col-start-2 lg:col-span-5 xl:col-start-1 xl:ml-[33px]">
         <Feedback text={feedback.text} author={feedback.author} />
       </li>
     ))

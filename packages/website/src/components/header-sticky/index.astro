@@ -1,8 +1,6 @@
 ---
 import Button from "components/@commons/Button.astro";
 import IconNotification from "components/@commons/icons/IconNotification.astro";
-
-const mdMinWidth = tailwindConfig.theme.screens.md;
 ---
 
 <style>
@@ -26,7 +24,6 @@ const mdMinWidth = tailwindConfig.theme.screens.md;
 <div
   id="sticky-header"
   class="sticky top-0 w-full z-10 text-center pt-5 pb-4 border-b border-downriver md:fixed md:-translate-y-full"
-  data-md-min-width={mdMinWidth}
 >
   <Button href="#inscription-newsletter">
     <IconNotification slot="icon" />

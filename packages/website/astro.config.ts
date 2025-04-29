@@ -1,9 +1,6 @@
-import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "./tailwind.config";
+import tailwind from "@tailwindcss/vite";
 
-const fullConfig = resolveConfig(tailwindConfig);
 const isProd = process.env.CF_PAGES_BRANCH === "main";
 
 const LOCAL_PORT = 4321;
@@ -27,16 +24,10 @@ export default defineConfig({
     host: LOCAL_HOST,
     port: LOCAL_PORT,
   },
-  integrations: [
-    tailwind({
-      applyBaseStyles: false,
-      nesting: true,
-    }),
-  ],
   site: getSiteURL(),
   vite: {
+    plugins: [tailwind()],
     define: {
-      tailwindConfig: JSON.stringify(fullConfig),
       __PROD__: JSON.stringify(isProd),
     },
     server: {

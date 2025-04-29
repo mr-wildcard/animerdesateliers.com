@@ -2,11 +2,11 @@
 import Bubble from "./Bubble.astro";
 import IconNav from "./IconNav.astro";
 import data from "./data.json";
-
-const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
 ---
 
 <style>
+  @reference "../../styles/global.css";
+
   .list {
     gap: 28px;
     padding: 0 20px 50px 20px;
@@ -18,7 +18,7 @@ const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
       display: none;
     }
 
-    @screen xl {
+    @variant xl {
       padding: 0 calc((max(100vw, 1240px) - 1240px) / 2) 50px calc((max(100vw, 1240px) - 1240px) / 2);
     }
   }
@@ -34,8 +34,7 @@ const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
   }
 
   nav button[disabled] {
-    @apply text-silversand;
-
+    color: var(--color-silversand);
     cursor: not-allowed;
   }
 
@@ -52,7 +51,7 @@ const toggleNavArrowsFromViewportWidth = tailwindConfig.theme.screens.md;
   }
 </style>
 
-<div id="bubbles" data-toggle-nav-arrows-from-viewport-width={toggleNavArrowsFromViewportWidth}>
+<div id="bubbles">
   <nav class="hidden container sm:flex justify-between mb-4 px-[20px]">
     <button disabled class="nav-left p-2" aria-label="Naviguer vers les problématiques précédentes">
       <IconNav />

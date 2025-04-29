@@ -22,7 +22,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version-file: .nvmrc
+          node-version-file: ./packages/website/.nvmrc
 
       # should be temporary. fix: https://vercel.com/guides/corepack-errors-github-actions
       - name: Install corepack
