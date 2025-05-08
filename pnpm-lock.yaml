@@ -35,10 +35,10 @@ importers:
         version: 1.30.10(typescript@5.8.3)
       '@tailwindcss/vite':
         specifier: 4.1.5
-        version: 4.1.5(vite@6.3.4(@types/node@22.15.15)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1))
+        version: 4.1.5(vite@6.3.4(@types/node@22.15.16)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1))
       astro:
         specifier: 5.7.11
-        version: 5.7.11(@types/node@22.15.15)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.1)(typescript@5.8.3)(yaml@2.6.1)
+        version: 5.7.11(@types/node@22.15.16)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.1)(typescript@5.8.3)(yaml@2.6.1)
       morphdom:
         specifier: 2.7.5
         version: 2.7.5
@@ -59,13 +59,13 @@ importers:
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^4.0.0
-        version: 4.20250507.0
+        version: 4.20250508.0
       '@cloudflare/wrangler':
         specifier: 1.21.0
         version: 1.21.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.15.15
+        version: 22.15.16
       '@types/service-worker-mock':
         specifier: 2.0.4
         version: 2.0.4
@@ -128,8 +128,8 @@ packages:
   '@capsizecss/unpack@2.4.0':
     resolution: {integrity: sha512-GrSU71meACqcmIUxPYOJvGKF0yryjN/L1aCuE9DViCTJI7bfkjgYDPD1zbNDcINJwSSP6UaBZY9GAbYDO7re0Q==}
 
-  '@cloudflare/workers-types@4.20250507.0':
-    resolution: {integrity: sha512-fkrq7A6XWgPEmXJDwu9TS/Zw7qho3eGlrOlicKue32Bdul0Ma4Mym4sh7ZeGbayBXxkOx/fHpm5GfhVEtngRWQ==}
+  '@cloudflare/workers-types@4.20250508.0':
+    resolution: {integrity: sha512-Gr7NLsHy5BFXbWVMMO+1mf/DwxT30tNw5LGhC86S+CXErM2a2eJ0HJHqgAs0Y8Lt/XEUSrH9QrUFDvJWNhE4Rg==}
 
   '@cloudflare/wrangler@1.21.0':
     resolution: {integrity: sha512-rsF1cGQT+CcTbk6d/s7c/CWOnKAtKi26LSkSbjDPnXsaEMso3RGRPWdStav/xmMLbvKOeDdtL8NDoxrtimrpQg==}
@@ -835,8 +835,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.15.15':
-    resolution: {integrity: sha512-R5muMcZob3/Jjchn5LcO8jdKwSCbzqmPB6ruBxMcf9kbxtniZHP327s6C37iOfuw8mbKK3cAQa7sEl7afLrQ8A==}
+  '@types/node@22.15.16':
+    resolution: {integrity: sha512-3pr+KjwpVujqWqOKT8mNR+rd09FqhBLwg+5L/4t0cNYBzm/yEiYGCxWttjaPBsLtAo+WFNoXzGJfolM1JuRXoA==}
 
   '@types/service-worker-mock@2.0.4':
     resolution: {integrity: sha512-MEBT2eiqYfhxjqYm/oAf2AvKLbPTPwJJAYrMdheKnGyz1yG9XBRfxCzi93h27qpSvI7jOYfXqFLVMLBXFDqo4A==}
@@ -2506,7 +2506,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@cloudflare/workers-types@4.20250507.0': {}
+  '@cloudflare/workers-types@4.20250508.0': {}
 
   '@cloudflare/wrangler@1.21.0':
     dependencies:
@@ -3086,12 +3086,12 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.1.5
       '@tailwindcss/oxide-win32-x64-msvc': 4.1.5
 
-  '@tailwindcss/vite@4.1.5(vite@6.3.4(@types/node@22.15.15)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1))':
+  '@tailwindcss/vite@4.1.5(vite@6.3.4(@types/node@22.15.16)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1))':
     dependencies:
       '@tailwindcss/node': 4.1.5
       '@tailwindcss/oxide': 4.1.5
       tailwindcss: 4.1.5
-      vite: 6.3.4(@types/node@22.15.15)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1)
+      vite: 6.3.4(@types/node@22.15.16)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1)
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
@@ -3115,7 +3115,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.2
 
-  '@types/node@22.15.15':
+  '@types/node@22.15.16':
     dependencies:
       undici-types: 6.21.0
 
@@ -3125,7 +3125,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.15.15
+      '@types/node': 22.15.16
     optional: true
 
   '@ungap/structured-clone@1.2.0': {}
@@ -3178,7 +3178,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  astro@5.7.11(@types/node@22.15.15)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.1)(typescript@5.8.3)(yaml@2.6.1):
+  astro@5.7.11(@types/node@22.15.16)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.1)(typescript@5.8.3)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@astrojs/internal-helpers': 0.6.1
@@ -3231,8 +3231,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.15.0
       vfile: 6.0.3
-      vite: 6.3.4(@types/node@22.15.15)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1)
-      vitefu: 1.0.6(vite@6.3.4(@types/node@22.15.15)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1))
+      vite: 6.3.4(@types/node@22.15.16)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1)
+      vitefu: 1.0.6(vite@6.3.4(@types/node@22.15.16)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.1
@@ -4880,7 +4880,7 @@ snapshots:
       '@types/unist': 3.0.2
       vfile-message: 4.0.2
 
-  vite@6.3.4(@types/node@22.15.15)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1):
+  vite@6.3.4(@types/node@22.15.16)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1):
     dependencies:
       esbuild: 0.25.4
       fdir: 6.4.4(picomatch@4.0.2)
@@ -4889,15 +4889,15 @@ snapshots:
       rollup: 4.40.1
       tinyglobby: 0.2.13
     optionalDependencies:
-      '@types/node': 22.15.15
+      '@types/node': 22.15.16
       fsevents: 2.3.3
       jiti: 2.4.2
       lightningcss: 1.29.2
       yaml: 2.6.1
 
-  vitefu@1.0.6(vite@6.3.4(@types/node@22.15.15)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1)):
+  vitefu@1.0.6(vite@6.3.4(@types/node@22.15.16)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1)):
     optionalDependencies:
-      vite: 6.3.4(@types/node@22.15.15)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1)
+      vite: 6.3.4(@types/node@22.15.16)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.6.1)
 
   vscode-languageserver-textdocument@1.0.11: {}
 
