@@ -17,7 +17,7 @@
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.4",
     "@percy/cli": "1.30.10",
-    "@tailwindcss/vite": "4.1.5",
+    "@tailwindcss/vite": "4.1.6",
     "astro": "5.7.12",
     "morphdom": "2.7.5",
     "postcss": "8.5.3",
