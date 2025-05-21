@@ -16,13 +16,13 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.4",
-    "@percy/cli": "1.30.10",
+    "@percy/cli": "1.30.11",
     "@tailwindcss/vite": "4.1.7",
     "astro": "5.7.13",
     "morphdom": "2.7.5",
     "postcss": "8.5.3",
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
-    "sharp": "0.34.1"
+    "sharp": "0.34.2"
   }
 }
