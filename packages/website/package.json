@@ -20,7 +20,7 @@
     "@tailwindcss/vite": "4.1.8",
     "astro": "5.8.0",
     "morphdom": "2.7.5",
-    "postcss": "8.5.3",
+    "postcss": "8.5.4",
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
     "sharp": "0.34.2"
