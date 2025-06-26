@@ -2,12 +2,12 @@
   "name": "animerdesateliers.com",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.12.2",
+  "packageManager": "pnpm@10.12.4",
   "scripts": {
     "dev": "pnpm -r run dev"
   },
   "devDependencies": {
-    "prettier": "3.6.0",
+    "prettier": "3.6.1",
     "typescript": "5.8.3"
   }
 }
