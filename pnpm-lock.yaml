@@ -59,7 +59,7 @@ importers:
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^4.0.0
-        version: 4.20250724.0
+        version: 4.20250725.0
       '@cloudflare/wrangler':
         specifier: 1.21.0
         version: 1.21.0
@@ -132,8 +132,8 @@ packages:
   '@capsizecss/unpack@2.4.0':
     resolution: {integrity: sha512-GrSU71meACqcmIUxPYOJvGKF0yryjN/L1aCuE9DViCTJI7bfkjgYDPD1zbNDcINJwSSP6UaBZY9GAbYDO7re0Q==}
 
-  '@cloudflare/workers-types@4.20250724.0':
-    resolution: {integrity: sha512-TRuz+kMArBpW3lR7xoPR7Ek+/ymvukE5JC7RITlaRyHbs6vWPfwpH9TWQ1dfztYFmSQl5ZiAbLcK8UDRjgiW7g==}
+  '@cloudflare/workers-types@4.20250725.0':
+    resolution: {integrity: sha512-A8x/8yHY6G2xCkz/WVJ3n/iJ2XRRf8lfWsAJJjxPBPyt5CtkPpEIw7w04nrE4A2yLEr3ZOPhm4AJLVdt4NSBjA==}
 
   '@cloudflare/wrangler@1.21.0':
     resolution: {integrity: sha512-rsF1cGQT+CcTbk6d/s7c/CWOnKAtKi26LSkSbjDPnXsaEMso3RGRPWdStav/xmMLbvKOeDdtL8NDoxrtimrpQg==}
@@ -2589,7 +2589,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@cloudflare/workers-types@4.20250724.0': {}
+  '@cloudflare/workers-types@4.20250725.0': {}
 
   '@cloudflare/wrangler@1.21.0':
     dependencies:
