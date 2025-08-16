@@ -25,7 +25,7 @@ importers:
         version: 4.1.12
       valtio:
         specifier: ^2.0.0
-        version: 2.1.6(react@18.3.1)
+        version: 2.1.7(react@18.3.1)
     devDependencies:
       '@astrojs/ts-plugin':
         specifier: 1.10.4
@@ -2316,8 +2316,8 @@ packages:
     resolution: {integrity: sha512-d6GYsr992Bo9rzTZFc9BUw3UFAAg3prE9JGVBgW2TLTbI3rSvg4VDa0BFXHMzKkWbAuhrmaFWpucpRJl+3W7Jg==}
     deprecated: now available as @ungap/url-search-params
 
-  valtio@2.1.6:
-    resolution: {integrity: sha512-0oHwg9/H8FsHmxFu2flOp6FEiktpt1yKw0Knbo1MwBErgZPm3PPMjJMQl5VGBhui7LOx48jyxukWZJ0fncz4Ew==}
+  valtio@2.1.7:
+    resolution: {integrity: sha512-DwJhCDpujuQuKdJ2H84VbTjEJJteaSmqsuUltsfbfdbotVfNeTE4K/qc/Wi57I9x8/2ed4JNdjEna7O6PfavRg==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       '@types/react': '>=18.0.0'
@@ -5019,7 +5019,7 @@ snapshots:
 
   url-search-params@0.10.2: {}
 
-  valtio@2.1.6(react@18.3.1):
+  valtio@2.1.7(react@18.3.1):
     dependencies:
       proxy-compare: 3.0.1
     optionalDependencies:
