@@ -19,21 +19,14 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v5
 
+      - uses: pnpm/action-setup@v2
+
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
           node-version-file: ./packages/website/.nvmrc
-
-      # should be temporary. fix: https://vercel.com/guides/corepack-errors-github-actions
-      - name: Install corepack
-        shell: "bash"
-        run: npm install -g corepack@latest
-
-      - name: Setup PNPM using corepack
-        shell: "bash"
-        run: |
-          corepack enable
-          corepack install
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install
         shell: "bash"
