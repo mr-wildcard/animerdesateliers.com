@@ -2,7 +2,7 @@
   "name": "animerdesateliers.com",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.16.1",
+  "packageManager": "pnpm@10.17.0",
   "scripts": {
     "dev": "pnpm -r run dev"
   },
