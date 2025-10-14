@@ -37,8 +37,8 @@ importers:
         specifier: 4.1.14
         version: 4.1.14(vite@6.3.6(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1))
       astro:
-        specifier: 5.14.4
-        version: 5.14.4(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1)
+        specifier: 5.14.5
+        version: 5.14.5(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1)
       morphdom:
         specifier: 2.7.7
         version: 2.7.7
@@ -853,8 +853,8 @@ packages:
     resolution: {integrity: sha512-x1FCFnFifvYDDzTaLII71vG5uvDwgtmDTEVWAxrgeiR8VjMONcCXJx7E+USjDtHlwFmt9MysbqgF9b9Vjr6w+w==}
     engines: {node: '>=4'}
 
-  astro@5.14.4:
-    resolution: {integrity: sha512-yqgMAO2Whi9GmZkByyiPcG7CiiPr0Me0iBSorMa6M0g+wQk/ewnIqUyr7T/uFCPTQndoKwucnYFTrf0yfb0urw==}
+  astro@5.14.5:
+    resolution: {integrity: sha512-EHt7y3+nHYyKzBats1AL3N4Pyrvqyr+zXBC7njUa9Tfe+gsiHlunaw+lXitTT/DDVwO2R/f/qVG7Xc6rl0b2KQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3005,7 +3005,7 @@ snapshots:
 
   '@types/fontkit@2.0.8':
     dependencies:
-      '@types/node': 24.7.2
+      '@types/node': 22.18.10
 
   '@types/hast@3.0.4':
     dependencies:
@@ -3028,6 +3028,7 @@ snapshots:
   '@types/node@24.7.2':
     dependencies:
       undici-types: 7.14.0
+    optional: true
 
   '@types/service-worker-mock@2.0.4': {}
 
@@ -3035,7 +3036,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 24.7.2
+      '@types/node': 22.18.10
     optional: true
 
   '@ungap/structured-clone@1.2.0': {}
@@ -3088,7 +3089,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  astro@5.14.4(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1):
+  astro@5.14.5(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.7.4
@@ -4648,7 +4649,8 @@ snapshots:
 
   undici-types@6.21.0: {}
 
-  undici-types@7.14.0: {}
+  undici-types@7.14.0:
+    optional: true
 
   unicode-properties@1.4.1:
     dependencies:
