@@ -3,13 +3,13 @@ name: Run visual testing
 on:
   pull_request:
     types: [opened, synchronize, reopened, labeled]
-
-env:
-  ASTRO_PREVIEW_SERVER_PORT_FOR_VISUAL_TESTING: 4321
+  push:
+    branches:
+      - master
 
 jobs:
   visual-testing:
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'visual-testing') || startsWith(github.head_ref, 'renovate/') }}
+    if: ${{ github.event_name == 'push' || (github.event_name == 'pull_request' && (contains(github.event.pull_request.labels.*.name, 'visual-testing') || startsWith(github.head_ref, 'renovate/'))) }}
     runs-on: ubuntu-latest
     defaults:
       run:
