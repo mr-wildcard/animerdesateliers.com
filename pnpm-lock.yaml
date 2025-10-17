@@ -35,10 +35,10 @@ importers:
         version: 1.31.4(typescript@5.9.3)
       '@tailwindcss/vite':
         specifier: 4.1.14
-        version: 4.1.14(vite@6.3.6(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1))
+        version: 4.1.14(vite@6.3.6(@types/node@24.8.1)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1))
       astro:
         specifier: 5.14.5
-        version: 5.14.5(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1)
+        version: 5.14.5(@types/node@24.8.1)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1)
       morphdom:
         specifier: 2.7.7
         version: 2.7.7
@@ -65,7 +65,7 @@ importers:
         version: 1.21.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.18.10
+        version: 22.18.11
       '@types/service-worker-mock':
         specifier: 2.0.4
         version: 2.0.4
@@ -934,11 +934,11 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.18.10':
-    resolution: {integrity: sha512-anNG/V/Efn/YZY4pRzbACnKxNKoBng2VTFydVu8RRs5hQjikP8CQfaeAV59VFSCzKNp90mXiVXW2QzV56rwMrg==}
+  '@types/node@22.18.11':
+    resolution: {integrity: sha512-Gd33J2XIrXurb+eT2ktze3rJAfAp9ZNjlBdh4SVgyrKEOADwCbdUDaK7QgJno8Ue4kcajscsKqu6n8OBG3hhCQ==}
 
-  '@types/node@24.7.2':
-    resolution: {integrity: sha512-/NbVmcGTP+lj5oa4yiYxxeBjRivKQ5Ns1eSZeB99ExsEQ6rX5XYU1Zy/gGxY/ilqtD4Etx9mKyrPxZRetiahhA==}
+  '@types/node@24.8.1':
+    resolution: {integrity: sha512-alv65KGRadQVfVcG69MuB4IzdYVpRwMG/mq8KWOaoOdyY617P5ivaDiMCGOFDWD2sAn5Q0mR3mRtUOgm99hL9Q==}
 
   '@types/service-worker-mock@2.0.4':
     resolution: {integrity: sha512-MEBT2eiqYfhxjqYm/oAf2AvKLbPTPwJJAYrMdheKnGyz1yG9XBRfxCzi93h27qpSvI7jOYfXqFLVMLBXFDqo4A==}
@@ -3212,12 +3212,12 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.1.14
       '@tailwindcss/oxide-win32-x64-msvc': 4.1.14
 
-  '@tailwindcss/vite@4.1.14(vite@6.3.6(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1))':
+  '@tailwindcss/vite@4.1.14(vite@6.3.6(@types/node@24.8.1)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1))':
     dependencies:
       '@tailwindcss/node': 4.1.14
       '@tailwindcss/oxide': 4.1.14
       tailwindcss: 4.1.14
-      vite: 6.3.6(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1)
+      vite: 6.3.6(@types/node@24.8.1)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1)
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
@@ -3229,7 +3229,7 @@ snapshots:
 
   '@types/fontkit@2.0.8':
     dependencies:
-      '@types/node': 22.18.10
+      '@types/node': 24.8.1
 
   '@types/hast@3.0.4':
     dependencies:
@@ -3245,14 +3245,13 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.2
 
-  '@types/node@22.18.10':
+  '@types/node@22.18.11':
     dependencies:
       undici-types: 6.21.0
 
-  '@types/node@24.7.2':
+  '@types/node@24.8.1':
     dependencies:
       undici-types: 7.14.0
-    optional: true
 
   '@types/service-worker-mock@2.0.4': {}
 
@@ -3260,7 +3259,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.18.10
+      '@types/node': 24.8.1
     optional: true
 
   '@ungap/structured-clone@1.2.0': {}
@@ -3313,7 +3312,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  astro@5.14.5(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1):
+  astro@5.14.5(@types/node@24.8.1)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.7.4
@@ -3369,8 +3368,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.17.1
       vfile: 6.0.3
-      vite: 6.3.6(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1)
-      vitefu: 1.1.1(vite@6.3.6(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1))
+      vite: 6.3.6(@types/node@24.8.1)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1)
+      vitefu: 1.1.1(vite@6.3.6(@types/node@24.8.1)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.3
@@ -4900,8 +4899,7 @@ snapshots:
 
   undici-types@6.21.0: {}
 
-  undici-types@7.14.0:
-    optional: true
+  undici-types@7.14.0: {}
 
   unicode-properties@1.4.1:
     dependencies:
@@ -5007,7 +5005,7 @@ snapshots:
       '@types/unist': 3.0.2
       vfile-message: 4.0.2
 
-  vite@6.3.6(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1):
+  vite@6.3.6(@types/node@24.8.1)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1):
     dependencies:
       esbuild: 0.25.11
       fdir: 6.5.0(picomatch@4.0.3)
@@ -5016,15 +5014,15 @@ snapshots:
       rollup: 4.40.1
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 24.7.2
+      '@types/node': 24.8.1
       fsevents: 2.3.3
       jiti: 2.6.1
       lightningcss: 1.30.1
       yaml: 2.6.1
 
-  vitefu@1.1.1(vite@6.3.6(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1)):
+  vitefu@1.1.1(vite@6.3.6(@types/node@24.8.1)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1)):
     optionalDependencies:
-      vite: 6.3.6(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1)
+      vite: 6.3.6(@types/node@24.8.1)(jiti@2.6.1)(lightningcss@1.30.1)(yaml@2.6.1)
 
   vscode-languageserver-textdocument@1.0.11: {}
 
