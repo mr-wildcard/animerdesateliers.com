@@ -13,11 +13,11 @@
   "author": "Julien Viala <dev.vialajulien@gmail.com>",
   "license": "MIT OR Apache-2.0",
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.0.0",
+    "@cloudflare/workers-types": "4.20251014.0",
     "@cloudflare/wrangler": "1.21.0",
     "@types/node": "24.9.2",
     "@types/service-worker-mock": "2.0.4",
     "esbuild": "0.25.11",
-    "service-worker-mock": "^2.0.5"
+    "service-worker-mock": "2.0.5"
   }
 }
