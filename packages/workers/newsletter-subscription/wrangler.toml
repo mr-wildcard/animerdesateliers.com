@@ -1,7 +1,5 @@
 name = "newsletter-subscription"
 main = "src/index.ts"
-zone_id = "c7b97f3fca6a0b44bea04fd87e5c1b24"
-account_id = "56fdaa95e1826d3443ba784c434bad34"
 workers_dev = true
 compatibility_date = "2024-10-15"
 
