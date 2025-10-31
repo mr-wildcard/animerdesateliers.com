@@ -2,22 +2,21 @@
   "name": "newsletter-subscription-worker",
   "version": "1.0.0",
   "description": "Cloudflare Worker for newsletter subscription",
-  "main": "dist/worker.js",
+  "main": "src/index.ts",
   "packageManager": "pnpm@10.20.0",
   "scripts": {
     "dev": "wrangler dev",
-    "build": "node build.js",
-    "preview": "wrangler preview",
-    "publish": "wrangler publish"
+    "preview": "wrangler dev --remote",
+    "deploy": "wrangler deploy",
+    "publish": "wrangler deploy"
   },
   "author": "Julien Viala <dev.vialajulien@gmail.com>",
   "license": "MIT OR Apache-2.0",
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20251014.0",
-    "@cloudflare/wrangler": "1.21.0",
+    "@cloudflare/workers-types": "^4.20241018.0",
+    "wrangler": "^3.101.0",
     "@types/node": "24.9.2",
     "@types/service-worker-mock": "2.0.4",
-    "esbuild": "0.25.11",
     "service-worker-mock": "2.0.5"
   }
 }

@@ -1,18 +1,24 @@
-declare const MC_API_KEY: string;
-declare const MC_API_KEY_LABEL: string;
-declare const MC_LIST_ID: string;
-declare const MC_SERVER_PREFIX: string;
-declare const LOGS_MANAGER_HTTP_URL: string;
+interface Env {
+  MC_API_KEY: string;
+  MC_API_KEY_LABEL: string;
+  MC_LIST_ID: string;
+  MC_SERVER_PREFIX: string;
+  LOGS_MANAGER_HTTP_URL: string;
+}
 
 interface HTTPBodyRequest {
   email: string;
 }
 
-function postLog(log: string) {
-  return fetch(LOGS_MANAGER_HTTP_URL, {
-    body: JSON.stringify(log),
-    method: "POST",
-  });
+async function postLog(log: string, env: Env) {
+  try {
+    await fetch(env.LOGS_MANAGER_HTTP_URL, {
+      body: JSON.stringify(log),
+      method: "POST",
+    });
+  } catch (loggingError) {
+    console.error(`Failed to send log to Logs Manager: ${loggingError}`);
+  }
 }
 
 async function md5(message: string) {
@@ -29,54 +35,18 @@ async function md5(message: string) {
   return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-addEventListener("fetch", (event) => {
-  if (event.request.method !== "POST") {
-    event.respondWith(new Response("Only POST requests allowed.", { status: 405 }));
-  } else if (!event.request.headers.get("content-type")?.includes("application/json")) {
-    event.respondWith(new Response("HTTP request Content-type must be JSON.", { status: 415 }));
-  } else {
-    event.respondWith(
-      event.request
-        .json()
-        .then((payload) => {
-          const jsonPayload = payload as HTTPBodyRequest;
-
-          if (!("email" in jsonPayload)) {
-            return new Response("`email` key is missing in JSON", { status: 400 });
-          } else if (!jsonPayload.email.length) {
-            return new Response("Email address value must not be empty.", { status: 400 });
-          } else {
-            return addEmailToNewsletterRequest(jsonPayload.email);
-          }
-        })
-        .catch((error) => {
-          const errorMessage =
-            "An unknown error occurred while retrieving the email address from HTTP request on Cloudflare Worker side";
-
-          return postLog(`${errorMessage}: ${error}`)
-            .then(() => console.error(`${errorMessage}: ${error}`))
-            .then(() => {
-              return new Response(errorMessage, {
-                status: 500,
-              });
-            });
-        }),
-    );
-  }
-});
-
-async function addEmailToNewsletterRequest(email: string) {
+async function addEmailToNewsletterRequest(email: string, env: Env) {
   const hashedEmail = await md5(email);
 
   const response = await fetch(
-    `https://${MC_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${MC_LIST_ID}/members/${hashedEmail}`,
+    `https://${env.MC_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${env.MC_LIST_ID}/members/${hashedEmail}`,
     {
       body: JSON.stringify({
         email_address: email,
         status_if_new: "pending",
       }),
       headers: {
-        Authorization: `Basic ${btoa(`${MC_API_KEY_LABEL}:${MC_API_KEY}`)}`,
+        Authorization: `Basic ${btoa(`${env.MC_API_KEY_LABEL}:${env.MC_API_KEY}`)}`,
       },
       method: "PUT",
     },
@@ -97,8 +67,45 @@ async function addEmailToNewsletterRequest(email: string) {
 
     console.error(`❌ ${errorMessage}`);
 
-    await postLog(errorMessage);
+    await postLog(errorMessage, env);
 
     return new Response("An error occurred while contacting MailChimp.", { status: 500 });
   }
 }
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    if (request.method !== "POST") {
+      return new Response("Only POST requests allowed.", { status: 405 });
+    }
+
+    const contentType = request.headers.get("content-type") ?? "";
+    if (!contentType.includes("application/json")) {
+      return new Response("HTTP request Content-type must be JSON.", { status: 415 });
+    }
+
+    try {
+      const payload = (await request.json()) as Partial<HTTPBodyRequest> | null;
+
+      if (typeof payload?.email !== "string") {
+        return new Response("`email` key is missing in JSON", { status: 400 });
+      }
+
+      if (!payload.email.length) {
+        return new Response("Email address value must not be empty.", { status: 400 });
+      }
+
+      return addEmailToNewsletterRequest(payload.email, env);
+    } catch (error) {
+      const errorMessage =
+        "An unknown error occurred while retrieving the email address from HTTP request on Cloudflare Worker side";
+
+      await postLog(`${errorMessage}: ${error}`, env);
+      console.error(`${errorMessage}: ${error}`);
+
+      return new Response(errorMessage, {
+        status: 500,
+      });
+    }
+  },
+};
