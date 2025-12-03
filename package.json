@@ -7,7 +7,7 @@
     "dev": "pnpm -r run dev"
   },
   "devDependencies": {
-    "prettier": "3.7.3",
+    "prettier": "3.7.4",
     "typescript": "5.9.3"
   }
 }
