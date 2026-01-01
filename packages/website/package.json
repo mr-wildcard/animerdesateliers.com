@@ -12,7 +12,7 @@
   "dependencies": {
     "classnames": "2.5.1",
     "tailwindcss": "4.1.18",
-    "valtio": "2.2.0"
+    "valtio": "2.3.0"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.6",
