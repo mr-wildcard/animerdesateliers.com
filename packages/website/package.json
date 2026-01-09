@@ -18,7 +18,7 @@
     "@astrojs/ts-plugin": "1.10.6",
     "@percy/cli": "1.31.7",
     "@tailwindcss/vite": "4.1.18",
-    "astro": "5.16.7",
+    "astro": "5.16.8",
     "morphdom": "2.7.7",
     "postcss": "8.5.6",
     "prettier": "3.7.4",
