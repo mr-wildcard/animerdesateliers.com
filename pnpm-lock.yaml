@@ -37,8 +37,8 @@ importers:
         specifier: 4.1.18
         version: 4.1.18(vite@6.4.1(@types/node@24.10.7)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.6.1))
       astro:
-        specifier: 5.16.8
-        version: 5.16.8(@types/node@24.10.7)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1)
+        specifier: 5.16.9
+        version: 5.16.9(@types/node@24.10.7)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1)
       morphdom:
         specifier: 2.7.7
         version: 2.7.7
@@ -1179,8 +1179,8 @@ packages:
     resolution: {integrity: sha512-x1FCFnFifvYDDzTaLII71vG5uvDwgtmDTEVWAxrgeiR8VjMONcCXJx7E+USjDtHlwFmt9MysbqgF9b9Vjr6w+w==}
     engines: {node: '>=4'}
 
-  astro@5.16.8:
-    resolution: {integrity: sha512-gzZE+epuCrNuxOa8/F1dzkllDOFvxWhGeobQKeBRIAef5sUpUKMHZo/8clse+02rYnKJCgwXBgjW4uTu9mqUUw==}
+  astro@5.16.9:
+    resolution: {integrity: sha512-gJvoZv0v8xCcKBcsxz1ZfXqoJ7sJJcyoKP8bUTjkuD4vDShLe0N26em4LQxitVv/2HLOpldQg67bEHB/qGoxJA==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3666,7 +3666,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  astro@5.16.8(@types/node@24.10.7)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1):
+  astro@5.16.9(@types/node@24.10.7)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.40.1)(typescript@5.9.3)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
