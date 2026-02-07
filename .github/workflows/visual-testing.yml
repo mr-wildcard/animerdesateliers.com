@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize, reopened, labeled]
   push:
     branches:
-      - master
+      - main
 
 jobs:
   visual-testing:
