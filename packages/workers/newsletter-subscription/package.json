@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Cloudflare Worker for newsletter subscription",
   "main": "src/index.ts",
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.29.1",
   "scripts": {
     "dev": "wrangler dev",
     "preview": "wrangler dev --remote",
@@ -15,7 +15,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241018.0",
     "wrangler": "^4.0.0",
-    "@types/node": "24.10.11",
+    "@types/node": "24.10.12",
     "@types/service-worker-mock": "2.0.4",
     "service-worker-mock": "2.0.5"
   }
