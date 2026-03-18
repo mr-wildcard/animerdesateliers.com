@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "classnames": "2.5.1",
-    "tailwindcss": "4.2.1",
+    "tailwindcss": "4.2.2",
     "valtio": "2.3.1"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.7",
-    "@percy/cli": "1.31.9",
-    "@tailwindcss/vite": "4.2.1",
+    "@percy/cli": "1.31.10",
+    "@tailwindcss/vite": "4.2.2",
     "astro": "5.18.1",
     "morphdom": "2.7.8",
     "postcss": "8.5.8",
