@@ -21,7 +21,7 @@
     "astro": "5.18.1",
     "morphdom": "2.7.8",
     "postcss": "8.5.9",
-    "prettier": "3.8.1",
+    "prettier": "3.8.2",
     "prettier-plugin-astro": "0.14.1",
     "sharp": "0.34.5"
   }
