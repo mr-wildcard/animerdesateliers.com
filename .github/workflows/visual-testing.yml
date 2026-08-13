@@ -19,9 +19,20 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v5
 
+      - name: Get Cloudflare Pages deployment URL
+        id: wait-for-cloudflare-deployment-url
+        uses: mr-wildcard/action-get-cloudflare-deployment-url@v2
+        with:
+          cloudflare-account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          cloudflare-api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          cloudflare-pages-project: animer-des-ateliers
+          branch-name: ${{ github.head_ref }}
+
       - uses: pnpm/action-setup@v4
+        if: steps.wait-for-cloudflare-deployment-url.outputs.status == 'success'
 
       - name: Setup Node
+        if: steps.wait-for-cloudflare-deployment-url.outputs.status == 'success'
         uses: actions/setup-node@v6
         with:
           node-version-file: ./packages/website/.nvmrc
@@ -29,14 +40,13 @@ jobs:
           cache-dependency-path: pnpm-lock.yaml
 
       - name: Install
+        if: steps.wait-for-cloudflare-deployment-url.outputs.status == 'success'
         shell: "bash"
         run: pnpm i
 
-      - name: Build
-        shell: "bash"
-        run: pnpm build
-
       - name: Take screenshots and upload them to Percy
-        run: pnpm percy snapshot dist/
+        if: steps.wait-for-cloudflare-deployment-url.outputs.status == 'success'
+        run: pnpm percy snapshot .percy.mjs --disable-cache
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PREVIEW_URL: ${{ env.CF_DEPLOYMENT_HASH_URL }}
