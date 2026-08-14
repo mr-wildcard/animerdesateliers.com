@@ -44,9 +44,16 @@ jobs:
         shell: "bash"
         run: pnpm i
 
+      - name: Locate system Chrome
+        if: steps.wait-for-cloudflare-deployment-url.outputs.status == 'success'
+        id: chrome
+        run: echo "executable=$(which google-chrome-stable || which google-chrome || which chromium-browser)" >> "$GITHUB_OUTPUT"
+
       - name: Take screenshots and upload them to Percy
         if: steps.wait-for-cloudflare-deployment-url.outputs.status == 'success'
+        timeout-minutes: 5
         run: pnpm percy snapshot .percy.mjs --disable-cache
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PREVIEW_URL: ${{ env.CF_DEPLOYMENT_HASH_URL }}
+          PERCY_BROWSER_EXECUTABLE: ${{ steps.chrome.outputs.executable }}
