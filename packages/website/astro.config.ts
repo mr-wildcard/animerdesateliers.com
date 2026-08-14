@@ -27,9 +27,6 @@ export default defineConfig({
   site: getSiteURL(),
   vite: {
     plugins: [tailwind()],
-    define: {
-      __PROD__: JSON.stringify(isProd),
-    },
     server: {
       proxy: {
         "/subscribe": {
