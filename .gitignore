@@ -21,3 +21,4 @@ yarn-error.log*
 .idea
 
 .astro
+packages/workers/newsletter-subscription/.wrangler

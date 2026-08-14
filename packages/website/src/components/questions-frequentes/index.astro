@@ -79,7 +79,7 @@ import data from "./data.json";
                 <p class="font-bold xl:text-[22px]">{question}</p>
               </div>
             </summary>
-            <div class="answer py-6 pr-5 break-words">{answer}</div>
+            <div set:html={answer} class="answer py-6 pr-5 break-words" />
           </details>
         </li>
       ))
