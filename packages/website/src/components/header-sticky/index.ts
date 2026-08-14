@@ -30,7 +30,12 @@ onDOMReady(() => {
       scrollAmount = Math.max(scrollAmount, -stickyHeaderHeight - 1);
     }
 
-    stickyHeader.style.transform = `translateY(${scrollAmount}px)`;
+    /**
+     * Tailwind v4 emits the native `translate` property (not `transform`) for
+     * its `-translate-y-*` utilities, so this must use the same property to
+     * avoid the two silently fighting each other.
+     */
+    stickyHeader.style.translate = `0 ${scrollAmount}px`;
   }
 
   /**
@@ -45,7 +50,7 @@ onDOMReady(() => {
       window.removeEventListener("scroll", onScroll);
 
       stickyHeader.classList.add("overlapping-header");
-      stickyHeader.style.transform = "";
+      stickyHeader.style.translate = "";
       scrollAmount = -stickyHeaderHeight;
       previous_known_scroll_position = window.scrollY;
       last_known_scroll_position = window.scrollY;
