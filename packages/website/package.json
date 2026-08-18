@@ -15,7 +15,7 @@
     "valtio": "2.3.2"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "1.10.10",
+    "@astrojs/ts-plugin": "1.10.11",
     "@cloudflare/workers-types": "4.20260702.1",
     "@percy/cli": "1.32.6",
     "@tailwindcss/vite": "4.3.3",
