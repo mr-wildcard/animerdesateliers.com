@@ -24,6 +24,6 @@
     "postcss": "8.5.26",
     "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1",
-    "sharp": "0.35.3"
+    "sharp": "0.35.4"
   }
 }
