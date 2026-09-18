@@ -17,12 +17,12 @@
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.12",
     "@cloudflare/workers-types": "4.20260702.1",
-    "@percy/cli": "1.32.9",
+    "@percy/cli": "1.32.10",
     "@tailwindcss/vite": "4.3.3",
     "astro": "5.18.2",
     "morphdom": "2.7.8",
     "postcss": "8.5.28",
-    "prettier": "3.9.7",
+    "prettier": "3.9.8",
     "prettier-plugin-astro": "0.14.1",
     "sharp": "0.35.4"
   }
