@@ -1,30 +1,35 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "packageRules": [
     {
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
+      "matchUpdateTypes": ["minor", "patch"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch",
       "automerge": true,
-      "matchPackageNames": [
-        "*"
-      ]
+      "matchPackageNames": ["*"],
+      "excludeDepTypes": ["packageManager"]
     },
     {
-      "matchUpdateTypes": [
-        "major"
-      ],
+      "matchUpdateTypes": ["major"],
       "groupName": "all major dependencies",
       "groupSlug": "all-major",
-      "matchPackageNames": [
-        "*"
-      ]
+      "matchPackageNames": ["*"],
+      "excludeDepTypes": ["packageManager"]
+    },
+    {
+      "matchDepTypes": ["packageManager"],
+      "groupName": "pnpm",
+      "groupSlug": "pnpm",
+      "automerge": false,
+      "description": "Keep pnpm bumps off the grouped dep PRs; they change the tool, not a library"
+    },
+    {
+      "matchPackageNames": ["node"],
+      "groupName": "node",
+      "groupSlug": "node",
+      "automerge": false,
+      "description": "Bump .nvmrc and devEngines together: Cloudflare Pages reads .nvmrc, pnpm reads devEngines"
     }
   ]
 }
