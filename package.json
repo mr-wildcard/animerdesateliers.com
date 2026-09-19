@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@10.34.5",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.21.0",
+      "onFail": "download"
+    }
+  },
   "scripts": {
     "dev": "pnpm -r run dev"
   },
