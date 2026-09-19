@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Cloudflare Worker for newsletter subscription",
   "main": "src/index.ts",
-  "packageManager": "pnpm@10.34.5",
+  "packageManager": "pnpm@12.4.2",
   "devEngines": {
     "runtime": {
       "name": "node",
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241018.0",
     "wrangler": "^4.0.0",
-    "@types/node": "24.13.6",
+    "@types/node": "24.13.5",
     "@types/service-worker-mock": "2.0.4",
     "service-worker-mock": "2.0.5"
   }

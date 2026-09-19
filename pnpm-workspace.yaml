@@ -1,3 +1,9 @@
 packages:
   - "packages/website"
   - "packages/workers/**"
+allowBuilds:
+  "@percy/core": false
+  esbuild: false
+  protobufjs: false
+  sharp: false
+  workerd: false
