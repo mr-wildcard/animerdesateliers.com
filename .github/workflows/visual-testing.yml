@@ -28,21 +28,11 @@ jobs:
           cloudflare-pages-project: animer-des-ateliers
           branch-name: ${{ github.head_ref }}
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/setup@v2.1.0
         if: steps.wait-for-cloudflare-deployment-url.outputs.status == 'success'
-
-      - name: Setup Node
-        if: steps.wait-for-cloudflare-deployment-url.outputs.status == 'success'
-        uses: actions/setup-node@v6
         with:
-          node-version-file: ./packages/website/.nvmrc
-          cache: pnpm
+          cache: true
           cache-dependency-path: pnpm-lock.yaml
-
-      - name: Install
-        if: steps.wait-for-cloudflare-deployment-url.outputs.status == 'success'
-        shell: "bash"
-        run: pnpm i
 
       - name: Locate system Chrome
         if: steps.wait-for-cloudflare-deployment-url.outputs.status == 'success'

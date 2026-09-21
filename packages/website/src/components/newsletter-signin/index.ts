@@ -1,4 +1,4 @@
-import { proxy, subscribe } from "valtio";
+import { proxy, subscribe } from "valtio/vanilla";
 import cs from "classnames";
 import { onDOMReady } from "scripts/onDOMReady";
 
