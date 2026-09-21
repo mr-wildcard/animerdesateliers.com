@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Cloudflare Worker for newsletter subscription",
   "main": "src/index.ts",
-  "packageManager": "pnpm@12.4.2",
+  "packageManager": "pnpm@12.5.1",
   "devEngines": {
     "runtime": {
       "name": "node",
