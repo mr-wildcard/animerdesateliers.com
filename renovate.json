@@ -8,14 +8,14 @@
       "groupSlug": "all-minor-patch",
       "automerge": true,
       "matchPackageNames": ["*"],
-      "excludeDepTypes": ["packageManager"]
+      "matchDepTypes": ["!packageManager"]
     },
     {
       "matchUpdateTypes": ["major"],
       "groupName": "all major dependencies",
       "groupSlug": "all-major",
       "matchPackageNames": ["*"],
-      "excludeDepTypes": ["packageManager"]
+      "matchDepTypes": ["!packageManager"]
     },
     {
       "matchDepTypes": ["packageManager"],
