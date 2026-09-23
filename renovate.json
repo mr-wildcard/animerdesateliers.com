@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
+  "minimumReleaseAge": "2 days",
+  "rangeStrategy": "pin",
+  "description": "Stay above pnpm's own minimumReleaseAge default of 24h: a lockfile pinning a fresher version fails --frozen-lockfile on Cloudflare Pages",
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],
