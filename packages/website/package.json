@@ -2,7 +2,7 @@
   "name": "website",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@12.6.0",
+  "packageManager": "pnpm@12.8.1",
   "devEngines": {
     "runtime": {
       "name": "node",
