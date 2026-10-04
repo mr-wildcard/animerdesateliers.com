@@ -22,7 +22,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241018.0",
     "wrangler": "^4.135.0",
-    "@types/node": "24.19.0",
+    "@types/node": "24.19.1",
     "@types/service-worker-mock": "2.0.4",
     "service-worker-mock": "2.0.5"
   }
