@@ -24,14 +24,14 @@
       "matchDepTypes": ["packageManager"],
       "groupName": "pnpm",
       "groupSlug": "pnpm",
-      "automerge": false,
+      "automerge": true,
       "description": "Keep pnpm bumps off the grouped dep PRs; they change the tool, not a library"
     },
     {
       "matchPackageNames": ["node"],
       "groupName": "node",
       "groupSlug": "node",
-      "automerge": false,
+      "automerge": true,
       "description": "Bump .nvmrc and devEngines together: Cloudflare Pages reads .nvmrc, pnpm reads devEngines"
     }
   ]
