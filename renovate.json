@@ -21,6 +21,11 @@
       "matchDepTypes": ["!packageManager"]
     },
     {
+      "matchUpdateTypes": ["pin", "pinDigest"],
+      "automerge": true,
+      "description": "Pinning only freezes the version already resolved, so it is safe to merge without review"
+    },
+    {
       "matchDepTypes": ["packageManager"],
       "groupName": "pnpm",
       "groupSlug": "pnpm",
