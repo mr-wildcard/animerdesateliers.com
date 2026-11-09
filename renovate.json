@@ -38,6 +38,11 @@
       "groupSlug": "node",
       "automerge": true,
       "description": "Bump .nvmrc and devEngines together: Cloudflare Pages reads .nvmrc, pnpm reads devEngines"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "minimumReleaseAge": null,
+      "description": "GitHub Actions often have no release timestamp, so the release-age check stays pending forever and blocks automerge; the pnpm lockfile concern does not apply to them"
     }
   ]
 }
