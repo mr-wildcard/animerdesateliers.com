@@ -170,8 +170,8 @@ importers:
         specifier: runtime:26.13.1
         version: runtime:26.13.1
       prettier:
-        specifier: 3.9.10
-        version: 3.9.10
+        specifier: 3.10.0
+        version: 3.10.0
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -213,8 +213,8 @@ importers:
         specifier: 8.5.32
         version: 8.5.32
       prettier:
-        specifier: 3.9.10
-        version: 3.9.10
+        specifier: 3.10.0
+        version: 3.10.0
       prettier-plugin-astro:
         specifier: 0.14.1
         version: 0.14.1
@@ -240,8 +240,8 @@ importers:
         specifier: 2.0.5
         version: 2.0.5
       wrangler:
-        specifier: 4.160.0
-        version: 4.160.0(@cloudflare/workers-types@4.20260702.1)(@types/node@24.19.2)
+        specifier: 4.160.1
+        version: 4.160.1(@cloudflare/workers-types@4.20260702.1)(@types/node@24.19.2)
 
 packages:
 
@@ -2634,8 +2634,8 @@ packages:
     resolution: {integrity: sha512-Ysbi9uYW9hFyfrThdDEQuykN4Ey6BuwPD2kpI5ES/nFTDn/98yxYNLZJcgUAKPT/mcrLLKaGzJR9YVxJrIdASQ==}
     engines: {node: '>=8'}
 
-  miniflare@5.20261110.0-beta:
-    resolution: {integrity: sha512-UiJRL6D4pNkHxgZ3QXDCaz/N27FFuuHRRgOmD/SucEZIwDOfWwX7s/n8ZrFemFlURRfnQpBfAdWy8ixsW0yJWA==}
+  miniflare@5.20261110.1-beta:
+    resolution: {integrity: sha512-CO8T1DO3/JFxEWvJ7yaHiPx5Ph/5FhRzYKve6cM8O2frHmY7yWudV5p8FU11bfGRAerChGpuK+l0HoxOCw2nFw==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
       kerberos: ^2.0.0
@@ -2953,8 +2953,8 @@ packages:
     resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==}
     engines: {node: ^14.15.0 || >=16.0.0}
 
-  prettier@3.9.10:
-    resolution: {integrity: sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA==}
+  prettier@3.10.0:
+    resolution: {integrity: sha512-mBi4765LgjO1PFjlEs7pUeK0nb1bw71c+N4/ItfeUWNdY5cV2pRKaFpbbFRYmDJMO+5ZwzGxHRqHxFZna7iv5w==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3516,8 +3516,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@4.160.0:
-    resolution: {integrity: sha512-nwzmpu7Hd5Csax02twpCNRAloC+kduXKw9rjfq+oEuo8RnjWRaahSV+qk+p0w88EgafMcDE0XnZRSfOM3lKEKg==}
+  wrangler@4.160.1:
+    resolution: {integrity: sha512-gM8daj5geYTEw+038dV5OQAmrSIo/9e97FoJuNf+r9PllWR0ZnqMI2LXZZDSHpGsMez3mKKFYH5o/hBsf1ZTHg==}
     engines: {node: '>=22.12.0'}
     hasBin: true
     peerDependencies:
@@ -6084,7 +6084,7 @@ snapshots:
   mimic-fn@3.1.0:
     optional: true
 
-  miniflare@5.20261110.0-beta(@types/node@24.19.2):
+  miniflare@5.20261110.1-beta(@types/node@24.19.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       sharp: 0.35.5(@types/node@24.19.2)
@@ -6272,10 +6272,10 @@ snapshots:
   prettier-plugin-astro@0.14.1:
     dependencies:
       '@astrojs/compiler': 2.13.1
-      prettier: 3.9.10
+      prettier: 3.10.0
       sass-formatter: 0.7.9
 
-  prettier@3.9.10: {}
+  prettier@3.10.0: {}
 
   prismjs@1.30.0: {}
 
@@ -6901,14 +6901,14 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20261110.1
       '@cloudflare/workerd-windows-64': 1.20261110.1
 
-  wrangler@4.160.0(@cloudflare/workers-types@4.20260702.1)(@types/node@24.19.2):
+  wrangler@4.160.1(@cloudflare/workers-types@4.20260702.1)(@types/node@24.19.2):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261110.1)
       '@cspotcode/source-map-support': 0.8.1
       blake3-wasm: 2.1.5
       esbuild: 0.28.2
-      miniflare: 5.20261110.0-beta(@types/node@24.19.2)
+      miniflare: 5.20261110.1-beta(@types/node@24.19.2)
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.24
       workerd: 1.20261110.1
