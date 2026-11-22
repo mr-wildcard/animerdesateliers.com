@@ -24,7 +24,7 @@
   "devDependencies": {
     "@astrojs/ts-plugin": "1.11.0",
     "@cloudflare/workers-types": "4.20260702.1",
-    "@percy/cli": "1.33.0",
+    "@percy/cli": "1.33.1",
     "@tailwindcss/vite": "4.3.5",
     "astro": "5.18.2",
     "morphdom": "2.7.8",
